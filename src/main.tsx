@@ -558,7 +558,8 @@ function SpecialInput(props: {
   }, [props.field, props.value]);
 
   const config = FormDefaults[props.field];
-  const isNumeric = typeof config?.defaultValue === 'number' || typeof props.maximum === 'number' || numericFieldFallback(props.field);
+  const isBoolean = typeof config?.default === 'boolean' || booleanFieldFallback(props.field);
+  const isNumeric = !isBoolean && (typeof config?.defaultValue === 'number' || typeof props.maximum === 'number' || numericFieldFallback(props.field));
   if (!isNumeric) {
     return (
       <Chip
@@ -1322,6 +1323,10 @@ function shortFieldName(field: string) {
 
 function numericFieldFallback(field: string) {
   return /(?:HP|Defense|Attack|Speed|Stack|Percent|Targets|Hits|Souls|Deaths|Injuries|Level|Resistance|Effectiveness|Current)/.test(field);
+}
+
+function booleanFieldFallback(field: string) {
+  return /(?:^is|Is|Has|Above|Below|Completed|Aftermath|Highest|Buff$|Debuff$|Down$|Up$|Great$|Barrier$|Stealth$|Pilfered$|Ruptured$|Nailed$|Fractured$|Laceration$)/.test(field);
 }
 
 function clampNumber(value: string | number, min: number, max: number) {

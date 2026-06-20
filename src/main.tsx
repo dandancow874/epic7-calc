@@ -150,6 +150,7 @@ function App() {
   useEffect(() => {
     setCatalogLanguage(language);
     localStorage.setItem('epic7.damageDesk.language.v1', language);
+    setAliasVersion((value) => value + 1);
   }, [language]);
 
   useEffect(() => {
@@ -529,15 +530,18 @@ function CombatPanel(props: {
       )}
 
       <div className="buff-row">
-        {buffs.map(([key, label, icon]) => (
-          <Chip
-            key={key}
-            label={label}
-            icon={icon === 'dynamic:advantage' ? `elements/${counterElement(hero.element)}.png` : icon}
-            checked={Boolean(props.values[key])}
-            onChange={(checked) => props.onValueChange(props.side, key, checked)}
-          />
-        ))}
+        {buffs.map(([key, label, icon]) => {
+          const torrentCount = key === 'torrentSetStack' ? Math.min(3, Math.max(0, Number(props.values[key] || 0))) : 0;
+          return (
+            <Chip
+              key={key}
+              label={torrentCount ? `${label} ${torrentCount}` : label}
+              icon={icon === 'dynamic:advantage' ? `elements/${counterElement(hero.element)}.png` : icon}
+              checked={Boolean(props.values[key])}
+              onChange={(checked) => props.onValueChange(props.side, key, key === 'torrentSetStack' ? (checked ? 1 : 0) : checked)}
+            />
+          );
+        })}
         {props.side === 'attacker' && (
           <button className="more-chip" onClick={props.onMoreOpen}><MoreHorizontal size={18} /> 更多</button>
         )}
@@ -1287,16 +1291,57 @@ function StateGroup(props: {
       <h3>{props.title}</h3>
       <div className="state-grid">
         {props.items.map(([key, label, icon]) => (
-          <Chip
-            key={key}
-            label={label}
-            icon={icon}
-            checked={Boolean(props.values[key])}
-            onChange={(checked) => props.onChange(key, key === 'torrentSetStack' ? (checked ? 1 : 0) : checked)}
-          />
+          key === 'torrentSetStack'
+            ? (
+              <TorrentSetControl
+                key={key}
+                label={label}
+                icon={icon}
+                value={Number(props.values[key] || 0)}
+                onChange={(value) => props.onChange(key, value)}
+              />
+            )
+            : (
+              <Chip
+                key={key}
+                label={label}
+                icon={icon}
+                checked={Boolean(props.values[key])}
+                onChange={(checked) => props.onChange(key, checked)}
+              />
+            )
         ))}
       </div>
     </section>
+  );
+}
+
+function TorrentSetControl(props: {
+  label: string;
+  icon: string;
+  value: number;
+  onChange: (value: number) => void;
+}) {
+  const value = Math.min(3, Math.max(0, Math.round(props.value || 0)));
+  return (
+    <div className={`torrent-control ${value ? 'checked' : ''}`}>
+      <button className="torrent-main" onClick={() => props.onChange(value ? 0 : 1)}>
+        <span className="checkmark">{value ? '✓' : ''}</span>
+        <img src={`/assets/${props.icon}`} onError={fallback('/assets/icons/help-circle-outline.svg')} alt="" />
+        <span>{props.label}</span>
+      </button>
+      <div className="torrent-count" aria-label="激流套数量">
+        {[1, 2, 3].map((count) => (
+          <button
+            key={count}
+            className={value === count ? 'active' : ''}
+            onClick={() => props.onChange(value === count ? 0 : count)}
+          >
+            {count}
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }
 

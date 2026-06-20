@@ -73,6 +73,21 @@ http://127.0.0.1:5174
 
 ## 打包 Windows exe
 
+一键更新 assets、重新打包并启动 exe：
+
+```text
+update-assets-build.bat
+```
+
+双击该脚本会自动执行：
+
+1. 检查 Node.js / npm / Rust Cargo
+2. 如果缺少 `node_modules`，自动执行 `npm install`
+3. 从上游仓库更新 assets
+4. 重新打包 Windows exe
+5. 覆盖 `release/Epic7 Damage Calc Portable.exe`
+6. 启动新版 exe
+
 只生成可运行 exe：
 
 ```bash
@@ -102,7 +117,7 @@ npm run tauri -- build
 目前英雄、神器、技能公式等核心 assets 数据会被打包进 exe。  
 因此更新 assets 后，需要重新打包 exe 才会生效。
 
-可用脚本：
+只更新源码 assets：
 
 ```bash
 npm run assets:update
@@ -110,7 +125,29 @@ npm run assets:update
 
 这个脚本会从上游仓库拉取最新 assets，并同步到项目源码中。同步后请重新打包。
 
+推荐直接使用：
+
+```text
+update-assets-build.bat
+```
+
+它会自动完成“更新 assets + 重新打包 + 覆盖便携 exe + 启动程序”。
+
 > 注意：当前版本还没有实现“运行中的 exe 直接热更新 `data/assets` 后立刻生效”。这是后续计划。
+
+## 发布便携版
+
+推荐在 GitHub Releases 中发布 zip，而不是把 exe 提交到源码仓库。
+
+zip 内容建议：
+
+```text
+Epic7 Damage Calc Portable.exe
+data/
+  aliases.json
+```
+
+其中 `data/aliases.json` 可以放整理好的默认别名；`data/profiles.json` 不建议发布，因为它通常是个人角色数值配置。
 
 ## 不要上传到 GitHub 的内容
 

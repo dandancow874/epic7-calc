@@ -39,6 +39,7 @@ export const heroEntries = Object.entries(Heroes).filter(([, hero]) => hero inst
 export const artifactEntries = Object.entries(Artifacts).filter(([, artifact]) => artifact instanceof Artifact);
 
 export function heroName(id: string) {
+  if (activeLanguage === 'en') return pack().heroes?.[id] || startCase(id);
   const saved = loadHeroAliasOverrides()[id];
   if (saved?.length) return saved[0];
   return pack().heroes?.[id] || localAliases.heroes?.[id]?.[0] || startCase(id);

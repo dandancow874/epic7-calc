@@ -72,13 +72,13 @@ const mainAttackerBuffs = [
 const extraAttackerBuffs = [
   ['increasedCritDamage', '爆伤提升', 'buffs/critical-hit-damage-buff.png'],
   ['casterVigor', '魄力', 'buffs/vigor-buff.png'],
-  ['casterEnraged', '激怒', 'buffs/rage-buff.png'],
+  ['casterEnraged', '狂气', 'buffs/rage-buff.png'],
   ['casterRampage', '暴走', 'buffs/rampage-buff.png'],
-  ['casterFury', '愤怒', 'buffs/rage-buff.png'],
+  ['casterFury', '狂气', 'buffs/rage-buff.png'],
   ['casterPerception', '洞察', 'buffs/perception-buff.png'],
   ['casterHasStealth', '隐身', 'buffs/stealth-buff.png'],
   ['casterHasBarrier', '屏障', 'buffs/barrier-buff.png'],
-  ['casterHasCascade', '连锁', 'buffs/cascade-buff.png'],
+  ['casterHasCascade', '暴走', 'buffs/cascade-buff.png'],
   ['casterHasAbundance', '丰饶', 'buffs/abundance-buff.png'],
   ['casterHasChallenge', '挑战', 'buffs/challenge-buff.png'],
   ['casterHasSpecialFriendship', '特别的友情', 'buffs/special-friendship-buff.png'],
@@ -455,14 +455,15 @@ function CombatPanel(props: {
   const hero = Heroes[props.heroId] ?? Heroes.abigail;
   const artifact = props.artifactId ? Artifacts[props.artifactId] : null;
   const fields = numberFields[props.side];
-  const activeExtraBuffs = extraAttackerBuffs.filter(([key]) => Boolean(props.values[key]));
-  const buffs = props.side === 'attacker' ? [...mainAttackerBuffs, ...activeExtraBuffs] : defenderBuffs;
   const specialFields = props.side === 'attacker'
     ? uniqueFields(withDerivedFields([...(hero.heroSpecific || []), ...(artifact?.artifactSpecific || [])]))
       .filter((field) => !fields.some(([key]) => key === field))
       .filter((field) => !mainAttackerBuffs.some(([key]) => key === field))
-      .filter((field) => !extraAttackerBuffs.some(([key]) => key === field))
     : [];
+  const activeExtraBuffs = extraAttackerBuffs
+    .filter(([key]) => Boolean(props.values[key]))
+    .filter(([key]) => !specialFields.includes(key));
+  const buffs = props.side === 'attacker' ? [...mainAttackerBuffs, ...activeExtraBuffs] : defenderBuffs;
 
   return (
     <section className={`combat-panel ${props.tone}`}>
@@ -567,7 +568,7 @@ function SpecialInput(props: {
   if (!isNumeric) {
     return (
       <Chip
-        label={fieldName(props.field)}
+        label={shortFieldName(props.field)}
         icon={config?.icon || 'icons/help-circle-outline.svg'}
         checked={Boolean(props.value ?? config?.default ?? false)}
         onChange={props.onChange}
@@ -1354,6 +1355,16 @@ function withDerivedFields(fields: string[]) {
   if (next.includes('casterMaxHP') && !next.includes('casterMaxHPIncrease')) {
     next.push('casterMaxHPIncrease');
   }
+  if (next.includes('casterSpeed')) {
+    for (const field of ['casterSpeedUp', 'casterSpeedDown', 'casterEnraged', 'casterRampage']) {
+      if (!next.includes(field)) next.push(field);
+    }
+  }
+  if (next.includes('targetSpeed')) {
+    for (const field of ['targetSpeedUp', 'targetSpeedDown', 'targetHasRampage']) {
+      if (!next.includes(field)) next.push(field);
+    }
+  }
   return next;
 }
 
@@ -1361,6 +1372,15 @@ function shortFieldName(field: string) {
   const names: Record<string, string> = {
     casterMaxHP: '施法者最大生命',
     casterMaxHPIncrease: '最大生命增加(%)',
+    casterSpeedUp: '速度提升',
+    casterSpeedDown: '速度降低',
+    casterEnraged: '狂气',
+    casterRampage: '暴走',
+    casterFury: '狂气',
+    casterHasCascade: '暴走',
+    targetSpeedUp: '目标速度提升',
+    targetSpeedDown: '目标速度降低',
+    targetHasRampage: '目标暴走',
     targetDefenseDownAftermath: '追加前防破',
   };
   return names[field] || fieldName(field);

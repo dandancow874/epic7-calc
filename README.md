@@ -135,6 +135,26 @@ update-assets-build.bat
 
 > 注意：当前版本还没有实现“运行中的 exe 直接热更新 `data/assets` 后立刻生效”。这是后续计划。
 
+### 更新 / 打包常见问题
+
+如果更新 assets 后打包时报类似错误：
+
+```text
+Cannot find module 'src/app/models/hero-enums'
+```
+
+意思是上游 assets 的代码结构有变化，新的数据文件引用了本地程序需要提供的兼容模型。当前项目已经内置：
+
+```text
+src/app/models/hero-enums.ts
+```
+
+用于兼容新版 assets 的职业、星级、星座枚举。正常情况下直接重新拉取最新源码后再运行 `update-assets-build.bat` 即可。
+
+如果以后又出现新的 `Cannot find module ...`，通常不是 assets 下载失败，而是上游 assets 又新增了依赖。需要在 `src/app/models/` 或对应位置补一个兼容文件，再重新打包。
+
+如果覆盖便携 exe 失败，通常是旧版 exe 还在运行。先关闭程序，再重新运行 `update-assets-build.bat`。
+
 ## 发布便携版
 
 推荐在 GitHub Releases 中发布 zip，而不是把 exe 提交到源码仓库。

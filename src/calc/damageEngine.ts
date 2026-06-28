@@ -3,7 +3,7 @@ import { Artifacts } from 'src/assets/data/artifacts';
 import { BattleConstants } from 'src/assets/data/constants';
 import { Heroes } from 'src/assets/data/heroes';
 import { Target } from 'src/app/models/target';
-import { Artifact } from 'src/app/models/artifact';
+import { Artifact, ArtifactDamageType } from 'src/app/models/artifact';
 import { DamageFormData } from 'src/app/models/forms';
 import { AftermathSkill, DoT, DoTSkill, HitType, Skill } from 'src/app/models/skill';
 
@@ -35,6 +35,11 @@ export interface DotDamage {
   value: number;
 }
 
+export interface BarrierValue {
+  label: string;
+  value: number;
+}
+
 const attackModifiers = [
   'decreasedAttack', 'attackUp', 'attackUpGreat', 'casterVigor', 'casterEnraged',
   'casterHasStarsBlessing', 'casterHasPossession', 'casterHasArchdemonsMight',
@@ -42,7 +47,7 @@ const attackModifiers = [
   'casterOverload', 'casterEnergyDepletion', 'casterHasGodOfBattle',
 ];
 
-const damageMultSets = ['rageSet', 'torrentSet'];
+const damageMultSets = ['rageSet', 'fervorSet', 'torrentSet'];
 
 export class DamageEngine {
   form: DamageFormData;
@@ -289,6 +294,68 @@ export class DamageEngine {
     return Array.from(new Set(this.currentHero.getDoT(this.currentArtifact)))
       .map((type) => ({ type, value: Math.round(this.getDotDamage(DoTSkill, type)) }))
       .filter((item) => item.value > 0);
+  }
+
+  getBarriers(soulburn = false): BarrierValue[] {
+    const barriers: BarrierValue[] = [];
+    const emptySkill = new Skill({});
+
+    if (this.currentHero.barrier) {
+      barriers.push({
+        label: this.currentHero.barrierSkills?.[0] || 'S1',
+        value: Math.round(this.currentHero.barrier(
+          this.currentHero,
+          emptySkill,
+          this.currentArtifact,
+          this.form,
+          this.getGlobalAttackMult(),
+          soulburn,
+        ) * this.getBarrierEnhanceMultiplier(this.currentHero.barrierEnhance)),
+      });
+    }
+
+    if (this.currentHero.barrier2) {
+      barriers.push({
+        label: this.currentHero.barrierSkills?.[1] || 'S2',
+        value: Math.round(this.currentHero.barrier2(
+          this.currentHero,
+          emptySkill,
+          this.currentArtifact,
+          this.form,
+          this.getGlobalAttackMult(),
+          soulburn,
+        ) * this.getBarrierEnhanceMultiplier(this.currentHero.barrier2Enhance)),
+      });
+    }
+
+    if (
+      this.currentArtifact.barrier
+      && this.currentArtifact.type === ArtifactDamageType.barrier_only
+      && this.currentArtifact.applies(emptySkill, this.form, soulburn, HitType.normal)
+    ) {
+      barriers.push({
+        label: this.currentArtifact.id,
+        value: Math.round(this.currentArtifact.barrier(
+          this.currentHero,
+          emptySkill,
+          this.currentArtifact,
+          this.form,
+          this.getGlobalAttackMult(),
+          soulburn,
+          this.currentArtifact.getScale(this.form.artifactLevel),
+        )),
+      });
+    }
+
+    return barriers.filter((item) => item.value > 0);
+  }
+
+  private getBarrierEnhanceMultiplier(enhanceKey?: string): number {
+    if (!enhanceKey) return 1;
+    const skill = this.currentHero.skills[enhanceKey];
+    if (!skill?.enhance?.length) return 1;
+    const enhanceLevel = Number(this.form[`molagora${enhanceKey}`] ?? this.form[`molagoras${enhanceKey.replace(/\D/g, '')}`] ?? 0);
+    return skill.enhance.slice(0, enhanceLevel).reduce((total, value) => total + value, 1);
   }
 
   updateDamages(): DamageRow[] {

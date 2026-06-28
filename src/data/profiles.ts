@@ -94,6 +94,7 @@ function defaultValues(side: Side, heroId: string): ProfileValues {
       increasedCritDamage: false,
       casterVigor: false,
       rageSet: false,
+      fervorSet: false,
       penetrationSet: false,
       torrentSetStack: 0,
       pursuitSet: false,

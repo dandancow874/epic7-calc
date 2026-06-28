@@ -8,7 +8,7 @@ import { FormDefaults } from 'src/app/models/forms';
 import { HeroClass } from 'src/app/models/hero';
 import { DoT } from 'src/app/models/skill';
 import { DamageEngine } from './calc/damageEngine';
-import type { DamageRow, DamageValues, DotDamage } from './calc/damageEngine';
+import type { BarrierValue, DamageRow, DamageValues, DotDamage } from './calc/damageEngine';
 import { solveOpeningSpeeds, type AllySpeedInput, type EnemySpeedInput, type OpeningSpeedSolveResult } from './calc/speedSolver';
 import { readReadinessFromScreenshot, type ReadinessRow } from './calc/screenshotReader';
 import {
@@ -86,6 +86,7 @@ const extraAttackerBuffs = [
   ['casterPilfered', '抢夺', 'debuffs/pilfer-debuff.png'],
   ['casterHasTrauma', '创伤', 'debuffs/trauma-debuff.png'],
   ['rageSet', '愤怒套', 'sets/rage-set.png'],
+  ['fervorSet', '热情套装', 'sets/fervor-set.png'],
   ['penetrationSet', '穿透套', 'sets/penetration-set.png'],
   ['torrentSetStack', '激流套', 'sets/torrent-set.png'],
   ['pursuitSet', '追击套', 'sets/pursuit-set.png'],
@@ -270,6 +271,14 @@ function App() {
     }
   }, [attackerId, artifactId, mergedValues]);
 
+  const barriers = useMemo<BarrierValue[]>(() => {
+    try {
+      return new DamageEngine(attackerId, artifactId, mergedValues).getBarriers();
+    } catch {
+      return [];
+    }
+  }, [attackerId, artifactId, mergedValues]);
+
   const updateSide = (side: Side, key: string, value: number | boolean) => {
     if (side === 'attacker') setAttacker((prev) => ({ ...prev, [key]: value }));
     if (side === 'defender') setDefender((prev) => ({ ...prev, [key]: value }));
@@ -364,6 +373,7 @@ function App() {
             rows={rows}
             values={attacker}
             dotDamages={dotDamages}
+            barriers={barriers}
             artifactDamage={artifactDamage}
             artifactId={artifactId}
             onSkillLevel={updateSkillLevel}
@@ -456,7 +466,7 @@ function CombatPanel(props: {
   const artifact = props.artifactId ? Artifacts[props.artifactId] : null;
   const fields = numberFields[props.side];
   const specialFields = props.side === 'attacker'
-    ? uniqueFields(withDerivedFields([...(hero.heroSpecific || []), ...(artifact?.artifactSpecific || [])]))
+    ? uniqueFields(withDerivedFields([...(hero.heroSpecific || []), ...(artifact?.artifactSpecific || [])], props.heroId))
       .filter((field) => !fields.some(([key]) => key === field))
       .filter((field) => !mainAttackerBuffs.some(([key]) => key === field))
     : [];
@@ -645,11 +655,12 @@ function DamageTable(props: {
   rows: DamageRow[];
   values: ProfileValues;
   dotDamages: DotDamage[];
+  barriers: BarrierValue[];
   artifactDamage: number;
   artifactId: string;
   onSkillLevel: (skill: string, value: number) => void;
 }) {
-  const hasBadges = props.dotDamages.length > 0 || props.artifactDamage > 0;
+  const hasBadges = props.dotDamages.length > 0 || props.barriers.length > 0 || props.artifactDamage > 0;
   return (
     <section className="damage-dock">
       {hasBadges && (
@@ -671,6 +682,14 @@ function DamageTable(props: {
                 value={props.artifactDamage}
               />
             )}
+            {props.barriers.map((barrier) => (
+              <DamageSourceBadge
+                key={`barrier-${barrier.label}`}
+                icon="/assets/buffs/barrier-buff.png"
+                label={`${barrierLabel(barrier.label)} 护盾`}
+                value={barrier.value}
+              />
+            ))}
           </div>
         </div>
       )}
@@ -1317,6 +1336,10 @@ function StateGroup(props: {
   );
 }
 
+function barrierLabel(label: string) {
+  return label.replace(/^s([123])$/i, 'S$1').replace(/\bSoulburn\b/g, 'Soulburn');
+}
+
 function TorrentSetControl(props: {
   label: string;
   icon: string;
@@ -1350,10 +1373,13 @@ function uniqueFields(fields: string[]) {
   return Array.from(new Set(fields.filter(Boolean)));
 }
 
-function withDerivedFields(fields: string[]) {
+function withDerivedFields(fields: string[], _heroId?: string) {
   const next = [...fields];
   if (next.includes('casterMaxHP') && !next.includes('casterMaxHPIncrease')) {
     next.push('casterMaxHPIncrease');
+  }
+  if (next.includes('casterMaxHP') && !next.includes('casterLingeringFragranceStack')) {
+    next.push('casterLingeringFragranceStack');
   }
   if (next.includes('casterSpeed')) {
     for (const field of ['casterSpeedUp', 'casterSpeedDown', 'casterEnraged', 'casterRampage']) {
@@ -1372,6 +1398,7 @@ function shortFieldName(field: string) {
   const names: Record<string, string> = {
     casterMaxHP: '施法者最大生命',
     casterMaxHPIncrease: '最大生命增加(%)',
+    casterLingeringFragranceStack: '余香',
     casterSpeedUp: '速度提升',
     casterSpeedDown: '速度降低',
     casterEnraged: '狂气',

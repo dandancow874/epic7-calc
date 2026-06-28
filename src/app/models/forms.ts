@@ -676,6 +676,7 @@ export class DamageFormData {
     penetrationSet: boolean;
     pursuitSet: boolean;
     rageSet: boolean;
+    fervorSet: boolean;
     reductionPreset?: ReductionPreset;
     S3OnCooldown: boolean;
     singleAttackStack: number;
@@ -850,6 +851,7 @@ export class DamageFormData {
         this.penetrationSet = _.get(data, 'penetrationSet', false);
         this.pursuitSet = _.get(data, 'pursuitSet', false);
         this.rageSet = _.get(data, 'rageSet', false);
+        this.fervorSet = _.get(data, 'fervorSet', false);
         this.reductionPreset = _.get(data, 'reductionPreset', null);
         this.S3OnCooldown = _.get(data, 'S3OnCooldown', true);
         this.singleAttackStack = _.get(data, 'singleAttackStack', 0);

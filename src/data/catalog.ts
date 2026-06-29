@@ -19,8 +19,8 @@ type TranslationPack = {
 const zh = cn as unknown as TranslationPack;
 const en = us as unknown as TranslationPack;
 const localAliases = aliases as {
-  heroes?: Record<string, string[]>;
-  artifacts?: Record<string, string[]>;
+  heroes?: Record<string, string[] | string>;
+  artifacts?: Record<string, string[] | string>;
 };
 
 const HERO_ALIAS_KEY = 'epic7.damageDesk.heroAliases.v1';
@@ -30,6 +30,7 @@ export type UiLanguage = 'cn' | 'en';
 
 let activeLanguage: UiLanguage = 'cn';
 let aliasOverrides: Record<string, string[]> = loadLocalHeroAliasOverrides();
+let artifactAliasOverrides: Record<string, string[]> = {};
 
 export function setCatalogLanguage(language: UiLanguage) {
   activeLanguage = language;
@@ -63,16 +64,18 @@ export function saveHeroAliasText(id: string, text: string) {
   else delete db[id];
   aliasOverrides = db;
   localStorage.setItem(HERO_ALIAS_KEY, JSON.stringify(db));
-  void writePortableJson(USER_ALIAS_FILE, { heroes: db });
+  void writePortableJson(USER_ALIAS_FILE, { heroes: db, artifacts: artifactAliasOverrides });
 }
 
 export async function hydrateAliasesFromDisk() {
-  const disk = await readPortableJson<{ heroes?: Record<string, string[]> }>(USER_ALIAS_FILE);
-  if (!disk?.heroes) {
-    await writePortableJson(USER_ALIAS_FILE, { heroes: aliasOverrides });
+  const disk = await readPortableJson<{ heroes?: Record<string, string[]>; artifacts?: Record<string, string[]> }>(USER_ALIAS_FILE);
+  if (!disk) {
+    artifactAliasOverrides = normalizeAliasMap(localAliases.artifacts);
+    await writePortableJson(USER_ALIAS_FILE, { heroes: aliasOverrides, artifacts: artifactAliasOverrides });
     return false;
   }
   aliasOverrides = normalizeAliasMap(disk.heroes);
+  artifactAliasOverrides = normalizeAliasMap(disk.artifacts);
   localStorage.setItem(HERO_ALIAS_KEY, JSON.stringify(aliasOverrides));
   return true;
 }
@@ -82,7 +85,7 @@ export function artifactName(id: string) {
 }
 
 export function artifactAliases(id: string) {
-  return (localAliases.artifacts?.[id] || []).join(' ');
+  return [...aliasValues(localAliases.artifacts?.[id]), ...(artifactAliasOverrides[id] || [])].join(' ');
 }
 
 export function fieldName(id: string) {
@@ -146,7 +149,7 @@ function pack() {
 function heroAliasList(id: string) {
   const saved = loadHeroAliasOverrides()[id];
   if (saved?.length) return saved;
-  return localAliases.heroes?.[id] || [];
+  return aliasValues(localAliases.heroes?.[id]);
 }
 
 function loadHeroAliasOverrides(): Record<string, string[]> {
@@ -169,8 +172,14 @@ function normalizeAliasMap(value: unknown): Record<string, string[]> {
     Object.entries(value as Record<string, unknown>)
       .map(([key, names]) => [
         key,
-        Array.isArray(names) ? names.map(String).map((name) => name.trim()).filter(Boolean) : [],
+        aliasValues(names),
       ])
       .filter(([, names]) => names.length),
   );
+}
+
+function aliasValues(value: unknown): string[] {
+  if (Array.isArray(value)) return value.map(String).map((name) => name.trim()).filter(Boolean);
+  if (typeof value === 'string') return value.split(/[,，]/).map((name) => name.trim()).filter(Boolean);
+  return [];
 }

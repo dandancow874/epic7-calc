@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Check, ChevronDown, MoreHorizontal, RefreshCw, Search, X } from 'lucide-react';
 import './style.css';
@@ -143,6 +143,8 @@ function App() {
   }));
   const [query, setQuery] = useState('');
   const [uiScale, setUiScale] = useState(() => loadUiScale());
+  const loadingAttackerProfileRef = useRef<string | null>(null);
+  const skipArtifactValidationRef = useRef<string | null>(null);
 
   const hero = Heroes[attackerId] ?? Heroes.abigail;
   const targetHero = Heroes[defenderId] ?? Heroes.abigail;
@@ -197,6 +199,8 @@ function App() {
 
   useEffect(() => {
     const profile = loadProfile('attacker', attackerId);
+    loadingAttackerProfileRef.current = attackerId;
+    skipArtifactValidationRef.current = attackerId;
     setAttacker(profile);
     setArtifactId(typeof profile.artifactId === 'string' ? profile.artifactId : 'noProc');
   }, [attackerId]);
@@ -206,6 +210,10 @@ function App() {
   }, [defenderId]);
 
   useEffect(() => {
+    if (loadingAttackerProfileRef.current === attackerId) {
+      loadingAttackerProfileRef.current = null;
+      return;
+    }
     setSaveState('saving');
     const timer = window.setTimeout(() => {
       saveProfile('attacker', attackerId, { ...attacker, artifactId }).then(() => setSaveState('saved'));
@@ -227,6 +235,10 @@ function App() {
   }, [attackerId, defenderId, hero.element, targetHero.element]);
 
   useEffect(() => {
+    if (skipArtifactValidationRef.current === attackerId) {
+      skipArtifactValidationRef.current = null;
+      return;
+    }
     if (!isArtifactAllowed(artifact, attackerId, hero.class)) {
       setArtifactId('noProc');
     }
@@ -287,6 +299,10 @@ function App() {
   const updateSkillLevel = (skill: string, value: number) => {
     const key = `molagoras${skill.replace(/\D/g, '') || '1'}`;
     updateSide('attacker', key, value);
+  };
+
+  const flushAttackerProfile = (nextValues: ProfileValues = attacker, nextArtifactId: string = artifactId) => {
+    void saveProfile('attacker', attackerId, { ...nextValues, artifactId: nextArtifactId });
   };
 
   return (
@@ -393,15 +409,20 @@ function App() {
           onQuery={setQuery}
           onClose={() => setPicker(null)}
           onSelectHero={(id) => {
-            if (picker === 'attacker') setAttackerId(id);
+            if (picker === 'attacker') {
+              flushAttackerProfile();
+              setAttackerId(id);
+            }
             if (picker === 'defender') setDefenderId(id);
             const side = picker === 'defender' ? 'defender' : 'attacker';
             setRecentHeroes((prev) => ({ ...prev, [side]: rememberHero(side, id) }));
             setPicker(null);
           }}
           onSelectArtifact={(id) => {
+            const nextAttacker = { ...attacker, artifactId: id, artifactLevel: 30 };
             setArtifactId(id);
-            setAttacker((prev) => ({ ...prev, artifactId: id, artifactLevel: 30 }));
+            setAttacker(nextAttacker);
+            flushAttackerProfile(nextAttacker, id);
             setPicker(null);
             window.setTimeout(() => {
               const input = document.querySelector<HTMLInputElement>('[data-artifact-level]');

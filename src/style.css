@@ -1039,6 +1039,8 @@ td.none {
 
 .profile-body {
   padding: 20px 22px 24px;
+  display: grid;
+  gap: 14px;
 }
 
 .alias-body {
@@ -1121,21 +1123,37 @@ td.none {
 
 .profile-row {
   width: 100%;
-  min-height: 62px;
-  border: 1px solid rgba(142, 219, 255, 0.28);
+  min-height: 72px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  background: rgba(24, 108, 151, 0.22);
+  background: rgba(255, 255, 255, 0.055);
   color: #f4f1eb;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  gap: 12px;
+  padding: 10px 12px 10px 16px;
+  text-align: left;
+}
+
+.profile-row.active {
+  border-color: rgba(29, 162, 231, 0.58);
+  background: rgba(24, 108, 151, 0.22);
+}
+
+.profile-main {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 6px;
+  color: inherit;
   text-align: left;
 }
 
 .profile-row span {
   font-size: 21px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .profile-row strong {
@@ -1143,10 +1161,40 @@ td.none {
   color: #9ee8ff;
 }
 
-.profile-body p {
-  margin: 16px 2px 0;
+.profile-toolbar {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.profile-toolbar span {
   color: rgba(244, 241, 235, 0.66);
-  line-height: 1.6;
+  font-size: 15px;
+}
+
+.profile-list {
+  display: grid;
+  gap: 10px;
+}
+
+.profile-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.ghost-button.compact {
+  min-width: 70px;
+  height: 36px;
+  padding: 0 10px;
+}
+
+.ghost-button.danger {
+  border-color: rgba(255, 109, 98, 0.32);
+  color: #ffb3ac;
 }
 
 .modal-head {

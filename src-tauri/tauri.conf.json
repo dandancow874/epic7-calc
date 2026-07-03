@@ -14,9 +14,9 @@
       {
         "title": "Epic7 Damage Desk",
         "width": 1080,
-        "height": 1600,
-        "minWidth": 920,
-        "minHeight": 1200,
+        "height": 1200,
+        "minWidth": 860,
+        "minHeight": 720,
         "resizable": true,
         "fullscreen": false
       }

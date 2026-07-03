@@ -31,8 +31,8 @@ import {
   type UiLanguage,
 } from './data/catalog';
 import { checkAssetsUpdate, importLatestAssets, loadAssetsMarker, type AssetsUpdateState } from './data/assetsUpdater';
-import { hydrateProfilesFromDisk, loadProfile, saveProfile } from './data/profiles';
-import type { ProfileValues, Side } from './data/profiles';
+import { createProfile, deleteProfile, hydrateProfilesFromDisk, listProfiles, loadProfile, renameProfile, saveProfile, selectProfile } from './data/profiles';
+import type { ProfileSummary, ProfileValues, Side } from './data/profiles';
 import { loadRecentHeroes, rememberHero } from './data/recents';
 
 type PickerState = null | 'attacker' | 'defender' | 'artifact';
@@ -132,6 +132,7 @@ function App() {
   const [moreOpen, setMoreOpen] = useState(false);
   const [saveState, setSaveState] = useState<'saved' | 'saving'>('saved');
   const [, setAliasVersion] = useState(0);
+  const [profileVersion, setProfileVersion] = useState(0);
   const [language, setLanguage] = useState<UiLanguage>(() => (localStorage.getItem('epic7.damageDesk.language.v1') === 'en' ? 'en' : 'cn'));
   const [assetsState, setAssetsState] = useState<AssetsUpdateState>(() => ({
     status: 'idle',
@@ -149,6 +150,18 @@ function App() {
   const hero = Heroes[attackerId] ?? Heroes.abigail;
   const targetHero = Heroes[defenderId] ?? Heroes.abigail;
   const artifact = Artifacts[artifactId] ?? Artifacts.noProc;
+  const attackerProfileName = useMemo(
+    () => listProfiles('attacker', attackerId).find((profile) => profile.active)?.name || '默认',
+    [attackerId, profileVersion],
+  );
+  const defenderProfileName = useMemo(
+    () => listProfiles('defender', defenderId).find((profile) => profile.active)?.name || '默认',
+    [defenderId, profileVersion],
+  );
+
+  useEffect(() => {
+    fitWindowToWorkArea();
+  }, []);
 
   useEffect(() => {
     setCatalogLanguage(language);
@@ -167,6 +180,7 @@ function App() {
       setAttacker(profile);
       setArtifactId(typeof profile.artifactId === 'string' ? profile.artifactId : 'noProc');
       setDefender(loadProfile('defender', defenderId));
+      setProfileVersion((value) => value + 1);
     });
     hydrateAliasesFromDisk().then((changed) => {
       if (changed) setAliasVersion((value) => value + 1);
@@ -363,6 +377,7 @@ function App() {
               values={mergedValues}
               title="攻击对象"
               tone="attack"
+              profileName={attackerProfileName}
               onHeroPick={() => openPicker('attacker')}
               onAliasOpen={() => setAliasModal({ heroId: attackerId })}
               onArtifactPick={() => openPicker('artifact')}
@@ -376,6 +391,7 @@ function App() {
               values={defender}
               title="防守对象"
               tone="defense"
+              profileName={defenderProfileName}
               onHeroPick={() => openPicker('defender')}
               onAliasOpen={() => setAliasModal({ heroId: defenderId })}
               onProfileOpen={() => setProfileModal('defender')}
@@ -445,6 +461,53 @@ function App() {
         <ProfileModal
           side={profileModal}
           heroId={profileModal === 'attacker' ? attackerId : defenderId}
+          profiles={listProfiles(profileModal, profileModal === 'attacker' ? attackerId : defenderId)}
+          onSelect={async (index) => {
+            const profile = await selectProfile(profileModal, profileModal === 'attacker' ? attackerId : defenderId, index);
+            if (profileModal === 'attacker') {
+              loadingAttackerProfileRef.current = attackerId;
+              skipArtifactValidationRef.current = attackerId;
+              setAttacker(profile);
+              setArtifactId(typeof profile.artifactId === 'string' ? profile.artifactId : 'noProc');
+            } else {
+              setDefender(profile);
+            }
+            setProfileVersion((value) => value + 1);
+          }}
+          onCreate={async () => {
+            const side = profileModal;
+            const heroId = side === 'attacker' ? attackerId : defenderId;
+            const values = side === 'attacker' ? { ...attacker, artifactId } : defender;
+            const profile = await createProfile(side, heroId, values);
+            if (side === 'attacker') {
+              loadingAttackerProfileRef.current = attackerId;
+              skipArtifactValidationRef.current = attackerId;
+              setAttacker(profile);
+              setArtifactId(typeof profile.artifactId === 'string' ? profile.artifactId : 'noProc');
+            } else {
+              setDefender(profile);
+            }
+            setProfileVersion((value) => value + 1);
+          }}
+          onRename={async (index, name) => {
+            const side = profileModal;
+            await renameProfile(side, side === 'attacker' ? attackerId : defenderId, index, name);
+            setProfileVersion((value) => value + 1);
+          }}
+          onDelete={async (index) => {
+            const side = profileModal;
+            const heroId = side === 'attacker' ? attackerId : defenderId;
+            const profile = await deleteProfile(side, heroId, index);
+            if (side === 'attacker') {
+              loadingAttackerProfileRef.current = attackerId;
+              skipArtifactValidationRef.current = attackerId;
+              setAttacker(profile);
+              setArtifactId(typeof profile.artifactId === 'string' ? profile.artifactId : 'noProc');
+            } else {
+              setDefender(profile);
+            }
+            setProfileVersion((value) => value + 1);
+          }}
           onClose={() => setProfileModal(null)}
         />
       )}
@@ -476,6 +539,7 @@ function CombatPanel(props: {
   values: ProfileValues;
   title: string;
   tone: 'attack' | 'defense';
+  profileName: string;
   onHeroPick: () => void;
   onAliasOpen: () => void;
   onArtifactPick?: () => void;
@@ -510,7 +574,7 @@ function CombatPanel(props: {
           <div className="meta-icons">
             <img src={`/assets/elements/${hero.element}.png`} alt={hero.element} />
             <img src={`/assets/classes/${hero.class}.png`} alt={hero.class} />
-            <button className="profile-pill" onClick={props.onProfileOpen}>profile 默认</button>
+            <button className="profile-pill" onClick={props.onProfileOpen}>profile {props.profileName}</button>
           </div>
         </div>
         {props.side === 'attacker' && artifact && (
@@ -1243,26 +1307,61 @@ function StateModal(props: {
 function ProfileModal(props: {
   side: Side;
   heroId: string;
+  profiles: ProfileSummary[];
+  onSelect: (index: number) => void;
+  onCreate: () => void;
+  onRename: (index: number, name: string) => void;
+  onDelete: (index: number) => void;
   onClose: () => void;
 }) {
+  const title = props.side === 'attacker' ? '攻击配置' : '防守配置';
+
   return (
     <div className="modal-scrim" onClick={props.onClose}>
       <div className="profile-modal" onClick={(event) => event.stopPropagation()}>
         <div className="modal-head">
           <div>
             <span className="eyebrow">{props.side === 'attacker' ? 'Attacker' : 'Defender'}</span>
-            <h2>{heroName(props.heroId)} 的 Profile</h2>
+            <h2>{heroName(props.heroId)} 的 {title}</h2>
           </div>
           <button className="icon-button" onClick={props.onClose} aria-label="关闭">
             <X size={22} />
           </button>
         </div>
         <div className="profile-body">
-          <button className="profile-row active">
-            <span>默认</span>
-            <strong>当前自动保存配置</strong>
-          </button>
-          <p>第一版先固定使用默认 profile。之后会在这里加入新建、复制、重命名、删除和排序。</p>
+          <div className="profile-toolbar">
+            <span>当前配置会自动保存</span>
+            <button className="primary-button" onClick={props.onCreate}>新增配置</button>
+          </div>
+          <div className="profile-list">
+            {props.profiles.map((profile) => (
+              <div className={`profile-row ${profile.active ? 'active' : ''}`} key={profile.index}>
+                <button className="profile-main" onClick={() => props.onSelect(profile.index)}>
+                  <span>{profile.name}</span>
+                  <strong>{profile.active ? '当前使用' : '点击切换'}</strong>
+                </button>
+                <div className="profile-row-actions">
+                  <button
+                    className="ghost-button compact"
+                    onClick={() => {
+                      const nextName = window.prompt('配置名称', profile.name);
+                      if (nextName !== null) props.onRename(profile.index, nextName);
+                    }}
+                  >
+                    重命名
+                  </button>
+                  <button
+                    className="ghost-button compact danger"
+                    onClick={() => {
+                      if (window.confirm(`删除配置「${profile.name}」？`)) props.onDelete(profile.index);
+                    }}
+                  >
+                    删除
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -1499,6 +1598,31 @@ function loadUiScale() {
 
 function clampScale(value: number) {
   return Math.min(UI_SCALE_MAX, Math.max(UI_SCALE_MIN, Number(value.toFixed(2))));
+}
+
+async function fitWindowToWorkArea() {
+  if (!(window as Window & { __TAURI_INTERNALS__?: unknown }).__TAURI_INTERNALS__) return;
+  try {
+    const { currentMonitor, getCurrentWindow, LogicalPosition, LogicalSize } = await import('@tauri-apps/api/window');
+    const monitor = await currentMonitor();
+    if (!monitor) return;
+    const workArea = monitor.workArea || { position: monitor.position, size: monitor.size };
+    const scaleFactor = monitor.scaleFactor || 1;
+    const workWidth = workArea.size.width / scaleFactor;
+    const workHeight = workArea.size.height / scaleFactor;
+    const workX = workArea.position.x / scaleFactor;
+    const workY = workArea.position.y / scaleFactor;
+    const desiredWidth = Math.round(Math.min(1080, Math.max(860, workWidth * 0.42)));
+    const desiredHeight = Math.round(Math.max(720, workHeight - 44));
+    const x = Math.round(workX + workWidth - desiredWidth);
+    const y = Math.round(workY);
+    const appWindow = getCurrentWindow();
+    await appWindow.setMinSize(new LogicalSize(860, 720));
+    await appWindow.setSize(new LogicalSize(desiredWidth, desiredHeight));
+    await appWindow.setPosition(new LogicalPosition(x, y));
+  } catch (error) {
+    console.warn('Unable to fit desktop window to work area', error);
+  }
 }
 
 createRoot(document.getElementById('root')!).render(<App />);

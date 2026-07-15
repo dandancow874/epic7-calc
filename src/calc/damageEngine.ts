@@ -42,7 +42,7 @@ export interface BarrierValue {
 
 const attackModifiers = [
   'decreasedAttack', 'attackUp', 'attackUpGreat', 'casterVigor', 'casterEnraged',
-  'casterHasStarsBlessing', 'casterHasPossession', 'casterHasArchdemonsMight',
+  'casterHasStarsBlessing', 'casterHasPossession',
   'casterPromotionStack', 'casterSpoilsStack', 'casterPilfered', 'casterHasDemonBladeUnleashed',
   'casterOverload', 'casterEnergyDepletion', 'casterHasGodOfBattle',
 ];
@@ -106,11 +106,13 @@ export class DamageEngine {
     let mult = 0.0;
 
     attackModifiers.forEach((mod) => {
+      const modValue = BattleConstants[mod];
+      if (typeof modValue !== 'number') return;
       if (!mod.endsWith('Stack')) {
-        mult += this.form[mod] ? BattleConstants[mod] - 1 : 0.0;
+        mult += this.form[mod] ? modValue - 1 : 0.0;
       } else {
         const stack = this.form[mod];
-        mult += stack ? BattleConstants[mod] * (stack as number) : 0.0;
+        mult += stack ? modValue * (stack as number) : 0.0;
       }
     });
     return mult + this.form.attackIncreasePercent / 100;

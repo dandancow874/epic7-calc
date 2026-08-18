@@ -54,6 +54,10 @@ export function heroAliasText(id: string) {
   return heroAliasList(id).join(',');
 }
 
+export function heroSearchNames(id: string) {
+  return [zh.heroes?.[id], en.heroes?.[id], zh.nicknames?.[id], ...heroAliasList(id)].filter(Boolean).join(' ');
+}
+
 export function saveHeroAliasText(id: string, text: string) {
   const names = text
     .split(/[,，]/)

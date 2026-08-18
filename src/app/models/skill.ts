@@ -41,6 +41,7 @@ export class Skill {
     id: string;
     // TODO: refactor this name
     atk: (inputValues: DamageFormData) => number;
+    attackModifier: (soulburn: boolean, inputValues: DamageFormData) => number;
     afterMath: (hitType: HitType, inputValues: DamageFormData, soulburn: boolean) => AftermathSkill;
     afterMath2: (hitType: HitType, inputValues: DamageFormData, soulburn: boolean) => AftermathSkill;
     canExtra: boolean;
@@ -90,6 +91,7 @@ export class Skill {
     constructor(data: any) {
         this.id = _.get(data, 'id', 's1');
         this.atk = _.get(data, 'atk', () => 0)
+        this.attackModifier = _.get(data, 'attackModifier', () => 0);
         this.afterMath = _.get(data, 'afterMath', () => null);
         this.afterMath2 = _.get(data, 'afterMath2', () => null);
         this.canExtra = _.get(data, 'canExtra', false);

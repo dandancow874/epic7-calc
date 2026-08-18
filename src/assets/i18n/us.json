@@ -44,6 +44,7 @@
     "assassin_coli": "Assassin Coli",
     "astromancer_elena": "Astromancer Elena",
     "aubade_ludwig": "Aubade Ludwig",
+    "aube": "Aube",
     "auxiliary_lots": "Auxiliary Lots",
     "azalea": "Azalea",
     "baal_and_sezan": "Baal & Sezan",
@@ -350,6 +351,7 @@
     "taranor_royal_guard": "Taranor Royal Guard",
     "tempest_surin": "Tempest Surin",
     "tenebria": "Tenebria",
+    "tidal_rift_elvira": "Tidal Rift Elvira",
     "tieria": "Tieria",
     "top_model_luluca": "Top Model Luluca",
     "tori": "Tori",
@@ -554,6 +556,10 @@
     "wanderer_silk": "ml.silk mlsilk"
   },
   "skills": {
+    "aube_coral_wave": "Coral Wave",
+    "tidal_rift_elvira_rift_slash": "Rift Slash",
+    "tidal_rift_elvira_distorted_strike": "Distorted Strike",
+    "tidal_rift_elvira_cursed_wave": "Cursed Wave",
     "abyssalYufineUnbridledOutburstSoulburn": "Unbridled Outburst Soulburn",
     "abyssalYufineUnbridledOutburst": "Unbridled Outburst",
     "afterMathDmg": "Aftermath Dmg",

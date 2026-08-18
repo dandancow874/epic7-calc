@@ -9396,6 +9396,7 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1327,
     baseHP: 5138,
     baseDefense: 582,
+    heroSpecific: ['exclusiveEquipment2'],
     skills: {
       s1: new Skill({
         id: 's1',
@@ -9410,6 +9411,7 @@ export const Heroes: Record<string, Hero> = {
         rate: () => 1.4,
         pow: () => 0.9,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        exclusiveEquipmentMultiplier: (inputValues: DamageFormData) => inputValues.exclusiveEquipment2 ? 0.2 : 0,
         isExtra: true,
         isAOE: () => true,
       })
@@ -12129,3 +12131,193 @@ export const Heroes: Record<string, Hero> = {
     }
   }),
 };
+
+// Keep the current CN-server formulas available while the stable ids follow
+// the newer balance data already present in the local hero library.
+for (const heroId of [
+  'aki',
+  'blooming_lidica',
+  'dark_corvus',
+  'faithless_lidica',
+  'inferno_khawazu',
+  'jenua',
+  'little_queen_charlotte',
+  'schniel',
+]) {
+  Heroes[`${heroId}_old`] = Heroes[heroId];
+}
+
+Heroes.aube = new Hero({
+  gameID: 'c5190',
+  element: HeroElement.ice,
+  class: HeroClass.ranger,
+  baseAttack: 993,
+  baseHP: 6002,
+  baseDefense: 611,
+  skills: {
+    s1: new Skill({
+      id: 's1',
+      name: 'aube_coral_wave',
+      rate: () => 1,
+      pow: () => 1,
+      enhance: [0.05, 0, 0.1, 0, 0.15],
+      isSingle: () => true,
+    }),
+  },
+});
+
+Heroes.tidal_rift_elvira = new Hero({
+  gameID: 'c2148',
+  element: HeroElement.dark,
+  class: HeroClass.mage,
+  baseAttack: 1102,
+  baseHP: 5782,
+  baseDefense: 634,
+  skills: {
+    s1: new Skill({
+      id: 's1',
+      name: 'tidal_rift_elvira_rift_slash',
+      rate: () => 0.75,
+      pow: () => 0.95,
+      penetrate: () => 1,
+      noCrit: true,
+      enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.05, 0.1],
+      isSingle: () => true,
+    }),
+    s1_extra: new Skill({
+      id: 's1_extra',
+      name: 'tidal_rift_elvira_distorted_strike',
+      rate: () => 0.3,
+      pow: () => 1,
+      penetrate: () => 1,
+      noCrit: true,
+      enhanceFrom: 's1',
+      isExtra: true,
+      isAOE: () => true,
+    }),
+    s3: new Skill({
+      id: 's3',
+      name: 'tidal_rift_elvira_cursed_wave',
+      rate: () => 1.8,
+      pow: () => 0.95,
+      penetrate: () => 1,
+      noCrit: true,
+      enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.05, 0.1],
+      isSingle: () => true,
+    }),
+  },
+});
+
+Heroes.aki = new Hero({
+  ...Heroes.aki_old,
+  baseAttack: 966,
+  skills: {
+    ...Heroes.aki_old.skills,
+    s1: new Skill({
+      ...Heroes.aki_old.skills.s1,
+      rate: () => 0.2,
+      detonation: () => 1.4,
+    }),
+    s3: new Skill({
+      ...Heroes.aki_old.skills.s3,
+      rate: () => 0.2,
+      detonation: () => 1.4,
+    }),
+  },
+});
+
+Heroes.blooming_lidica = new Hero({
+  ...Heroes.blooming_lidica_old,
+  skills: {
+    ...Heroes.blooming_lidica_old.skills,
+    s3: new Skill({
+      ...Heroes.blooming_lidica_old.skills.s3,
+      flat: (_soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) =>
+        inputValues.casterFinalMaxHP(artifact) * 0.42,
+      flatTip: () => ({ casterMaxHP: 42 }),
+    }),
+  },
+});
+
+Heroes.dark_corvus = new Hero({
+  ...Heroes.dark_corvus_old,
+  skills: {
+    ...Heroes.dark_corvus_old.skills,
+    s3: new Skill({
+      ...Heroes.dark_corvus_old.skills.s3,
+      flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) =>
+        inputValues.casterFinalMaxHP(artifact) * (soulburn ? 0.375 : 0.31),
+      flatTip: (soulburn: boolean) => ({ casterMaxHP: soulburn ? 37.5 : 31 }),
+      ignoreDamageTransfer: () => true,
+    }),
+  },
+});
+
+// Their balance changes affect utility rather than published damage multipliers.
+// Separate Hero instances still keep the CN-server versions removable later.
+Heroes.faithless_lidica = new Hero({ ...Heroes.faithless_lidica_old });
+Heroes.inferno_khawazu = new Hero({ ...Heroes.inferno_khawazu_old });
+Heroes.jenua = new Hero({
+  ...Heroes.jenua_old,
+  skills: {
+    ...Heroes.jenua_old.skills,
+    s1: new Skill({
+      ...Heroes.jenua_old.skills.s1,
+      soulburn: true,
+      attackModifier: (soulburn: boolean, inputValues: DamageFormData) => {
+        const grantedAttackBuff = soulburn ? BattleConstants.attackUpGreat - 1 : BattleConstants.attackUp - 1;
+        const existingAttackBuff = inputValues.attackUpGreat
+          ? BattleConstants.attackUpGreat - 1
+          : inputValues.attackUp
+            ? BattleConstants.attackUp - 1
+            : 0;
+        return Math.max(0, grantedAttackBuff - existingAttackBuff);
+      },
+    }),
+  },
+});
+
+Heroes.little_queen_charlotte = new Hero({
+  ...Heroes.little_queen_charlotte_old,
+  skills: {
+    ...Heroes.little_queen_charlotte_old.skills,
+    s1: new Skill({
+      ...Heroes.little_queen_charlotte_old.skills.s1,
+      onlyCrit: () => true,
+    }),
+    s3: new Skill({
+      ...Heroes.little_queen_charlotte_old.skills.s3,
+      rate: () => 1.65,
+      mult: (_soulburn: boolean, inputValues: DamageFormData) =>
+        inputValues.elementalAdvantage ? 1.35 : 1,
+      multTip: () => ({ elementalAdvantage: 35 }),
+      onlyCrit: () => true,
+    }),
+  },
+});
+
+Heroes.schniel = new Hero({
+  ...Heroes.schniel_old,
+  skills: {
+    ...Heroes.schniel_old.skills,
+    s1: new Skill({
+      ...Heroes.schniel_old.skills.s1,
+      pow: () => 1,
+      enhance: [0.05, 0, 0.05, 0.05, 0.05, 0, 0.1],
+    }),
+    s3: new Skill({
+      ...Heroes.schniel_old.skills.s3,
+      pow: () => 1.1,
+      fixed: (_hitType: HitType, inputValues: DamageFormData) =>
+        5000 * (inputValues.skill3Stack + 1),
+      fixedTip: () => ({ fixed: 5000, fixed_per_stack: 5000 }),
+      enhance: [0.05, 0, 0, 0, 0, 0, 0.15],
+    }),
+  },
+});
+
+// Pre-balance variants are implementation details used to construct the
+// current definitions above. Do not expose them as selectable calculator heroes.
+for (const heroId of Object.keys(Heroes)) {
+  if (heroId.endsWith('_old')) delete Heroes[heroId];
+}

@@ -13,7 +13,7 @@
 
 body {
   margin: 0;
-  min-width: 920px;
+  min-width: 720px;
   min-height: 100vh;
   background:
     radial-gradient(circle at 24% 10%, rgba(30, 144, 210, 0.18), transparent 34%),
@@ -181,7 +181,7 @@ h3 {
 }
 
 .defense .panel-head {
-  grid-template-columns: 112px 1fr;
+  grid-template-columns: 112px 1fr 76px;
 }
 
 .portrait-button,
@@ -211,6 +211,9 @@ h3 {
   height: 68px;
   object-fit: contain;
 }
+
+.artifact-icon-button:disabled { cursor: default; }
+.artifact-level-readonly { min-width: 38px; color: rgba(244, 241, 235, 0.72); font-size: 14px; font-weight: 800; }
 
 .artifact-button input,
 .level-input {
@@ -292,6 +295,83 @@ h3 {
   background: rgba(255, 255, 255, 0.45);
 }
 
+.calculator-build-select {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 5px 12px;
+  margin-top: 0;
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 3px solid rgba(142, 219, 255, 0.55);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.18);
+  width: 100%;
+  color: inherit;
+  text-align: left;
+}
+
+.calculator-build-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.build-use-toggle {
+  min-width: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 11px;
+  border: 1px solid rgba(142, 219, 255, 0.3);
+  border-radius: 5px;
+  color: #9fdfff;
+  background: rgba(33, 145, 194, 0.1);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.build-use-toggle input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #27ade9;
+}
+
+.build-use-toggle:has(input:disabled) {
+  opacity: 0.46;
+  cursor: default;
+}
+
+.defense .build-use-toggle {
+  border-color: rgba(139, 107, 46, 0.35);
+  color: #6f531d;
+  background: rgba(139, 107, 46, 0.08);
+}
+
+.defense .build-use-toggle input {
+  accent-color: #987028;
+}
+
+.calculator-build-select > span { color: rgba(244, 241, 235, 0.58); font-size: 14px; }
+.calculator-build-select > strong { min-width: 0; overflow: hidden; color: #f4f1eb; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; }
+.calculator-build-select > svg { grid-column: 3; grid-row: 1; color: rgba(255,255,255,.52); }
+.calculator-build-select small { grid-column: 2 / 4; overflow: hidden; color: rgba(142, 219, 255, 0.66); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.defense .calculator-build-select { border-color: rgba(0, 0, 0, 0.12); border-left-color: #8b6b2e; background: rgba(255, 255, 255, 0.3); }
+.defense .calculator-build-select > span { color: rgba(20, 22, 23, 0.56); }
+.defense .calculator-build-select > strong { color: #1d2021; }
+.defense .calculator-build-select small { color: #76591f; }
+
+.build-preset-modal .profile-toolbar .primary-button { display: inline-flex; align-items: center; gap: 6px; }
+.build-detail-link { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding: 12px; border: 1px solid rgba(75, 189, 244, 0.34); border-radius: 6px; color: #8edbff; background: rgba(75, 189, 244, 0.08); font-weight: 800; }
+.preset-link-toggle { display: flex; align-items: center; gap: 9px; margin: -2px 0 12px; color: #9fdfff; font-size: 13px; font-weight: 800; }
+.preset-link-toggle input { width: 17px; height: 17px; accent-color: #26ace8; }
+
 .field-stack {
   margin-top: 24px;
   display: grid;
@@ -315,6 +395,8 @@ h3 {
   accent-color: #159fe1;
 }
 
+.stat-field input[type="range"]:disabled { opacity: 0.42; }
+
 .number-box {
   height: 48px;
   border: 0;
@@ -325,6 +407,8 @@ h3 {
   font-variant-numeric: tabular-nums;
   text-align: center;
 }
+
+.locked-number { display: grid; place-items: center; opacity: 0.86; cursor: default; }
 
 .defense .number-box {
   background: rgba(30, 31, 31, 0.78);
@@ -453,6 +537,8 @@ h3 {
 .more-chip {
   color: #dceaf2;
 }
+
+.special-input input:disabled { opacity: 0.7; cursor: default; }
 
 .torrent-control {
   min-height: 38px;
@@ -818,6 +904,151 @@ h3 {
   opacity: 1;
 }
 
+.readiness-page {
+  gap: 18px;
+}
+
+.readiness-row label {
+  display: grid;
+  gap: 6px;
+}
+
+.readiness-row label span,
+.readiness-result span {
+  color: rgba(244, 241, 235, 0.62);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.readiness-row input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.28);
+  color: #fff;
+  text-align: center;
+  font-size: 21px;
+  font-variant-numeric: tabular-nums;
+}
+
+.readiness-card {
+  padding: 20px;
+}
+
+.readiness-list {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.readiness-side {
+  display: grid;
+  gap: 12px;
+}
+
+.readiness-side + .readiness-side {
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.readiness-side-title {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+}
+
+.readiness-side-title span {
+  color: #8edbff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.readiness-side.defender .readiness-side-title span {
+  color: #ffb0a6;
+}
+
+.readiness-row {
+  min-height: 82px;
+  display: grid;
+  grid-template-columns: 38px minmax(120px, 1fr) 48px minmax(140px, 1fr) minmax(160px, 1.1fr);
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px;
+}
+
+.readiness-sign {
+  width: 44px;
+  height: 42px;
+  border-radius: 8px;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.readiness-sign.increase {
+  border: 1px solid rgba(29, 162, 231, 0.55);
+  background: rgba(29, 162, 231, 0.22);
+  color: #9ee8ff;
+}
+
+.readiness-sign.decrease {
+  border: 1px solid rgba(255, 96, 72, 0.5);
+  background: rgba(195, 45, 35, 0.28);
+  color: #ffb0a6;
+}
+
+.readiness-delta.increase span {
+  color: #8edbff;
+}
+
+.readiness-delta.decrease span {
+  color: #ff9f92;
+}
+
+.readiness-delta.increase input {
+  border-color: rgba(29, 162, 231, 0.32);
+}
+
+.readiness-delta.decrease input {
+  border-color: rgba(255, 96, 72, 0.32);
+}
+
+.readiness-result {
+  display: grid;
+  gap: 6px;
+}
+
+.readiness-result strong {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.24);
+  padding: 0 12px;
+  color: #fff;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.readiness-result em {
+  font-style: normal;
+}
+
+.readiness-result em.increase {
+  color: #8edbff;
+}
+
+.readiness-result em.decrease {
+  color: #ff9f92;
+}
+
 .speed-results {
   padding: 22px;
 }
@@ -954,6 +1185,18 @@ td {
 
 td.none {
   color: rgba(245, 241, 232, 0.5);
+}
+
+.damage-value,
+.damage-percent {
+  display: block;
+}
+
+.damage-percent {
+  margin-top: 2px;
+  color: rgba(142, 217, 255, 0.76);
+  font-size: 12px;
+  line-height: 1;
 }
 
 .damage-total-row:has(+ .damage-detail-row) td {
@@ -1351,4 +1594,411 @@ td.none {
   width: 24px;
   height: 24px;
   object-fit: contain;
+}
+
+.build-import-scrim {
+  z-index: 130;
+  padding: 24px;
+}
+
+.build-import-dialog {
+  width: min(1180px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  border: 1px solid rgba(75, 189, 244, 0.3);
+  border-radius: 18px;
+  background: #1c2021;
+  color: #f5f1e9;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.58);
+  display: flex;
+  flex-direction: column;
+}
+
+.build-import-head,
+.build-import-dialog > footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.build-import-head h2,
+.build-import-head p {
+  margin: 3px 0 0;
+}
+
+.build-import-head p {
+  color: #aeb8bb;
+  font-size: 14px;
+}
+
+.build-import-body {
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(520px, 1.6fr);
+  gap: 20px;
+  padding: 20px 22px;
+}
+
+.build-import-body > aside > img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #0e1112;
+}
+
+.build-import-warnings {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.build-import-warnings span {
+  display: flex;
+  gap: 7px;
+  align-items: flex-start;
+  color: #f2c66d;
+  font-size: 13px;
+}
+
+.build-import-body > main {
+  min-width: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.build-import-selects {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 0.6fr;
+  gap: 10px;
+}
+
+.build-import-selects label {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.build-import-selects label > span,
+.build-import-stats label > span {
+  color: #aeb8bb;
+  font-size: 13px;
+}
+
+.build-import-selects select,
+.build-import-selects input,
+.build-import-stats input {
+  min-width: 0;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  background: #111516;
+  color: #fff;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+.build-import-combobox {
+  position: relative;
+  min-width: 0;
+}
+
+.build-import-combobox-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.build-import-combobox-input > svg {
+  position: absolute;
+  left: 11px;
+  color: #839094;
+  pointer-events: none;
+}
+
+.build-import-combobox-input input {
+  width: 100%;
+  padding-left: 35px;
+  padding-right: 38px;
+}
+
+.build-import-combobox-input button {
+  position: absolute;
+  right: 3px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #aeb8bb;
+}
+
+.build-import-combobox-list {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  max-height: 310px;
+  overflow: auto;
+  padding: 5px;
+  border: 1px solid rgba(77, 190, 246, 0.38);
+  border-radius: 10px;
+  background: #151a1b;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.48);
+}
+
+.build-import-combobox-list > button {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #fff;
+  text-align: left;
+}
+
+.build-import-combobox-list > button:hover,
+.build-import-combobox-list > button.active {
+  background: rgba(77, 190, 246, 0.12);
+}
+
+.build-import-combobox-list > button.selected {
+  box-shadow: inset 2px 0 #4dbef6;
+}
+
+.build-import-combobox-list img,
+.build-import-option-fallback {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border-radius: 7px;
+  object-fit: cover;
+}
+
+.build-import-option-fallback {
+  display: grid;
+  place-items: center;
+  background: #293234;
+}
+
+.build-import-combobox-list > button > span:last-child {
+  min-width: 0;
+  display: grid;
+}
+
+.build-import-combobox-list strong,
+.build-import-combobox-list small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.build-import-combobox-list small {
+  color: #879397;
+}
+
+.build-import-combobox-list > p {
+  margin: 10px;
+  color: #8f9b9f;
+  font-size: 13px;
+}
+
+.build-import-selects small {
+  font-size: 11px;
+}
+
+.build-import-selects small.reliable {
+  color: #6bd99a;
+}
+
+.build-import-selects small.review {
+  color: #f2c66d;
+}
+
+.build-import-selects small.uncertain,
+.build-import-stats label.uncertain > span {
+  color: #ff8f87;
+}
+
+.build-import-imprint {
+  display: grid;
+  gap: 9px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.build-import-imprint > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.build-import-imprint h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.build-import-imprint span {
+  color: #8e9a9d;
+  font-size: 12px;
+}
+
+.build-import-imprint button,
+.imprint-picker button {
+  min-height: 36px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: #161b1c;
+  color: #c9d0d2;
+}
+
+.build-import-imprint button.active,
+.imprint-picker button.active {
+  border-color: #4dbef6;
+  background: rgba(77, 190, 246, 0.15);
+  color: #72ccf8;
+}
+
+.imprint-picker {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+}
+
+.imprint-picker > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.imprint-picker strong {
+  flex: 0 0 76px;
+  color: #aeb8bb;
+}
+
+.build-import-stats,
+.build-import-sets {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.build-import-stats h3,
+.build-import-sets h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.build-import-stats > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.build-import-stats label {
+  position: relative;
+  display: grid;
+  gap: 4px;
+}
+
+.build-import-stats label b {
+  position: absolute;
+  right: 9px;
+  bottom: 11px;
+  color: #8e999c;
+  font-size: 12px;
+}
+
+.build-import-stats label:has(b) input {
+  padding-right: 28px;
+}
+
+.build-import-sets > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.build-import-sets > div:first-child span {
+  color: #8edbff;
+  font-size: 13px;
+}
+
+.build-import-set-summary,
+.build-import-set-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.build-import-set-summary button,
+.build-import-set-picker button {
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: #292e2f;
+  color: #f5f1e9;
+  padding: 0 9px;
+}
+
+.build-import-set-summary img,
+.build-import-set-picker img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.build-import-set-picker button {
+  height: 31px;
+  font-size: 12px;
+  color: #bdc6c8;
+}
+
+.build-import-set-picker button:disabled {
+  opacity: 0.28;
+}
+
+.build-import-dialog > footer {
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: 0;
+}
+
+.build-import-dialog > footer button {
+  min-width: 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+@media (max-width: 980px) {
+  .build-import-body {
+    grid-template-columns: 1fr;
+  }
+
+  .build-import-body > aside > img {
+    max-height: 220px;
+  }
 }

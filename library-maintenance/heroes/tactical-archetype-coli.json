@@ -1,0 +1,28 @@
+{
+  "skills": {
+    "sk_c5033_1": {
+      "multipliers": {
+        "skill_multiplier": {
+          "items": {
+            "EXPLOSION_DEBUFF_rate": {
+              "displayValue": "+30.0%",
+              "value": "+30.0%"
+            }
+          }
+        }
+      }
+    },
+    "sk_c5033_3": {
+      "multipliers": {
+        "skill_multiplier": {
+          "items": {
+            "EXPLOSION_DEBUFF_rate": {
+              "displayValue": "+20.0%",
+              "value": "+20.0%"
+            }
+          }
+        }
+      }
+    }
+  }
+}

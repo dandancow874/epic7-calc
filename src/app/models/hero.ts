@@ -119,6 +119,7 @@ export class Hero {
       atkImprint = this.baseAttack * (inputValues.attackImprint / 100);
       atkMod = 1
           + attackMultiplier
+          + skill.attackModifier(soulburn, inputValues)
           + (this.attackIncrease !== undefined ? this.attackIncrease(inputValues) - 1 : 0)
           + (this.innateAttackIncrease !== undefined ? this.innateAttackIncrease(inputValues) : 0)
           + artifact.getAttackBoost(inputValues.artifactLevel, inputValues, skill, soulburn, hitType, isExtra);

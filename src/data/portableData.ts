@@ -1,5 +1,5 @@
 export function isTauriRuntime() {
-  return '__TAURI_INTERNALS__' in window;
+  return typeof window !== 'undefined' && '__TAURI_INTERNALS__' in window;
 }
 
 export async function readPortableJson<T>(name: string): Promise<T | null> {

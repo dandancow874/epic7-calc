@@ -1,0 +1,98 @@
+{
+  "aki": {
+    "name": "亚奇",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "atk": 1.5
+    }
+  },
+  "beehoo": {
+    "name": "雨修",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "atk": 1.3
+    },
+    "additivePercentPoints": {
+      "eff": 30
+    },
+    "libraryBaseStatsIncludes": [
+      "eff"
+    ]
+  },
+  "arunka": {
+    "name": "亚露嘉",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "atk": 1.3
+    }
+  },
+  "summertime-iseria": {
+    "name": "南国的伊赛丽亚",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "atk": 1.5
+    }
+  },
+  "senya": {
+    "name": "赛娜",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "atk": 1.5
+    }
+  },
+  "ram": {
+    "name": "拉姆",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "atk": 1.3
+    }
+  },
+  "gunther": {
+    "name": "坤特",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "atk": 1.75
+    }
+  },
+  "westwind-executioner-schuri": {
+    "name": "西风处刑者修里",
+    "source": "S2被动",
+    "additivePercentPoints": {
+      "eff": 30
+    },
+    "libraryBaseStatsIncludes": [
+      "eff"
+    ]
+  },
+  "claudia": {
+    "name": "克劳蒂亚",
+    "source": "S2被动",
+    "additivePercentPoints": {
+      "eff": 30
+    },
+    "libraryBaseStatsIncludes": [
+      "eff"
+    ]
+  },
+  "dragon-bride-senya": {
+    "name": "龙之伴侣赛娜",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "hp": 1.1
+    }
+  },
+  "lethe": {
+    "name": "丽希",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "hp": 1.1
+    }
+  },
+  "eaton": {
+    "name": "伊顿",
+    "source": "S2被动",
+    "finalMultipliers": {
+      "hp": 1.2
+    }
+  }
+}

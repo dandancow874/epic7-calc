@@ -713,6 +713,8 @@ export class DamageFormData {
     targetIsHighestDefense: boolean;
     targetMagicNailed: boolean;
     targetMaxHP: number;
+    targetMaxHPIncrease: number;
+    targetLingeringFragranceStack: number;
     targetNumberOfBleeds: number;
     targetNumberOfDebuffs: number;
     targetProvoked: boolean;
@@ -889,6 +891,8 @@ export class DamageFormData {
         this.targetIsHighestDefense = _.get(data, 'targetIsHighestDefense', false);
         this.targetMagicNailed = _.get(data, 'targetMagicNailed', false);
         this.targetMaxHP = _.get(data, 'targetMaxHP', 10000);
+        this.targetMaxHPIncrease = _.get(data, 'targetMaxHPIncrease', 0);
+        this.targetLingeringFragranceStack = _.get(data, 'targetLingeringFragranceStack', _.get(data, 'targetLingeringFragrance', false) ? 1 : 0);
         this.targetNumberOfBleeds = _.get(data, 'targetNumberOfBleeds', 0);
         this.targetNumberOfDebuffs = _.get(data, 'targetNumberOfDebuffs', 0);
         this.targetProvoked = _.get(data, 'targetProvoked', false);
@@ -990,7 +994,9 @@ export class DamageFormData {
     targetFinalMaxHP = () => {
         return (this.targetHasCollapse ? 0.5 : 1)
              * ((this.inputOverrides['targetMaxHP'] ? this.inputOverrides['targetMaxHP'] : this.targetMaxHP
-                * (this.defensePreset?.hpDamageMultiplier ? this.defensePreset.hpDamageMultiplier : 1))
+                 * (this.defensePreset?.hpDamageMultiplier ? this.defensePreset.hpDamageMultiplier : 1))
+                * (1 + this.targetMaxHPIncrease / 100)
+                * (1 + Math.min(5, Math.max(0, this.targetLingeringFragranceStack)) * BattleConstants.lingeringFragrance)
                 * (this.targetHasSuperhumanization ? BattleConstants.superhumanization + 1 : 1)
                );
     }

@@ -1,0 +1,5246 @@
+[
+  {
+    "code": "refracted-desire",
+    "name": "扭曲欲望",
+    "nameEn": "Refracted Desire",
+    "nameZht": "扭曲的欲望",
+    "description": "用芙米尔的魔法制成的特殊透镜，连鹅卵石表面的细微凹凸也能观察得一清二楚。每当探求新知识时，她的脸上总是会流露出一丝狡黠的好奇心。",
+    "skillDescription": "自身以先手回合开始时，有50(100)%的几率在3回合内获得效果命中提升效果。\n除自身外的我军人员以先手回合开始时，有50(100)%的几率使自身速攻值提升20%。仅对队伍中的1人生效。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 0,
+      "hp": 998,
+      "def": 65
+    },
+    "image": "/library/artifacts/refracted-desire.png",
+    "artwork": "/library/artifact-artworks/refracted-desire.png",
+    "publishDate": "2026-06-24 11:00:00"
+  },
+  {
+    "code": "aubade-orb",
+    "name": "黎明宝珠",
+    "nameEn": "Aubade Orb",
+    "nameZht": "黎明寶珠",
+    "description": "黑夜终将迎来黎明，绽放出希望的曙光。\n走过漫长黑暗，终行向拂晓的鲁特比已经没有任何理由再犹豫。",
+    "skillDescription": "首次战斗开始时，获得灵魂10点。\n回合结束时，有50(100)%的几率获得灵魂5点。发动3次时不会再额外发动。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/aubade-orb.png",
+    "artwork": "/library/artifact-artworks/aubade-orb.png",
+    "publishDate": "2026-06-11 11:00:00"
+  },
+  {
+    "code": "butterflys-baptism",
+    "name": "蝶之洗礼",
+    "nameEn": "Butterfly's Baptism",
+    "nameZht": "蝶之洗禮",
+    "description": "经历染血的洗礼仪式后，在残梦之中徘徊的两只蝴蝶终于合为一体。\n「路西艾拉，我们是一体的，绝对不会分开。」",
+    "skillDescription": "回避提升10(20)%。\n额外回合开始时，攻击力、速度提升5%。最多可叠加3次。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/butterflys-baptism.png",
+    "artwork": "/library/artifact-artworks/butterflys-baptism.png",
+    "publishDate": "2026-06-04 11:00:00"
+  },
+  {
+    "code": "excommunicants-censer",
+    "name": "隐退者的香炉",
+    "nameEn": "Excommunicant's Censer",
+    "nameZht": "隱退者的香爐",
+    "description": "「女神大人，求您垂怜。」\n背离命运的那一天，献上了最恳切祈祷的那一夜。",
+    "skillDescription": "效果抗性提升15.0(30.0)%。\n敌人回合结束时，若自身未处于弱化效果状态，则使自身速攻值提升10(20)%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/excommunicants-censer.png",
+    "artwork": "/library/artifact-artworks/excommunicants-censer.png",
+    "publishDate": "2026-05-21 11:00:00"
+  },
+  {
+    "code": "with-a-little-friend",
+    "name": "与小同伴同行",
+    "nameEn": "With a Little Friend",
+    "nameZht": "與小同伴同行",
+    "description": "在归乡之路上偶然遇见了一只小鸟。迈着轻快的步伐行走在晴朗的天空下。有了同行的小伙伴，旅途将不会再孤单。",
+    "skillDescription": "最大生命值提升5.0(10.0)%。\n因伤害分配而代替承受的伤害降低25.0(50.0)%。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/with-a-little-friend.png",
+    "artwork": "/library/artifact-artworks/with-a-little-friend.png",
+    "publishDate": "2026-04-30 11:00:00"
+  },
+  {
+    "code": "veritas",
+    "name": "真实香水",
+    "nameEn": "Veritas",
+    "nameZht": "真實香水",
+    "description": "“越是试图隐藏，越是欲盖弥彰。真相就在香气之中。”\n只要闻到调香师维波里丝特制香水的香气，所有人都会不由自主地吐露真言。",
+    "skillDescription": "敌人回合每结束3次，自身速攻值提升10(20)%，有50(100)%的几率解除1个弱化效果。该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 0,
+      "hp": 988,
+      "def": 65
+    },
+    "image": "/library/artifacts/veritas.png",
+    "artwork": "/library/artifact-artworks/veritas.png",
+    "publishDate": "2026-04-02 17:00:00"
+  },
+  {
+    "code": "shadow-winds-7",
+    "name": "暗影之风7",
+    "nameEn": "Shadow Winds 7",
+    "nameZht": "暗影之風7",
+    "description": "为在巷战中崭露头角的战术型可丽特别打造的枪刃。结合了枪械与镖形刀刃，既能近身搏斗，也可远程作战。",
+    "skillDescription": "攻击力提升10(20)%。首次战斗开始时，有50(100)%的几率获得灵魂10点，使自身获得速攻效果。该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 0,
+      "def": 65
+    },
+    "image": "/library/artifacts/shadow-winds-7.png",
+    "artwork": "/library/artifact-artworks/shadow-winds-7.png",
+    "publishDate": "2026-03-12 17:00:00"
+  },
+  {
+    "code": "glorious-throne",
+    "name": "荣耀王座",
+    "nameEn": "Glorious Throne",
+    "nameZht": "榮耀王座",
+    "description": "承载【星辰吞噬者】权能的王座。旧主已放下力量离开，而王座依旧静候着下一位霸王的到来。",
+    "skillDescription": "攻击后，有50(100)%的几率根据自身最大生命值对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/glorious-throne.png",
+    "artwork": "/library/artifact-artworks/glorious-throne.png",
+    "publishDate": "2026-03-05 11:00:00"
+  },
+  {
+    "code": "gifted-pen",
+    "name": "蒙赐之笔",
+    "nameEn": "Gifted Pen",
+    "nameZht": "蒙賜之筆",
+    "description": "对自己赏识有加的主君修尼尔赐予的钢笔。每当签署自己的姓名时，露易莎一定会使用这支钢笔。",
+    "skillDescription": "效果命中提升10(20)%。\n    发动除基本技能外的单一攻击后，对目标在2回合内造成命中降低效果，使后排我军人员速攻值提升15.0(30.0)%。3回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/gifted-pen.png",
+    "artwork": "/library/artifact-artworks/gifted-pen.png",
+    "publishDate": "2026-02-19 17:00:00"
+  },
+  {
+    "code": "ritual-of-sealing-flames",
+    "name": "封焰仪式",
+    "nameEn": "Ritual of Sealing Flames",
+    "nameZht": "封焰儀式",
+    "description": "战斗结束后，为平息狂乱的火焰而重新缠上绷带的瞬间，对亚奇而言，仿佛是一场怀念失去之人的痛苦仪式。",
+    "skillDescription": "效果抗性提升15(30)%。\n战斗开始时，在2回合内获得相当于攻击力60(120)%的防护罩。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 0,
+      "def": 65
+    },
+    "image": "/library/artifacts/ritual-of-sealing-flames.png",
+    "artwork": "/library/artifact-artworks/ritual-of-sealing-flames.png",
+    "publishDate": "2026-01-08 14:00:00"
+  },
+  {
+    "code": "tome-of-lifes-end",
+    "name": "寿命之书",
+    "nameEn": "Tome of Life's End",
+    "nameZht": "壽命之書",
+    "description": "唯有继承王室珍宝【席格勒赛斯】之人方可阅读的禁忌之书。上面记载着每一个塔塔洛丝人的寿命。\n\n“噢，至尊无上的女神引导者，请指引我的灵魂归于轮回吧。”",
+    "skillDescription": "攻击时，伤害量提升10(20)%，若未触发暴击，则根据自身攻击力对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/tome-of-lifes-end.png",
+    "artwork": "/library/artifact-artworks/tome-of-lifes-end.png",
+    "publishDate": "2025-12-18 14:00:00"
+  },
+  {
+    "code": "glorious-flag",
+    "name": "荣耀旗帜",
+    "nameEn": "Glorious Flag",
+    "nameZht": "榮耀旗幟",
+    "description": "“赛珂兰特选手率先冲过终点！我们生活在赛珂兰特的时代！”\n凭借一骑绝尘的华丽骑行实力，赛珂兰特一跃成为冉冉升起的新星。她击败生涯首场比赛中的所有劲敌后，站在终点挥舞旗帜的那一幕，成为了车迷们津津乐道的传奇名场面。",
+    "skillDescription": "回避提升20%。\n我军人员使用基本技能后，有50(100)%的几率使自身速攻值提升10%。该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/glorious-flag.png",
+    "artwork": "/library/artifact-artworks/glorious-flag.png",
+    "publishDate": "2025-11-27 11:00:00"
+  },
+  {
+    "code": "awakened-leaf",
+    "name": "苏醒之叶",
+    "nameEn": "Awakened Leaf",
+    "nameZht": "甦醒之葉",
+    "description": "望着生息悄然苏醒，大地焕发新的生机，萨若米亚再次将守护桐伯莱亚的誓言铭刻心底。",
+    "skillDescription": "使用非攻击类技能后，使自身和除自身外的后排我军人员速攻值提升12.0(24.0)%。2回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/awakened-leaf.png",
+    "artwork": "/library/artifact-artworks/awakened-leaf.png",
+    "publishDate": "2025-11-06 17:00:00"
+  },
+  {
+    "code": "master-of-the-nightmare",
+    "name": "噩梦之主",
+    "nameEn": "Master of the Nightmare",
+    "nameZht": "惡夢之主",
+    "description": "妖怪化身成智武的样子，让自责的莎伦陷入噩梦。饥肠辘辘的暗影正一步步逼近自己的猎物。",
+    "skillDescription": "攻击力提升10(20)%。\n在自身回合使用基本技能后，有20(40)%的几率获得额外回合。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/master-of-the-nightmare.png",
+    "artwork": "/library/artifact-artworks/master-of-the-nightmare.png",
+    "publishDate": "2025-10-23 17:00:00"
+  },
+  {
+    "code": "butterfly-hair-ornament",
+    "name": "蝴蝶发夹",
+    "nameEn": "Butterfly Hair Ornament",
+    "nameZht": "蝴蝶髮夾",
+    "description": "芙莉莲赠予的生日礼物。菲伦总是别在头上，十分珍惜。",
+    "skillDescription": "攻击力提升10(20)%。\n攻击后，在2回合内获得相当于攻击力25.0(50.0)%的防护罩。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/butterfly-hair-ornament.png",
+    "artwork": "/library/artifact-artworks/butterfly-hair-ornament.png",
+    "publishDate": "2025-10-02 11:00:00"
+  },
+  {
+    "code": "mirrored-lotus-ring",
+    "name": "镜莲华戒指",
+    "nameEn": "Mirrored Lotus Ring",
+    "nameZht": "鏡蓮華戒指",
+    "description": "辛美尔赠予的戒指。镜莲华的花语是【永恒的爱情】。",
+    "skillDescription": "首次战斗开始时，获得灵魂10(20)点。\n回合开始时，有50(100)%的几率获得灵魂2点。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/mirrored-lotus-ring.png",
+    "artwork": "/library/artifact-artworks/mirrored-lotus-ring.png",
+    "publishDate": "2025-09-25 16:00:00"
+  },
+  {
+    "code": "lethal-whispers",
+    "name": "危险呢喃",
+    "nameEn": "Lethal Whispers",
+    "nameZht": "危險呢喃",
+    "description": "小姐危险的玩笑让护卫武士羞红了脸。护卫武士只能说服自己相信，一切都只是邪灵在作祟而已。",
+    "skillDescription": "回避提升20%。\n反击后，若目标仍存活，则有20(40)%的几率额外发动基本技能。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/lethal-whispers.png",
+    "artwork": "/library/artifact-artworks/lethal-whispers.png",
+    "publishDate": "2025-09-04 11:00:00"
+  },
+  {
+    "code": "queens-whistle",
+    "name": "女王之哨",
+    "nameEn": "Queen’s Whistle",
+    "nameZht": "女王之哨",
+    "description": "破碎的海浪留下洁白的浪花，在烈阳炙烤之下滚烫的沙滩。对她而言，在无尽反复的夏日中，总是会唤起内心深处的某种创伤阴霾。",
+    "skillDescription": "使全体我军人员攻击力提升5.0(10.0)%。\n攻击力最高的我军人员回合结束时，自身速攻值提升10(20)%。2回合仅能发动1次，该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/queens-whistle.png",
+    "artwork": "/library/artifact-artworks/queens-whistle.png",
+    "publishDate": "2025-07-17 17:00:00"
+  },
+  {
+    "code": "summer-photogenic",
+    "name": "夏日倩影",
+    "nameEn": "Summer Photogenic",
+    "nameZht": "夏日倩影",
+    "description": "今天的摄影师是好奇心满满的小猫咪！猫爪肉球不经意拍下的一抹倩影，成了夏日里一帧一帧堆叠起来的回忆。",
+    "skillDescription": "攻击力提升10(20)%。\n攻击时，若目标非精英、首领，则有50(100)%的几率无视伤害分配效果。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 0,
+      "def": 65
+    },
+    "image": "/library/artifacts/summer-photogenic.png",
+    "artwork": "/library/artifact-artworks/summer-photogenic.png",
+    "publishDate": "2025-07-03 17:00:00"
+  },
+  {
+    "code": "strike-of-aspiration",
+    "name": "夙愿一击",
+    "nameEn": "Strike of Aspiration",
+    "nameZht": "夙願一擊",
+    "description": "星辰剑士艾拉汇聚全身之力，蓄势发出最后一击。那一击承载了她长久以来的夙愿，势必要斩尽世上的一切邪恶。",
+    "skillDescription": "首次战斗开始时，有50(100)%的几率在1回合内获得免疫效果。\n回合开始时，若未处于弱化效果状态，则有50(100)%的几率在1回合内获得攻击力提升效果。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/strike-of-aspiration.png",
+    "artwork": "/library/artifact-artworks/strike-of-aspiration.png",
+    "publishDate": "2025-06-19 17:00:00"
+  },
+  {
+    "code": "an-assassins-pledge",
+    "name": "杀手的庇护",
+    "nameEn": "An Assassin’s Pledge",
+    "nameZht": "殺手的庇護",
+    "description": "“不管你是谁，不管你身在何处，我都一定会找到你，了结你。因为你的命很值钱。”",
+    "skillDescription": "全体攻击后，获得灵魂10点，有50(100)%的几率在1回合内造成烧伤效果。获得灵魂发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/an-assassins-pledge.png",
+    "artwork": "/library/artifact-artworks/an-assassins-pledge.png",
+    "publishDate": "2025-05-29 11:00:00"
+  },
+  {
+    "code": "discreet-hands",
+    "name": "隐秘之手",
+    "nameEn": "Discreet Hands",
+    "nameZht": "隱密之手",
+    "description": "利纳柯以疾风般的速度掏空委托人的口袋筹集犯罪资金。然而她不知道，有人正在注视着这一切……",
+    "skillDescription": "攻击力提升10(20)%。\n回合结束时，若处于弱化效果状态，则使速攻值提升15.0(30.0)%，并在2回合内获得隐身效果。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/discreet-hands.png",
+    "artwork": "/library/artifact-artworks/discreet-hands.png",
+    "publishDate": "2025-05-01 11:00:00"
+  },
+  {
+    "code": "moas",
+    "name": "M.O.A.S",
+    "nameEn": "M.O.A.S",
+    "nameZht": "M.O.A.S",
+    "description": "原本是研发出来用于防御魔法攻击的物品，但研发者心血来潮添加了自动追踪敌人的功能。\n“俗话说最好的防御就是主动出击……啧啧，地球人的格言真是燃爆了，你也这么觉得吧？”",
+    "skillDescription": "发动单一攻击后，有50(100)%的几率根据自身防御力对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/moas.png",
+    "artwork": "/library/artifact-artworks/moas.png",
+    "publishDate": "2025-04-24 17:00:00"
+  },
+  {
+    "code": "thorn-of-the-blue-rose",
+    "name": "蓝玫瑰尖刺",
+    "nameEn": "Thorn of the Blue Rose",
+    "nameZht": "藍玫瑰的尖刺",
+    "description": "一直沉睡在锡拉革家族宝库之中，无人能驾驭的魔剑。虽然会大量吸取持剑者的魔力，但也能发挥出同等强大的威力。\n克劳乌每次使用完这把剑后，总会以有副作用为借口申请带薪休假。",
+    "skillDescription": "首次战斗开始时，获得10点灵魂。\n攻击时，伤害量提升5.0(10.0)%；若使用灵魂燃烧，则伤害量额外提升10(20)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 0,
+      "def": 143
+    },
+    "image": "/library/artifacts/thorn-of-the-blue-rose.png",
+    "artwork": "/library/artifact-artworks/thorn-of-the-blue-rose.png",
+    "publishDate": "2025-04-10 17:00:00"
+  },
+  {
+    "code": "feed-of-criticism",
+    "name": "众矢之的",
+    "nameEn": "Feed of Criticism",
+    "nameZht": "眾矢之的",
+    "description": "随着误会日积月累，兔菈玫将自我越藏越深。在夜幕降临的房间里，她只希望大家能看到自己笨拙的真心。",
+    "skillDescription": "攻击力提升10(20)%。\n战斗开始时，在2回合内获得相当于攻击力50(100)%的防护罩。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/feed-of-criticism.png",
+    "artwork": "/library/artifact-artworks/feed-of-criticism.png",
+    "publishDate": "2025-02-13 11:00:00"
+  },
+  {
+    "code": "proof-of-love",
+    "name": "爱之印记",
+    "nameEn": "Proof of Love",
+    "nameZht": "愛之印記",
+    "description": "渴望吞噬斐妮的蛇之獠牙。斐妮似乎认为这是爹地表达爱意的独特方式。",
+    "skillDescription": "暴击率提升8.0(16.0)%。\n发动单一攻击后，暴击时，造成最多6.0(12.0)%的伤口效果。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/proof-of-love.png",
+    "artwork": "/library/artifact-artworks/proof-of-love.png",
+    "publishDate": "2025-01-23 11:00:00"
+  },
+  {
+    "code": "proof-of-friendship",
+    "name": "友情信物",
+    "nameEn": "Proof of Friendship",
+    "nameZht": "友情信物",
+    "description": "艾莲西雅送给小小赛娜的生日礼物，是一枚由她亲手制作的绿宝石胸针。当小小赛娜身处险境时，可以用它召唤艾莲西雅。",
+    "skillDescription": "使自身和除自身外前排我军人员的生命值提升5.0(10.0)%。\n回合结束时，有50(100)%的几率使前排我军人员速攻值提升15%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/proof-of-friendship.png",
+    "artwork": "/library/artifact-artworks/proof-of-friendship.png",
+    "publishDate": "2024-12-12 11:00:00"
+  },
+  {
+    "code": "homage-to-tarman",
+    "name": "致敬塔尔曼",
+    "nameEn": "Homage to Tarman",
+    "nameZht": "致敬塔爾曼",
+    "description": "先王塔尔曼的遗物，是一支价值不菲的定制名笔。原本陈列在专用的展示柜中，却被继承王位的修尼尔取出用作了签字笔。“工具不是用来供奉的，而是应该物尽其用。一国之君亦是如此。”",
+    "skillDescription": "我军人员受到攻击后，若所受伤害量在最大生命值的25%以上，则使目标在2回合内获得强度相当于自身最大生命值10(20)%的防护罩。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/homage-to-tarman.png",
+    "artwork": "/library/artifact-artworks/homage-to-tarman.png",
+    "publishDate": "2024-11-14 11:00:00"
+  },
+  {
+    "code": "dreamlike-holiday",
+    "name": "如梦假日",
+    "nameEn": "Dreamlike Holiday",
+    "nameZht": "如夢假日",
+    "description": "兰蒂送给芙兰的发饰。据说芙兰爱不释手，整个假期都戴着它。",
+    "skillDescription": "暴击伤害提升15.0(30.0)%。\n若非自身回合，则攻击时有50(100)%的几率在攻击前使自身在1回合内攻击力提升。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/dreamlike-holiday.png",
+    "artwork": "/library/artifact-artworks/dreamlike-holiday.png",
+    "publishDate": "2024-10-17 11:00:00"
+  },
+  {
+    "code": "renewed-will",
+    "name": "意志升华",
+    "nameEn": "Renewed Will",
+    "nameZht": "意志昇華",
+    "description": "母亲留下的遗物中有一本书，其中蕴含着她的知识与意志，以及各种冒险经历。而这一切最终成为了觉醒新生意志的基石。",
+    "skillDescription": "使全体我军人员攻击力提升5.0(10.0)%。\n发动全体攻击后，有50(100)%的几率使全体我军人员速攻值提升15%。3回合仅能发动1次，该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/renewed-will.png",
+    "artwork": "/library/artifact-artworks/renewed-will.png",
+    "publishDate": "2024-09-19 11:00:00"
+  },
+  {
+    "code": "spotted-mouse-hair-tie",
+    "name": "点点鼠发圈",
+    "nameEn": "Spotted Mouse Hair Tie",
+    "nameZht": "點點鼠髮圈",
+    "description": "小泡芙怕弗莉达弄湿长发而送给她的发圈。虽然当着大家的面一直抱怨说很幼稚，但弗莉达心里其实爱不释手。",
+    "skillDescription": "首次战斗开始时，获得10点灵魂。我军人员使用灵魂燃烧后，有50(100)%的几率获得10点灵魂。发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/spotted-mouse-hair-tie.png",
+    "artwork": "/library/artifact-artworks/spotted-mouse-hair-tie.png",
+    "publishDate": "2024-08-22 11:00:00"
+  },
+  {
+    "code": "magic-bubble-maker",
+    "name": "魔法泡泡机",
+    "nameEn": "Magic Bubble Maker",
+    "nameZht": "魔法泡泡機",
+    "description": "爷爷，您说过，只要活着，一定会迎来好日子。看到那些因我而露出笑容的人们，我好像明白了。爷爷说的好日子已经到来了。",
+    "skillDescription": "效果命中提升15.0(30.0)%。\n在自身回合攻击后，有35.0(70.0)%的几率对目标在1回合内造成随机弱化效果。（速度降低、晕眩、无法恢复、剧毒其中之一）",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/magic-bubble-maker.png",
+    "artwork": "/library/artifact-artworks/magic-bubble-maker.png",
+    "publishDate": "2024-08-08 11:00:00"
+  },
+  {
+    "code": "ruyi-jingu-bang",
+    "name": "如意金箍棒",
+    "nameEn": "Ruyi Jingu Bang",
+    "nameZht": "如意金箍棒",
+    "description": "曾被前人用作测量江河湖海深浅的定子。由于重达万斤，一直无人有本事将其作为武器使用。唯有悟空可以驾驭自如，这一神珍也就此成为了他的战斗兵器。",
+    "skillDescription": "暴击率提升12.0(24.0)%、暴击抗性提升20%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/ruyi-jingu-bang.png",
+    "artwork": "/library/artifact-artworks/ruyi-jingu-bang.png",
+    "publishDate": "2024-06-20 17:00:00"
+  },
+  {
+    "code": "pipette-lance",
+    "name": "滴管长枪",
+    "nameEn": "Pipette Lance",
+    "nameZht": "滴管長槍",
+    "description": "夏提雅的主武器神器级马上枪。其形态是一个被金属部件覆盖的巨大滴管。具有能够根据自身所造成的伤害等比恢复生命值的强大效果。",
+    "skillDescription": "单一攻击时，伤害量提升10(20)%，并将伤害量的15%作为生命值恢复。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/pipette-lance.png",
+    "artwork": "/library/artifact-artworks/pipette-lance.png",
+    "publishDate": "2024-04-25 16:00:00"
+  },
+  {
+    "code": "3f",
+    "name": "3F",
+    "nameEn": "3F",
+    "nameZht": "3F",
+    "description": "雅儿贝德的主武器巨型斧枪。对于不尊敬安兹的无礼之辈，她将毫不犹豫地挥舞手中的斧枪予以惩罚。",
+    "skillDescription": "攻击后，有50(100)%的几率根据自身最大生命值对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/3f.png",
+    "artwork": "/library/artifact-artworks/3f.png",
+    "publishDate": "2024-04-18 11:00:00"
+  },
+  {
+    "code": "dark-blood-keeper",
+    "name": "黑血守护者",
+    "nameEn": "Dark Blood Keeper",
+    "nameZht": "黑血守護者",
+    "description": "为坚守誓言之人锻造而成的伦诺克斯家族宝剑。康威尔将此剑授予为保护自己而失去了一条腿的济纽亚·萝兰，并致以了深深的感谢与敬意。",
+    "skillDescription": "攻击力提升15%。\n使用非攻击类技能后，有50(100)%的几率在2回合内获得隐身效果。隐身效果3回合仅能发动1次。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/dark-blood-keeper.png",
+    "artwork": "/library/artifact-artworks/dark-blood-keeper.png",
+    "publishDate": "2024-03-21 11:00:00"
+  },
+  {
+    "code": "sweet-miracle",
+    "name": "甜蜜奇迹",
+    "nameEn": "Sweet Miracle",
+    "nameZht": "甜蜜奇蹟",
+    "description": "对我来说，在舞台上放声歌唱的瞬间如同奇迹一般。与我们一起分享这甜蜜的奇迹吧！",
+    "skillDescription": "生命值提升5.0(10.0)%。\n回合开始时，有50(100)%的几率使自身的弱化效果减少1回合。3回合仅能发动1次。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/sweet-miracle.png",
+    "artwork": "/library/artifact-artworks/sweet-miracle.png",
+    "publishDate": "2024-02-08 11:00:00"
+  },
+  {
+    "code": "beguiling-wings",
+    "name": "迷惑羽翼",
+    "nameEn": "Beguiling Wings",
+    "nameZht": "迷惑羽翼",
+    "description": "“遇见我，你便只能坐以待毙。”如墨的黑夜中，她扇动翅膀的声音所及之处，只余下一片死寂。",
+    "skillDescription": "效果抗性提升15.0(30.0)%。\n发动除基本技能外的攻击后，若未发生暴击，则使敌人减少灵魂10(20)点。减少灵魂4回合仅能发动1次。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/beguiling-wings.png",
+    "artwork": "/library/artifact-artworks/beguiling-wings.png",
+    "publishDate": "2024-01-11 11:00:00"
+  },
+  {
+    "code": "seductive-flower",
+    "name": "诱惑之花",
+    "nameEn": "Seductive Flower",
+    "nameZht": "誘惑之花",
+    "description": "“细细咀嚼，慢慢消化……你我将会融为一体，重获新生。”她引诱猎物的声音，听起来是如此甜美。",
+    "skillDescription": "效果命中提升15.0(30.0)%。\n发动额外攻击后，使目标速攻值降低12(24)%。2回合仅能发动1次。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/seductive-flower.png",
+    "artwork": "/library/artifact-artworks/seductive-flower.png",
+    "publishDate": "2023-12-28 11:00:00"
+  },
+  {
+    "code": "old-gardening-shears",
+    "name": "老旧园艺剪刀",
+    "nameEn": "Old Gardening Shears",
+    "nameZht": "老舊園藝剪刀",
+    "description": "“这个已经不能用了，不然会坏掉的。毕竟是小孩子用零花钱买的便宜货嘛。”维波里丝这样说着，然后将剪刀小心翼翼地放进了抽屉里。",
+    "skillDescription": "发动除基本技能外的全体攻击后，有60%的几率对目标在1回合内造成随机弱化效果，有50(100)%的几率使自身在1回合内获得隐身效果。1回合仅能发动1次。（攻击力降低、速度降低、无法恢复、沉默其中之一）",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/old-gardening-shears.png",
+    "artwork": "/library/artifact-artworks/old-gardening-shears.png",
+    "publishDate": "2023-12-14 11:00:00"
+  },
+  {
+    "code": "umbral-keystones",
+    "name": "暗影源石",
+    "nameEn": "Umbral Keystones",
+    "nameZht": "暗影源石",
+    "description": "芙米尔用于研究魔法及保管魔力的各色宝石。虽然与生俱来的魔法天赋并不会受材料所影响，但她特意选用了精美的宝石，这也反映出了她的审美取向。",
+    "skillDescription": "使全体我军人员的效果命中提升10%。\n除自身外的我军人员回合每结束2次，自身速攻值提升10(20)%。2回合仅能发动1次。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/umbral-keystones.png",
+    "artwork": "/library/artifact-artworks/umbral-keystones.png",
+    "publishDate": "2023-11-16 11:00:00"
+  },
+  {
+    "code": "tyrants-descent",
+    "name": "暴君血统",
+    "nameEn": "Tyrant's Descent",
+    "nameZht": "暴君的血統",
+    "description": "总是以血流成河的惨状为战斗画下句点，令人闻风丧胆的德雷克家族所留下的传家之宝。直到最后的继承人出现，再度掀起腥风血雨之际，失传已久的宝物才终于重现于世。",
+    "skillDescription": "攻击时，伤害量提升8.0(16.0)%，目标每附带1个弱化效果，提升4%，最多可提升24.0(32.0)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/tyrants-descent.png",
+    "artwork": "/library/artifact-artworks/tyrants-descent.png",
+    "publishDate": "2023-10-19 11:00:00"
+  },
+  {
+    "code": "elegiac-candle",
+    "name": "慰灵烛光",
+    "nameEn": "Elegiac Candle",
+    "nameZht": "慰靈燭光",
+    "description": "每当封印恶鬼之后，她总是会回到祠堂点燃烛火。祈愿众生皆能安眠。",
+    "skillDescription": "攻击后，有30.0(60.0)%的几率在1回合内对目标造成防御力降低。额外攻击、反击、夹攻时不会发动。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/elegiac-candle.png",
+    "artwork": "/library/artifact-artworks/elegiac-candle.png",
+    "publishDate": "2023-09-27 15:30:00"
+  },
+  {
+    "code": "hostess-of-the-banquet",
+    "name": "宴会之主",
+    "nameEn": "Hostess of the Banquet",
+    "nameZht": "宴會之主",
+    "description": "在黑暗降临的地下，随着悲鸣和痛苦席卷而过，新的主人方才现身，驾临其位。",
+    "skillDescription": "效果抗性提升20(40)%。\n攻击时，伤害量提升5.0(10.0)%；若目标的生命值在50%以上，则伤害量额外提升4.0(8.0)%。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/hostess-of-the-banquet.png",
+    "artwork": "/library/artifact-artworks/hostess-of-the-banquet.png",
+    "publishDate": "2023-09-21 11:00:00"
+  },
+  {
+    "code": "broken-will-of-the-priest",
+    "name": "残破的祭司长意志",
+    "nameEn": "Broken Will of the Priest",
+    "nameZht": "殘破的祭司長意志",
+    "description": "某位德高望重的祭司长曾持有的信物，象征信徒对诺伊亚斯的虔诚之心。虽然信物早已残破不堪，但他的信念仍会被留存之人传承下去，永不熄灭。",
+    "skillDescription": "命中提升10(20)%。\n攻击时，对目标造成8.0(16.0)%的防御力穿透。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/broken-will-of-the-priest.png",
+    "artwork": "/library/artifact-artworks/broken-will-of-the-priest.png",
+    "publishDate": "2023-09-07 11:00:00"
+  },
+  {
+    "code": "prayer-of-solitude",
+    "name": "孤独祈祷",
+    "nameEn": "Prayer of Solitude",
+    "nameZht": "孤獨的祈禱",
+    "description": "在笼罩着漆黑帷幕的夜空下，她独自仰望着天边那一颗璀璨的星星，恳切地期盼着那缕星光明日也能洒落自己身畔。",
+    "skillDescription": "生命值提升5.0(10.0)%。\n攻击时，伤害量提升5.0(10.0)%，若为额外攻击，则伤害量额外提升5.0(10.0)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/prayer-of-solitude.png",
+    "artwork": "/library/artifact-artworks/prayer-of-solitude.png",
+    "publishDate": "2023-07-20 17:00:00"
+  },
+  {
+    "code": "sole-consolation",
+    "name": "唯一慰藉",
+    "nameEn": "Sole Consolation",
+    "nameZht": "唯一的慰藉",
+    "description": "“只要有你在我身边，我就能忘记所有的疲惫。”有时比起千言万语，指尖感受到的小小温暖会带来更多的安慰。",
+    "skillDescription": "效果抗性提升20(40)%。\n敌人使用非攻击类技能后，使自身速攻值提升8.0(16.0)%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/sole-consolation.png",
+    "artwork": "/library/artifact-artworks/sole-consolation.png",
+    "publishDate": "2023-07-06 17:00:00"
+  },
+  {
+    "code": "golden-rose",
+    "name": "金玫瑰",
+    "nameEn": "Golden Rose",
+    "nameZht": "金玫瑰",
+    "description": "为了铭记布罗德露斯家族历史上的全盛时期而用黄金特制的玫瑰。象征着永恒的美丽与热情。",
+    "skillDescription": "攻击时，若自身生命值在50%以上，则伤害量提升8.0(16.0)%；若生命值低于50%，则将伤害量的15.0(30.0)%作为生命值恢复。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/golden-rose.png",
+    "artwork": "/library/artifact-artworks/golden-rose.png",
+    "publishDate": "2023-06-01 11:00:00"
+  },
+  {
+    "code": "benimarus-tachi",
+    "name": "红丸之刀",
+    "nameEn": "Benimaru's Tachi",
+    "nameZht": "紅丸之刀",
+    "description": "总司令官红丸所使用的刀。由刀匠黑兵卫锻造而成，剑身坚韧，工艺精良，足以承受红丸的烈焰。",
+    "skillDescription": "首次战斗开始时，有50(100)%的几率在1回合内获得免疫效果。\n回合开始时，若未处于弱化效果状态，则有50(100)%的几率在1回合内获得攻击力提升效果。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/benimarus-tachi.png",
+    "artwork": "/library/artifact-artworks/benimarus-tachi.png",
+    "publishDate": "2023-05-11 17:00:00"
+  },
+  {
+    "code": "an-offer-you-cant-refuse",
+    "name": "无法拒绝的提议",
+    "nameEn": "An Offer You Can't Refuse",
+    "nameZht": "無法拒絕的提議",
+    "description": "这把手枪是艾利戈斯走出塔拉诺尔的黑街暗巷后，草创事业时购买的。如果发生必须要解决的矛盾，他便会抽出这把手枪。",
+    "skillDescription": "发动单一攻击时，对目标造成10(20)%的防御力穿透。\n发动单一攻击后，若目标所受伤害量在最大生命值的50%以上，则有50(100)%的几率使全体我军人员速攻值提升15%。速攻值提升效果1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/an-offer-you-cant-refuse.png",
+    "artwork": "/library/artifact-artworks/an-offer-you-cant-refuse.png",
+    "publishDate": "2023-03-23 11:00:00"
+  },
+  {
+    "code": "fan-of-light-and-dark",
+    "name": "昏明之扇",
+    "nameEn": "Fan of Light and Dark",
+    "nameZht": "昏明之扇",
+    "description": "很久以前，暗之精灵王诺伊亚斯赐予暗影妖精的物品之一。此后，西瓦纳为安身于纳特伦的暗影妖精降下祝福，并对其赋予了自身的一部分力量。",
+    "skillDescription": "使用2次非攻击类技能后，使攻击力最高的我军人员速攻值提升10(20)%，并有50(100)%的几率在2回合内使暴击伤害提升。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/fan-of-light-and-dark.png",
+    "artwork": "/library/artifact-artworks/fan-of-light-and-dark.png",
+    "publishDate": "2023-02-23 11:00:00"
+  },
+  {
+    "code": "sphere-of-inferno",
+    "name": "焚灭之球",
+    "nameEn": "Sphere of Inferno",
+    "nameZht": "焚滅之球",
+    "description": "与雨修的意识相连的蓝色火花。会根据意志变成多种形态，还可以甄别攻击目标。但缺点是需要以生命力为代价燃烧，因此不能长时间使用。",
+    "skillDescription": "使用非攻击类技能后，使自身速攻值提升10(20)%，并在下一次攻击后，在2回合内对目标造成烧伤效果。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/sphere-of-inferno.png",
+    "artwork": "/library/artifact-artworks/sphere-of-inferno.png",
+    "publishDate": "2023-01-26 11:00:00"
+  },
+  {
+    "code": "rocket-punch-gauntlet",
+    "name": "Rocket Punch",
+    "nameEn": "Rocket Punch Gauntlet",
+    "nameZht": "火箭拳擊手",
+    "description": "ae-KARINA的主武器。物如其名，是能一击摧毁一切敌人的强力拳套。",
+    "skillDescription": "发动单一攻击后，有50(100)%的几率根据自身防御力对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/rocket-punch-gauntlet.png",
+    "artwork": "/library/artifact-artworks/rocket-punch-gauntlet.png",
+    "publishDate": "2022-12-22 16:00:00"
+  },
+  {
+    "code": "frame-of-light",
+    "name": "Frame of Light",
+    "nameEn": "Frame of Light",
+    "nameZht": "光之框架",
+    "description": "透明发光的ae-GISELLE专属特别框架。任何存在只要被框住，便会动弹不得。",
+    "skillDescription": "发动单一攻击时，伤害量提升8.0(16.0)%。\n若使用单一攻击消灭敌人，则下一回合开始时，获得10点灵魂。消灭时效果发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/frame-of-light.png",
+    "artwork": "/library/artifact-artworks/frame-of-light.png",
+    "publishDate": "2022-12-15 11:00:00"
+  },
+  {
+    "code": "the-armament",
+    "name": "Armament",
+    "nameEn": "The Armament",
+    "nameZht": "兵器",
+    "description": "ae-WINTER的主武器。如它的名字Armament（兵器）一般，可以变成任意形态的武器，即使身处再恶劣的战场，也能发挥出最佳性能。",
+    "skillDescription": "暴击率提升15%。\n使用非攻击类技能后，在2回合内获得强度相当于等级x30(60)的防护罩。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/the-armament.png",
+    "artwork": "/library/artifact-artworks/the-armament.png",
+    "publishDate": "2022-11-24 16:00:00"
+  },
+  {
+    "code": "sword-of-autumn-eclipse",
+    "name": "秋端染刀",
+    "nameEn": "Sword of Autumn Eclipse",
+    "nameZht": "秋端染刀",
+    "description": "长久以来由大草原的兽人代代相传的【秋日之剑】。据说未经认可之人无法将其举起。它会赐予使用者及其周围的存在毫不动摇的勇气和希望。",
+    "skillDescription": "使全体我军人员攻击力提升5.0(10.0)%，使自身命中提升10(20)%。该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-autumn-eclipse.png",
+    "artwork": "/library/artifact-artworks/sword-of-autumn-eclipse.png",
+    "publishDate": "2022-11-03 11:00:00"
+  },
+  {
+    "code": "spatiotemporal-fan",
+    "name": "时空折扇",
+    "nameEn": "Spatiotemporal Fan",
+    "nameZht": "時空摺扇",
+    "description": "可以创造空间裂痕，在任意地点开启并关闭次元之门的扇子。门的另一侧是由路雅的力量打造而成的虚幻空间，据说没有她的允许，任何人都无法从中逃离。",
+    "skillDescription": "效果命中提升20%。\n使用非攻击类技能后，有50(100)%的几率使除自身外攻击力最高的我军人员在2回合内获得隐身效果。3回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/spatiotemporal-fan.png",
+    "artwork": "/library/artifact-artworks/spatiotemporal-fan.png",
+    "publishDate": "2022-10-06 11:00:00"
+  },
+  {
+    "code": "ignition-cloth-gloves",
+    "name": "发火布手套",
+    "nameEn": "Ignition Cloth Gloves",
+    "nameZht": "發火布手套",
+    "description": "画有炼成阵，且由特殊发火布制成的手套。配合罗伊调节氧气浓度的炼金术，可以产生巨大的火力。",
+    "skillDescription": "命中提升10(20)%，攻击力提升7.0(14.0)%。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/ignition-cloth-gloves.png",
+    "artwork": "/library/artifact-artworks/ignition-cloth-gloves.png",
+    "publishDate": "2022-09-01 16:00:00"
+  },
+  {
+    "code": "fullmetals-automail",
+    "name": "钢铁机械铠",
+    "nameEn": "Fullmetal's Automail",
+    "nameZht": "鋼鐵機械鎧",
+    "description": "温莉为弥补失去的手臂与腿而制作的义肢。虽然在战斗中经常破损，但每次修理后，都会变得更加坚固。是一件温莉引以为傲的杰作。",
+    "skillDescription": "暴击率提升10%。\n发动额外攻击后，暴击伤害提升4.0(8.0)%，速度提升4.0(8.0)%。最多可叠加4次。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/fullmetals-automail.png",
+    "artwork": "/library/artifact-artworks/fullmetals-automail.png",
+    "publishDate": "2022-08-25 11:00:00"
+  },
+  {
+    "code": "mature-sunglasses",
+    "name": "成熟的墨镜",
+    "nameEn": "Mature Sunglasses",
+    "nameZht": "成熟的墨鏡",
+    "description": "想靠饰品增添成熟气质而购买的墨镜。\n在家里不停对着镜子试戴了好几十次的事情要保密。",
+    "skillDescription": "暴击伤害提升15.0(30.0)%。\n受到攻击时，获得10(20)%的伤害降低效果。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/mature-sunglasses.png",
+    "artwork": "/library/artifact-artworks/mature-sunglasses.png",
+    "publishDate": "2022-07-28 11:00:00"
+  },
+  {
+    "code": "sacred-tree-branch",
+    "name": "神木树枝",
+    "nameEn": "Sacred Tree Branch",
+    "nameZht": "神木樹枝",
+    "description": "巡礼者在举行仪式时使用的神物。此物由昔日巨大神木的一部分制成。据说可以将使用者的预知能力提升到极限，从而窥探未来的多种可能。",
+    "skillDescription": "效果命中提升15.0(30.0)%。\n攻击后，使自身和除自身外攻击力最高的我军人员速攻值提升10%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/sacred-tree-branch.png",
+    "artwork": "/library/artifact-artworks/sacred-tree-branch.png",
+    "publishDate": "2022-07-21 15:00:00"
+  },
+  {
+    "code": "sphere-of-sadism",
+    "name": "嗜虐之球",
+    "nameEn": "Sphere of Sadism",
+    "nameZht": "嗜虐之球",
+    "description": "与律荷意识相连的金属球体。球体形状和硬度可根据她的意志自由变换。通常用于防御自身，但有时也会用于攻击。即使遭到破坏，也可瞬间自动修复。",
+    "skillDescription": "战斗开始时，根据最大生命值使自身在2回合内获得等比强度的防护罩。\n发动单一攻击时，若自身处于防护罩状态，则伤害量提升10(20)%。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/sphere-of-sadism.png",
+    "artwork": "/library/artifact-artworks/sphere-of-sadism.png",
+    "publishDate": "2022-06-16 11:00:00"
+  },
+  {
+    "code": "spear-of-purification",
+    "name": "破邪之矛",
+    "nameEn": "Spear of Purification",
+    "nameZht": "破邪之鎗",
+    "description": "使用在遥远过去的大战中，历经无数牺牲才击倒的大妖怪的肉体和力量制作的矛。虽然能将使用者的身体能力提升至极限，但大部分人都无法承受矛之力，因此迎来了悲惨的结局。",
+    "skillDescription": "攻击力提升10(20)%。\n敌人使用非攻击类技能后，使自身速攻值提升10%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/spear-of-purification.png",
+    "artwork": "/library/artifact-artworks/spear-of-purification.png",
+    "publishDate": "2022-05-05 11:00:00"
+  },
+  {
+    "code": "scroll-of-shadows",
+    "name": "暗影之书",
+    "nameEn": "Scroll of Shadows",
+    "nameZht": "暗影之書",
+    "description": "可以通过暗影魔法进行契约召唤的卷轴。随着可以使用的魔法种类增多，卷轴上的字也变得更加密集。",
+    "skillDescription": "在非自身回合攻击时，伤害量提升8.0(16.0)%，攻击后，有50%的几率对目标在1回合内造成随机弱化效果。（防御力降低、速度降低、沉默、无法强化其中之一）",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/scroll-of-shadows.png",
+    "artwork": "/library/artifact-artworks/scroll-of-shadows.png",
+    "publishDate": "2022-04-07 11:00:00"
+  },
+  {
+    "code": "indestructible-gaiters",
+    "name": "金刚绑腿",
+    "nameEn": "Indestructible Gaiters",
+    "nameZht": "金剛綁腿",
+    "description": "自和英踏上格斗家之路后便一直配戴的绑腿。据传是融合了多个古老种族技术制作而成的物品。虽然已经久经沙场，但它足够坚固耐用，没有任何痕迹留下。",
+    "skillDescription": "攻击力提升10%。\n攻击时，若未触发暴击，则有50(100)%的几率在1回合内造成烧伤效果。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/indestructible-gaiters.png",
+    "artwork": "/library/artifact-artworks/indestructible-gaiters.png",
+    "publishDate": "2022-02-24 11:00:00"
+  },
+  {
+    "code": "goblet-of-oath",
+    "name": "誓言之杯",
+    "nameEn": "Goblet of Oath",
+    "nameZht": "誓言之杯",
+    "description": "被灭的沛伊拉一族流传下来的物品。其中蕴含着历代族长们的力量，据说举行仪式之人将获得积攒已久的力量和精神。但凡俗之辈在仪式结束后将无法维持完整的心智，所以挑战仪式的人屈指可数。",
+    "skillDescription": "效果命中提升15.0(30.0)%。\n使用非攻击类技能后，使技能冷却时间减少1回合。在1次战斗中，发动3次后无法再次发动。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/goblet-of-oath.png",
+    "artwork": "/library/artifact-artworks/goblet-of-oath.png",
+    "publishDate": "2022-01-27 11:00:00"
+  },
+  {
+    "code": "pure-white-trust",
+    "name": "纯白信赖",
+    "nameEn": "Pure White Trust",
+    "nameZht": "純白的信賴",
+    "description": "很久以前，暗影精灵与人类交流时，赠予了剑和服饰作为信赖的象征。其中蕴含了精灵的祝福和暗影妖精的魔力。它们几经易主，最后由于人类王国的灭亡，落入了札哈克的手中。",
+    "skillDescription": "使用非攻击类技能后，获得10点灵魂，并有50(100)%的几率使自身在2回合内暴击伤害提升。获得灵魂发动1次后不会再次发动。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/pure-white-trust.png",
+    "artwork": "/library/artifact-artworks/pure-white-trust.png",
+    "publishDate": "2021-11-25 16:00:00"
+  },
+  {
+    "code": "upgraded-dragon-knuckles",
+    "name": "改良型龙指虎",
+    "nameEn": "Upgraded Dragon Knuckles",
+    "nameZht": "改良型龍指虎",
+    "description": "改良型龙指虎是利姆鲁送给米莉姆的礼物，也是具有【攻击力控制效果】的力量调节工具。米莉姆似乎十分中意利姆鲁的这份礼物。",
+    "skillDescription": "受到攻击时，若未发生暴击，则有15.0(30.0)%的几率发动反击。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/upgraded-dragon-knuckles.png",
+    "artwork": "/library/artifact-artworks/upgraded-dragon-knuckles.png",
+    "publishDate": "2021-11-04 11:00:00"
+  },
+  {
+    "code": "sword-of-winter-shadow",
+    "name": "冬晷切刀",
+    "nameEn": "Sword of Winter Shadow",
+    "nameZht": "冬晷切刀",
+    "description": "在很久以前锻造而成的【冬日之剑】，是四季之剑的其中之一。它与其他剑不同，其内含的力量不加节制地溢流在表面。正因如此，据说如果未被选中之人手持此剑，则会因无法承受其力量而被全身冻结。",
+    "skillDescription": "攻击力提升15%。\n使用非攻击类技能后，各有50(100)%的几率获得10点灵魂，并使敌人减少灵魂10点。获得灵魂发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-winter-shadow.png",
+    "artwork": "/library/artifact-artworks/sword-of-winter-shadow.png",
+    "publishDate": "2021-10-14 15:00:00"
+  },
+  {
+    "code": "star-of-the-deep-sea",
+    "name": "深海漂浮之星",
+    "nameEn": "Star of the Deep Sea",
+    "nameZht": "深海漂浮之星",
+    "description": "偶见于贝壳中的，散发奥妙光泽的宝石。传说这是在大海中梳妆完毕的星辰拂去水珠时滴落的碎片。",
+    "skillDescription": "效果命中提升15.0(30.0)%。\n使用基本技能后，有50(100)%的几率对目标在2回合内造成炸弹效果。只适用于单一攻击，额外攻击、反击、夹攻时不会发动。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/star-of-the-deep-sea.png",
+    "artwork": "/library/artifact-artworks/star-of-the-deep-sea.png",
+    "publishDate": "2021-08-26 11:00:00"
+  },
+  {
+    "code": "azure-comet",
+    "name": "青光彗星",
+    "nameEn": "Azure Comet",
+    "nameZht": "青光彗星",
+    "description": "带有锁链的相当沉重的铁球，但雷姆却能够操控自如。",
+    "skillDescription": "暴击率提升15%。\n有人死亡时，使自身速攻值提升12.0(24.0)%。1回合内仅能发动1次。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/azure-comet.png",
+    "artwork": "/library/artifact-artworks/azure-comet.png",
+    "publishDate": "2021-08-05 15:30:00"
+  },
+  {
+    "code": "guardian-ice-crystals",
+    "name": "守护的冰封碎片",
+    "nameEn": "Guardian Ice Crystals",
+    "nameZht": "守護的冰封碎片",
+    "description": "爱蜜莉雅生成冰封碎片来守护自己珍贵的人。",
+    "skillDescription": "效果抗性提升15%。\n我军之中有人受到攻击后，若生命值在50%以下，则使目标生命值恢复10(20)%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/guardian-ice-crystals.png",
+    "artwork": "/library/artifact-artworks/guardian-ice-crystals.png",
+    "publishDate": "2021-08-05 15:30:00"
+  },
+  {
+    "code": "elbris-ritual-sword",
+    "name": "埃布利斯的宝剑",
+    "nameEn": "Elbris Ritual Sword",
+    "nameZht": "埃布利斯的寶劍",
+    "description": "剑锋处处皆渗入魔力的泉源，世上最棒的名剑之一。妖精首长家族数千年来流传下来的宝剑，此剑的主人即为妖精之王。",
+    "skillDescription": "除自身外的我军人员受到攻击时，有10(20)%的几率发动反击。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/elbris-ritual-sword.png",
+    "artwork": "/library/artifact-artworks/elbris-ritual-sword.png",
+    "publishDate": "2021-07-15 11:00:00"
+  },
+  {
+    "code": "wings-of-light-and-shadow",
+    "name": "明暗双翼",
+    "nameEn": "Wings of Light and Shadow",
+    "nameZht": "明暗雙翼",
+    "description": "以悲愤炼制，用怨怼锻造的长矛。在白色闪光下，万物皆无奈崩溃，在黑色暗影中，一切都无法逃脱。",
+    "skillDescription": "暴击率提升15%。\n攻击时，伤害量提升7.0(14.0)%；暴击时，下一次攻击的伤害量额外提升4.0(8.0)%。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/wings-of-light-and-shadow.png",
+    "artwork": "/library/artifact-artworks/wings-of-light-and-shadow.png",
+    "publishDate": "2021-06-03 11:00:00"
+  },
+  {
+    "code": "spear-of-a-new-dawn",
+    "name": "开辟之矛",
+    "nameEn": "Spear of a New Dawn",
+    "nameZht": "開闢之鎗",
+    "description": "据说是夺回王位建立新王国的骑士王使用的武器。因为传说拥有这支矛的人可以开启新时代，所以成为了使很多人眼热的宝物，但目前下落不明。不过，最近有目击者发现，银发的骑士拥有着与其相仿的一支矛。",
+    "skillDescription": "使用基本技能后，有50(100)%的几率根据自身攻击力对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/spear-of-a-new-dawn.png",
+    "artwork": "/library/artifact-artworks/spear-of-a-new-dawn.png",
+    "publishDate": "2021-05-06 11:00:00"
+  },
+  {
+    "code": "twilight-calamity",
+    "name": "落日之灾",
+    "nameEn": "Twilight Calamity",
+    "nameZht": "落日之災",
+    "description": "据说，凡是目睹到那手杖末端灿烂黄昏的人，全都被吸入了比血还要鲜红的光束之中。",
+    "skillDescription": "效果命中提升15.0(30.0)%。\n我军人员使用非攻击类技能后，有50(100)%的几率使自身在2回合内获得攻击力提升效果。2回合仅能发动1次。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/twilight-calamity.png",
+    "artwork": "/library/artifact-artworks/twilight-calamity.png",
+    "publishDate": "2021-03-11 11:00:00"
+  },
+  {
+    "code": "knowledge-seed",
+    "name": "知识种子",
+    "nameEn": "Knowledge Seed",
+    "nameZht": "知識種子",
+    "description": "佛里蒂丝曾经居住的星球帕拉笛亚，为末日的到来而制造的太空舱。即使行星消失，也可以让人们留下的文化遗产得以保全，所保存的各种信息从技术和知识到文化艺术应有尽有。",
+    "skillDescription": "若受到致命伤害，则有50(100)%的几率使除自身外的全体我军人员在2回合内获得随机强化效果（攻击力大幅提升、防御力提升、回避提升、免疫、暴击抗性提升其中之一）。每场战斗仅能发动1次。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/knowledge-seed.png",
+    "artwork": "/library/artifact-artworks/knowledge-seed.png",
+    "publishDate": "2021-01-28 11:00:00"
+  },
+  {
+    "code": "fairy-tale-for-a-nightmare",
+    "name": "噩梦童话",
+    "nameEn": "Fairy Tale for a Nightmare",
+    "nameZht": "惡夢的童話",
+    "description": "飘着蓝色裙子，像兔子一样蹦蹦跳跳的少女究竟要往哪里去呢？童话书也许知道答案。",
+    "skillDescription": "发动额外攻击、反击、夹攻后，有40(80)%的几率解除目标的1个强化效果，有100%的几率造成1000(2000)点额外伤害。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/fairy-tale-for-a-nightmare.png",
+    "artwork": "/library/artifact-artworks/fairy-tale-for-a-nightmare.png",
+    "publishDate": "2020-12-24 15:00:00"
+  },
+  {
+    "code": "ancient-dragons-legacy",
+    "name": "古龙遗产",
+    "nameEn": "Ancient Dragon's Legacy",
+    "nameZht": "古龍遺產",
+    "description": "可以移动到珍贵的货币和武具熟睡的金黄色房间的魔法道具。只要打开锁，就可以从任何地方进入连接宝库的通道。",
+    "skillDescription": "使用非攻击类技能后，使全体我军人员的技能冷却时间减少1回合，并有50(100)%的几率使自身在2回合内暴击伤害提升。技能冷却时间减少效果发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/ancient-dragons-legacy.png",
+    "artwork": "/library/artifact-artworks/ancient-dragons-legacy.png",
+    "publishDate": "2020-12-17 11:00:00"
+  },
+  {
+    "code": "unseen-observer",
+    "name": "隐形的观察者",
+    "nameEn": "Unseen Observer",
+    "nameZht": "隱形的觀察者",
+    "description": "专为芙兰制作的便携式数据终端。支持全息图输出，可以随时随地访问情报网络确认佛里蒂亚的情况。",
+    "skillDescription": "使用非攻击类技能后，自身速攻值提升10(20)%，并获得灵魂10点。获得灵魂发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/unseen-observer.png",
+    "artwork": "/library/artifact-artworks/unseen-observer.png",
+    "publishDate": "2020-11-19 15:00:00"
+  },
+  {
+    "code": "sword-of-summer-twilight",
+    "name": "夏夜闪刀",
+    "nameEn": "Sword of Summer Twilight",
+    "nameZht": "夏夜閃刀",
+    "description": "向维德瑞传授御剑术的东方剑士所赐的剑。在午夜的月光照耀时会隐隐发光。据说是很久以前特别打造的四把剑之一的【夏日之剑】。",
+    "skillDescription": "发动全体攻击时，对目标造成10(20)%的防御力穿透。\n用全体攻击消灭敌人时，使除自身外的全体我军人员速攻值提升10%。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-summer-twilight.png",
+    "artwork": "/library/artifact-artworks/sword-of-summer-twilight.png",
+    "publishDate": "2020-11-12 15:00:00"
+  },
+  {
+    "code": "last-teatime",
+    "name": "最后的下午茶",
+    "nameEn": "Last Teatime",
+    "nameZht": "最後的下午茶",
+    "description": "“小姐，恭喜您终于找到您想要的东西了。”\n“我的事什么时候轮到你管了，蠢货。”\n巴尔看着找到用于禁忌魔法仪式咒语的塞尚，露出了一抹微笑。然而他们对接下来即将发生的事情浑然未觉……",
+    "skillDescription": "发动全体攻击时，伤害量提升7.0(14.0)%，并有10(20)%的几率使技能冷却时间减少1回合。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/last-teatime.png",
+    "artwork": "/library/artifact-artworks/last-teatime.png",
+    "publishDate": "2020-10-08 16:00:00"
+  },
+  {
+    "code": "samsara-prayer-beads",
+    "name": "循环念珠",
+    "nameEn": "Samsara Prayer Beads",
+    "nameZht": "循環念珠",
+    "description": "“现在我是不是……也可以变强一些了？”\n从很久以前流传下来的来历不明的念珠。据说根据使用者的属性，可以让其使用部分自然之力。",
+    "skillDescription": "发动单一攻击时，伤害量提升10%。\n受到单一攻击时，获得8.0(16.0)%的伤害降低效果。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/samsara-prayer-beads.png",
+    "artwork": "/library/artifact-artworks/samsara-prayer-beads.png",
+    "publishDate": "2020-10-01 11:00:00"
+  },
+  {
+    "code": "crimson-moon-of-nightmares",
+    "name": "红色噩梦之月",
+    "nameEn": "Crimson Moon of Nightmares",
+    "nameZht": "紅色惡夢之月",
+    "description": "这颗很难推测制作年代的红色珠子，会让看到的人产生一种巨大的满月在天空升起的错觉，同时会唤起藏在内心深处的狂气，使其永远被禁锢在幻觉之中。",
+    "skillDescription": "夹攻率提升7.0(14.0)%。\n若非自身回合，则效果命中提升20(40)%。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/crimson-moon-of-nightmares.png",
+    "artwork": "/library/artifact-artworks/crimson-moon-of-nightmares.png",
+    "publishDate": "2020-10-01 11:00:00"
+  },
+  {
+    "code": "wall-of-order",
+    "name": "秩序护墙",
+    "nameEn": "Wall of Order",
+    "nameZht": "秩序護牆",
+    "description": "可使用警察权限让指定的区域禁止通行的东西。\n被护墙封锁的区域除允许出入者之外，谁也无法进入。",
+    "skillDescription": "回合开始时，有全体敌人强化效果数x6.0(12.0)%的几率使自身在1回合内攻击力大幅提升。\n回合结束时，有50(100)%的几率在1回合内获得隐身效果。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/wall-of-order.png",
+    "artwork": "/library/artifact-artworks/wall-of-order.png",
+    "publishDate": "2020-09-24 11:00:00"
+  },
+  {
+    "code": "manica-of-control",
+    "name": "控制的护臂",
+    "nameEn": "Manica of Control",
+    "nameZht": "控制的護臂",
+    "description": "过去被迫成为实验对象时，胳膊被改造为武器，之后逃出研究设施时获得了更强大的力量。但因为无法控制力量而经常暴走，赛兹本人认为这是受诅咒的力量，所以平时用衣服和手套遮住胳膊。幻影队的成员们看到此情景后，为他制作了能够更容易控制力量的特殊手套。",
+    "skillDescription": "暴击率提升15%、命中提升10(20)%。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/manica-of-control.png",
+    "artwork": "/library/artifact-artworks/manica-of-control.png",
+    "publishDate": "2020-09-17 15:30:00"
+  },
+  {
+    "code": "a-little-queens-huge-crown",
+    "name": "小小女王的巨大王冠",
+    "nameEn": "A Little Queen's Huge Crown",
+    "nameZht": "小小女王的巨大王冠",
+    "description": "被妥善收藏的巨大王冠，是为克萝爱真正成为女王时准备的。她怀着巨大野心，想成为享受王冠般巨大华丽权力的女王。至于这东西是从何而来，只有克萝爱自己知道。",
+    "skillDescription": "单一攻击时，伤害量提升8.0(16.0)%，若目标处于防护罩状态，则伤害量额外提升8.0(16.0)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/a-little-queens-huge-crown.png",
+    "artwork": "/library/artifact-artworks/a-little-queens-huge-crown.png",
+    "publishDate": "2020-09-10 11:00:00"
+  },
+  {
+    "code": "shepherd-of-the-hollow",
+    "name": "无为的引导者",
+    "nameEn": "Shepherd of the Hollow",
+    "nameZht": "無為的引導者",
+    "description": "“无可救药的愚者们啊，跪伏，绝望，然后服从于我吧。”\n倒在他剑下的人们随即失去了自我，起身成为了尘埃行者。",
+    "skillDescription": "回避提升20%。\n攻击时，伤害量提升6.0(12.0)%，且生命值比例越低，伤害量提升越多。最多可提升至12.0(24.0)%。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/shepherd-of-the-hollow.png",
+    "artwork": "/library/artifact-artworks/shepherd-of-the-hollow.png",
+    "publishDate": "2020-09-10 11:00:00"
+  },
+  {
+    "code": "snow-crystal",
+    "name": "白雪水晶",
+    "nameEn": "Snow Crystal",
+    "nameZht": "白雪水晶",
+    "description": "长时间凝结的冰块经魔法处理后，被制成不会融化的探索者村庄的特产。具有散发神秘光芒的特性，因此常被用于照明或装饰。",
+    "skillDescription": "暴击抗性提升20%。\n受到攻击后，若未发生暴击，则使速攻值提升8.0(16.0)%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/snow-crystal.png",
+    "artwork": "/library/artifact-artworks/snow-crystal.png",
+    "publishDate": "2020-08-27 11:00:00"
+  },
+  {
+    "code": "crown-of-glory",
+    "name": "荣耀之冠",
+    "nameEn": "Crown of Glory",
+    "nameZht": "榮耀之冠",
+    "description": "在选拔雷逢朵斯王位第一顺位继承者护卫骑士的剑术大会上胜出，摘得月桂花环的人，既不是名门世家的子弟，也不是老练的自由骑士，而是一名未满二十岁的平凡少年。",
+    "skillDescription": "我军人员受到全体攻击时，获得10(20)%的伤害降低效果，使敌人减少灵魂10点。减少灵魂效果每使用1次技能仅能发动1次。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/crown-of-glory.png",
+    "artwork": "/library/artifact-artworks/crown-of-glory.png",
+    "publishDate": "2020-08-20 16:00:00"
+  },
+  {
+    "code": "rise-of-a-monarch",
+    "name": "王的诞生",
+    "nameEn": "Rise of a Monarch",
+    "nameZht": "王的誕生",
+    "description": "“我会铭记，我的矛非我一人所有，我的王冠并非为我存在。”\n那天，万坦贝克第一勇者的肩上，背负了世上最沉重的使命。",
+    "skillDescription": "全体我军人员的防御力提升10%。\n回合结束时，使除自身外生命值比例最低的我军人员在2回合内获得相当于自身最大生命值8.0(16.0)%的防护罩。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/rise-of-a-monarch.png",
+    "artwork": "/library/artifact-artworks/rise-of-a-monarch.png",
+    "publishDate": "2020-08-13 11:00:00"
+  },
+  {
+    "code": "champions-trophy",
+    "name": "优胜者奖杯",
+    "nameEn": "Champion's Trophy",
+    "nameZht": "優勝者獎盃",
+    "description": "第七届沙滩排球最强者之战的优胜者可获得的荣誉奖杯。连带附赠50张可在夏日庆典期间使用的免费餐券。",
+    "skillDescription": "效果命中提升15.0(30.0)%。\n使用基本技能后，有13.0(26.0)%的几率使目标在1回合内晕眩。额外攻击、反击、夹攻时不会发动。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/champions-trophy.png",
+    "artwork": "/library/artifact-artworks/champions-trophy.png",
+    "publishDate": "2020-07-30 11:00:00"
+  },
+  {
+    "code": "circus-fantasia",
+    "name": "奇幻马戏团",
+    "nameEn": "Circus Fantasia",
+    "nameZht": "奇幻馬戲團",
+    "description": "“从前我学过各种杂技，因此没有我办不到的表演。很好奇吧？就让我缪伊，邀请你进入我那梦幻般的舞台。”",
+    "skillDescription": "暴击率提升15%。\n战斗开始时，自身效果命中提升25.0(50.0)%。每当发动攻击时，效果命中降低2.5(5.0)%，且最多可降低至12.5(25.0)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/circus-fantasia.png",
+    "artwork": "/library/artifact-artworks/circus-fantasia.png",
+    "publishDate": "2020-07-16 11:00:00"
+  },
+  {
+    "code": "durandal",
+    "name": "杜兰月",
+    "nameEn": "Durandal",
+    "nameZht": "杜蘭月",
+    "description": "从剑身散发出隐约的光芒，绝对不容许自己的主人受伤。",
+    "skillDescription": "受到攻击后，速攻值提升4.0(8.0)%，若生命值在75%以下，则速攻值额外提升4.0(8.0)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 559,
+      "def": 0
+    },
+    "image": "/library/artifacts/durandal.png",
+    "artwork": "/library/artifact-artworks/durandal.png",
+    "publishDate": "2020-07-09 16:00:00"
+  },
+  {
+    "code": "eticas-scepter",
+    "name": "艾帝嘉权杖",
+    "nameEn": "Etica's Scepter",
+    "nameZht": "艾帝嘉權杖",
+    "description": "在帝国最危难时，被抛弃的公主艾帝嘉和五名精灵王一起归来，拿回权杖。她降下忏悔之雨，拯救荒芜的世界。",
+    "skillDescription": "回合开始时，有25.0(50.0)%的几率使技能冷却时间减少1回合。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 559,
+      "def": 0
+    },
+    "image": "/library/artifacts/eticas-scepter.png",
+    "artwork": "/library/artifact-artworks/eticas-scepter.png",
+    "publishDate": "2020-07-09 16:00:00"
+  },
+  {
+    "code": "rhianna-luciella",
+    "name": "里安娜＆路西艾拉",
+    "nameEn": "Rhianna & Luciella",
+    "nameZht": "里安娜&路西艾拉",
+    "description": "“今天的目标就是你。”\n“话说在前面，你已经无处可逃了。”\n——月之杀手里安娜与路西艾拉。",
+    "skillDescription": "攻击力提升10%。\n回合结束时，有10(20)%的几率获得额外回合。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/rhianna-luciella.png",
+    "artwork": "/library/artifact-artworks/rhianna-luciella.png",
+    "publishDate": "2020-07-02 11:00:00"
+  },
+  {
+    "code": "secret-art-storm-sword",
+    "name": "秘笈：雷天一剑",
+    "nameEn": "Secret Art - Storm Sword",
+    "nameZht": "祕笈－雷天一劍",
+    "description": "瑟琳家族通过母系代代相传的秘笈。里面记载着如何运气调息，施展如闪电般一举歼灭敌人的剑术。",
+    "skillDescription": "敌人使用非攻击类技能后，使自身速攻值提升12.0(24.0)%，并有50(100)%的几率使自身在1回合内攻击力提升。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/secret-art-storm-sword.png",
+    "artwork": "/library/artifact-artworks/secret-art-storm-sword.png",
+    "publishDate": "2020-06-18 11:00:00"
+  },
+  {
+    "code": "cradle-of-life",
+    "name": "生命摇篮",
+    "nameEn": "Cradle of Life",
+    "nameZht": "生命搖籃",
+    "description": "“存在凌驾于意义之上，因此使人类得以自由。那么，被赋予人生目的而存活的人，能拥有自由吗？”",
+    "skillDescription": "在自身回合发动单一攻击后，有40(80)%的几率在2回合内对目标造成随机弱化效果（攻击力降低、命中降低、烧伤、出血其中之一）。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/cradle-of-life.png",
+    "artwork": "/library/artifact-artworks/cradle-of-life.png",
+    "publishDate": "2020-06-04 11:00:00"
+  },
+  {
+    "code": "wind-rider",
+    "name": "乘风者",
+    "nameEn": "Wind Rider",
+    "nameZht": "乘風者",
+    "description": "素有风之盗贼称号的利纳柯，以矫捷的身手偷偷闯入贵族家，无声无息地带走最昂贵的物品后便消失了。",
+    "skillDescription": "攻击力提升10(20)%。\n用攻击消灭敌人时，在1回合内隐身，且下一回合开始时，在1回合内攻击力提升20(40)%。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/wind-rider.png",
+    "artwork": "/library/artifact-artworks/wind-rider.png",
+    "publishDate": "2020-06-04 11:00:00"
+  },
+  {
+    "code": "doctors-bag",
+    "name": "急救包",
+    "nameEn": "Doctor's Bag",
+    "nameZht": "急救包",
+    "description": "装满药物的背包，里面的药都是雷伊亲自制成的。据说一般的疾病或伤口都可以用这背包里的药物进行治疗。",
+    "skillDescription": "使用非攻击类技能后，解除全体我军人员的1个弱化效果，并恢复各目标最大生命值的7.0(14.0)%。3回合内仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/doctors-bag.png",
+    "artwork": "/library/artifact-artworks/doctors-bag.png",
+    "publishDate": "2020-05-21 11:00:00"
+  },
+  {
+    "code": "ms-confille",
+    "name": "Miss Confile",
+    "nameEn": "Ms. Confille",
+    "nameZht": "Miss Confile",
+    "description": "爱尔菲特·瓦伦蒂所持有的远距离战斗用步枪。\n是可将法力转换成子弹发射出去的特殊兵器，使没有特殊能力的人也能运用强大的法力发起攻击。",
+    "skillDescription": "发动单一攻击后，有30(60)%的几率在1回合内对目标造成防御力降低。额外攻击、反击、夹攻时不会发动。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/ms-confille.png",
+    "artwork": "/library/artifact-artworks/ms-confille.png",
+    "publishDate": "2020-05-14 15:30:00"
+  },
+  {
+    "code": "shimadra-staff",
+    "name": "席玛德拉的手杖",
+    "nameEn": "Shimadra Staff",
+    "nameZht": "席瑪德拉的手杖",
+    "description": "一起走到最后吧。\n——暗黑大祭司席玛德拉",
+    "skillDescription": "使全体我军人员的效果抗性提升20%，使获得的恢复量提升20.0(40.0)%。不与相同名称的神器效果重复叠加，恢复量提升效果重叠时以最高效果为准。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/shimadra-staff.png",
+    "artwork": "/library/artifact-artworks/shimadra-staff.png",
+    "publishDate": "2020-04-30 16:00:00"
+  },
+  {
+    "code": "touch-of-rekos",
+    "name": "列科斯的救援",
+    "nameEn": "Touch of Rekos",
+    "nameZht": "列科斯的救援",
+    "description": "精灵殿堂建设完成后，列科斯神现身赐予的物品。据说蕴含部分神的力量，由具备特殊资格的女巫继承。",
+    "skillDescription": "受到攻击后，使全体我军人员生命值恢复5.0(10.0)%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/touch-of-rekos.png",
+    "artwork": "/library/artifact-artworks/touch-of-rekos.png",
+    "publishDate": "2020-04-09 11:00:00"
+  },
+  {
+    "code": "alabastron",
+    "name": "雪花石膏瓶",
+    "nameEn": "Alabastron",
+    "nameZht": "雪花石膏瓶",
+    "description": "古代圆瓶，装着蕴含露娜利思之力的神秘香水。据说如果以它来进行净化的仪式，将被赋予圣洁的人生。",
+    "skillDescription": "效果命中提升35%。\n单一攻击后，有35.0(70.0)%的几率在2回合内对目标造成随机弱化效果。1回合仅能发动1次。（攻击力降低、防御力降低、速度降低、无法恢复其中之一）",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/alabastron.png",
+    "artwork": "/library/artifact-artworks/alabastron.png",
+    "publishDate": "2020-04-02 11:00:00"
+  },
+  {
+    "code": "time-matter",
+    "name": "时间的物质",
+    "nameEn": "Time Matter",
+    "nameZht": "時間的物質",
+    "description": "神兽卡兹澜所拥有的操控时间的力量泉源，\n据说可凝聚并取得大家都不记得的旧日时光。",
+    "skillDescription": "攻击时，伤害量提升6.0(12.0)%。\n用攻击消灭敌人时，下一次攻击的伤害量额外提升12.0(24.0)%，且技能冷却时间减少1回合。技能冷却时间减少效果每使用1次技能仅能发动1次。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 559,
+      "def": 0
+    },
+    "image": "/library/artifacts/time-matter.png",
+    "artwork": "/library/artifact-artworks/time-matter.png",
+    "publishDate": "2020-03-19 15:00:00"
+  },
+  {
+    "code": "black-hand-of-the-goddess",
+    "name": "女神的黑手",
+    "nameEn": "Black Hand of the Goddess",
+    "nameZht": "女神的黑手",
+    "description": "为了使强化魔法师的魔力发挥到极致而制成的手套，可激发出超越极限的巨大魔力，使自己能够以寡击众。不过，制作时完全没有考虑到对身体的影响，所以会给使用者留下严重的后遗症。",
+    "skillDescription": "暴击率提升15%。\n战斗开始时，暴击伤害提升18.0(36.0)%。每次攻击时，该效果降低3%，最多可降低至6.0(24.0)%。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/black-hand-of-the-goddess.png",
+    "artwork": "/library/artifact-artworks/black-hand-of-the-goddess.png",
+    "publishDate": "2020-03-12 13:00:00"
+  },
+  {
+    "code": "holy-sacrifice",
+    "name": "神圣牺牲",
+    "nameEn": "Holy Sacrifice",
+    "nameZht": "神聖犧牲",
+    "description": "恩惠的石像降临在受到女神宠爱的骑士身上，据说只有一次机会能化成碎片，阻止主人的死亡。\n——巴雷特著作【圣王国的财宝第15页】",
+    "skillDescription": "死亡时，有50(100)%的几率以25%的生命值复活，根据最大生命值在1回合内获得等比强度的防护罩。发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/holy-sacrifice.png",
+    "artwork": "/library/artifact-artworks/holy-sacrifice.png",
+    "publishDate": "2020-03-05 18:30:00"
+  },
+  {
+    "code": "guiding-light",
+    "name": "引导之光",
+    "nameEn": "Guiding Light",
+    "nameZht": "引導之光",
+    "description": "黑水晶中的明亮星星是仿照北极星做成的，暗含着想要在乱局中成为引领众人的向导的意志。",
+    "skillDescription": "战斗开始时，在1回合内隐身。\n回合结束时，有35.0(70.0)%的几率在2回合内隐身。回合结束时，在2回合内仅能发动1次隐身效果。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/guiding-light.png",
+    "artwork": "/library/artifact-artworks/guiding-light.png",
+    "publishDate": "2020-02-27 11:00:00"
+  },
+  {
+    "code": "abyssal-crown",
+    "name": "深渊王冠",
+    "nameEn": "Abyssal Crown",
+    "nameZht": "深淵王冠",
+    "description": "被王冠支配的人，永远迈向堕落之途吧。\n——被绑在火刑场的魔女雷茵伍德。",
+    "skillDescription": "攻击后有15.0(30.0)%的几率在1回合内对目标造成晕眩效果。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/abyssal-crown.png",
+    "artwork": "/library/artifact-artworks/abyssal-crown.png",
+    "publishDate": "2020-02-13 11:00:00"
+  },
+  {
+    "code": "dux-noctis",
+    "name": "暗夜指挥者",
+    "nameEn": "Dux Noctis",
+    "nameZht": "暗夜指揮者",
+    "description": "“母亲说，这条项链具有狼的力量，所以夜月越明亮时，项链便发出越强的光芒。光芒变强时，也便昭示着狼不懈的追击即将开始。”",
+    "skillDescription": "攻击力提升6.0(12.0)%。\n我军人员的攻击暴击时，自身攻击力提升相当于暴击触发次数x2.0(4.0)%的数值。该效果最多可叠加6次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/dux-noctis.png",
+    "artwork": "/library/artifact-artworks/dux-noctis.png",
+    "publishDate": "2020-01-30 11:00:00"
+  },
+  {
+    "code": "merciless-glutton",
+    "name": "无情的大食客",
+    "nameEn": "Merciless Glutton",
+    "nameZht": "無情的大食客",
+    "description": "因拔出吃在血肉里的刀刃时伤口犹如巨大猛兽噬咬般碎裂不堪而得名。想要得心应手地使用它，需要有非凡的蛮力。",
+    "skillDescription": "单一攻击时，伤害量提升8.0(16.0)%。\n以单一攻击消灭敌人时，使除自身外的全体我军人员速攻值提升6.0(12.0)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/merciless-glutton.png",
+    "artwork": "/library/artifact-artworks/merciless-glutton.png",
+    "publishDate": "2020-01-16 11:00:00"
+  },
+  {
+    "code": "alencinoxs-wrath",
+    "name": "艾莲西诺克斯的逆鳞",
+    "nameEn": "Alencinox's Wrath",
+    "nameZht": "艾蓮西諾克斯的逆麟",
+    "description": "是龙的弱点，也是全身鳞片中最坚硬的部分。据说若能准确瞄准的话，则能成为轻易杀死龙的要害，但若无法做到这一点，将会因无法承受龙的怒火而死去。",
+    "skillDescription": "暴击率提升15%。\n在自身回合发动额外攻击后，速攻值提升10(20)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/alencinoxs-wrath.png",
+    "artwork": "/library/artifact-artworks/alencinoxs-wrath.png",
+    "publishDate": "2020-01-02 11:00:00"
+  },
+  {
+    "code": "unfading-memories",
+    "name": "不凋零的回忆",
+    "nameEn": "Unfading Memories",
+    "nameZht": "不凋零的回憶",
+    "description": "迪埃妮生前随身携带的怀表里面有一朵干燥花，那是一朵天蓝色的勿忘草，鲜亮的色泽好像是昨天才刚摘下的。",
+    "skillDescription": "全体我军人员效果抗性提升20%。\n回合开始时，使全体我军人员生命值恢复4.0(8.0)%。该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/unfading-memories.png",
+    "artwork": "/library/artifact-artworks/unfading-memories.png",
+    "publishDate": "2019-12-24 11:00:00"
+  },
+  {
+    "code": "song-of-stars",
+    "name": "星辰之歌",
+    "nameEn": "Song of Stars",
+    "nameZht": "星辰之歌",
+    "description": "一拨动琴弦，星光便开始照映在她身上。",
+    "skillDescription": "发动单一攻击后，有50(100)%的几率在2回合内对目标造成标靶效果。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/song-of-stars.png",
+    "artwork": "/library/artifact-artworks/song-of-stars.png",
+    "publishDate": "2019-12-19 13:00:00"
+  },
+  {
+    "code": "stella-harpa",
+    "name": "星之竖琴",
+    "nameEn": "Stella Harpa",
+    "nameZht": "星之豎琴",
+    "description": "传承给寇斯特拉大祭司的古代珊卓帝国遗物。据说只要演奏歌唱，星星会从天而降，萤火虫也会从地面涌出。",
+    "skillDescription": "受到攻击后，有30(60)%的几率解除我军人员的1个弱化效果。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/stella-harpa.png",
+    "artwork": "/library/artifact-artworks/stella-harpa.png",
+    "publishDate": "2019-12-05 11:00:00"
+  },
+  {
+    "code": "sigurd-scythe",
+    "name": "席格勒赛斯",
+    "nameEn": "Sigurd Scythe",
+    "nameZht": "席格勒賽斯",
+    "description": "那手持镰刀的模样在月光下现身的刹那，所有人都惊呼着“死神降临了”。",
+    "skillDescription": "攻击力提升10(20)%。\n攻击时，若生命值在50%以下，则将25.0(50.0)%的伤害量作为生命值恢复。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/sigurd-scythe.png",
+    "artwork": "/library/artifact-artworks/sigurd-scythe.png",
+    "publishDate": "2019-11-28 17:00:00"
+  },
+  {
+    "code": "bloody-rose",
+    "name": "血玫瑰",
+    "nameEn": "Bloody Rose",
+    "nameZht": "血玫瑰",
+    "description": "“为了复兴我的家族，一定要得到那力量。还要让那家伙尝尝被夺取的痛苦。所以你要在这里好好地守护着。”",
+    "skillDescription": "发动单一攻击时，效果命中提升30(60)%。\n发动单一攻击后，有25.0(50.0)%的几率在2回合内对目标造成吸血之手效果。吸血之手效果在额外攻击、反击、夹攻时不会发动。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/bloody-rose.png",
+    "artwork": "/library/artifact-artworks/bloody-rose.png",
+    "publishDate": "2019-11-07 18:00:00"
+  },
+  {
+    "code": "draco-plate",
+    "name": "龙族板甲",
+    "nameEn": "Draco Plate",
+    "nameZht": "龍族板甲",
+    "description": "“不觉得很有趣吗？诅咒了所有万坦贝克的龙骑士后便死去的龙，它的龙骨和龙皮现在却正保护着我们呢。”\n女王一边笑着说，一边将沾在板甲上的血甩去。",
+    "skillDescription": "暴击伤害提升15.0(30.0)%。\n受到暴击时，获得15.0(30.0)%的伤害降低效果。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/draco-plate.png",
+    "artwork": "/library/artifact-artworks/draco-plate.png",
+    "publishDate": "2019-10-31 21:00:00"
+  },
+  {
+    "code": "bastion-of-perlutia",
+    "name": "波鲁迪亚的堡垒",
+    "nameEn": "Bastion of Perlutia",
+    "nameZht": "波魯迪亞的堡壘",
+    "description": "波鲁迪亚家族流传下来的神器。据传只有具备君王资格的人才能使用。它会按照自身意志选择和保护主人，黑色的六角形碎片会根据情况变更样貌。曾经因找不到使用者而被保管在仓库深处，睽违几十年后因再度出现主人而得以重见天日。",
+    "skillDescription": "战斗开始时，使自身和后排我军人员在1回合内获得免疫效果，并在2回合内获得相当于自身最大生命值15.0(30.0)%的防护罩。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/bastion-of-perlutia.png",
+    "artwork": "/library/artifact-artworks/bastion-of-perlutia.png",
+    "publishDate": "2019-09-26 02:00:00"
+  },
+  {
+    "code": "dignus-orb",
+    "name": "尊严宝珠",
+    "nameEn": "Dignus Orb",
+    "nameZht": "尊嚴寶珠",
+    "description": "“天空的轨道总会替我们指引方向。无论遇到何种困难，我也会跟着轨道向前迈步。”",
+    "skillDescription": "使用非攻击类技能后，在2回合内获得相当于攻击力60(120)%的防护罩，下一次攻击的伤害量提升15%。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/dignus-orb.png",
+    "artwork": "/library/artifact-artworks/dignus-orb.png",
+    "publishDate": "2019-08-22 11:00:00"
+  },
+  {
+    "code": "reingars-special-drink",
+    "name": "雷茵格尔特调饮料",
+    "nameEn": "Reingar's Special Drink",
+    "nameZht": "雷茵格爾特調飲料",
+    "description": "雷茵格尔特制并出售的饮料。颜色漂亮，带有香甜的味道，可以消除疲劳和纾解压力。还有人声称这饮料能明目，能提高集中力、记忆力、判断力，帮助提升学习效率，但这些还没有得到印证。",
+    "skillDescription": "发动全体攻击后，有50(100)%的几率根据自身攻击力对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/reingars-special-drink.png",
+    "artwork": "/library/artifact-artworks/reingars-special-drink.png",
+    "publishDate": "2019-08-01 02:00:00"
+  },
+  {
+    "code": "creation-destruction",
+    "name": "创造之福＆破坏之颂",
+    "nameEn": "Creation & Destruction",
+    "nameZht": "創造之福&破壞之頌",
+    "description": "被迫与家人分离，加入列科斯行星的卫星“翠波斯”警卫队后，委托最强的铁匠制造的巨大武器，外型有如剪刀，可以自由分离合体。特意将武器的刀刃分别取名为创造的恶魔“福”和破坏的恶魔“颂”来嘲弄列科斯正教。",
+    "skillDescription": "使用技能后，有10(20)%的几率使该技能冷却时间重置。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/creation-destruction.png",
+    "artwork": "/library/artifact-artworks/creation-destruction.png",
+    "publishDate": "2019-07-04 02:00:00"
+  },
+  {
+    "code": "spirits-breath",
+    "name": "精灵气息",
+    "nameEn": "Spirit's Breath",
+    "nameZht": "精靈氣息",
+    "description": "“通过他们……感受到了这个世界的痛苦和悲鸣……”\n听说列科斯的女巫中也只有极少数的人，才能听见精灵们的呢喃。",
+    "skillDescription": "使用非攻击类技能后，有50(100)%的几率使技能冷却时间减少1回合。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/spirits-breath.png",
+    "artwork": "/library/artifact-artworks/spirits-breath.png",
+    "publishDate": "2019-06-06 18:00:00"
+  },
+  {
+    "code": "necro-undine",
+    "name": "恶魔＆天使",
+    "nameEn": "Necro & Undine",
+    "nameZht": "惡魔＆天使",
+    "description": "使用蒂姬背后的翅膀战斗时，会变身为绿色死神的涅克罗及天蓝色女神的温蒂妮。\n恶魔和天使分别拥有独立的人格，但同样以蒂姬的安全为优先，不过因为性格完全相反，所以经常争吵。",
+    "skillDescription": "发动全体攻击后，自身速攻值提升10(20)%。额外攻击、反击、夹攻时不会发动。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/necro-undine.png",
+    "artwork": "/library/artifact-artworks/necro-undine.png",
+    "publishDate": "2019-05-09 07:30:00"
+  },
+  {
+    "code": "torn-sleeve",
+    "name": "撕裂的右衣袖",
+    "nameEn": "Torn Sleeve",
+    "nameZht": "撕裂的右衣袖",
+    "description": "战斗时会弹出义肢等各种武器的地方，但是没有说明袖子里怎么能放入这么多东西。",
+    "skillDescription": "发动单一攻击后，有50(100)%的几率在2回合内对目标造成出血效果。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/torn-sleeve.png",
+    "artwork": "/library/artifact-artworks/torn-sleeve.png",
+    "publishDate": "2019-04-25 08:00:00"
+  },
+  {
+    "code": "border-coin",
+    "name": "孤注一掷",
+    "nameEn": "Border Coin",
+    "nameZht": "孤注一擲",
+    "description": "“出现正面的话，我就会睁一只眼闭一只眼放你走。但，如果出现背面的话……你懂的。”\n许多人的命运都取决于她手上的那枚旧钱币。",
+    "skillDescription": "使用非攻击类技能后，攻击力提升7.5(15.0)%，速度提升5.0(10.0)%。最多可叠加3次。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/border-coin.png",
+    "artwork": "/library/artifact-artworks/border-coin.png",
+    "publishDate": "2019-03-21 07:00:00"
+  },
+  {
+    "code": "justice-for-all",
+    "name": "为众人的正义",
+    "nameEn": "Justice for All",
+    "nameZht": "為眾人的正義",
+    "description": "沙隆家族首次获颁爵位，成为圣堂骑士开始履行光荣义务的那年所制作的拳套，具有告诫自己要正确使用力量，实现那些超脱个人安危追随女神以及忠于王国者都认同的正义。",
+    "skillDescription": "回合结束时，有50(100)%的几率在2回合内获得随机强化效果（防护罩、攻击力提升、防御力提升、速度提升、暴击率提升、免疫、持续恢复、暴击抗性提升其中之一）。根据自身最大生命值等比提升防护罩强度。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/justice-for-all.png",
+    "artwork": "/library/artifact-artworks/justice-for-all.png",
+    "publishDate": "2019-03-07 07:00:00"
+  },
+  {
+    "code": "sword-of-judgment",
+    "name": "审判之剑",
+    "nameEn": "Sword of Judgment",
+    "nameZht": "審判之劍",
+    "description": "“若的确是无辜之人，女神大人定会从我的剑下拯救你。”\n之后洒落的不确定是宛如花瓣的鲜血，还是鲜红似血的花瓣。",
+    "skillDescription": "发动单一攻击后，若目标存活，则有10(20)%的几率使用基本技能。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-judgment.png",
+    "artwork": "/library/artifact-artworks/sword-of-judgment.png",
+    "publishDate": "2019-02-21 08:00:00"
+  },
+  {
+    "code": "idols-cheer",
+    "name": "歌姬助阵",
+    "nameEn": "Idol's Cheer",
+    "nameZht": "歌姬助陣",
+    "description": "我相信歌曲可以改变世界，\n因为我也能借助音乐的力量改变自己！",
+    "skillDescription": "受到攻击后，使攻击力最高的我军人员速攻值提升10(20)%。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/idols-cheer.png",
+    "artwork": "/library/artifact-artworks/idols-cheer.png",
+    "publishDate": "2019-02-07 14:00:00"
+  },
+  {
+    "code": "violet-talisman",
+    "name": "紫色护身符",
+    "nameEn": "Violet Talisman",
+    "nameZht": "紫色護身符",
+    "description": "“只要你坚信自己能够取得胜利，这道光便不会湮灭。所以我的儿子啊，你要记住，从今天起，这个家族的未来……就是你。”\n——菲奥雷托的父亲",
+    "skillDescription": "回合开始时，攻击力提升5.0(10.0)%、回避提升5.0(10.0)%。该效果最多可叠加3次，且在战斗开始时重置。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/violet-talisman.png",
+    "artwork": "/library/artifact-artworks/violet-talisman.png",
+    "publishDate": "2019-01-24 07:00:00"
+  },
+  {
+    "code": "iron-fan",
+    "name": "铁扇",
+    "nameEn": "Iron Fan",
+    "nameZht": "鐵扇",
+    "description": "“淑女的扇子用途很广泛呀。遮掩笑容、间接表达情感或是解决不喜欢的对象时都能用到。”",
+    "skillDescription": "发动除基本技能外的全体攻击后，使自身速攻值提升15.0(30.0)%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/iron-fan.png",
+    "artwork": "/library/artifact-artworks/iron-fan.png",
+    "publishDate": "2019-01-10 07:00:00"
+  },
+  {
+    "code": "alexas-basket",
+    "name": "雅莉莎的提篮",
+    "nameEn": "Alexa's Basket",
+    "nameZht": "雅莉莎的提籃",
+    "description": "雅莉莎有个跟想变熟的人郊游时必备的郊游提篮。在美丽深林招待愉快的午餐时所需的道具，背包里应有尽有。光是带在身上就像已经去郊游了一样，能激发出她的正面能量和潜力。",
+    "skillDescription": "回合开始时，各有35.0(70.0)%的几率在1回合内攻击力提升，有20(40)%的几率在1回合内攻击力大幅提升。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/alexas-basket.png",
+    "artwork": "/library/artifact-artworks/alexas-basket.png",
+    "publishDate": "2018-12-27 08:00:00"
+  },
+  {
+    "code": "celestine",
+    "name": "天青石",
+    "nameEn": "Celestine",
+    "nameZht": "天青石",
+    "description": "在圣域附近挖掘到的稀有矿石。\n具有能为配戴者注入生命之息的力量，也被称为迪彩的祝福。王族或部分高阶祭司会随身携带。",
+    "skillDescription": "发动单一攻击后，使生命值比例最低的我军人员生命值恢复8.0(16.0)%。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/celestine.png",
+    "artwork": "/library/artifact-artworks/celestine.png",
+    "publishDate": "2018-12-14 07:00:00"
+  },
+  {
+    "code": "noble-oath",
+    "name": "高洁的誓言",
+    "nameEn": "Noble Oath",
+    "nameZht": "高潔的誓言",
+    "description": "宣誓将身心献给女神后，会收到的伊杰拉骑士团的象征。\n骑士会收到剑柄装饰，祭司和魔法师会收到玫瑰念珠。",
+    "skillDescription": "生命值比例越低，防御力、效果抗性越提升。最多可提升至50(100)%。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/noble-oath.png",
+    "artwork": "/library/artifact-artworks/noble-oath.png",
+    "publishDate": "2018-11-29 10:00:00"
+  },
+  {
+    "code": "unleashed-axe-of-heavenly-mandate",
+    "name": "解放·参天斧",
+    "nameEn": "Unleashed Axe of Heavenly Mandate",
+    "nameZht": "解放·參天斧",
+    "description": "不知为何解放了力量的古代遗物。是授予欧勒毕斯决斗战最终胜者的奖赏。灿然生辉，仿佛诉说着昔日的荣光。",
+    "skillDescription": "暴击率提升6.0(12.0)%、命中提升10(20)%。",
+    "rarity": 5,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/unleashed-axe-of-heavenly-mandate.png",
+    "artwork": "/library/artifact-artworks/unleashed-axe-of-heavenly-mandate.png",
+    "publishDate": null
+  },
+  {
+    "code": "jumbo-berry-special",
+    "name": "超大草莓圣代",
+    "nameEn": "Jumbo Berry Special",
+    "nameZht": "超大草莓聖代",
+    "description": "小时候自己一个人吃不完，要和师父一起分享的超大草莓圣代。",
+    "skillDescription": "发动单一攻击时，伤害量提升10(20)%。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": true,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/jumbo-berry-special.png",
+    "artwork": "/library/artifact-artworks/jumbo-berry-special.png",
+    "publishDate": null
+  },
+  {
+    "code": "jack-os-symbol",
+    "name": "洁克‧欧的象征",
+    "nameEn": "Jack-O's Symbol",
+    "nameZht": "潔克‧歐的象徵",
+    "description": "为了控制情绪变化而配戴的面具，以及在战斗中用途广泛的铁球。洁克‧欧随身携带，有着南瓜灯一样的外观。",
+    "skillDescription": "使全体我军人员的效果命中提升10%。\n单一攻击时，若目标处于弱化效果状态，则伤害量提升12.0(24.0)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/jack-os-symbol.png",
+    "artwork": "/library/artifact-artworks/jack-os-symbol.png",
+    "publishDate": null
+  },
+  {
+    "code": "anti-magic-mask",
+    "name": "抗魔面具",
+    "nameEn": "Anti-Magic Mask",
+    "nameZht": "抗魔面具",
+    "description": "利姆鲁从静那里得到的面具。静拜托利姆鲁将自己吞噬并吸收，而利姆鲁继承了她的外貌、面具和迷恋。",
+    "skillDescription": "回合开始时，有50(100)%几率使自身在2回合内获得随机强化效果。（免疫、攻击力提升、防御力提升、暴击伤害提升、速度提升）",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/anti-magic-mask.png",
+    "artwork": "/library/artifact-artworks/anti-magic-mask.png",
+    "publishDate": null
+  },
+  {
+    "code": "junkyard-dog",
+    "name": "Junkyard Dog",
+    "nameEn": "Junkyard Dog",
+    "nameZht": "Junkyard Dog",
+    "description": "为了具体展现Outrage能力而制造的武器。\n将原本使用的封炎剑和国际联合元老院保管的神器“闪牙”结合制成。",
+    "skillDescription": "使用基本技能后，有25.0(50.0)%的几率对目标在2回合内造成烧伤效果。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/junkyard-dog.png",
+    "artwork": "/library/artifact-artworks/junkyard-dog.png",
+    "publishDate": null
+  },
+  {
+    "code": "uberiuss-tooth",
+    "name": "尤贝里乌斯的臼齿",
+    "nameEn": "Uberius's Tooth",
+    "nameZht": "尤貝里烏斯的臼齒",
+    "description": "用邪恶之龙尤贝里乌斯的遗骸制成的万坦贝克王室的宝具。\n据说连龙鳞制成的铠甲都会被撕成碎片。",
+    "skillDescription": "攻击后，有50(100)%的几率根据自身攻击力对目标造成等比的额外伤害。",
+    "rarity": 5,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/uberiuss-tooth.png",
+    "artwork": "/library/artifact-artworks/uberiuss-tooth.png",
+    "publishDate": null
+  },
+  {
+    "code": "seal-of-capture",
+    "name": "束缚之印",
+    "nameEn": "Seal of Capture",
+    "nameZht": "束縛之印",
+    "description": "在纳特伦和恶鬼交战时，道士所用过的神秘卷轴。为害世间的邪恶妖怪被封印在卷轴之中，变成了一幅画。",
+    "skillDescription": "使用基本技能后，若未发生暴击，则有50(100)%的几率在2回合内对目标造成烧伤效果。只适用于单一攻击。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/seal-of-capture.png",
+    "artwork": "/library/artifact-artworks/seal-of-capture.png",
+    "publishDate": null
+  },
+  {
+    "code": "sharpshooters-handgun",
+    "name": "神射手的手枪",
+    "nameEn": "Sharpshooter's Handgun",
+    "nameZht": "神射手的手槍",
+    "description": "莉莎的爱枪。在她所持的众多手枪中，使用频率最高。无论是在执行任务，还是日常生活中，她都会将其随身携带。",
+    "skillDescription": "效果命中提升25%。\n暴击时，有35.0(70.0)%的几率使自身在1回合内获得速度提升效果。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/sharpshooters-handgun.png",
+    "artwork": "/library/artifact-artworks/sharpshooters-handgun.png",
+    "publishDate": null
+  },
+  {
+    "code": "glo-wings-21",
+    "name": "光辉羽翼21",
+    "nameEn": "Glo-Wings 21",
+    "nameZht": "光輝羽翼21",
+    "description": "因其像羽翼般悬浮在穿戴者周围的外观而得名，但并不具备飞行功能，而是会通过射出能量进行攻击或通过生成防护罩进行防御。",
+    "skillDescription": "使用非攻击类技能后，使全体我军人员在2回合内获得相当于等级x30(60)的防护罩。3回合仅能发动1次，该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/glo-wings-21.png",
+    "artwork": "/library/artifact-artworks/glo-wings-21.png",
+    "publishDate": null
+  },
+  {
+    "code": "air-to-surface-missile-misha",
+    "name": "空对地导弹：美莎",
+    "nameEn": "Air-to-Surface Missile: MISHA",
+    "nameZht": "空對地導彈：美莎",
+    "description": "卡农最最心爱的导弹。梦想着有一天可以使用，每天晚上都抱着它进入节电模式。",
+    "skillDescription": "命中提升10(20)%、暴击伤害提升15.0(30.0)%。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/air-to-surface-missile-misha.png",
+    "artwork": "/library/artifact-artworks/air-to-surface-missile-misha.png",
+    "publishDate": null
+  },
+  {
+    "code": "otherworldly-machinery",
+    "name": "异界的机械",
+    "nameEn": "Otherworldly Machinery",
+    "nameZht": "異界的機械",
+    "description": "尤娜所持的手机，对于欧勒毕斯的人们而言，是无法理解的神奇物品。",
+    "skillDescription": "全体攻击时，伤害量提升10%，若目标非精英、首领，则有50(100)%的几率无视伤害分配效果。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/otherworldly-machinery.png",
+    "artwork": "/library/artifact-artworks/otherworldly-machinery.png",
+    "publishDate": null
+  },
+  {
+    "code": "bloodstone",
+    "name": "血玉髓",
+    "nameEn": "Bloodstone",
+    "nameZht": "血玉髓",
+    "description": "刚咬下一口水果，鲜红的液体便伴随着吓人的声响溢出。扑鼻而来的不是血腥味，而是微甜的水果香。",
+    "skillDescription": "攻击后使生命值比例最低的我军人员恢复伤害量13.0(26.0)%的生命值。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/bloodstone.png",
+    "artwork": "/library/artifact-artworks/bloodstone.png",
+    "publishDate": null
+  },
+  {
+    "code": "staff-of-ainz-ooal-gown",
+    "name": "安兹·乌尔·恭之杖",
+    "nameEn": "Staff of Ainz Ooal Gown",
+    "nameZht": "安茲‧烏爾‧恭之杖",
+    "description": "由公会成员们一同打造的法杖，既是安兹·乌尔·恭的象征，也是足以媲美世界级道具的专属武器。法杖上缠绕着七条蛇，衔着七颗神器级宝石。",
+    "skillDescription": "效果命中提升10(20)%，且效果抗性提升20(40)%。每当受到攻击时，自身效果抗性降低2.0(4.0)%，且最多可降低至10(20)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/staff-of-ainz-ooal-gown.png",
+    "artwork": "/library/artifact-artworks/staff-of-ainz-ooal-gown.png",
+    "publishDate": null
+  },
+  {
+    "code": "magic-for-friends",
+    "name": "为了朋友的魔法",
+    "nameEn": "Magic for Friends",
+    "nameZht": "為了朋友的魔法",
+    "description": "解析和改造拉斯获赠的神秘魔法饰品后制成的特制装置。\n通过在宝石内侧添加几个魔法公式并附加辅助装置，使玫勒赛德丝得以稳定驾驭自身拥有的庞大力量。",
+    "skillDescription": "受到暴击时，获得30%的伤害降低效果。\n在非自身回合我军人员受到攻击时，有15%的几率使用次元龟裂。次元龟裂2回合仅能发动1次。\n该神器升等时，效果不会提升。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/magic-for-friends.png",
+    "artwork": "/library/artifact-artworks/magic-for-friends.png",
+    "publishDate": null
+  },
+  {
+    "code": "severed-horn-wand",
+    "name": "被截断的犄角手杖",
+    "nameEn": "Severed Horn Wand",
+    "nameZht": "被截斷的犄角手杖",
+    "description": "拉姆随身携带的手杖，喜欢在施展魔法时使用。",
+    "skillDescription": "攻击力提升15%。\n受到精英、首领怪物攻击时，获得10(20)%的伤害降低效果。该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/severed-horn-wand.png",
+    "artwork": "/library/artifact-artworks/severed-horn-wand.png",
+    "publishDate": null
+  },
+  {
+    "code": "chatty",
+    "name": "柴迪",
+    "nameEn": "Chatty",
+    "nameZht": "柴迪",
+    "description": "我曾是大陆首屈一指的佣兵！在我败给塞丽拉……不对，在我败给主人，灵魂被关进提灯之前！",
+    "skillDescription": "战斗开始时，在2回合内获得防护罩。\n受到攻击后，若生命值在50%以下，则有50(100)%的几率在2回合内获得防护罩。根据自身攻击力等比提升防护罩强度。受到攻击后效果2回合仅能发动1次。",
+    "rarity": 5,
+    "role": "mage",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 559,
+      "def": 0
+    },
+    "image": "/library/artifacts/chatty.png",
+    "artwork": "/library/artifact-artworks/chatty.png",
+    "publishDate": null
+  },
+  {
+    "code": "a-precious-connection",
+    "name": "珍贵缘分",
+    "nameEn": "A Precious Connection",
+    "nameZht": "珍貴的緣分",
+    "description": "这段有可能擦身而过的缘分，因你的驻足而成为了珍贵无比的羁绊。感恩的心，感谢我们之间最特别的相遇。",
+    "skillDescription": "生命值提升10%。\n回合开始时，获得灵魂10点。发动2次后不会再额外发动。该神器升等时，效果不会提升。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": true,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/a-precious-connection.png",
+    "artwork": "/library/artifact-artworks/a-precious-connection.png",
+    "publishDate": null
+  },
+  {
+    "code": "sword-of-ezera",
+    "name": "伊杰拉的圣剑",
+    "nameEn": "Sword of Ezera",
+    "nameZht": "伊傑拉的聖劍",
+    "description": "“这武器和传说中的伊杰拉守护者圣剑有着不太相同的上色方式和形状……”\n剑把上所刻的文字，后半段在经历过漫长的岁月后已看不清楚了，但是可以感觉到刀刃上流窜着难以形容的不可思议的力量。",
+    "skillDescription": "受到精英、首领怪物攻击时，获得15.0(30.0)%的伤害降低效果。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": true,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-ezera.png",
+    "artwork": "/library/artifact-artworks/sword-of-ezera.png",
+    "publishDate": null
+  },
+  {
+    "code": "cure-all-magic-wand",
+    "name": "万能恢复魔法棒",
+    "nameEn": "Cure-All Magic Wand",
+    "nameZht": "萬能恢復魔法棒",
+    "description": "仿照尤娜所说的少儿动画【治愈天使丽迪卡】中的万能恢复魔法棒复刻的物品。虽然没人知道它的运作原理，但其中确实搭载了治愈疾病的功能。\n“只要有了这根万能的恢复魔法棒，就可以包治百病了！不过……要治病的话首先要有病人才行吧？”",
+    "skillDescription": "效果抗性提升15%。\n我军之中有人受到攻击后，若生命值在50%以下，则使目标生命值恢复10(20)%。1回合仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/cure-all-magic-wand.png",
+    "artwork": "/library/artifact-artworks/cure-all-magic-wand.png",
+    "publishDate": null
+  },
+  {
+    "code": "birds-eye-view",
+    "name": "观察者之眼",
+    "nameEn": "Bird's-Eye View",
+    "nameZht": "觀察者之眼",
+    "description": "以情报网覆盖甚广而闻名的情报巨商碧儿姬达家族的传家宝武器。承载着不忘观察者身份，始终置身远处观察并冷静判断的家训。",
+    "skillDescription": "使用非攻击类技能后，获得10(20)点灵魂。发动1次后不会再额外发动。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/birds-eye-view.png",
+    "artwork": "/library/artifact-artworks/birds-eye-view.png",
+    "publishDate": null
+  },
+  {
+    "code": "exif-detective-gadget",
+    "name": "EXIF Detective(E.d.)",
+    "nameEn": "EXIF Detective (E.d.) Gadget",
+    "nameZht": "EXIF Detective(E.d.)",
+    "description": "ae-NINGNING用于追踪元数据的各种黑客工具之一。统称为【E.d.】，与其所属的黑客团体名称相同。",
+    "skillDescription": "使用非攻击类技能后，使自身速攻值提升10(20)%，并使敌人减少灵魂10(20)点。减少灵魂4回合仅能发动1次。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/exif-detective-gadget.png",
+    "artwork": "/library/artifact-artworks/exif-detective-gadget.png",
+    "publishDate": null
+  },
+  {
+    "code": "flawless-garments",
+    "name": "天衣无缝",
+    "nameEn": "Flawless Garments",
+    "nameZht": "天衣無縫",
+    "description": "朱菜使用【解析者（悟者）】技能，以黎塔尼亚大陆样式制作的衣服。无论在功能还是审美的角度上都堪称完美的高级品。",
+    "skillDescription": "效果抗性提升10(20)%。\n自身回合结束时，使效果命中提升15%。该效果最多可叠加3次，且战斗开始时重置。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": true,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/flawless-garments.png",
+    "artwork": "/library/artifact-artworks/flawless-garments.png",
+    "publishDate": null
+  },
+  {
+    "code": "rod-of-amaryllis",
+    "name": "孤挺花之杖",
+    "nameEn": "Rod of Amaryllis",
+    "nameZht": "孤挺花之杖",
+    "description": "为拯救世界而战的所有人，女神的圣之庇护会伴随左右。",
+    "skillDescription": "使用非攻击的技能后，使生命值比例最低的我军人员生命值恢复12.0(24.0)%。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/rod-of-amaryllis.png",
+    "artwork": "/library/artifact-artworks/rod-of-amaryllis.png",
+    "publishDate": null
+  },
+  {
+    "code": "sword-of-cycling-seasons",
+    "name": "循环之剑",
+    "nameEn": "Sword of Cycling Seasons",
+    "nameZht": "循環之劍",
+    "description": "由四季之剑中的诸位精灵王之力融合而成的剑。只有身为西瓦纳继承者和纳特伦救援者的艾庭才能发挥其完整力量。",
+    "skillDescription": "回避提升20%。\n攻击时，若自身为有利的属性，则伤害量提升25%。该神器在升等时效果不会提升。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-cycling-seasons.png",
+    "artwork": "/library/artifact-artworks/sword-of-cycling-seasons.png",
+    "publishDate": null
+  },
+  {
+    "code": "double-edged-decrescent",
+    "name": "双刃下弦月",
+    "nameEn": "Double-Edged Decrescent",
+    "nameZht": "雙刃下弦月",
+    "description": "“这刀扛在肩上，稍有不慎就会划开自己的喉咙。同理，自己越是亲近信赖的人，越容易加害自身。”",
+    "skillDescription": "回避提升20%。\n回避时，有25.0(50.0)%的几率发动反击。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/double-edged-decrescent.png",
+    "artwork": "/library/artifact-artworks/double-edged-decrescent.png",
+    "publishDate": null
+  },
+  {
+    "code": "frantic-flight",
+    "name": "紧急升空",
+    "nameEn": "Frantic Flight",
+    "nameZht": "緊急升空",
+    "description": "“不行不行！这是我的东西，敢动一下试试！”\n魔女史姬奈莉无暇喘息，急忙往扫帚中注入魔法，这才扭身勉强从风之盗贼的手中脱身。",
+    "skillDescription": "暴击率提升10%。\n攻击后，攻击力、暴击伤害提升2.0(4.0)%。最多可叠加6次。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/frantic-flight.png",
+    "artwork": "/library/artifact-artworks/frantic-flight.png",
+    "publishDate": null
+  },
+  {
+    "code": "pos",
+    "name": "P.O.S",
+    "nameEn": "P.O.S",
+    "nameZht": "P.O.S",
+    "description": "可来往于REAL WORLD、FLAT和旷野（KWANGYA）的通道，需由【开门者】nævis开启。",
+    "skillDescription": "回合结束时，攻击力提升1.0(2.0)%、暴击率提升1.0(2.0)%、暴击伤害提升1.0(2.0)%。最多可叠加10次。",
+    "rarity": 5,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/pos.png",
+    "artwork": "/library/artifact-artworks/pos.png",
+    "publishDate": null
+  },
+  {
+    "code": "bastion-of-hope",
+    "name": "希望堡垒",
+    "nameEn": "Bastion of Hope",
+    "nameZht": "希望的堡壘",
+    "description": "“如果战场上蔓延着失败的气息，士兵们就会士气低落，屈服于敌人。这时，举起这块盾牌来守护大家吧。对于陷入挫折的他们来说，这就是向着胜利反击的象征。”",
+    "skillDescription": "使全体我军人员的效果抗性提升10(20)%，并使自身的效果抗性额外提升25.0(50.0)%。每当受到攻击时，自身的效果抗性降低3%，最多可降低至10.0(35.0)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/bastion-of-hope.png",
+    "artwork": "/library/artifact-artworks/bastion-of-hope.png",
+    "publishDate": null
+  },
+  {
+    "code": "guide-to-a-decision",
+    "name": "选择指标",
+    "nameEn": "Guide to a Decision",
+    "nameZht": "選擇的指標",
+    "description": "“身为指挥官，应当洞悉战势，运筹帷幄。愿你在这孤独的过程中有此地图相伴，莫因惧怕选择而影响判断。”",
+    "skillDescription": "战斗开始时，有50(100)%的几率在2回合内获得相当于自身最大生命值15.0(30.0)%的防护罩。\n受到攻击后，若自身生命值为最大值，则速攻值提升8.0(16.0)%。1回合仅能发动1次，此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/guide-to-a-decision.png",
+    "artwork": "/library/artifact-artworks/guide-to-a-decision.png",
+    "publishDate": null
+  },
+  {
+    "code": "war-horn",
+    "name": "进攻号角",
+    "nameEn": "War Horn",
+    "nameZht": "進攻號角",
+    "description": "“战场之上，满溢着恐惧和惊惶。若是无法将其摆脱，所余的便只有败亡。因此为众人吹响这号角吧。化绝望为希望，化恐惧为力量。”",
+    "skillDescription": "使全体我军人员的攻击力提升5.0(10.0)%。\n敌人回合每结束3次，自身速攻值提升10(20)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/war-horn.png",
+    "artwork": "/library/artifact-artworks/war-horn.png",
+    "publishDate": null
+  },
+  {
+    "code": "a-symbol-of-unity",
+    "name": "团结象征",
+    "nameEn": "A Symbol of Unity",
+    "nameZht": "團結象徵",
+    "description": "“胜利不能只靠一个人的勇猛来争取，所以你要寻找一个可以信赖和依靠的伙伴。当你与他们意志合一，成为彼此的剑和盾的时候，胜利才会属于你。”",
+    "skillDescription": "攻击时，命中提升10(20)%，伤害量提升8.0(16.0)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/a-symbol-of-unity.png",
+    "artwork": "/library/artifact-artworks/a-symbol-of-unity.png",
+    "publishDate": null
+  },
+  {
+    "code": "cruel-mischief",
+    "name": "残酷的玩笑",
+    "nameEn": "Cruel Mischief",
+    "nameZht": "殘酷的玩笑",
+    "description": "很久很久以前，有对父母拜托魔法师将自己淘气的女儿变成文静的淑女。魔法师实现了那对父母的心愿，他们因为女儿变得乖巧感到十分高兴，殊不知自己的女儿其实被换成了人形娃娃。",
+    "skillDescription": "在考验殿堂内攻击力提升20(40)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/cruel-mischief.png",
+    "artwork": "/library/artifact-artworks/cruel-mischief.png",
+    "publishDate": null
+  },
+  {
+    "code": "victorious-flag",
+    "name": "胜利旗帜",
+    "nameEn": "Victorious Flag",
+    "nameZht": "勝戰旗幟",
+    "description": "“旗帜象征着部队的权威和名誉，因此必须交给我最信任的人。我希望你能高举这面旗帜屹立在战场上，为所有士兵带来胜利的希望。”",
+    "skillDescription": "攻击时，伤害量提升8.0(16.0)%。\n受到攻击时，获得8.0(16.0)%的伤害降低效果。该神器只适用于火焰、寒气、自然属性，仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/victorious-flag.png",
+    "artwork": "/library/artifact-artworks/victorious-flag.png",
+    "publishDate": null
+  },
+  {
+    "code": "proof-of-valor",
+    "name": "勇猛证据",
+    "nameEn": "Proof of Valor",
+    "nameZht": "勇猛證據",
+    "description": "“勇气与胆识肉眼不可见，但这个徽章却可以证明这两者你是否具备。现在没有亲眼见过你的实力的人也会知道你有多英勇。”",
+    "skillDescription": "受到攻击时，获得15.0(30.0)%的伤害降低效果。每当受到攻击时，该效果降低1.5(3.0)%，最多可降低至7.5(15.0)%。该神器仅对队伍中的一人生效。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/proof-of-valor.png",
+    "artwork": "/library/artifact-artworks/proof-of-valor.png",
+    "publishDate": null
+  },
+  {
+    "code": "flower-shower",
+    "name": "洒花",
+    "nameEn": "Flower Shower",
+    "nameZht": "灑花",
+    "description": "喜欢受人瞩目的黛莉亚每次登场时使用的魔法道具。她伴随着闪光和花瓣出现的样子对某些人来说如梦似幻，但对另一些人来说仿佛噩梦一场。",
+    "skillDescription": "效果命中提升7.0(14.0)%。\n消灭敌人时，使自身在2回合内攻击力提升。",
+    "rarity": 4,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/flower-shower.png",
+    "artwork": "/library/artifact-artworks/flower-shower.png",
+    "publishDate": null
+  },
+  {
+    "code": "sepulcrum",
+    "name": "塞弗克鲁姆",
+    "nameEn": "Sepulcrum",
+    "nameZht": "塞弗克魯姆",
+    "description": "“所有彷徨漂泊者皆安息于此剑锋之下。吾剑即罪人之墓石。”\n——仁慈的处决者，玛莉",
+    "skillDescription": "受到攻击时，获得4.0(8.0)%的伤害降低效果。每当受到攻击时。该效果提升4.0(8.0)%，最多可叠加3次。回合开始时重置。",
+    "rarity": 4,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/sepulcrum.png",
+    "artwork": "/library/artifact-artworks/sepulcrum.png",
+    "publishDate": null
+  },
+  {
+    "code": "crimson-seed",
+    "name": "红焰种子",
+    "nameEn": "Crimson Seed",
+    "nameZht": "紅焰種子",
+    "description": "象征红焰都市梅兹勒的火苗状信物，带有些微火焰之力。大族长会将它发放给外地人作为出入梅兹勒的许可，也是彼此友好关系的证明。",
+    "skillDescription": "攻击后，有40(80)%的几率解除1个弱化效果。1回合仅能发动1次。",
+    "rarity": 4,
+    "role": "warrior",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/crimson-seed.png",
+    "artwork": "/library/artifact-artworks/crimson-seed.png",
+    "publishDate": null
+  },
+  {
+    "code": "strak-gauntlet",
+    "name": "史特雷克拳套",
+    "nameEn": "Strak Gauntlet",
+    "nameZht": "史特雷克拳套",
+    "description": "日蚀一开始，那小手套便散发出滚烫的火花，包裹住身体。手套内的精灵彻底觉醒，所以那天我们才能消灭魔神。\n——继承者亚奇",
+    "skillDescription": "若生命值在50%以上，则效果抗性提升30(60)%。若生命值低于50%，则该效果降低50%。",
+    "rarity": 4,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/strak-gauntlet.png",
+    "artwork": "/library/artifact-artworks/strak-gauntlet.png",
+    "publishDate": null
+  },
+  {
+    "code": "hell-cutter",
+    "name": "地狱切割机",
+    "nameEn": "Hell Cutter",
+    "nameZht": "地獄切割機",
+    "description": "来～说到这个锯子……它真是妙不可言。\n——稀世狂人拉拉奇亚",
+    "skillDescription": "有人回合开始时，自身攻击力和暴击率提升2.0(4.0)%。该效果可叠加，并在攻击后解除。",
+    "rarity": 4,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/hell-cutter.png",
+    "artwork": "/library/artifact-artworks/hell-cutter.png",
+    "publishDate": null
+  },
+  {
+    "code": "els-fist",
+    "name": "艾尔之拳",
+    "nameEn": "El's Fist",
+    "nameZht": "艾爾之拳",
+    "description": "只要手臂触碰到，无论是什么都会消灭！会变成碎片，仿佛一开始就不存在！\n——护卫型仆人艾尔",
+    "skillDescription": "攻击力提升10%。\n生命值比例越低，攻击力、速度提升越多。最多可提升25.0(50.0)%。",
+    "rarity": 4,
+    "role": "warrior",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/els-fist.png",
+    "artwork": "/library/artifact-artworks/els-fist.png",
+    "publishDate": null
+  },
+  {
+    "code": "andres-crossbow",
+    "name": "安德烈斯之弩",
+    "nameEn": "Andre's Crossbow",
+    "nameZht": "安德烈斯之弩",
+    "description": "“这是依照我的喜好亲自改造的武器。只要有了这个，就能快速精准地瞄准，而且百发百中哦。”",
+    "skillDescription": "命中、效果命中提升10(20)%。",
+    "rarity": 4,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/andres-crossbow.png",
+    "artwork": "/library/artifact-artworks/andres-crossbow.png",
+    "publishDate": null
+  },
+  {
+    "code": "ambrote",
+    "name": "安布罗泰",
+    "nameEn": "Ambrote",
+    "nameZht": "安布羅泰",
+    "description": "她在完成最后的祈祷之后，带着用世界树树枝制成的弓箭，投入了九死一生的战场。\n为了恢复一切，相信万物会再次重生。",
+    "skillDescription": "使用基本技能时，伤害量提升10(20)%。\n使用基本技能后，速度提升1.0(2.0)%。速度提升效果最多可叠加5次。",
+    "rarity": 4,
+    "role": "ranger",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/ambrote.png",
+    "artwork": "/library/artifact-artworks/ambrote.png",
+    "publishDate": null
+  },
+  {
+    "code": "rosa-hargana",
+    "name": "罗沙哈勒戈纳",
+    "nameEn": "Rosa Hargana",
+    "nameZht": "羅沙哈勒戈納",
+    "description": "爆发的术士安伯罗丝是轻量化魔法及枪术的专家，她的魔弹百发百中，在击倒自己的恋人时也不例外。",
+    "skillDescription": "夹攻率提升7.0(14.0)%。\n非自身回合时攻击力提升30%。",
+    "rarity": 4,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/rosa-hargana.png",
+    "artwork": "/library/artifact-artworks/rosa-hargana.png",
+    "publishDate": null
+  },
+  {
+    "code": "sashe-ithanes",
+    "name": "香袋伊妲涅斯",
+    "nameEn": "Sashe Ithanes",
+    "nameZht": "香袋伊妲涅斯",
+    "description": "这个武器的名字是香袋伊妲涅斯，它是足以撼动地心，让都市、人类、王国、梦想全都毁灭的火花。说好了，你会为了我用这个结束一切。",
+    "skillDescription": "敌人死亡时，使全体我军人员的速攻值提升8.0(16.0)%。不与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/sashe-ithanes.png",
+    "artwork": "/library/artifact-artworks/sashe-ithanes.png",
+    "publishDate": null
+  },
+  {
+    "code": "infinity-basket",
+    "name": "无限提篮",
+    "nameEn": "Infinity Basket",
+    "nameZht": "無限提籃",
+    "description": "来，将您身上的贵重物品放进这篮子吧～会增加两倍喔！要是放两个的话呢？就会变成四个啦～啊！这绝对不是诈骗！相信我吧！",
+    "skillDescription": "回合开始时，在该回合内使除自身外的全体我军人员夹攻率提升7.0(14.0)%，并使攻击力提升20%。",
+    "rarity": 4,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/infinity-basket.png",
+    "artwork": "/library/artifact-artworks/infinity-basket.png",
+    "publishDate": null
+  },
+  {
+    "code": "barthezs-orbuculum",
+    "name": "巴泰斯的水晶球",
+    "nameEn": "Barthez's Orbuculum",
+    "nameZht": "巴泰斯的水晶球",
+    "description": "前途毋须问我。既为吾主，一切皆随汝愿。未来依汝掌控。",
+    "skillDescription": "有10(20)%的几率使受到攻击时的所受伤害降低50%。伤害降低效果重复时，以最强效果为准。",
+    "rarity": 4,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/barthezs-orbuculum.png",
+    "artwork": "/library/artifact-artworks/barthezs-orbuculum.png",
+    "publishDate": null
+  },
+  {
+    "code": "tear-of-the-desert",
+    "name": "沙漠之泪",
+    "nameEn": "Tear of the Desert",
+    "nameZht": "沙漠之淚",
+    "description": "只能在萨波瓦拉附近的沙漠中发现的经过特殊加工的橄榄石，是宝石也是信物。巴萨尔商团所雇用的佣兵中，也只有极少数获得巴萨尔认可的人有幸获得。越靠近沙尘暴风，就越能感受到它带有的绿光魔法，是众多沙漠冒险家渴望得到的物品。",
+    "skillDescription": "攻击全体后，自身攻击力提升2.0(4.0)%。最多可叠加5次。",
+    "rarity": 4,
+    "role": "mage",
+    "limited": true,
+    "stats": {
+      "atk": 247,
+      "hp": 390,
+      "def": 0
+    },
+    "image": "/library/artifacts/tear-of-the-desert.png",
+    "artwork": "/library/artifact-artworks/tear-of-the-desert.png",
+    "publishDate": null
+  },
+  {
+    "code": "radiant-forever",
+    "name": "灿烂的永恒",
+    "nameEn": "Radiant Forever",
+    "nameZht": "燦爛的永恆",
+    "description": "与诞生共同产生的光彩，死亡前一刻掠过的闪光。凝聚生命所有光辉而制成的水晶，据说拥有非常强大的力量。",
+    "skillDescription": "攻击全体时，若目标为精英或首领怪物，则伤害量提升25(50)%。",
+    "rarity": 4,
+    "role": "mage",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/radiant-forever.png",
+    "artwork": "/library/artifact-artworks/radiant-forever.png",
+    "publishDate": null
+  },
+  {
+    "code": "iela-violin",
+    "name": "依埃萝小提琴",
+    "nameEn": "Iela Violin",
+    "nameZht": "依埃蘿小提琴",
+    "description": "“即使拥有再强大的力量和无止尽的黑暗，对我而言也只是名听众罢了。”\n吟游诗人依埃萝开始静静地拉起小提琴，美丽的旋律打动了大家的心。连除了角逐胜负之外，对一切都漠不关心的天才暗击术士也为之心醉。",
+    "skillDescription": "攻击后，有40(80)%的几率解除目标的1个强化效果。",
+    "rarity": 4,
+    "role": "mage",
+    "limited": true,
+    "stats": {
+      "atk": 182,
+      "hp": 663,
+      "def": 0
+    },
+    "image": "/library/artifacts/iela-violin.png",
+    "artwork": "/library/artifact-artworks/iela-violin.png",
+    "publishDate": null
+  },
+  {
+    "code": "sira-ren",
+    "name": "席拉－莲",
+    "nameEn": "Sira-Ren",
+    "nameZht": "席拉－蓮",
+    "description": "拥有强大魔力者的尸体上盛开出的罕见魔力之花。但如果不持续赋予强大的魔力，很快就会凋谢，因此几乎没人知道它的存在。",
+    "skillDescription": "攻击后有25.0(50.0)%的几率使目标在1回合内造成随机弱化效果。（攻击力降低、命中降低、沉默、睡眠、中毒其中之一）",
+    "rarity": 4,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/sira-ren.png",
+    "artwork": "/library/artifact-artworks/sira-ren.png",
+    "publishDate": null
+  },
+  {
+    "code": "kaladra",
+    "name": "嘉拉特拉",
+    "nameEn": "Kal'adra",
+    "nameZht": "嘉拉特拉",
+    "description": "堕落的暗黑祭司赛斯提亚所打造的受到诅咒的魔法武器。洞悉对手的弱点，令其陷入深切的痛苦，继而精神崩溃。时代更迭，暗黑祭司们选择了圣约，只有这个面具遭到禁用。",
+    "skillDescription": "攻击时若目标附带弱化效果，伤害量提升15.0(30.0)%。",
+    "rarity": 4,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/kaladra.png",
+    "artwork": "/library/artifact-artworks/kaladra.png",
+    "publishDate": null
+  },
+  {
+    "code": "tagehels-ancient-book",
+    "name": "塔克赫尔古书",
+    "nameEn": "Tagehel's Ancient Book",
+    "nameZht": "塔克赫爾古書",
+    "description": "记载着已灭亡的塔克赫尔王国文字的书籍。因为文字中蕴含着神秘之力，众多研究员正努力厘清其中的原理和意义。",
+    "skillDescription": "首次战斗开始时，获得10(20)点灵魂。",
+    "rarity": 4,
+    "role": "mage",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/tagehels-ancient-book.png",
+    "artwork": "/library/artifact-artworks/tagehels-ancient-book.png",
+    "publishDate": null
+  },
+  {
+    "code": "steadfast-gatekeeper",
+    "name": "坚定的看守者",
+    "nameEn": "Steadfast Gatekeeper",
+    "nameZht": "堅定的看守者",
+    "description": "“这把剑不仅仅是为了杀敌而存在，更是为了我们的城池不落入敌手而存在。记住了，我们的义务是不让城墙之内沾染半滴鲜血。”",
+    "skillDescription": "全体我军人员防御力提升5%。\n受到精英、首领怪物攻击时，获得10(20)%的伤害降低效果。不会与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 130,
+      "hp": 715,
+      "def": 0
+    },
+    "image": "/library/artifacts/steadfast-gatekeeper.png",
+    "artwork": "/library/artifact-artworks/steadfast-gatekeeper.png",
+    "publishDate": null
+  },
+  {
+    "code": "hilag-lance",
+    "name": "锡拉革骑士长矛",
+    "nameEn": "Hilag Lance",
+    "nameZht": "錫拉革騎槍",
+    "description": "少女举起长矛，身后爆发出欢呼声。她坚信很快就能打败魔神。\n“女神啊，如果无法如愿，请您赐我不死之躯，让我永远战斗下去。”",
+    "skillDescription": "除自身外的我军人员受到单一攻击后，自身速攻值提升5.0(10.0)%。",
+    "rarity": 4,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 130,
+      "hp": 715,
+      "def": 0
+    },
+    "image": "/library/artifacts/hilag-lance.png",
+    "artwork": "/library/artifact-artworks/hilag-lance.png",
+    "publishDate": null
+  },
+  {
+    "code": "adamant-shield",
+    "name": "金刚石盾牌",
+    "nameEn": "Adamant Shield",
+    "nameZht": "金剛石盾牌",
+    "description": "那该死的盾牌可以抵挡一切。我能保证，就连我的剑也突破不了它的防御。\n——星辰剑士艾拉",
+    "skillDescription": "我军人员受到暴击时，获得8.0(16.0)%的伤害降低效果。",
+    "rarity": 4,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/adamant-shield.png",
+    "artwork": "/library/artifact-artworks/adamant-shield.png",
+    "publishDate": null
+  },
+  {
+    "code": "aurius",
+    "name": "亚乌利斯",
+    "nameEn": "Aurius",
+    "nameZht": "亞烏利斯",
+    "description": "曾是时代英雄的骑士团长罗威尔所使用的塔盾。",
+    "skillDescription": "使全体我军人员防御力提升10%。\n对我军人员所受伤害的10(20)%进行伤害分配。\n不会与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/aurius.png",
+    "artwork": "/library/artifact-artworks/aurius.png",
+    "publishDate": null
+  },
+  {
+    "code": "eternus",
+    "name": "埃特诺斯",
+    "nameEn": "Eternus",
+    "nameZht": "埃特諾斯",
+    "description": "“无始无终的永恒约定与束缚。死生反复，缠绕交错。”\n据传，被诅咒的大魔法师海茵德为了寻找摆脱戒指束缚的方法而流浪了数千年。",
+    "skillDescription": "敌人回合结束时，若我军之中有人处于弱化效果状态，则使自身速攻值提升7.0(14.0)%。1回合仅能发动1次。",
+    "rarity": 4,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/eternus.png",
+    "artwork": "/library/artifact-artworks/eternus.png",
+    "publishDate": null
+  },
+  {
+    "code": "magarahas-tome",
+    "name": "玛姬拉哈的魔法古书",
+    "nameEn": "Magaraha's Tome",
+    "nameZht": "瑪姬拉哈的魔法古書",
+    "description": "此古书详细记录了大魔法师玛姬拉哈生前研究的魔法。厚度惊人，多达2,000页，由于其密密麻麻的结构和晦涩的内容，企图精读此书的魔法师们翻几页就翻不下去了。",
+    "skillDescription": "使用非攻击类技能后，自身速攻值提升15.0(30.0)%。",
+    "rarity": 4,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/magarahas-tome.png",
+    "artwork": "/library/artifact-artworks/magarahas-tome.png",
+    "publishDate": null
+  },
+  {
+    "code": "wondrous-potion-vial",
+    "name": "灵药的试管",
+    "nameEn": "Wondrous Potion Vial",
+    "nameZht": "靈藥的試管",
+    "description": "世上独一无二的爱情灵丹，或长生不死的仙丹，你想要哪一个呢？\n——炼金术学会首席研究员费依",
+    "skillDescription": "回合开始时，有50(100)%的几率解除处于弱化效果状态我军人员的1个弱化效果。",
+    "rarity": 4,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/wondrous-potion-vial.png",
+    "artwork": "/library/artifact-artworks/wondrous-potion-vial.png",
+    "publishDate": null
+  },
+  {
+    "code": "waters-origin",
+    "name": "波涛的祈愿",
+    "nameEn": "Water's Origin",
+    "nameZht": "波濤的祈願",
+    "description": "有这个符咒的地方就会有我。为了让风浪回归平静，使疾病获得治愈，从灭亡中拯救生命。\n——巫女紫末",
+    "skillDescription": "受到攻击的同时，若所受伤害量在最大生命值的20%以上，则生命值恢复8%，且速攻值提升10(20)%。",
+    "rarity": 4,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/waters-origin.png",
+    "artwork": "/library/artifact-artworks/waters-origin.png",
+    "publishDate": null
+  },
+  {
+    "code": "silver-rain",
+    "name": "银光骤雨",
+    "nameEn": "Silver Rain",
+    "nameZht": "銀光驟雨",
+    "description": "她的手里剑犹如倾盆而下的盛夏暴雨，所经之处皆是满街的泥泞血水。",
+    "skillDescription": "使用非攻击类技能时，有50(100)%的几率使除自身外攻击力最高的我军人员在2回合内攻击力提升。",
+    "rarity": 4,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/silver-rain.png",
+    "artwork": "/library/artifact-artworks/silver-rain.png",
+    "publishDate": null
+  },
+  {
+    "code": "shepherds-of-chaos",
+    "name": "混沌的引导者们",
+    "nameEn": "Shepherds of Chaos",
+    "nameZht": "混沌的引導者們",
+    "description": "通过混沌闸门出现在欧勒毕斯的新型未知怪物。样貌和特征和原本出没在黎塔尼亚的未知怪物完全不同，大部分是听从某人的命令行事，其中有一小部分似乎拥有低等智商。",
+    "skillDescription": "防御力提升10%。\n生命值比例越低，回避、防御力越提升。最多可提升至20(40)%。",
+    "rarity": 4,
+    "role": "thief",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/shepherds-of-chaos.png",
+    "artwork": "/library/artifact-artworks/shepherds-of-chaos.png",
+    "publishDate": null
+  },
+  {
+    "code": "santa-muerte",
+    "name": "死亡圣神",
+    "nameEn": "Santa Muerte",
+    "nameZht": "死亡聖神",
+    "description": "没有海斯特挥舞的镰刀斩不断的东西。斩断了平静的黑夜，斩断了生与死，连他自己剩下的一丝人性也被斩成了碎片。",
+    "skillDescription": "发动单一攻击，之后若目标为自然属性，使其速攻值降低5.0(10.0)%。",
+    "rarity": 4,
+    "role": "thief",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/santa-muerte.png",
+    "artwork": "/library/artifact-artworks/santa-muerte.png",
+    "publishDate": null
+  },
+  {
+    "code": "dust-devil",
+    "name": "尘埃恶魔",
+    "nameEn": "Dust Devil",
+    "nameZht": "塵埃惡魔",
+    "description": "“漫长的战争结束之后，一切就会回到从前吗？”\n日后被称为德柱落沙漠英雄的青年诺夏，深深地叹了口气。",
+    "skillDescription": "使用基本技能后，若目标仍存活，有15.0(30.0)%的几率再发动一次基本技能。1回合仅能发动1次。",
+    "rarity": 4,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/dust-devil.png",
+    "artwork": "/library/artifact-artworks/dust-devil.png",
+    "publishDate": null
+  },
+  {
+    "code": "elyhas-knife",
+    "name": "埃里哈刀",
+    "nameEn": "Elyha's Knife",
+    "nameZht": "埃里哈刀",
+    "description": "每当黑雾佣兵团的队长埃里哈挥舞刀刃时，剑锋上沾染的血就更浓，并闪耀着残酷的光芒。",
+    "skillDescription": "攻击时，若目标当前生命值非最大值，则对其造成10(20)%的防御力穿透。",
+    "rarity": 4,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/elyhas-knife.png",
+    "artwork": "/library/artifact-artworks/elyhas-knife.png",
+    "publishDate": null
+  },
+  {
+    "code": "moonlight-dreamblade",
+    "name": "皎月梦夜",
+    "nameEn": "Moonlight Dreamblade",
+    "nameZht": "皎月夢夜",
+    "description": "“要走哪条路，或是哪条路都不走，全取决于你的选择。”\n散发雪白光芒的刀刃在我的脑海里窃窃私语。",
+    "skillDescription": "回避提升10(20)%。\n若受到攻击时未命中，则受到攻击的同时，使自身在1回合内攻击力提升。",
+    "rarity": 4,
+    "role": "thief",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/moonlight-dreamblade.png",
+    "artwork": "/library/artifact-artworks/moonlight-dreamblade.png",
+    "publishDate": null
+  },
+  {
+    "code": "reingar-festival-dumpling",
+    "name": "雷茵格尔庆典肉包",
+    "nameEn": "Reingar Festival Dumpling",
+    "nameZht": "雷茵格爾慶典肉包",
+    "description": "科学再现部应尤娜请求复刻出的地球料理，味道意外地让人上瘾。\n“我们用周围可以找到的食材想方设法做了还原，可是……地球人真的喜欢吃这种东西？”",
+    "skillDescription": "配戴的英雄在Episode、支线故事、精灵祭坛、紧急任务、食人魔武器库、讨伐、维度裂缝、异界之隙结束时获得的亲密度提升100%。\n该神器升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/reingar-festival-dumpling.png",
+    "artwork": "/library/artifact-artworks/reingar-festival-dumpling.png",
+    "publishDate": null
+  },
+  {
+    "code": "xii-the-hanged-man",
+    "name": "XII. The Hanged Man",
+    "nameEn": "XII. The Hanged Man",
+    "nameZht": "XII. The Hanged Man",
+    "description": "摆脱旧日束缚的和英想选择新的未来。\n她的命运却让她再次踏上了修罗之路。\n夏天的烈日骄阳与波涛汹涌的大海将为她指引方向。",
+    "skillDescription": "暴击率提升5.0(10.0)%。\n回合开始时，有30(60)%的几率在1回合内获得暴击伤害提升效果。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/xii-the-hanged-man.png",
+    "artwork": "/library/artifact-artworks/xii-the-hanged-man.png",
+    "publishDate": null
+  },
+  {
+    "code": "xv-the-devil",
+    "name": "XV. The Devil",
+    "nameEn": "XV. The Devil",
+    "nameZht": "XV. The Devil",
+    "description": "请谨慎挑选便利店中已被少女目光锁定的食品。否则，可能会唤醒少女内心沉睡的恶魔。",
+    "skillDescription": "回合开始时，恢复250(500)生命值。\n使全体我军人员获得的恢复量提升10(20)%。恢复量提升效果重复时，以最强效果为准。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/xv-the-devil.png",
+    "artwork": "/library/artifact-artworks/xv-the-devil.png",
+    "publishDate": null
+  },
+  {
+    "code": "special-strawberry-cake",
+    "name": "特别的草莓蛋糕",
+    "nameEn": "Special Strawberry Cake",
+    "nameZht": "特別的草莓蛋糕",
+    "description": "你知道吗……与你共度的每一天对我来说都像是上天的恩赐。有你陪伴在我身边，就会忘记所有烦恼。\n这、这是我亲手做的草莓蛋糕！虽然不知道味道如何……但里面充满了我对你的想念。\n我没有放什么奇怪的东西进去哦……！你……愿意收下吗？",
+    "skillDescription": "攻击时，若目标为精英、首领怪物，则伤害量提升20%。该神器在升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/special-strawberry-cake.png",
+    "artwork": "/library/artifact-artworks/special-strawberry-cake.png",
+    "publishDate": null
+  },
+  {
+    "code": "midnight-pizza-delivery",
+    "name": "深夜披萨护胃队",
+    "nameEn": "Midnight Pizza Delivery",
+    "nameZht": "深夜披薩護胃隊",
+    "description": "“你这只嘴馋的小老鼠！怎么可以偷吃披萨呢？！呃啊——客人肯定会以为是我偷吃的啦！”",
+    "skillDescription": "使全体我军人员的暴击率、效果命中提升10%。不会与相同名称的神器效果重复叠加。\n该神器在升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/midnight-pizza-delivery.png",
+    "artwork": "/library/artifact-artworks/midnight-pizza-delivery.png",
+    "publishDate": null
+  },
+  {
+    "code": "xvii-the-star",
+    "name": "XVII. The Star",
+    "nameEn": "XVII. The Star",
+    "nameZht": "XVII. The Star",
+    "description": "为了能与憧憬的心灵导师一起登上更大的舞台，少女将一直怀抱梦想，直到星星也听见她那小小的愿望……",
+    "skillDescription": "战斗开始时，使全体我军人员生命值恢复10%，并有50(100)%的几率使自身技能冷却时间减少1回合。技能冷却时间减少效果发动3次后不会再额外发动。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/xvii-the-star.png",
+    "artwork": "/library/artifact-artworks/xvii-the-star.png",
+    "publishDate": null
+  },
+  {
+    "code": "flames-on-a-snowy-mountain",
+    "name": "雪山上绽放的烟花",
+    "nameEn": "Flames on a snowy mountain",
+    "nameZht": null,
+    "description": "望着伊乌莱卡雪山上绽放的烟花，他们许了愿。新的一年里希望可以与珍爱的人一起积累幸福与特别的回忆。\n“所有的厄运会伴随那天空的烟花一起远走高飞。那么，我们新的一年会将充满平安与幸福。忘掉苦恼和恐惧，笑着迎接新的一年。”",
+    "skillDescription": "配戴的英雄在Episode、支线故事、精灵祭坛、紧急任务、食人魔武器库、讨伐、维度裂缝、异界之隙结束时获得的亲密度提升100%。\n该神器升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": null,
+    "artwork": null,
+    "publishDate": null
+  },
+  {
+    "code": "new-years-festival-souvenir",
+    "name": "新年庆典纪念品",
+    "nameEn": "New Year's Festival Souvenir",
+    "nameZht": "新年慶典紀念品",
+    "description": "随处可见的玩偶，随时可吃的零食。常见的东西之所以会被珍藏，是因为蕴含着特别的回忆。",
+    "skillDescription": "配戴的英雄在Episode、支线故事、精灵祭坛、紧急任务、食人魔武器库、讨伐、维度裂缝、异界之隙结束时获得的亲密度提升100%。\n该神器升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/new-years-festival-souvenir.png",
+    "artwork": "/library/artifact-artworks/new-years-festival-souvenir.png",
+    "publishDate": null
+  },
+  {
+    "code": "our-beautiful-seasons",
+    "name": "共度的季节",
+    "nameEn": "Our Beautiful Seasons",
+    "nameZht": "共度的季節",
+    "description": "战胜了寒冷严酷的至暗季节，他们终于迎来了满载希望的辉光。在这个集众人之力而实现的幸福时刻，大家的嘴角都泛起了温暖的微笑。“如同季节变幻流转，我们也终将踏上不同的旅程，但我们创造的奇迹会被留存在此，直至永远。”",
+    "skillDescription": "攻击时，若目标为精英、首领怪物，则伤害量提升20%。该神器在升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/our-beautiful-seasons.png",
+    "artwork": "/library/artifact-artworks/our-beautiful-seasons.png",
+    "publishDate": null
+  },
+  {
+    "code": "cutie-pando",
+    "name": "小可爱胖嘟",
+    "nameEn": "Cutie Pando",
+    "nameZht": "小可愛胖嘟",
+    "description": "可爱的小熊猫欢快玩耍的样子总是能让众人为之心动。\n除了某个担心自己位置不保的蓝色吉祥物……",
+    "skillDescription": "配置在队伍中的英雄所获得的经验值将会增加15%。因神器增加的经验值在效果重叠时，只应用最高效果，但作为辅助英雄时将不会应用此效果。\n该神器在升等时，效果不会增加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/cutie-pando.png",
+    "artwork": "/library/artifact-artworks/cutie-pando.png",
+    "publishDate": null
+  },
+  {
+    "code": "vi-the-lovers",
+    "name": "VI. The Lovers",
+    "nameEn": "VI. The Lovers",
+    "nameZht": "VI. The Lovers",
+    "description": "当两个人相遇，牵起彼此的手，那一刻他们心中有着同一个疑问。无论遇到什么考验，是否都能紧握着对方的手不放呢？",
+    "skillDescription": "战斗开始时，使自身和前排我军人员在2回合内获得强度相当于自身等级x20(40)的防护罩。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/vi-the-lovers.png",
+    "artwork": "/library/artifact-artworks/vi-the-lovers.png",
+    "publishDate": null
+  },
+  {
+    "code": "prelude-to-a-new-era",
+    "name": "新时代的序幕",
+    "nameEn": "Prelude to a New Era",
+    "nameZht": "新時代的序幕",
+    "description": "将混乱的昔日抛诸脑后，在迎来的短暂和平中生存下来的人们联合了彼此的力量。大家都怀着各自的目标，为了创造理想的新时代而努力。",
+    "skillDescription": "用礼炮庆祝新时代的序幕。\n攻击时若目标的生命值高于50%，伤害量提升20%。\n该神器在升等时效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/prelude-to-a-new-era.png",
+    "artwork": "/library/artifact-artworks/prelude-to-a-new-era.png",
+    "publishDate": null
+  },
+  {
+    "code": "vii-the-chariot",
+    "name": "VII. The Chariot",
+    "nameEn": "VII. The Chariot",
+    "nameZht": "VII. The Chariot",
+    "description": "猛烈的大风和凶猛的波涛都挡不住她的去路。\n无论遇到怎样的苦难与逆境，都要勇敢向前，这才是年轻！这才是青春！",
+    "skillDescription": "防御力提升2.5(5.0)%。\n在自身回合攻击后，若自身处于出血状态，则解除自身的1个弱化效果。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/vii-the-chariot.png",
+    "artwork": "/library/artifact-artworks/vii-the-chariot.png",
+    "publishDate": null
+  },
+  {
+    "code": "xix-the-sun",
+    "name": "XIX. The Sun",
+    "nameEn": "XIX. The Sun",
+    "nameZht": "XIX. The Sun",
+    "description": "比盛夏的太阳更炽烈，更难忘的，是和那孩子一起分享冰淇淋的小小回忆。",
+    "skillDescription": "回合结束时，自身和除自身外生命值比例最低的我军人员分享{(ps_refer)}生命值进行恢复。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/xix-the-sun.png",
+    "artwork": "/library/artifact-artworks/xix-the-sun.png",
+    "publishDate": null
+  },
+  {
+    "code": "iv-the-emperor",
+    "name": "IV. The Emperor",
+    "nameEn": "IV. The Emperor",
+    "nameZht": "IV. The Emperor",
+    "description": "对头戴日耀荣光，受到万人景仰的他来说，他此生唯一的献身对象，亦是唯一的弱点，将与他永在。即便她并未伴他左右。",
+    "skillDescription": "防御力提升6.0(12.0)%。\n首次战斗开始时，若队伍中有人附带III. The Empress效果，则攻击力额外提升6.0(12.0)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/iv-the-emperor.png",
+    "artwork": "/library/artifact-artworks/iv-the-emperor.png",
+    "publishDate": null
+  },
+  {
+    "code": "iii-the-empress",
+    "name": "III. The Empress",
+    "nameEn": "III. The Empress",
+    "nameZht": "III. The Empress",
+    "description": "对头戴星辉之冠，拥有理智之瞳的她来说，她唯一的真理，亦是唯一的答案，将与她永在。即便他并未伴她左右。",
+    "skillDescription": "攻击力提升6.0(12.0)%。\n首次战斗开始时，若队伍中有人附带IV. The Emperor效果，则防御力额外提升6.0(12.0)%。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/iii-the-empress.png",
+    "artwork": "/library/artifact-artworks/iii-the-empress.png",
+    "publishDate": null
+  },
+  {
+    "code": "nostalgic-music-box",
+    "name": "悲恋音乐盒",
+    "nameEn": "Nostalgic Music Box",
+    "nameZht": "悲戀的音樂盒",
+    "description": "发出奇异光芒的全息音乐盒。因为能绘出任何所想的东西，故而可以用来追忆过去，但也会唤起最为刻骨铭心的思念。",
+    "skillDescription": "防御力提升5.0(10.0)%。\n回合结束时，使随机1名我军人员在1回合内获得随机强化效果（防护罩、防御力提升、免疫、持续恢复其中之一）。根据目标最大生命值等比提升防护罩强度。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/nostalgic-music-box.png",
+    "artwork": "/library/artifact-artworks/nostalgic-music-box.png",
+    "publishDate": null
+  },
+  {
+    "code": "brilliant-confidence",
+    "name": "闪耀的自信",
+    "nameEn": "Brilliant Confidence",
+    "nameZht": "閃耀的自信",
+    "description": "不管以后遇到什么考验，即使我们相隔甚远，我相信你无论何时何地都不会失去光芒。所以不管遇到什么事，你都一定可以克服！",
+    "skillDescription": "配戴的英雄在Episode、支线故事、精灵祭坛、紧急任务、食人魔武器库、讨伐、维度裂缝、异界之隙结束时获得的亲密度提升100%。\n该神器升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/brilliant-confidence.png",
+    "artwork": "/library/artifact-artworks/brilliant-confidence.png",
+    "publishDate": null
+  },
+  {
+    "code": "blazing-full-moon-trophy",
+    "name": "燃烧的满月奖杯",
+    "nameEn": "Blazing Full Moon Trophy",
+    "nameZht": "燃燒的滿月獎盃",
+    "description": "梅兹勒为迎接满月的和平收获庆典而准备的奖品。颁发给扫荡最多魔物的冠军。",
+    "skillDescription": "敌人死亡时，使全体我军人员的生命值恢复7.0(14.0)%。1回合仅能发动1次，不会与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/blazing-full-moon-trophy.png",
+    "artwork": "/library/artifact-artworks/blazing-full-moon-trophy.png",
+    "publishDate": null
+  },
+  {
+    "code": "records-of-unity",
+    "name": "团结的记录",
+    "nameEn": "Records of Unity",
+    "nameZht": "團結的紀錄",
+    "description": "为了希都尼亚大陆的和谐与和平，城主聚集在亚基享受庆典，并承诺不再会有人因战争和分裂而遭受痛苦。",
+    "skillDescription": "配置在队伍中的英雄所获得的经验值将会增加15%。因神器增加的经验值在效果重叠时，只应用最高效果，但作为辅助英雄时将不会应用此效果。\n该神器在升等时，效果不会增加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/records-of-unity.png",
+    "artwork": "/library/artifact-artworks/records-of-unity.png",
+    "publishDate": null
+  },
+  {
+    "code": "official-levulin-beach-volleyball",
+    "name": "里伯林沙滩排球指定用球",
+    "nameEn": "Official Levulin Beach Volleyball",
+    "nameZht": "里伯林沙灘排球指定用球",
+    "description": "看似普通的沙滩排球，但盛传在某个炎炎夏日举行的比赛中被雅莉莎和洁若米亚使用过，之后价格便急速飙升。因为两人继续打沙滩排球的可能性极低，所以球的价格水涨船高。",
+    "skillDescription": "全体我军人员暴击率提升5%。发动单一攻击后，对除目标外的随机敌人造成100(200)点额外伤害。该神器仅对队伍中的一人生效。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/official-levulin-beach-volleyball.png",
+    "artwork": "/library/artifact-artworks/official-levulin-beach-volleyball.png",
+    "publishDate": null
+  },
+  {
+    "code": "xiv-temperance",
+    "name": "XIV. Temperance",
+    "nameEn": "XIV. Temperance",
+    "nameZht": "XIV. Temperance",
+    "description": "怀里抱着大叠文件的少女，在谁也不在意的珍贵记录之间隐藏了真相。并且限制着自己的可能性，默默忍受着不会到来的时间。",
+    "skillDescription": "使用基本技能后，使除自身外生命值比例最低的我军人员在2回合内获得强度相当于自身最大生命值5.0(10.0)%的防护罩。此神器效果只会应用在队伍中的一人身上。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/xiv-temperance.png",
+    "artwork": "/library/artifact-artworks/xiv-temperance.png",
+    "publishDate": null
+  },
+  {
+    "code": "the-guardian-stars-blessing",
+    "name": "守护星的祝福",
+    "nameEn": "The Guardian Star's Blessing",
+    "nameZht": "守護星的祝福",
+    "description": "在崇拜星星的寇斯特拉最为珍贵的圣物。人们认为这是蕴含着守护星的祝福的东西，每年重要活动的时候，大祭司都会拿着圣物向守护星致谢祈祷。",
+    "skillDescription": "使用基本技能后，使除自身外攻击力最高的我军人员恢复生命值4.0(8.0)%。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/the-guardian-stars-blessing.png",
+    "artwork": "/library/artifact-artworks/the-guardian-stars-blessing.png",
+    "publishDate": null
+  },
+  {
+    "code": "days-of-destiny",
+    "name": "命中注定的相遇",
+    "nameEn": "Days of Destiny",
+    "nameZht": "命中注定的相遇",
+    "description": "在广阔无尽的宇宙中，在无限缠绕的缘分中，我们命中注定要相遇！以后无论有什么障碍，我们也会成为守护世界的希望之光！你也知道吧？",
+    "skillDescription": "配戴的英雄在Episode、支线故事、精灵祭坛、紧急任务、食人魔武器库、讨伐、维度裂缝、异界之隙结束时获得的亲密度提升100%。\n该神器升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/days-of-destiny.png",
+    "artwork": "/library/artifact-artworks/days-of-destiny.png",
+    "publishDate": null
+  },
+  {
+    "code": "xviii-the-moon",
+    "name": "XVIII. The Moon",
+    "nameEn": "XVIII. The Moon",
+    "nameZht": "XVIII. The Moon",
+    "description": "举着宝珠的少女在月光下起舞，创生着噩梦。使天真和邪恶的境界变得模糊的恶意幻想，是她为了忘记无意识中隐藏的伤痕而苦苦挣扎。即便举世皆知，对你而言却未必。",
+    "skillDescription": "单一攻击后，有7.5(15.0)%的几率窃取目标的1个强化效果。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/xviii-the-moon.png",
+    "artwork": "/library/artifact-artworks/xviii-the-moon.png",
+    "publishDate": null
+  },
+  {
+    "code": "xvi-the-tower",
+    "name": "XVI. The Tower",
+    "nameEn": "XVI. The Tower",
+    "nameZht": "XVI. The Tower",
+    "description": "遭到欺骗和背叛导致心灵之塔崩塌的悲伤女人，终于失去了热情的束缚，取而代之的是肆意的破坏。但她的欲望正在建造着另一座塔，作茧自缚。",
+    "skillDescription": "攻击后，对目标造成50(100)点额外伤害。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/xvi-the-tower.png",
+    "artwork": "/library/artifact-artworks/xvi-the-tower.png",
+    "publishDate": null
+  },
+  {
+    "code": "xiii-death",
+    "name": "XIII. Death",
+    "nameEn": "XIII. Death",
+    "nameZht": "XIII. Death",
+    "description": "举着镰刀的少年遭受了多次濒临死亡的危机。不过越是这样，少年便越是渴望重生和生命。他的红色镰刀意味着终焉变为起点，旧血脉变为新力量的历程。",
+    "skillDescription": "单一攻击后，有7.5(15.0)%的几率在回合结束时，使对目标附加的出血、烧伤效果发生激爆。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/xiii-death.png",
+    "artwork": "/library/artifact-artworks/xiii-death.png",
+    "publishDate": null
+  },
+  {
+    "code": "moonlights-vestige",
+    "name": "月光之痕",
+    "nameEn": "Moonlight's Vestige",
+    "nameZht": "月光之痕",
+    "description": "每年由6大商团为【迎接月光】活动进行特殊加工后发放的魔光石。具有蕴含月光的性质，很多人望着那束光芒为下一年的安宁祈愿。",
+    "skillDescription": "全体我军人员的防御力、效果抗性提升2.5(5.0)%。不会与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/moonlights-vestige.png",
+    "artwork": "/library/artifact-artworks/moonlights-vestige.png",
+    "publishDate": null
+  },
+  {
+    "code": "to-a-new-world",
+    "name": "致崭新的时代",
+    "nameEn": "To a New World",
+    "nameZht": "敬嶄新的時代",
+    "description": "为了迎接伊杰拉建国节的到来，拉斯与继承者们受邀参加宴会。所有人为了送走苦难，期待迎来和平而举杯庆祝。",
+    "skillDescription": "配置在队伍中的英雄所获得的经验值将会增加15%。因神器增加的经验值在效果重叠时，只应用最高效果，但作为辅助英雄时将不会应用此效果。\n该神器在升等时，效果不会增加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/to-a-new-world.png",
+    "artwork": "/library/artifact-artworks/to-a-new-world.png",
+    "publishDate": null
+  },
+  {
+    "code": "super-duper-water-gun-shooter",
+    "name": "至尊王牌水枪",
+    "nameEn": "Super Duper Water Gun Shooter",
+    "nameZht": "至尊王牌水槍",
+    "description": "“雅卡泰丝为了度假时带去岛上玩耍而向流浪商人购买的可爱水枪。优芬妮意外发现雅卡泰丝卓越的水枪射击实力，以及水枪强劲的喷射力道，于是替它起了绰号。雅卡泰丝似乎也对那个绰号很满意。”",
+    "skillDescription": "使全体我军人员的攻击力提升5%、效果命中提升5.0(10.0)%。不会与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/super-duper-water-gun-shooter.png",
+    "artwork": "/library/artifact-artworks/super-duper-water-gun-shooter.png",
+    "publishDate": null
+  },
+  {
+    "code": "a-song-for-everybody",
+    "name": "献给你和这个世界的歌曲",
+    "nameEn": "A Song for Everybody",
+    "nameZht": "獻給你和這個世界的歌曲",
+    "description": "塔玛林尔亲自制作的歌曲，想要激励那些努力守护欧勒毕斯的人们，带给他们持续向前的勇气和希望。卡琳负责合音和伴舞，亚卡和塔玛林尔以二重唱的方式演唱。",
+    "skillDescription": "全体我军人员的夹攻率提升3.0%。不与相同名称的神器效果重复叠加。\n该神器在升级时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/a-song-for-everybody.png",
+    "artwork": "/library/artifact-artworks/a-song-for-everybody.png",
+    "publishDate": null
+  },
+  {
+    "code": "golden-cocoa-cookie",
+    "name": "黄金可可豆饼干",
+    "nameEn": "Golden Cocoa Cookie",
+    "nameZht": "黃金可可豆餅乾",
+    "description": "使用了只能在普兰特邻近森林取得的稀有材料黄金可可豆的特制甜点。黄金可可豆的酸味比一般的可可豆少，而且更甜，因此而闻名于世。是主厨为了这次的派对首次公开亮相的野心之作。",
+    "skillDescription": "全体我军人员的命中和效果抗性提升2.5(5.0)%。不与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/golden-cocoa-cookie.png",
+    "artwork": "/library/artifact-artworks/golden-cocoa-cookie.png",
+    "publishDate": null
+  },
+  {
+    "code": "new-year-cookies",
+    "name": "蕴含幸福的岁末饼干",
+    "nameEn": "New Year Cookies",
+    "nameZht": "蘊含幸福的歲末餅乾",
+    "description": "“听说年终岁末时，如果戴上红帽白胡子，就要送出蕴含幸福的礼物才行！谁叫亚卡是个慷慨善良的神兽，所以今天就特别送给主人一块幸福饼干吧～”",
+    "skillDescription": "战斗开始时，使全体我军人员生命值恢复10%。\n该神器升等时，效果不会提升。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/new-year-cookies.png",
+    "artwork": "/library/artifact-artworks/new-year-cookies.png",
+    "publishDate": null
+  },
+  {
+    "code": "resolute-soldier-series",
+    "name": "《有决心的士兵》系列",
+    "nameEn": "Resolute Soldier Series",
+    "nameZht": "《有決心的士兵》系列",
+    "description": "大师特里比亚诺的遗作，细腻地描绘了魔神战争的情景和战场风云，是公认的杰作。现今被列为伊杰拉的第28号国宝。",
+    "skillDescription": "全体我军人员的防御力和效果命中提升5.0(10.0)%。不与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/resolute-soldier-series.png",
+    "artwork": "/library/artifact-artworks/resolute-soldier-series.png",
+    "publishDate": null
+  },
+  {
+    "code": "blessings-of-camaraderie",
+    "name": "战友们的祝福",
+    "nameEn": "Blessings of Camaraderie",
+    "nameZht": "戰友們的祝福",
+    "description": "一张绘画明信片，印有某个时间、某个次元、某个世界里可能存在过的梦幻瞬间。内含赐予开启史诗序章的继承者们的感谢与祝福之力。",
+    "skillDescription": "配置在队伍中的英雄所获得的经验值将会增加10%。因神器增加的经验值在效果重叠时，只应用最高效果，但作为辅助英雄时将不会应用此效果。\n该神器在升等时，效果不会增加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/blessings-of-camaraderie.png",
+    "artwork": "/library/artifact-artworks/blessings-of-camaraderie.png",
+    "publishDate": null
+  },
+  {
+    "code": "spooky-solayu-stories",
+    "name": "奇闻轶事录",
+    "nameEn": "Spooky Solayu Stories",
+    "nameZht": "奇聞軼事錄",
+    "description": "索拉幼怪谈的狂热份子编写的书籍。第一个故事是关于一位带着朦胧的灯光出现、神情哀伤的少女幽灵的记录。",
+    "skillDescription": "全体我军人员的命中和效果命中提升2.5(5.0)%。不与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/spooky-solayu-stories.png",
+    "artwork": "/library/artifact-artworks/spooky-solayu-stories.png",
+    "publishDate": null
+  },
+  {
+    "code": "midnight-bloom",
+    "name": "月夜之花",
+    "nameEn": "Midnight Bloom",
+    "nameZht": "月夜之花",
+    "description": "在满月祭庆功宴上点放的烟火，包含各种类型，比如能让夜空有如白天一样明亮的巨型烟火，或是模仿各种动植物样貌的可爱烟火。",
+    "skillDescription": "全体我军人员的暴击率提升8.0(16.0)%，不与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 234,
+      "hp": 351,
+      "def": 0
+    },
+    "image": "/library/artifacts/midnight-bloom.png",
+    "artwork": "/library/artifact-artworks/midnight-bloom.png",
+    "publishDate": null
+  },
+  {
+    "code": "one-year-of-gratitude",
+    "name": "心存感谢的一年",
+    "nameEn": "One Year of Gratitude",
+    "nameZht": "心存感謝的1年",
+    "description": "欧勒毕斯踏上以伊利欧斯为中心的漫长旅程后，再次回到了原点。为了向这段时间以来献身守护世界的英雄们表示谢意，亚卡负责包装、拉斯负责寄送，玫勒赛德丝则负责写信。",
+    "skillDescription": "配置在队伍中的英雄所获得的经验值将会增加10%。因神器增加的经验值在效果重叠时，只应用最高效果，但作为辅助英雄时将不会应用此效果。\n该神器在升等时，效果不会增加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/one-year-of-gratitude.png",
+    "artwork": "/library/artifact-artworks/one-year-of-gratitude.png",
+    "publishDate": null
+  },
+  {
+    "code": "rainbow-scale",
+    "name": "人鱼公主的鳞片",
+    "nameEn": "Rainbow Scale",
+    "nameZht": "人魚公主的鱗片",
+    "description": "传说中，人鱼族当中只有少数人鱼天生就有彩虹鳞片，而这种鳞片是能让人死而复生的有效药材。",
+    "skillDescription": "全体我军人员的效果命中和效果抗性提升5.0(10.0)%。不与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/rainbow-scale.png",
+    "artwork": "/library/artifact-artworks/rainbow-scale.png",
+    "publishDate": null
+  },
+  {
+    "code": "portrait-of-the-saviors",
+    "name": "救援者们的画像",
+    "nameEn": "Portrait of the Saviors",
+    "nameZht": "救援者們的畫像",
+    "description": "画着拯救欧勒毕斯后消失的救援者的画像。\n由伊杰拉的知名画家根据拉斯的记忆画成。",
+    "skillDescription": "攻击时，若目标生命值在50%以上，则伤害量提升10(20)%。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 195,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/portrait-of-the-saviors.png",
+    "artwork": "/library/artifact-artworks/portrait-of-the-saviors.png",
+    "publishDate": null
+  },
+  {
+    "code": "love-potion",
+    "name": "爱情灵丹",
+    "nameEn": "Love Potion",
+    "nameZht": "愛情靈丹",
+    "description": "据说是实现人世间爱情的灵药，但事实上是让人坦露隐藏起来的感情的药物。",
+    "skillDescription": "使全体我军人员获得的恢复量提升5.0(10.0)%。恢复量提升效果重复时以最强效果为准。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 91,
+      "hp": 819,
+      "def": 0
+    },
+    "image": "/library/artifacts/love-potion.png",
+    "artwork": "/library/artifact-artworks/love-potion.png",
+    "publishDate": null
+  },
+  {
+    "code": "card-of-small-miracles",
+    "name": "小小奇迹贺年卡",
+    "nameEn": "Card of Small Miracles",
+    "nameZht": "小小奇蹟賀年卡",
+    "description": "上面画着那天黎塔尼亚的人们在年终活动相聚，亚卡为了帮助他们实现小小愿望，拉着雪橇划过夜空的卡片。即使岁月流逝，那天的美丽回忆也值得永远珍藏。",
+    "skillDescription": "使全体我军人员的攻击力和防御力分别提升2.5(5.0)%。不与相同名称的神器效果重复叠加。",
+    "rarity": 4,
+    "role": "common",
+    "limited": true,
+    "stats": {
+      "atk": 156,
+      "hp": 585,
+      "def": 0
+    },
+    "image": "/library/artifacts/card-of-small-miracles.png",
+    "artwork": "/library/artifact-artworks/card-of-small-miracles.png",
+    "publishDate": null
+  },
+  {
+    "code": "oath-key",
+    "name": "誓约钥匙",
+    "nameEn": "Oath Key",
+    "nameZht": "誓約鑰匙",
+    "description": "为赞扬很久以前打倒魔神内坤塔的英雄们而制造的钥匙，上头刻着英雄们立誓要守护世界的对话。\n——贤者伊塞特",
+    "skillDescription": "命中提升10(20)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 364,
+      "def": 0
+    },
+    "image": "/library/artifacts/oath-key.png",
+    "artwork": "/library/artifact-artworks/oath-key.png",
+    "publishDate": null
+  },
+  {
+    "code": "forest-totem",
+    "name": "绿林图腾",
+    "nameEn": "Forest Totem",
+    "nameZht": "綠林圖騰",
+    "description": "在森林深处的图腾。据说在图腾前许愿时，如果听见响亮的铃声，愿望就会实现。",
+    "skillDescription": "受到攻击的同时，有10(20)%的几率在2回合内获得持续恢复效果。2回合仅能发动1次。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 13,
+      "hp": 845,
+      "def": 0
+    },
+    "image": "/library/artifacts/forest-totem.png",
+    "artwork": "/library/artifact-artworks/forest-totem.png",
+    "publishDate": null
+  },
+  {
+    "code": "timeless-anchor",
+    "name": "永劫之锚",
+    "nameEn": "Timeless Anchor",
+    "nameZht": "永劫之錨",
+    "description": "据说使用这个船锚固定的船只，不管遇到什么风浪，都会停留在原地。\n—— 路易斯·杰《路易斯·班·普利斯塔的冒险》第51页",
+    "skillDescription": "攻击后，有20(40)%的几率解除1个弱化效果。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 104,
+      "hp": 572,
+      "def": 0
+    },
+    "image": "/library/artifacts/timeless-anchor.png",
+    "artwork": "/library/artifact-artworks/timeless-anchor.png",
+    "publishDate": null
+  },
+  {
+    "code": "envoys-pipe",
+    "name": "死神烟斗",
+    "nameEn": "Envoy's Pipe",
+    "nameZht": "死神煙斗",
+    "description": "仔细看着从烟斗内升起的烟雾，如此就能隐约看见你会上天堂还是下地狱。",
+    "skillDescription": "受到攻击时，获得5.0(10.0)%的伤害降低效果。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 52,
+      "hp": 754,
+      "def": 0
+    },
+    "image": "/library/artifacts/envoys-pipe.png",
+    "artwork": "/library/artifact-artworks/envoys-pipe.png",
+    "publishDate": null
+  },
+  {
+    "code": "butterfly-mandolin",
+    "name": "蝴蝶的曼陀林",
+    "nameEn": "Butterfly Mandolin",
+    "nameZht": "蝴蝶的曼陀林",
+    "description": "拥有清澈嗓音的吟游诗人鲁道所使用的曼陀林，只要演奏这个曼陀林，就能看见发光蝴蝶在飞舞的幻影。",
+    "skillDescription": "受到攻击时，有4.0(8.0)%的几率在下个回合结束时获得额外回合。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/butterfly-mandolin.png",
+    "artwork": "/library/artifact-artworks/butterfly-mandolin.png",
+    "publishDate": null
+  },
+  {
+    "code": "daydream-joker",
+    "name": "白日梦小丑",
+    "nameEn": "Daydream Joker",
+    "nameZht": "白日夢小丑",
+    "description": "呵呵，我给你看的幻影如何呀？满意吗？来吧，接下来只要交出你的性命就行了。",
+    "skillDescription": "发动攻击时，使伤害量提升目标最大生命值的1.5(3.0)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 208,
+      "hp": 182,
+      "def": 0
+    },
+    "image": "/library/artifacts/daydream-joker.png",
+    "artwork": "/library/artifact-artworks/daydream-joker.png",
+    "publishDate": null
+  },
+  {
+    "code": "exorcists-tonfa",
+    "name": "斗鬼的拐棍",
+    "nameEn": "Exorcist's Tonfa",
+    "nameZht": "鬥鬼的拐棍",
+    "description": "一击就能粉碎敌人的骨头，连肉都砍掉的强大拐棍。据说使用武器的主人死亡时，灵魂会附在拐棍上。",
+    "skillDescription": "攻击时若目标的生命值高于50%，伤害量提升8.0(16.0)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 208,
+      "hp": 182,
+      "def": 0
+    },
+    "image": "/library/artifacts/exorcists-tonfa.png",
+    "artwork": "/library/artifact-artworks/exorcists-tonfa.png",
+    "publishDate": null
+  },
+  {
+    "code": "axe-of-heavenly-mandate",
+    "name": "参天斧",
+    "nameEn": "Axe of Heavenly Mandate",
+    "nameZht": "參天斧",
+    "description": "一旦他挥舞起斧头，谁都阻止不了他。敌人的尸体只会不断堆积，无法反击。\n——雷茵格尔媒体部著作【特辑：古代武器的证言第6章44页】",
+    "skillDescription": "暴击率提升6.0(12.0)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 234,
+      "hp": 91,
+      "def": 0
+    },
+    "image": "/library/artifacts/axe-of-heavenly-mandate.png",
+    "artwork": "/library/artifact-artworks/axe-of-heavenly-mandate.png",
+    "publishDate": null
+  },
+  {
+    "code": "aqua-rose",
+    "name": "水玫瑰",
+    "nameEn": "Aqua Rose",
+    "nameZht": "水玫瑰",
+    "description": "永不凋谢的玫瑰会赋予拥有者强大的魔力。",
+    "skillDescription": "受到攻击的同时，有50%的几率在2回合内获得相当于最大生命值5.0(10.0)%的防护罩。2回合仅能发动1次。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 13,
+      "hp": 845,
+      "def": 0
+    },
+    "image": "/library/artifacts/aqua-rose.png",
+    "artwork": "/library/artifact-artworks/aqua-rose.png",
+    "publishDate": null
+  },
+  {
+    "code": "goblins-lamp",
+    "name": "鬼怪明灯",
+    "nameEn": "Goblin's Lamp",
+    "nameZht": "鬼怪明燈",
+    "description": "要是因浮在湖水上隐约散发出光芒的火光而失神，潜伏在水中的恶鬼就会朝你伸出魔爪。",
+    "skillDescription": "敌人死亡时，有50(100)%的几率获得1点灵魂。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/goblins-lamp.png",
+    "artwork": "/library/artifact-artworks/goblins-lamp.png",
+    "publishDate": null
+  },
+  {
+    "code": "devils-brand",
+    "name": "恶魔烙印",
+    "nameEn": "Devil's Brand",
+    "nameZht": "惡魔烙印",
+    "description": "“这个烙印会使你体内有一个恶魔永远守护你。”\n——邪教执行官伊巴拉克",
+    "skillDescription": "回合开始时，使全体我军人员的效果抗性提升2.0(4.0)%，最多叠加5次。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 52,
+      "hp": 754,
+      "def": 0
+    },
+    "image": "/library/artifacts/devils-brand.png",
+    "artwork": "/library/artifact-artworks/devils-brand.png",
+    "publishDate": null
+  },
+  {
+    "code": "mighty-yaksha",
+    "name": "金刚夜叉",
+    "nameEn": "Mighty Yaksha",
+    "nameZht": "金剛夜叉",
+    "description": "若是真的想变强，就赌上性命来挑战我吧！",
+    "skillDescription": "若生命值在50%以上，则攻击力提升10(20)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/mighty-yaksha.png",
+    "artwork": "/library/artifact-artworks/mighty-yaksha.png",
+    "publishDate": null
+  },
+  {
+    "code": "sword-of-the-morning",
+    "name": "黎明剑",
+    "nameEn": "Sword of the Morning",
+    "nameZht": "黎明劍",
+    "description": "唯有能自行支配内在能量的人，才能操控这把剑。\n—— 剑圣拉伊诺斯",
+    "skillDescription": "若生命值在50%以下，则攻击力、速度提升10(20)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 364,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-the-morning.png",
+    "artwork": "/library/artifact-artworks/sword-of-the-morning.png",
+    "publishDate": null
+  },
+  {
+    "code": "cursed-compass",
+    "name": "诅咒的罗盘",
+    "nameEn": "Cursed Compass",
+    "nameZht": "詛咒的羅盤",
+    "description": "小心点，那是怪物。要是往那个指南针指引的方向前进，没人知道会发生什么事。\n——冒险家罗雷莱伊",
+    "skillDescription": "战斗开始时，在1回合内效果命中提升25.0(50.0)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 208,
+      "hp": 182,
+      "def": 0
+    },
+    "image": "/library/artifacts/cursed-compass.png",
+    "artwork": "/library/artifact-artworks/cursed-compass.png",
+    "publishDate": null
+  },
+  {
+    "code": "labyrinth-cube",
+    "name": "迷宫的方块",
+    "nameEn": "Labyrinth Cube",
+    "nameZht": "迷宮的方塊",
+    "description": "据说是被帕勒斯边境的谜语包围的迷宫的奇特遗物，会散发出神秘的光，若给予冲击，空间就会扭曲。",
+    "skillDescription": "敌人回合结束时，有10(20)%的几率使速攻值提升15%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 468,
+      "def": 0
+    },
+    "image": "/library/artifacts/labyrinth-cube.png",
+    "artwork": "/library/artifact-artworks/labyrinth-cube.png",
+    "publishDate": null
+  },
+  {
+    "code": "alsacian-spear",
+    "name": "艾尔赛斯之矛",
+    "nameEn": "Alsacian Spear",
+    "nameZht": "艾爾賽斯之矛",
+    "description": "传说这把长矛蕴含着守护丛林的精灵之魂，拥有强大的庇护之力。",
+    "skillDescription": "单一攻击后，使目标的速攻值降低2.5(5.0)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 52,
+      "hp": 754,
+      "def": 0
+    },
+    "image": "/library/artifacts/alsacian-spear.png",
+    "artwork": "/library/artifact-artworks/alsacian-spear.png",
+    "publishDate": null
+  },
+  {
+    "code": "atmas-portal",
+    "name": "亚特玛的传送门",
+    "nameEn": "Atma's Portal",
+    "nameZht": "亞特瑪的傳送門",
+    "description": "走过那扇门，时间就会倒转。虽然非常短暂，但足以夺回战斗的主导权。",
+    "skillDescription": "战斗开始时，有10(20)%的几率使全体我军人员技能冷却时间减少1回合。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 52,
+      "hp": 754,
+      "def": 0
+    },
+    "image": "/library/artifacts/atmas-portal.png",
+    "artwork": "/library/artifact-artworks/atmas-portal.png",
+    "publishDate": null
+  },
+  {
+    "code": "ranons-memorandum",
+    "name": "拉农的备忘录",
+    "nameEn": "Ranon's Memorandum",
+    "nameZht": "拉農的備忘錄",
+    "description": "蕴含魔法师拉农自己研究的各种魔法记录的备忘录。\n但是由于被施了魔法，每当打开备忘录都会出现不同的内容，因此若要寻找真正的记录，就必须解除备忘录里蕴含的魔法。",
+    "skillDescription": "攻击后速度提升1.0(2.0)%。最多叠加10次。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 78,
+      "hp": 663,
+      "def": 0
+    },
+    "image": "/library/artifacts/ranons-memorandum.png",
+    "artwork": "/library/artifact-artworks/ranons-memorandum.png",
+    "publishDate": null
+  },
+  {
+    "code": "ancient-sheath",
+    "name": "古代剑鞘",
+    "nameEn": "Ancient Sheath",
+    "nameZht": "古代劍鞘",
+    "description": "被施法的剑鞘会磨剑，使剑锋永远保持锋利。",
+    "skillDescription": "使用基础技能时伤害量提升8.0(16.0)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 182,
+      "hp": 273,
+      "def": 0
+    },
+    "image": "/library/artifacts/ancient-sheath.png",
+    "artwork": "/library/artifact-artworks/ancient-sheath.png",
+    "publishDate": null
+  },
+  {
+    "code": "prophetic-candlestick",
+    "name": "预视的烛台",
+    "nameEn": "Prophetic Candlestick",
+    "nameZht": "預視的燭台",
+    "description": "据说在这个烛台上插上燃烧的蜡烛，仔细窥探火花，就能看到未来。",
+    "skillDescription": "受到攻击的同时，有20(40)%的几率使技能冷却时间减少1回合。1回合仅能发动1次。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 182,
+      "hp": 273,
+      "def": 0
+    },
+    "image": "/library/artifacts/prophetic-candlestick.png",
+    "artwork": "/library/artifact-artworks/prophetic-candlestick.png",
+    "publishDate": null
+  },
+  {
+    "code": "egg-of-delusion",
+    "name": "迷惑之蛋",
+    "nameEn": "Egg of Delusion",
+    "nameZht": "迷惑之蛋",
+    "description": "隐藏着魔鬼气息的黑暗之蛋，没人知道里面存在着什么。",
+    "skillDescription": "若生命值在50%以上，则防御力提升10(20)%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 208,
+      "hp": 182,
+      "def": 0
+    },
+    "image": "/library/artifacts/egg-of-delusion.png",
+    "artwork": "/library/artifact-artworks/egg-of-delusion.png",
+    "publishDate": null
+  },
+  {
+    "code": "grail-of-blood",
+    "name": "鲜血圣杯",
+    "nameEn": "Grail of Blood",
+    "nameZht": "鮮血聖杯",
+    "description": "盛装着无数牺牲者血液的死亡之盅会实现怎样的愿望呢？",
+    "skillDescription": "回合开始时，使生命值恢复相当于攻击力的10(20)%。若生命值在30%以下，则恢复量提升50%。",
+    "rarity": 3,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 182,
+      "hp": 273,
+      "def": 0
+    },
+    "image": "/library/artifacts/grail-of-blood.png",
+    "artwork": "/library/artifact-artworks/grail-of-blood.png",
+    "publishDate": null
+  },
+  {
+    "code": "firm-shield",
+    "name": "坚定之盾",
+    "nameEn": "Firm Shield",
+    "nameZht": "堅定之盾",
+    "description": "据说拿着这盾牌的人，无论再怎么可怕的瞬间来临也绝不会动摇。",
+    "skillDescription": "防御力提升3.0(6.0)%。",
+    "rarity": 2,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 26,
+      "hp": 533,
+      "def": 0
+    },
+    "image": "/library/artifacts/firm-shield.png",
+    "artwork": "/library/artifact-artworks/firm-shield.png",
+    "publishDate": null
+  },
+  {
+    "code": "bloodbead-dagger",
+    "name": "血诛短剑",
+    "nameEn": "Bloodbead Dagger",
+    "nameZht": "血誅短劍",
+    "description": "某个杀手使用过的短剑，是夺走无数条性命的凶器。",
+    "skillDescription": "暴击伤害提升3.0(6.0)%。",
+    "rarity": 2,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 208,
+      "hp": 78,
+      "def": 0
+    },
+    "image": "/library/artifacts/bloodbead-dagger.png",
+    "artwork": "/library/artifact-artworks/bloodbead-dagger.png",
+    "publishDate": null
+  },
+  {
+    "code": "fairys-grimoire",
+    "name": "妖精的魔法书",
+    "nameEn": "Fairy's Grimoire",
+    "nameZht": "妖精的魔法書",
+    "description": "仔细阅读那本魔法书，你就会看见闪耀的字体，那就是妖精传递的消息。",
+    "skillDescription": "效果抗性提升3.0(6.0)%。",
+    "rarity": 2,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 39,
+      "hp": 663,
+      "def": 0
+    },
+    "image": "/library/artifacts/fairys-grimoire.png",
+    "artwork": "/library/artifact-artworks/fairys-grimoire.png",
+    "publishDate": null
+  },
+  {
+    "code": "staff-of-wisdom",
+    "name": "智慧的手杖",
+    "nameEn": "Staff of Wisdom",
+    "nameZht": "智慧的手杖",
+    "description": "手杖里蕴含的灵魂向人细语古代的知识。",
+    "skillDescription": "效果命中提升3.0(6.0)%。",
+    "rarity": 2,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/staff-of-wisdom.png",
+    "artwork": "/library/artifact-artworks/staff-of-wisdom.png",
+    "publishDate": null
+  },
+  {
+    "code": "elfs-bow",
+    "name": "妖精之弓",
+    "nameEn": "Elf's Bow",
+    "nameZht": "妖精之弓",
+    "description": "桐伯莱亚一名妖精用过的弓，轻巧又坚固。",
+    "skillDescription": "暴击率提升3.0(6.0)%。",
+    "rarity": 2,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 208,
+      "hp": 78,
+      "def": 0
+    },
+    "image": "/library/artifacts/elfs-bow.png",
+    "artwork": "/library/artifact-artworks/elfs-bow.png",
+    "publishDate": null
+  },
+  {
+    "code": "deadly-sword",
+    "name": "必杀大剑",
+    "nameEn": "Deadly Sword",
+    "nameZht": "必殺大劍",
+    "description": "那把剑一旦出鞘，就一定得夺走一条人命，否则死的就会是你。",
+    "skillDescription": "攻击力提升3.0(6.0)%。",
+    "rarity": 2,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 247,
+      "def": 0
+    },
+    "image": "/library/artifacts/deadly-sword.png",
+    "artwork": "/library/artifact-artworks/deadly-sword.png",
+    "publishDate": null
+  },
+  {
+    "code": "enhanced-gauntlet",
+    "name": "强化拳套",
+    "nameEn": "Enhanced Gauntlet",
+    "nameZht": "強化拳套",
+    "description": "不会被一般攻击击碎的特殊强化拳套。",
+    "skillDescription": "防御力提升2.0(4.0)%。",
+    "rarity": 1,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 26,
+      "hp": 507,
+      "def": 0
+    },
+    "image": "/library/artifacts/enhanced-gauntlet.png",
+    "artwork": "/library/artifact-artworks/enhanced-gauntlet.png",
+    "publishDate": null
+  },
+  {
+    "code": "venus-orb",
+    "name": "金星宝珠",
+    "nameEn": "Venus Orb",
+    "nameZht": "金星寶珠",
+    "description": "若拥有这颗宝珠，金星的祝福便会与你同在。",
+    "skillDescription": "效果命中提升2.0(4.0)%。",
+    "rarity": 1,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 91,
+      "hp": 312,
+      "def": 0
+    },
+    "image": "/library/artifacts/venus-orb.png",
+    "artwork": "/library/artifact-artworks/venus-orb.png",
+    "publishDate": null
+  },
+  {
+    "code": "biting-wind-star",
+    "name": "寒风飞镖",
+    "nameEn": "Biting Wind Star",
+    "nameZht": "寒風飛鏢",
+    "description": "以风一般的速度飞走，直击敌人要害的飞镖。",
+    "skillDescription": "暴击伤害提升2.0(4.0)%。",
+    "rarity": 1,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 52,
+      "def": 0
+    },
+    "image": "/library/artifacts/biting-wind-star.png",
+    "artwork": "/library/artifact-artworks/biting-wind-star.png",
+    "publishDate": null
+  },
+  {
+    "code": "dream-scroll",
+    "name": "梦之卷轴",
+    "nameEn": "Dream Scroll",
+    "nameZht": "夢之卷軸",
+    "description": "告诉我你想做什么样的梦吧！我会让你看见一切梦想。",
+    "skillDescription": "效果抗性提升2.0(4.0)%。",
+    "rarity": 1,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 26,
+      "hp": 507,
+      "def": 0
+    },
+    "image": "/library/artifacts/dream-scroll.png",
+    "artwork": "/library/artifact-artworks/dream-scroll.png",
+    "publishDate": null
+  },
+  {
+    "code": "demons-pistol",
+    "name": "恶魔手枪",
+    "nameEn": "Demon's Pistol",
+    "nameZht": "惡魔手槍",
+    "description": "传说被那把枪射中的人一定会受到诅咒。",
+    "skillDescription": "暴击率提升2.0(4.0)%。",
+    "rarity": 1,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 156,
+      "hp": 52,
+      "def": 0
+    },
+    "image": "/library/artifacts/demons-pistol.png",
+    "artwork": "/library/artifact-artworks/demons-pistol.png",
+    "publishDate": null
+  },
+  {
+    "code": "sword-of-the-sun",
+    "name": "太阳之剑",
+    "nameEn": "Sword of the Sun",
+    "nameZht": "太陽之劍",
+    "description": "蕴含光明之力的神秘之剑，能持续注入活力。",
+    "skillDescription": "攻击力提升2.0(4.0)%。",
+    "rarity": 1,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 195,
+      "def": 0
+    },
+    "image": "/library/artifacts/sword-of-the-sun.png",
+    "artwork": "/library/artifact-artworks/sword-of-the-sun.png",
+    "publishDate": null
+  }
+]

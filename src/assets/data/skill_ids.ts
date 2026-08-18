@@ -1911,3 +1911,26 @@ export const SkillIDs: Record<string, Record<string, string>> = {
         "s3": "sk_c5069_3"
     },
 }
+
+for (const heroId of [
+    "aki",
+    "blooming_lidica",
+    "dark_corvus",
+    "faithless_lidica",
+    "inferno_khawazu",
+    "jenua",
+    "little_queen_charlotte",
+    "schniel",
+]) {
+    SkillIDs[`${heroId}_old`] = SkillIDs[heroId];
+}
+
+SkillIDs.aube = {
+    "s1": "sk_c5190_1",
+};
+
+SkillIDs.tidal_rift_elvira = {
+    "s1": "sk_c2148_1",
+    "s1_extra": "sk_c2148_1",
+    "s3": "sk_c2148_3",
+};

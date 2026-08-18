@@ -1,0 +1,34 @@
+{
+  "descriptionLine": "只保留需要修改的顶层字段，不需要的字段请删除",
+  "baseStats": {
+    "atk": 1000,
+    "spd": 110
+  },
+  "skills": {
+    "sk_c0000_1": {
+      "description": "修改后的技能说明",
+      "soulBurn": {
+        "cost": 20,
+        "description": "无视效果抗性。"
+      },
+      "multipliers": {
+        "skill_multiplier": {
+          "items": {
+            "att_rate": {
+              "value": "0.9",
+              "displayValue": "0.9"
+            }
+          }
+        }
+      },
+      "effects": {
+        "203": {
+          "name": "防御力降低",
+          "type": "debuff",
+          "description": "防御力降低70%。",
+          "icon": "/assets/debuffs/defense-debuff.png"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "exclusives": {
+    "saria-exclusive-enhancement": {
+      "name": "专属强化",
+      "description": "萨若米亚的技能专属强化效果。",
+      "iconKey": "/assets/icons/skill_tree.png",
+      "mainStat": {
+        "type": "att_rate",
+        "min": 0.07,
+        "max": 0.14
+      },
+      "skillOptions": [
+        {
+          "skillNumber": 2,
+          "description": "因自然指引而提升的速攻值提升量额外提升10%。"
+        },
+        {
+          "skillNumber": 2,
+          "description": "解放之翼伤害量提升20%。"
+        }
+      ]
+    }
+  }
+}

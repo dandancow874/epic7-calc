@@ -1,5 +1,6 @@
 import { Heroes } from 'src/assets/data/heroes';
 import { readPortableJson, writePortableJson } from './portableData';
+import { buildOwnedProfileFields, defenderManualProfileFields, withoutBuildPresetValues } from '../features/build-presets/calculatorBuildBridge';
 
 export type Side = 'attacker' | 'defender';
 export type ProfileValues = Record<string, number | boolean | string | null>;
@@ -62,7 +63,7 @@ export async function createProfile(side: Side, heroId: string, values: ProfileV
   const db = loadDb();
   const profiles = ensureProfiles(db, side, heroId);
   const nextName = cleanName(name) || `配置 ${profiles.length + 1}`;
-  const nextProfile = stripProfileMeta(values);
+  const nextProfile = stripProfileMeta(side, values);
   nextProfile[PROFILE_NAME_KEY] = nextName;
   profiles.push(nextProfile);
   db.active[side][heroId] = profiles.length - 1;
@@ -101,7 +102,7 @@ export async function saveProfile(side: Side, heroId: string, values: ProfileVal
   const profiles = ensureProfiles(db, side, heroId);
   const index = getActiveIndex(db, side, heroId);
   const previous = profiles[index] || profiles[0] || {};
-  const next = stripProfileMeta(values);
+  const next = stripProfileMeta(side, values, previous);
   next[PROFILE_NAME_KEY] = profileName(previous, index);
   profiles[index] = next;
   await profileStore.write(db);
@@ -119,6 +120,7 @@ export async function hydrateProfilesFromDisk() {
   }
   cachedDb = mergeDb(disk);
   localStorage.setItem(KEY, JSON.stringify(cachedDb));
+  await writePortableJson(FILE_NAME, cachedDb);
   return true;
 }
 
@@ -159,7 +161,7 @@ function mergeDb(db: Partial<ProfileDb>): ProfileDb {
 function normalizeSideDb(sideDb: Record<string, ProfileValues[] | ProfileValues>): Record<string, ProfileValues[]> {
   return Object.fromEntries(
     Object.entries(sideDb).map(([heroId, value]) => {
-      const profiles = Array.isArray(value) ? value : [value];
+      const profiles = (Array.isArray(value) ? value : [value]).map((profile) => ({ ...profile, [PROFILE_NAME_KEY]: profile[PROFILE_NAME_KEY] }));
       return [heroId, profiles.length ? profiles : []];
     }),
   );
@@ -201,9 +203,22 @@ function cleanName(name: unknown) {
   return typeof name === 'string' ? name.trim().slice(0, 24) : '';
 }
 
-function stripProfileMeta(values: ProfileValues): ProfileValues {
-  const next = { ...values };
+function stripProfileMeta(side: Side, values: ProfileValues, previous: ProfileValues = {}): ProfileValues {
+  const next = profileOwnedValues(side, values, previous);
   delete next[PROFILE_NAME_KEY];
+  return next;
+}
+
+function profileOwnedValues(side: Side, values: ProfileValues, previous: ProfileValues) {
+  // With the equipment preset disabled, these fields are manual calculator
+  // values and must remain part of the calculator profile.
+  if (values.useBuildPreset === false) return { ...values };
+  const next = withoutBuildPresetValues(values);
+  const fields = side === 'attacker' ? buildOwnedProfileFields : defenderManualProfileFields;
+  for (const key of fields) {
+    delete next[key];
+    if (previous[key] !== undefined) next[key] = previous[key];
+  }
   return next;
 }
 
@@ -234,6 +249,8 @@ function defaultValues(side: Side, heroId: string): ProfileValues {
       penetrationSet: false,
       torrentSetStack: 0,
       pursuitSet: false,
+      useBuildPreset: true,
+      useDefenderPresetValues: true,
       artifactId: 'noProc',
       artifactLevel: 30,
       molagoras1: hero.skills.s1?.enhance.length || 0,
@@ -243,11 +260,19 @@ function defaultValues(side: Side, heroId: string): ProfileValues {
   }
 
   return {
+    useBuildPreset: true,
+    targetAttack: hero.baseAttack || 1000,
     targetDefense: hero.baseDefense || 1000,
     targetMaxHP: hero.baseHP || 10000,
     targetCurrentHP: hero.baseHP || 10000,
     targetCurrentHPPercent: 100,
+    targetBarrier: 0,
     targetSpeed: 150,
+    defenderArtifactCode: '',
+    defenderArtifactLevel: 30,
+    targetMaxHPIncrease: 0,
+    targetDefenseIncrease: 0,
+    targetLingeringFragranceStack: 0,
     damageReduction: 0,
     additionalDamageReduction: 0,
     damageTransfer: 0,

@@ -1,0 +1,28 @@
+{
+  "skills": {
+    "sk_c1179_1": {
+      "multipliers": {
+        "skill_multiplier": {
+          "items": {
+            "EXPLOSION_DEBUFF_rate": {
+              "displayValue": "+40.0%",
+              "value": "+40.0%"
+            }
+          }
+        }
+      }
+    },
+    "sk_c1179_3": {
+      "multipliers": {
+        "skill_multiplier": {
+          "items": {
+            "EXPLOSION_DEBUFF_rate": {
+              "displayValue": "+40.0%",
+              "value": "+40.0%"
+            }
+          }
+        }
+      }
+    }
+  }
+}

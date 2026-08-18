@@ -1,0 +1,14 @@
+{
+  "seductive-flower": {
+    "skillDescription": "效果命中提升15.0(30.0)%。\n发动额外攻击后，使目标速攻值降低12(24)%。2回合仅能发动1次。"
+  },
+  "elegiac-candle": {
+    "skillDescription": "攻击后，有30.0(60.0)%的几率在1回合内对目标造成防御力降低。额外攻击、反击、夹攻时不会发动。"
+  },
+  "refracted-desire": {
+    "stats": {
+      "hp": 998,
+      "def": 65
+    }
+  }
+}

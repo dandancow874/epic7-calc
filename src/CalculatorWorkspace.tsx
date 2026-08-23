@@ -57,7 +57,7 @@ const numberFields = {
     ['attack', '攻击', 200, 10000],
     ['critDamage', '爆伤', 150, 350],
     ['damageIncrease', '增伤', 0, 200],
-    ['attackIncreasePercent', '攻击烙印(%)', 0, 50],
+    ['attackImprint', '攻击刻印(%)', 0, 50],
     ['attackIncrease', '攻击增加(%)', 0, 200],
   ],
   defender: [

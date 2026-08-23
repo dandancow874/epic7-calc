@@ -52,4 +52,16 @@ describe('calculator profile persistence', () => {
       artifactId: 'manual_artifact',
     });
   });
+
+  it('migrates the legacy attack imprint field without applying it as a general attack increase', async () => {
+    const profiles = await import('./profiles');
+    const migrated = profiles.migrateLegacyProfile({
+      __profileName: '默认',
+      attackIncreasePercent: 10,
+    });
+    expect(migrated).toMatchObject({
+      attackImprint: 10,
+    });
+    expect(migrated.attackIncreasePercent).toBeUndefined();
+  });
 });

@@ -161,10 +161,24 @@ function mergeDb(db: Partial<ProfileDb>): ProfileDb {
 function normalizeSideDb(sideDb: Record<string, ProfileValues[] | ProfileValues>): Record<string, ProfileValues[]> {
   return Object.fromEntries(
     Object.entries(sideDb).map(([heroId, value]) => {
-      const profiles = (Array.isArray(value) ? value : [value]).map((profile) => ({ ...profile, [PROFILE_NAME_KEY]: profile[PROFILE_NAME_KEY] }));
+      const profiles = (Array.isArray(value) ? value : [value]).map((profile) => migrateLegacyProfile(profile));
       return [heroId, profiles.length ? profiles : []];
     }),
   );
+}
+
+export function migrateLegacyProfile(profile: ProfileValues): ProfileValues {
+  const next: ProfileValues = { ...profile, [PROFILE_NAME_KEY]: profile[PROFILE_NAME_KEY] };
+  if (Object.prototype.hasOwnProperty.call(next, 'attackIncreasePercent')) {
+    // Older versions accidentally stored the UI's "attack imprint" control in
+    // attackIncreasePercent, which applies to the whole displayed attack value.
+    // A real imprint only adds a percentage of the hero's base attack.
+    if (next.attackImprint === undefined || next.attackImprint === null) {
+      next.attackImprint = next.attackIncreasePercent;
+    }
+    delete next.attackIncreasePercent;
+  }
+  return next;
 }
 
 function ensureProfiles(db: ProfileDb, side: Side, heroId: string): ProfileValues[] {
@@ -233,7 +247,7 @@ function defaultValues(side: Side, heroId: string): ProfileValues {
       attack: 2500,
       critDamage: 250,
       damageIncrease: 0,
-      attackIncreasePercent: 0,
+      attackImprint: 0,
       attackIncrease: 0,
       casterSpeed: 150,
       casterMaxHP: 10000,

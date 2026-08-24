@@ -4,6 +4,9 @@ use std::process::Command;
 use serde::Serialize;
 
 #[cfg(target_os = "windows")]
+use std::os::windows::process::CommandExt;
+
+#[cfg(target_os = "windows")]
 use base64::Engine;
 #[cfg(target_os = "windows")]
 use windows::{
@@ -103,6 +106,78 @@ fn rebuild_library_data() -> Result<String, String> {
     return Err(if message.is_empty() { "library build failed".to_string() } else { message });
   }
   Ok(String::from_utf8_lossy(&output.stdout).trim().to_string())
+}
+
+#[tauri::command]
+fn start_portable_update(download_url: String, version: String) -> Result<(), String> {
+  if !download_url.starts_with("https://github.com/dandancow874/epic7-calc/releases/download/") || !download_url.ends_with(".zip") {
+    return Err("invalid update download URL".to_string());
+  }
+  if !version.chars().all(|character| character.is_ascii_alphanumeric() || character == '.' || character == '-' || character == '_') {
+    return Err("invalid version".to_string());
+  }
+
+  let exe = std::env::current_exe().map_err(|error| error.to_string())?;
+  let exe_dir = exe.parent().ok_or_else(|| "cannot locate exe directory".to_string())?.to_path_buf();
+  let update_dir = exe_dir.join("update");
+  fs::create_dir_all(&update_dir).map_err(|error| error.to_string())?;
+  let script_path = update_dir.join(format!("update-{version}.ps1"));
+  let zip_path = update_dir.join(format!("update-{version}.zip"));
+  let unpack_dir = update_dir.join(format!("unpacked-{version}"));
+
+  let script = format!(
+    r#"$ErrorActionPreference = 'Stop'
+$downloadUrl = '{download_url}'
+$exePath = '{exe_path}'
+$exeDir = '{exe_dir}'
+$zipPath = '{zip_path}'
+$unpackDir = '{unpack_dir}'
+Start-Sleep -Seconds 1
+if (Test-Path -LiteralPath $zipPath) {{ Remove-Item -LiteralPath $zipPath -Force }}
+if (Test-Path -LiteralPath $unpackDir) {{ Remove-Item -LiteralPath $unpackDir -Recurse -Force }}
+New-Item -ItemType Directory -Force -Path $unpackDir | Out-Null
+Invoke-WebRequest -Uri $downloadUrl -OutFile $zipPath -UseBasicParsing
+Expand-Archive -LiteralPath $zipPath -DestinationPath $unpackDir -Force
+$newExe = Get-ChildItem -LiteralPath $unpackDir -Filter '*.exe' -Recurse | Select-Object -First 1
+if (-not $newExe) {{ throw 'Update package does not contain an exe.' }}
+$copied = $false
+for ($i = 0; $i -lt 60; $i++) {{
+  try {{
+    Copy-Item -LiteralPath $newExe.FullName -Destination $exePath -Force
+    $copied = $true
+    break
+  }} catch {{
+    Start-Sleep -Seconds 1
+  }}
+}}
+if (-not $copied) {{ throw 'Could not replace the running exe.' }}
+Start-Process -FilePath $exePath -WorkingDirectory $exeDir
+"#,
+    download_url = ps_escape(&download_url),
+    exe_path = ps_escape(&exe.to_string_lossy()),
+    exe_dir = ps_escape(&exe_dir.to_string_lossy()),
+    zip_path = ps_escape(&zip_path.to_string_lossy()),
+    unpack_dir = ps_escape(&unpack_dir.to_string_lossy()),
+  );
+  fs::write(&script_path, script).map_err(|error| error.to_string())?;
+
+  let mut command = Command::new("powershell.exe");
+  command
+    .args(["-NoProfile", "-ExecutionPolicy", "Bypass", "-File"])
+    .arg(&script_path)
+    .current_dir(&exe_dir);
+  #[cfg(target_os = "windows")]
+  command.creation_flags(0x08000000);
+  command.spawn().map_err(|error| format!("cannot start updater: {error}"))?;
+  std::thread::spawn(|| {
+    std::thread::sleep(std::time::Duration::from_millis(500));
+    std::process::exit(0);
+  });
+  Ok(())
+}
+
+fn ps_escape(value: &str) -> String {
+  value.replace('\'', "''")
 }
 
 fn merge_json(target: &mut serde_json::Value, patch: serde_json::Value) {
@@ -254,7 +329,7 @@ pub fn run() {
       }
       Ok(())
     })
-    .invoke_handler(tauri::generate_handler![read_data_file, write_data_file, data_dir, save_hero_patch, rebuild_library_data, ocr_image, ocr_image_layout])
+    .invoke_handler(tauri::generate_handler![read_data_file, write_data_file, data_dir, save_hero_patch, rebuild_library_data, start_portable_update, ocr_image, ocr_image_layout])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }

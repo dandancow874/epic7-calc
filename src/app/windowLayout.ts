@@ -6,6 +6,7 @@ export interface DockedWindowLayoutInput {
   scaleFactor: number;
   frameWidth: number;
   frameHeight: number;
+  uiScale?: number;
 }
 
 export interface DockedWindowLayout {
@@ -29,11 +30,13 @@ export function calculateDockedWindowLayout(input: DockedWindowLayoutInput): Doc
   const workHeight = Math.max(1, Math.round(input.workHeight));
   const frameWidth = Math.max(0, Math.round(input.frameWidth));
   const frameHeight = Math.max(0, Math.round(input.frameHeight));
+  const uiScale = Math.min(1, Math.max(0.5, input.uiScale || 1));
   const bottomGap = Math.min(workHeight - 1, Math.max(1, Math.round(8 * scaleFactor)));
 
   const minimumOuterWidth = Math.min(workWidth, 720);
   const proportionalOuterWidth = Math.round(workWidth * 0.375);
-  const outerWidth = Math.min(workWidth, Math.max(minimumOuterWidth, proportionalOuterWidth));
+  const baseOuterWidth = Math.min(workWidth, Math.max(minimumOuterWidth, proportionalOuterWidth));
+  const outerWidth = Math.min(workWidth, Math.max(1, Math.round(baseOuterWidth * uiScale)));
   const outerHeight = Math.max(1, workHeight - bottomGap);
   const innerWidth = Math.max(1, outerWidth - frameWidth);
   const innerHeight = Math.max(1, outerHeight - frameHeight);

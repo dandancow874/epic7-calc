@@ -13,8 +13,9 @@
 
 body {
   margin: 0;
-  min-width: 720px;
+  min-width: 0;
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 24% 10%, rgba(30, 144, 210, 0.18), transparent 34%),
     linear-gradient(115deg, #252727 0%, #171a1b 48%, #d6d3cd 48.2%, #c9c7c2 100%);
@@ -97,6 +98,7 @@ h3 {
 
 .save-state,
 .language-button,
+.portable-update-button,
 .asset-update-button {
   min-height: 42px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -109,27 +111,39 @@ h3 {
   gap: 8px;
 }
 
+.portable-update-button,
 .asset-update-button {
   width: 42px;
   justify-content: center;
   padding: 0;
 }
 
+.portable-update-button.checking svg,
+.portable-update-button.updating svg,
 .asset-update-button.checking svg,
 .asset-update-button.importing svg {
   animation: spin 0.8s linear infinite;
 }
 
+.portable-update-button.available,
 .asset-update-button.available {
   color: #f2c66d;
   border-color: rgba(242, 198, 109, 0.55);
 }
 
+.portable-update-button.current,
 .asset-update-button.imported,
 .asset-update-button.current {
   color: #86e6a6;
 }
 
+.portable-update-button.updating {
+  color: #70cfff;
+  border-color: rgba(112, 207, 255, 0.55);
+}
+
+.portable-update-button.browserOnly,
+.portable-update-button.error,
 .asset-update-button.browserOnly,
 .asset-update-button.error {
   color: #ff9a8d;
@@ -210,6 +224,10 @@ h3 {
   width: 68px;
   height: 68px;
   object-fit: contain;
+}
+
+@media (max-width: 790px) {
+  .duel-grid { grid-template-columns: 1fr; }
 }
 
 .artifact-icon-button:disabled { cursor: default; }

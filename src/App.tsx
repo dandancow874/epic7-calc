@@ -5,21 +5,27 @@ import { PrimaryNav } from './components/app-shell/PrimaryNav';
 import { HeroBuildPage } from './pages/builds/HeroBuildPage';
 import { rememberCalculatorBuild } from './features/build-presets/calculatorBuildBridge';
 import { calculateDockedWindowLayout } from './app/windowLayout';
+import { applyUiScale, loadUiScale, saveUiScale, type UiScale } from './app/uiScale';
 import './library.css';
 
 export function App() {
   const [page, setPage] = useState<AppPage>(loadAppPage);
   const [buildHeroCode, setBuildHeroCode] = useState<string | null>(() => localStorage.getItem('epic7.tools.buildHero.v1'));
+  const [uiScale, setUiScale] = useState<UiScale>(loadUiScale);
 
   useEffect(() => {
-    dockWindowToTopRight();
+    dockWindowToTopRight(uiScale);
+  }, []);
+
+  useEffect(() => {
+    void applyUiScale(loadUiScale()).catch((error) => console.warn('Unable to apply UI scale', error));
   }, []);
 
   useEffect(() => saveAppPage(page), [page]);
 
   return (
     <>
-      <div className="suite-nav-shell"><PrimaryNav page={page} onNavigate={setPage} /></div>
+      <div className="suite-nav-shell"><PrimaryNav page={page} onNavigate={setPage} uiScale={uiScale} onUiScaleChange={(scale) => { saveUiScale(scale); setUiScale(scale); }} /></div>
       {page === 'calculator' && <CalculatorWorkspace />}
       {page === 'builds' && <HeroBuildPage initialHeroCode={buildHeroCode} onUseInCalculator={(side, heroId, presetId) => {
         localStorage.setItem(`epic7.tools.calculatorHero.${side}.v1`, heroId);
@@ -30,7 +36,7 @@ export function App() {
   );
 }
 
-async function dockWindowToTopRight() {
+async function dockWindowToTopRight(uiScale: UiScale) {
   if (!(window as Window & { __TAURI_INTERNALS__?: unknown }).__TAURI_INTERNALS__) return;
   try {
     const {
@@ -56,6 +62,7 @@ async function dockWindowToTopRight() {
       scaleFactor: monitor.scaleFactor || 1,
       frameWidth: outerSize.width - innerSize.width,
       frameHeight: outerSize.height - innerSize.height,
+      uiScale,
     });
 
     await appWindow.setMinSize(new PhysicalSize(layout.minWidth, layout.minHeight));

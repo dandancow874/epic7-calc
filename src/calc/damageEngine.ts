@@ -231,9 +231,13 @@ export class DamageEngine {
     let critDmgBuff = this.form.increasedCritDamage ? BattleConstants.increasedCritDamage : 0.0;
     critDmgBuff += this.form.casterHasStarsBlessing ? BattleConstants.casterHasStarsBlessing - 1 : 0;
     critDmgBuff += this.form.casterHasGodOfBattle ? this.form.critDamage / 100 : 0;
+    const fixedDamageTransfer = (skill.ignoreDamageTransfer(this.form) || this.currentArtifact.ignoreDamageTransfer(this.form))
+      ? 1
+      : Math.max(0, 1 - this.form.damageTransfer / 100);
     const fixed = (skill.fixed(HitType.crit, this.form, this.currentArtifact, soulburn) + skill.fixed2(HitType.crit, this.form, this.currentArtifact, soulburn))
       * additionalDamageIncrease
-      * additionalDamageReduction;
+      * additionalDamageReduction
+      * fixedDamageTransfer;
     const miss = 0.75 * this.offensivePower(skill, HitType.miss, soulburn, isExtra) * this.target.defensivePower(skill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, soulburn, casterAttack, casterSpeed, HitType.normal);
     const hit = this.offensivePower(skill, HitType.normal, soulburn, isExtra) * this.target.defensivePower(skill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, soulburn, casterAttack, casterSpeed, HitType.normal);
     const crush = 1.3 * this.offensivePower(skill, HitType.crush, soulburn, isExtra) * this.target.defensivePower(skill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, soulburn, casterAttack, casterSpeed, HitType.normal);
@@ -279,17 +283,26 @@ export class DamageEngine {
     };
   }
 
-  getArtifactDamage(soulburn = false, hitType: HitType = HitType.crit): number {
-    return Math.round(this.currentHero.getAfterMathArtifactDamage(
-      new Skill({ id: 's1', isAOE: () => true, isSingle: () => true }),
-      this.currentArtifact,
-      this.form,
-      this.getGlobalAttackMult(),
-      this.getGlobalDefenseMult(true),
-      this.target,
-      soulburn,
-      hitType,
-    ) || 0);
+  getArtifactDamage(soulburn = false, hitType?: HitType): number {
+    const skill = new Skill({ id: 's1', isAOE: () => true, isSingle: () => true });
+    const hitTypes = hitType === undefined
+      ? [HitType.crit, HitType.normal, HitType.crush, HitType.miss]
+      : [hitType];
+
+    for (const candidate of hitTypes) {
+      const damage = Math.round(this.currentHero.getAfterMathArtifactDamage(
+        skill,
+        this.currentArtifact,
+        this.form,
+        this.getGlobalAttackMult(),
+        this.getGlobalDefenseMult(true),
+        this.target,
+        soulburn,
+        candidate,
+      ) || 0);
+      if (damage > 0) return damage;
+    }
+    return 0;
   }
 
   getDotDamages(): DotDamage[] {

@@ -14,11 +14,7 @@ export function App() {
   const [uiScale, setUiScale] = useState<UiScale>(loadUiScale);
 
   useEffect(() => {
-    dockWindowToTopRight(uiScale);
-  }, []);
-
-  useEffect(() => {
-    void applyUiScale(loadUiScale()).catch((error) => console.warn('Unable to apply UI scale', error));
+    void initializeDesktopWindow(uiScale);
   }, []);
 
   useEffect(() => saveAppPage(page), [page]);
@@ -34,6 +30,18 @@ export function App() {
       }} />}
     </>
   );
+}
+
+async function initializeDesktopWindow(uiScale: UiScale) {
+  try {
+    await applyUiScale(uiScale);
+  } catch (error) {
+    console.warn('Unable to apply UI scale', error);
+  }
+  await dockWindowToTopRight(uiScale);
+  // WebView2 does not always emit a resize after startup zoom. Force the same
+  // responsive-layout refresh that previously only happened after manual drag.
+  window.requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
 }
 
 async function dockWindowToTopRight(uiScale: UiScale) {

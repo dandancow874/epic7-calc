@@ -27,7 +27,8 @@ describe('calculateDockedWindowLayout', () => {
   it('shrinks the docked window width with the UI scale', () => {
     const normal = calculateDockedWindowLayout({ workX: 0, workY: 0, workWidth: 3840, workHeight: 2080, scaleFactor: 2, frameWidth: 16, frameHeight: 62, uiScale: 1 });
     const compact = calculateDockedWindowLayout({ workX: 0, workY: 0, workWidth: 3840, workHeight: 2080, scaleFactor: 2, frameWidth: 16, frameHeight: 62, uiScale: 0.67 });
-    expect(compact.innerWidth + 16).toBe(Math.round((normal.innerWidth + 16) * 0.67));
+    expect(compact.innerWidth / 2 / 0.67).toBeGreaterThanOrEqual(820);
+    expect(compact.innerWidth).toBeLessThan(normal.innerWidth);
     expect(compact.innerHeight).toBe(normal.innerHeight);
     expect(compact.x + compact.innerWidth + 16).toBe(3840);
   });

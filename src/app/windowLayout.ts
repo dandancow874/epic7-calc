@@ -36,7 +36,10 @@ export function calculateDockedWindowLayout(input: DockedWindowLayoutInput): Doc
   const minimumOuterWidth = Math.min(workWidth, 720);
   const proportionalOuterWidth = Math.round(workWidth * 0.375);
   const baseOuterWidth = Math.min(workWidth, Math.max(minimumOuterWidth, proportionalOuterWidth));
-  const outerWidth = Math.min(workWidth, Math.max(1, Math.round(baseOuterWidth * uiScale)));
+  // Keep enough effective CSS width for both calculator panels. WebView zoom
+  // and Windows DPI both change how many physical pixels that layout needs.
+  const minimumCalculatorOuterWidth = Math.round(820 * scaleFactor * uiScale) + frameWidth;
+  const outerWidth = Math.min(workWidth, Math.max(1, Math.round(baseOuterWidth * uiScale), minimumCalculatorOuterWidth));
   const outerHeight = Math.max(1, workHeight - bottomGap);
   const innerWidth = Math.max(1, outerWidth - frameWidth);
   const innerHeight = Math.max(1, outerHeight - frameHeight);

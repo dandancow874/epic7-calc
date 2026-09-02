@@ -82,6 +82,9 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
     casterDefenseDown: {
         icon: 'debuffs/defense-debuff.png'
     },
+    casterVigor: {
+        icon: 'buffs/vigor-buff.png'
+    },
     casterHasStarsBlessing: {
         icon: 'buffs/stars-blessing-buff.png'
     },
@@ -93,6 +96,38 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
     },
     casterHasSuperhumanization: {
         icon: 'buffs/superhumanization-buff.png'
+    },
+    casterIndomitable: {
+        icon: 'buffs/indomitable-buff.webp',
+        default: false
+    },
+    targetIndomitable: {
+        icon: 'buffs/indomitable-buff.webp',
+        default: false
+    },
+    casterAttackMission: {
+        icon: 'buffs/attack-mission-buff.webp',
+        default: false
+    },
+    casterDefenseMission: {
+        icon: 'buffs/defense-mission-buff.webp',
+        default: false
+    },
+    casterHasStellarKnowledge: {
+        icon: 'buffs/stellar-knowledge-buff.webp',
+        default: false
+    },
+    casterDivinityStack: {
+        icon: 'buffs/divinity-buff.webp',
+        min: 0,
+        max: 4,
+        defaultValue: 0
+    },
+    targetDivinityStack: {
+        icon: 'buffs/divinity-buff.webp',
+        min: 0,
+        max: 4,
+        defaultValue: 0
     },
     targetHasSuperhumanization: {
         icon: 'buffs/superhumanization-buff.png'
@@ -622,6 +657,13 @@ export class DamageFormData {
     casterHasSpecialFriendship: boolean;
     casterHasSuperhumanization: boolean;
     targetHasSuperhumanization: boolean;
+    casterIndomitable: boolean;
+    targetIndomitable: boolean;
+    casterAttackMission: boolean;
+    casterDefenseMission: boolean;
+    casterHasStellarKnowledge: boolean;
+    casterDivinityStack: number;
+    targetDivinityStack: number;
     casterHasPossession: boolean;
     casterInjury: number;
     casterInvincible: boolean;
@@ -798,6 +840,13 @@ export class DamageFormData {
         this.casterHasSpecialFriendship = _.get(data, 'casterHasSpecialFriendship', false);
         this.casterHasSuperhumanization = _.get(data, 'casterHasSuperhumanization', false);
         this.targetHasSuperhumanization = _.get(data, 'targetHasSuperhumanization', false);
+        this.casterIndomitable = _.get(data, 'casterIndomitable', false);
+        this.targetIndomitable = _.get(data, 'targetIndomitable', false);
+        this.casterAttackMission = _.get(data, 'casterAttackMission', false);
+        this.casterDefenseMission = _.get(data, 'casterDefenseMission', false);
+        this.casterHasStellarKnowledge = _.get(data, 'casterHasStellarKnowledge', false);
+        this.casterDivinityStack = Math.min(4, Math.max(0, _.get(data, 'casterDivinityStack', 0)));
+        this.targetDivinityStack = Math.min(4, Math.max(0, _.get(data, 'targetDivinityStack', 0)));
         this.casterHasPossession = _.get(data, 'casterHasPossession', false);
         this.casterInvincible = _.get(data, 'casterInvincible', false);
         this.casterInjury = _.get(data, 'casterInjury', 0);
@@ -942,6 +991,8 @@ export class DamageFormData {
         + (this.casterPilfered ? BattleConstants.pilfer : 0)
         + (this.casterHasTrauma ? BattleConstants.trauma : 0)
         + (this.casterVigor ? BattleConstants.casterVigor - 1 : 0)
+        + (this.casterIndomitable ? BattleConstants.indomitable : 0)
+        + this.casterDivinityStack * BattleConstants.divinityPerStack
         + (this.casterFury ? BattleConstants['caster-fury'] - 1 : 0)
         + heroMultiplier);
 
@@ -963,6 +1014,8 @@ export class DamageFormData {
         + (this.targetPilfered ? BattleConstants.pilfer : 0)
         + (this.targetHasTrauma ? BattleConstants.trauma : 0)
         + (this.targetVigor ? BattleConstants.casterVigor - 1 : 0)
+        + (this.targetIndomitable ? BattleConstants.indomitable : 0)
+        + this.targetDivinityStack * BattleConstants.divinityPerStack
         + (this.targetFury ? BattleConstants['caster-fury'] - 1 : 0));
 
         if (this.targetHasTrauma && this.targetDefenseDown) {
@@ -987,6 +1040,7 @@ export class DamageFormData {
                 * (!this.inBattleHP && this.casterHasSuperhumanization ? BattleConstants.superhumanization + 1 : 1)
                 * (!this.inBattleHP && this.casterHasGodOfBattle ? BattleConstants.casterHasGodOfBattle : 1)
                 * (!this.inBattleHP && this.casterLingeringFragranceStack ? (1 + this.casterLingeringFragranceStack * BattleConstants.lingeringFragrance) : 1)
+                * (1 + (this.casterDefenseMission ? BattleConstants.defenseMission : 0) + this.casterDivinityStack * BattleConstants.divinityPerStack)
                );
     }
 
@@ -998,6 +1052,7 @@ export class DamageFormData {
                 * (1 + this.targetMaxHPIncrease / 100)
                 * (1 + Math.min(5, Math.max(0, this.targetLingeringFragranceStack)) * BattleConstants.lingeringFragrance)
                 * (this.targetHasSuperhumanization ? BattleConstants.superhumanization + 1 : 1)
+                * (1 + this.targetDivinityStack * BattleConstants.divinityPerStack)
                );
     }
 

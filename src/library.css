@@ -87,6 +87,11 @@
 .ui-update-action.available { border-color: rgba(242,198,109,.44); color: #f7dc91; background: rgba(242,198,109,.09); }
 .ui-update-action.checking svg, .ui-update-action.updating svg { animation: spin .8s linear infinite; }
 .ui-update-action:disabled { cursor: wait; opacity: .66; }
+.ui-release-notes { display: grid; gap: 10px; max-height: 260px; padding: 16px 18px; overflow: auto; border-top: 1px solid rgba(255,255,255,.09); background: rgba(0,0,0,.16); }
+.ui-release-notes > div { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.ui-release-notes a { color: #75cef7; font-size: 12px; font-weight: 800; text-decoration: none; }
+.ui-release-notes a:hover { text-decoration: underline; }
+.ui-release-notes pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: rgba(255,255,255,.72); font: inherit; font-size: 13px; line-height: 1.65; }
 .ui-settings-panel > p { margin: 0; padding: 12px 18px; border-top: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.48); font-size: 12px; }
 
 .library-shell {

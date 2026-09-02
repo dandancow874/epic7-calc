@@ -45,6 +45,7 @@ const attackModifiers = [
   'casterHasStarsBlessing', 'casterHasPossession',
   'casterPromotionStack', 'casterSpoilsStack', 'casterPilfered', 'casterHasDemonBladeUnleashed',
   'casterOverload', 'casterEnergyDepletion', 'casterHasGodOfBattle',
+  'casterAttackMission',
 ];
 
 const damageMultSets = ['rageSet', 'fervorSet', 'torrentSet'];
@@ -77,7 +78,9 @@ export class DamageEngine {
   }
 
   get currentArtifact(): Artifact {
-    return Artifacts[this.artifactId] ?? Artifacts.noProc;
+    return Artifacts[this.artifactId]
+      ?? Artifacts[this.artifactId.replaceAll('-', '_')]
+      ?? Artifacts.noProc;
   }
 
   getGlobalDefenseMult(isAftermath = false): number {
@@ -86,6 +89,8 @@ export class DamageEngine {
     for (const defenseModifier of ['targetDefenseUp', 'targetDefenseDown', 'targetVigor', 'targetHasTrauma', 'targetPilfered']) {
       mult += this.form[defenseModifier] ? BattleConstants[defenseModifier] : 0.0;
     }
+    if (this.form.targetIndomitable) mult += BattleConstants.indomitable;
+    mult += this.form.targetDivinityStack * BattleConstants.divinityPerStack;
 
     if (isAftermath && this.form.targetDefenseDownAftermath && !this.form.targetDefenseDown) {
       mult += BattleConstants.targetDefenseDown;
@@ -225,7 +230,11 @@ export class DamageEngine {
 
   getDamage(skill: Skill, soulburn = false, isExtra = false, isCounter = false): DamageRow {
     const additionalDamageReduction = 1 - this.form.additionalDamageReduction / 100;
-    const additionalDamageIncrease = this.form.pursuitSet ? 1.2 : 1;
+    // Additional-damage increases share one additive bucket in Epic Seven.
+    // Pursuit Set (+20%) and Stellar Knowledge (+100%) therefore total +120%.
+    const additionalDamageIncrease = 1
+      + (this.form.pursuitSet ? 0.2 : 0)
+      + (this.form.casterHasStellarKnowledge ? 1 : 0);
     const casterAttack = this.currentHero.getAttack(this.currentArtifact, this.form, this.getGlobalAttackMult(), skill, soulburn, HitType.normal);
     const casterSpeed = this.currentHero.getSpeed(this.form, this.currentArtifact);
     let critDmgBuff = this.form.increasedCritDamage ? BattleConstants.increasedCritDamage : 0.0;

@@ -234,6 +234,17 @@ export const Artifacts: Record<string, Artifact> = {
     applies: (skill: Skill, inputValues: DamageFormData) => skill.isExtra || inputValues.extraDualOrCounter,
     value: (artiScale: number, inputValues: DamageFormData, skill: Skill, isExtra: boolean) => (skill.isExtra || isExtra || inputValues.extraDualOrCounter) ? artiScale : 0
   }),
+  light_and_darkness: new Artifact({
+    id: 'light_and_darkness',
+    name: 'Light and Darkness',
+    type: ArtifactDamageType.fixedDamage,
+    scale: [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000],
+    fixedDamage: 1000,
+    penetrate: 1,
+    exclusive: HeroClass.ranger,
+    applies: (skill: Skill, inputValues: DamageFormData, soulburn: boolean) =>
+      skill.isAOE(inputValues, soulburn),
+  }),
   feed_of_criticism: new Artifact({
     id: 'feed_of_criticism',
     name: 'Feed of Criticism',

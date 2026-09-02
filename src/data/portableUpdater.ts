@@ -9,11 +9,17 @@ export type PortableUpdateState = {
   latestVersion?: string;
   downloadUrl?: string;
   downloadSize?: number;
+  releaseName?: string;
+  releaseNotes?: string;
+  releaseUrl?: string;
   message?: string;
 };
 
 type GitHubRelease = {
   tag_name?: string;
+  name?: string;
+  body?: string;
+  html_url?: string;
   assets?: Array<{
     name?: string;
     browser_download_url?: string;
@@ -49,12 +55,18 @@ export async function checkPortableUpdate(): Promise<PortableUpdateState> {
   }
 
   const latestVersion = normalizeVersion(release.tag_name);
+  const releaseDetails = {
+    releaseName: release.name?.trim() || `v${latestVersion}`,
+    releaseNotes: release.body?.trim() || '该版本未填写更新说明。',
+    releaseUrl: release.html_url,
+  };
   const asset = release.assets?.find((item) => item.name && PORTABLE_ZIP_PATTERN.test(item.name));
   if (!asset?.browser_download_url) {
     return {
       status: 'error',
       currentVersion: CURRENT_APP_VERSION,
       latestVersion,
+      ...releaseDetails,
       message: '最新 Release 没有便携版 zip',
     };
   }
@@ -66,6 +78,7 @@ export async function checkPortableUpdate(): Promise<PortableUpdateState> {
       latestVersion,
       downloadUrl: asset.browser_download_url,
       downloadSize: asset.size,
+      ...releaseDetails,
       message: '已是最新版本',
     };
   }
@@ -76,6 +89,7 @@ export async function checkPortableUpdate(): Promise<PortableUpdateState> {
     latestVersion,
     downloadUrl: asset.browser_download_url,
     downloadSize: asset.size,
+    ...releaseDetails,
     message: `发现 ${latestVersion}`,
   };
 }

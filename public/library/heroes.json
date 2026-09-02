@@ -1,12 +1,511 @@
 [
   {
+    "code": "lisette",
+    "gameId": "c2186",
+    "name": "黎洁特",
+    "nameEn": "Lisette",
+    "nameZht": null,
+    "nicknames": [
+      "lijiete",
+      "迪彩",
+      "dicai"
+    ],
+    "attribute": "light",
+    "role": "soul_weaver",
+    "rarity": 5,
+    "zodiac": "scales",
+    "publishDate": "2026-08-29 11:00:00",
+    "descriptionLine": "为让世界存续\n而显现的女神碎片",
+    "story": "为了净化外太空之力而以人类之躯降临于世的女神碎片。在守护欧勒毕斯生灵万物的大义面前，心甘情愿牺牲自己，毫不犹豫。",
+    "profile": {
+      "hobby": "观察人类，抚摸贝奇",
+      "likes": "欧勒毕斯的生灵万物",
+      "dislikes": "欧勒毕斯的威胁、践踏生命的使徒",
+      "motto": "我将不惜一切代价延续这个世界。",
+      "specialty": "净化污染",
+      "voiceCv": {
+        "en": "VA: Bailey Gavulic",
+        "ja": "CV: 星谷美緒",
+        "kr": "CV: 차영희",
+        "zhs": "CV: 静宸"
+      }
+    },
+    "baseStats": {
+      "atk": 830,
+      "hp": 5121,
+      "def": 735,
+      "spd": 107,
+      "chc": 0.15,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/lisette.webp",
+    "avatar": "/library/heroes/lisette-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c2186_1",
+        "name": "光源",
+        "description": "用光芒攻击敌人，使全体我军人员恢复生命值。根据自身最大生命值等比提升伤害量和恢复量。",
+        "icon": "/library/heroes/lisette-sk_c2186_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": {
+          "cost": 10,
+          "description": "使用余晖代替光源。\n余晖：用神圣气息解除我军目标的2个弱化效果，使速攻值提升30%。若为生命碎片，则变回英雄触发相同的效果。"
+        },
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "恢复量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 4,
+            "text": "恢复量提升10%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升15%"
+          },
+          {
+            "level": 6,
+            "text": "恢复量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "10.0% 自身 最大生命值",
+                "displayValue": "10.0% 自身 最大生命值"
+              },
+              {
+                "key": "HPUP_CASTER_MAXHP_value",
+                "label": "生命恢复",
+                "value": "7.0% 自身 最大生命值",
+                "displayValue": "7.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      },
+      {
+        "id": "sk_c2186_2",
+        "name": "献身",
+        "description": "首次战斗开始时，获得4个神圣效果。\n除自身外的我军人员死亡时，消耗1个神圣效果，使其在2回合内以生命碎片状态复活，使速攻值提升20(30)%。",
+        "icon": "/library/heroes/lisette-sk_c2186_2.png",
+        "cooldown": "",
+        "soulGain": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "速攻值提升1%"
+          },
+          {
+            "level": 2,
+            "text": "速攻值提升1%"
+          },
+          {
+            "level": 3,
+            "text": "速攻值提升1%"
+          },
+          {
+            "level": 4,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 5,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 6,
+            "text": "速攻值提升3%"
+          }
+        ],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "1442",
+            "name": "神圣（固有效果）",
+            "type": "buff",
+            "description": "不会被附加弱化效果。生命值、防御力提升20%。根据叠加层数提升效果。",
+            "icon": "/library/effects/stic_divine_4_aura.webp"
+          },
+          {
+            "id": "1443",
+            "name": "生命碎片（固有效果）",
+            "type": "buff",
+            "description": "化为生命碎片。第2回合开始时，变回原本的英雄。",
+            "icon": "/library/effects/stic_divine_aura.webp"
+          },
+          {
+            "id": "risette_plant",
+            "name": "生命碎片",
+            "type": "common",
+            "description": "不会被附加强化效果及弱化效果，使所有伤害无效化。施展者死亡时毁坏。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c2186_3",
+        "name": "收束之时",
+        "description": "重建世界，使全体我军人员恢复所有生命值，在3回合内获得速度提升效果。若自身处于神圣状态，则使除自身外的全体我军人员获得时间逆行效果，触发相同效果。此技能不受冷却时间增加及减少效果的影响。",
+        "icon": "/library/heroes/lisette-sk_c2186_3.png",
+        "cooldown": "冷却时间10(7)回合",
+        "soulGain": 5,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 2,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "HPUP_TARGET_MAXHP_value",
+                "label": "生命恢复",
+                "value": "100.0% 目标最大生命值",
+                "displayValue": "100.0% 目标最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "104",
+            "name": "速度提升",
+            "type": "buff",
+            "description": "速度提升30%。",
+            "icon": "/library/effects/stic_speed_up.webp"
+          },
+          {
+            "id": "1442",
+            "name": "神圣（固有效果）",
+            "type": "buff",
+            "description": "不会被附加弱化效果。生命值、防御力提升20%。根据叠加层数提升效果。",
+            "icon": "/library/effects/stic_divine_4_aura.webp"
+          },
+          {
+            "id": "rewind",
+            "name": "时间逆行",
+            "type": "common",
+            "description": "回到战斗开始后的状态。仅能在PVP中生效。",
+            "icon": null
+          }
+        ]
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "max_hp_rate",
+        "self_effect_max": 0.21,
+        "self_effect": 0.21,
+        "public_type": "att_rate",
+        "public_effect_max": 0.15,
+        "public_effect": 0.15,
+        "public_slot": "24"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
+    "code": "uncharted-pioneer-politis",
+    "gameId": "c5112",
+    "name": "未知开拓者佛里蒂丝",
+    "nameEn": "Uncharted Pioneer Politis",
+    "nameZht": null,
+    "nicknames": [
+      "weizhikaituozhefulidisi",
+      "weizhikaituozhefolidisi",
+      "shuishuang",
+      "水双"
+    ],
+    "attribute": "ice",
+    "role": "ranger",
+    "rarity": 5,
+    "zodiac": "fish",
+    "publishDate": "2026-08-29 11:00:00",
+    "descriptionLine": "为解开母星灭亡谜团\n追寻真相的学者",
+    "story": "一路追踪使母星灭亡的陨石而进入深渊的学者。虽然她希望奇迹降临使一切复原如初，但等待她的却是连新安身处也即将迎来终末的残酷现实。",
+    "profile": {
+      "hobby": "采集痕迹、整理记录、擦拭无人机的积尘",
+      "likes": "新的星座、写信、烤篝火",
+      "dislikes": "无稽之谈、自己无能为力的事、内部矛盾",
+      "motto": "忘却是怠惰的证据，无知是恐惧的根源。",
+      "specialty": "探索未知、分析污染源",
+      "voiceCv": {
+        "en": "VA: Reba Buhr",
+        "ja": "CV: 小倉唯",
+        "kr": "CV: 이지영",
+        "zhs": "CV: 宴宁"
+      }
+    },
+    "baseStats": {
+      "atk": 993,
+      "hp": 6002,
+      "def": 611,
+      "spd": 120,
+      "chc": 0.15,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/uncharted-pioneer-politis.webp",
+    "avatar": "/library/heroes/uncharted-pioneer-politis-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c5112_1",
+        "name": "脉冲释放",
+        "description": "用光芒攻击全体敌人，有50(65)%的几率解除1个强化效果。无论是否命中，都会造成1000点额外伤害。",
+        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "效果发生率提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 6,
+            "text": "效果发生率提升10%"
+          },
+          {
+            "level": 7,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.5",
+                "displayValue": "0.5"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      },
+      {
+        "id": "sk_c5112_3",
+        "name": "遗留者的使命",
+        "description": "战斗开始时，若位于前排，则触发攻击任务；若位于后排，则触发防御任务。\n完成任务时，解除自身的任务和所有弱化效果，使用亡星遗言。\n亡星遗言：使全体我军人员获得星辰知识效果，使自身获得额外回合。",
+        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_3.png",
+        "cooldown": "",
+        "soulGain": 0,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": false,
+        "enhancements": [],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "1439",
+            "name": "攻击任务（固有效果）",
+            "type": "buff",
+            "description": "使全体我军人员攻击力提升10%。我军人员攻击10次时，完成任务。",
+            "icon": "/library/effects/stic_offensive_aura.webp"
+          },
+          {
+            "id": "1440",
+            "name": "防御任务（固有效果）",
+            "type": "buff",
+            "description": "使全体我军人员最大生命值提升10%。我军人员受到攻击10次时，完成任务。",
+            "icon": "/library/effects/stic_defensive_aura.webp"
+          },
+          {
+            "id": "1441",
+            "name": "星辰知识（固有效果）",
+            "type": "buff",
+            "description": "额外伤害的伤害量提升100%。",
+            "icon": "/library/effects/stic_starlore_aura.webp"
+          },
+          {
+            "id": "add_turn",
+            "name": "额外回合",
+            "type": "common",
+            "description": "令目标可以再行动一次。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c5112_2",
+        "name": "划破终焉之光",
+        "description": "用无人机攻击全体敌人，解除所有强化效果后，使技能冷却时间增加1回合。无论是否命中，都会造成3000点额外伤害。",
+        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_2.png",
+        "cooldown": "冷却时间7(4)回合",
+        "soulGain": 3,
+        "soulBurn": {
+          "cost": 20,
+          "description": "无视效果抗性。"
+        },
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 5,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 6,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 7,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 8,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.7",
+                "displayValue": "0.7"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "acc",
+        "self_effect_max": 0.27,
+        "self_effect": 0.27,
+        "public_type": "att_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
     "code": "aube",
     "gameId": "c5190",
     "name": "奥芙",
     "nameEn": "Aube",
     "nameZht": null,
     "nicknames": [
-      "aofu"
+      "aofu",
+      "of",
+      "off",
+      "软脚虾",
+      "ruanjiaoxia",
+      "软脚妹",
+      "ruanjiaomei",
+      "杂鱼",
+      "zayu"
     ],
     "attribute": "ice",
     "role": "ranger",
@@ -7406,7 +7905,33 @@
         "remarks": null
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "exc512801",
+        "name": "勇气的航迹",
+        "description": "帮助和英忘却内心恐惧的水上摩托。划过水面的疾驰感，再次赋予她向前迈进的勇气。",
+        "iconKey": "/library/exclusives/argent-waves-hwayoung-exclusive.png",
+        "mainStat": {
+          "type": "att_rate",
+          "min": 0.07,
+          "max": 0.14
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 2,
+            "description": "使用飞燕脚时，攻击前使自身在2回合内获得命中提升效果。"
+          },
+          {
+            "skillNumber": 2,
+            "description": "飞燕脚效果所提升的速攻值额外提升10%。"
+          },
+          {
+            "skillNumber": 3,
+            "description": "银色闪光的伤害量提升10%。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete"
   },
@@ -10642,7 +11167,33 @@
         "remarks": null
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "exc116201",
+        "name": "这是赛娜的",
+        "description": "写着赛娜名字的缎带，牢牢系住她标志性的马尾。无论怎样奔跑翻滚，可爱都不会受到影响。",
+        "iconKey": "/library/exclusives/young-senya-exclusive.png",
+        "mainStat": {
+          "type": "max_hp_rate",
+          "min": 0.07,
+          "max": 0.14
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 2,
+            "description": "特别的友情造成的额外伤害，无论是否为自身回合都会发动。"
+          },
+          {
+            "skillNumber": 2,
+            "description": "使用帮帮我！时，额外伤害提升至最大生命值的20%。"
+          },
+          {
+            "skillNumber": 3,
+            "description": "使用点心时间！时，根据自身最大生命值使全体我军人员在2回合内获得等比强度的防护罩。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete"
   },
@@ -37169,7 +37720,7 @@
       {
         "id": "sk_c2012_3",
         "name": "魔神降临",
-        "description": "用死亡一击攻击敌人，将部分伤害量作为生命值恢复。消灭时，造成灭亡效果。根据自身最大生命值等比提升伤害量，对目标造成防御力穿透。此攻击不会触发暴击、强击。首次战斗开始时，技能冷却时间增加到最多。",
+        "description": "用死亡一击攻击敌人后，将部分伤害量作为生命值恢复，消灭时，造成灭亡效果。若目标为英雄，则无视伤害分配效果。造成防御力穿透，不会触发暴击、强击。根据自身最大生命值等比提升伤害量。首次战斗开始时，技能冷却时间增加到最多。",
         "icon": "/library/heroes/dark-corvus-sk_c2012_3.png",
         "cooldown": "冷却时间8(7)回合",
         "soulGain": 3,
@@ -37231,8 +37782,8 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "25.0",
-                "displayValue": "25.0% 自身 最大生命值"
+                "value": "31.0",
+                "displayValue": "31.0% 自身 最大生命值"
               },
               {
                 "key": "HPUP_DAMAGE_value",
@@ -37292,6 +37843,13 @@
             "name": "穿透",
             "type": "common",
             "description": "无视防御力造成伤害。",
+            "icon": null
+          },
+          {
+            "id": "ignore_damage_share",
+            "name": "无视伤害分配",
+            "type": "common",
+            "description": "攻击时，无视伤害分配效果。",
             "icon": null
           }
         ]

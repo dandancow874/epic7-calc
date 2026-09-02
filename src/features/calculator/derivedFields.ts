@@ -9,8 +9,16 @@ export function withDerivedCalculatorFields(fields: string[], heroId?: string) {
   if (next.includes('casterMaxHP') && !next.includes('casterLingeringFragranceStack')) {
     next.push('casterLingeringFragranceStack');
   }
+  if (next.includes('casterMaxHP') && !next.includes('casterHasSuperhumanization')) {
+    next.push('casterHasSuperhumanization');
+  }
+  if (next.includes('casterDefense')) {
+    for (const field of ['casterDefenseUp', 'casterDefenseDown', 'casterVigor', 'casterIndomitable', 'casterHasTrauma']) {
+      if (!next.includes(field)) next.push(field);
+    }
+  }
   if (next.includes('casterSpeed')) {
-    for (const field of ['casterSpeedUp', 'casterSpeedDown', 'casterEnraged', 'casterRampage']) {
+    for (const field of ['casterSpeedUp', 'casterSpeedDown', 'casterEnraged', 'casterRampage', 'casterHasSuperhumanization']) {
       if (!next.includes(field)) next.push(field);
     }
   }

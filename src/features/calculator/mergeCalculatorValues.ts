@@ -20,9 +20,10 @@ export function defenderBattleMaxHP(defender: ProfileValues) {
   const lingeringStack = Math.min(5, Math.max(0, Number(
     defender.targetLingeringFragranceStack ?? (defender.targetLingeringFragrance ? 1 : 0),
   )));
+  const divinityStack = Math.min(4, Math.max(0, Number(defender.targetDivinityStack || 0)));
   const superhumanization = defender.targetHasSuperhumanization ? 1.3 : 1;
   const collapse = defender.targetHasCollapse ? 0.5 : 1;
-  return Math.round(base * (1 + hpIncrease / 100) * (1 + lingeringStack * 0.05) * superhumanization * collapse);
+  return Math.round(base * (1 + hpIncrease / 100) * (1 + lingeringStack * 0.05) * (1 + divinityStack * 0.2) * superhumanization * collapse);
 }
 
 export function isLinkedTargetField(field: string) {

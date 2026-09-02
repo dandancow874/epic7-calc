@@ -92,6 +92,10 @@ const extraAttackerBuffs = [
   ['casterHasChallenge', '挑战', 'buffs/challenge-buff.png'],
   ['casterHasSpecialFriendship', '特别的友情', 'buffs/special-friendship-buff.png'],
   ['casterHasSuperhumanization', '超人化', 'buffs/superhumanization-buff.png'],
+  ['casterIndomitable', '不屈', 'buffs/indomitable-buff.webp'],
+  ['casterAttackMission', '攻击任务', 'buffs/attack-mission-buff.webp'],
+  ['casterDefenseMission', '防御任务', 'buffs/defense-mission-buff.webp'],
+  ['casterHasStellarKnowledge', '星辰知识', 'buffs/stellar-knowledge-buff.webp'],
   ['casterPilfered', '抢夺', 'debuffs/pilfer-debuff.png'],
   ['casterHasTrauma', '创伤', 'debuffs/trauma-debuff.png'],
   ['rageSet', '愤怒套', 'sets/rage-set.png'],
@@ -104,21 +108,22 @@ const extraAttackerBuffs = [
 const stateGroups = [
   {
     title: '攻击增益',
-    items: extraAttackerBuffs.slice(0, 13),
+    items: extraAttackerBuffs.slice(0, 17),
   },
   {
     title: '异常 / 减益',
-    items: extraAttackerBuffs.slice(13, 15),
+    items: extraAttackerBuffs.slice(17, 19),
   },
   {
     title: '装备套装',
-    items: extraAttackerBuffs.slice(15),
+    items: extraAttackerBuffs.slice(19),
   },
 ] as const;
 
 const defenderBuffs = [
   ['targetDefenseUp', '防守力提升', 'buffs/defense-buff.png'],
   ['targetVigor', '魄力', 'buffs/vigor-buff.png'],
+  ['targetIndomitable', '不屈', 'buffs/indomitable-buff.webp'],
   ['targetDefenseDown', '防守力降低', 'debuffs/defense-debuff.png'],
   ['targetTargeted', '标靶', 'debuffs/target-debuff.png'],
   ['targetLaceration', '裂伤', 'debuffs/laceration-debuff.png'],
@@ -170,7 +175,7 @@ export function CalculatorWorkspace() {
 
   const hero = Heroes[attackerId] ?? Heroes.abigail;
   const targetHero = Heroes[defenderId] ?? Heroes.abigail;
-  const artifact = Artifacts[artifactId] ?? Artifacts.noProc;
+  const artifact = Artifacts[artifactId] ?? Artifacts[artifactId.replaceAll('-', '_')] ?? Artifacts.noProc;
   const attackerLibraryArtifact = libraryArtifactForCalculatorId(artifactId, buildCatalog?.artifacts || []);
   const defenderArtifact = buildCatalog?.artifacts.find((item) => item.code === defender.defenderArtifactCode) || null;
   const attackerProfileName = useMemo(
@@ -183,6 +188,14 @@ export function CalculatorWorkspace() {
   );
   const attackerBuilds = useMemo(() => calculatorBuildOptions(attackerId, buildCatalog), [attackerId, buildCatalog, profileVersion, buildVersion]);
   const defenderBuilds = useMemo(() => calculatorBuildOptions(defenderId, buildCatalog), [defenderId, buildCatalog, profileVersion, buildVersion]);
+  const attackerHasAdditionalDamage = useMemo(() => {
+    const code = buildCatalog ? calculatorHeroCode(attackerId, buildCatalog.heroes) : null;
+    const libraryHero = code ? buildCatalog?.heroes.find((item) => item.code === code) : null;
+    return Boolean(libraryHero?.skills.some((skill) =>
+      skill.description.includes('额外伤害')
+      || skill.multipliers?.some((group) => group.items.some((item) => item.label.includes('额外伤害'))),
+    ));
+  }, [attackerId, buildCatalog]);
 
   useEffect(() => {
     setCatalogLanguage(language);
@@ -605,6 +618,7 @@ export function CalculatorWorkspace() {
               onUseDefenderPreset={(checked) => updateSide('attacker', 'useDefenderPresetValues', checked)}
               useBuildPreset={attacker.useBuildPreset !== false}
               onUseBuildPreset={(checked) => toggleBuildPreset('attacker', checked)}
+              hasAdditionalDamage={attackerHasAdditionalDamage}
             />
             <CombatPanel
               side="defender"
@@ -856,19 +870,31 @@ function CombatPanel(props: {
   onUseDefenderPreset?: (checked: boolean) => void;
   useBuildPreset: boolean;
   onUseBuildPreset: (checked: boolean) => void;
+  hasAdditionalDamage?: boolean;
 }) {
   const hero = Heroes[props.heroId] ?? Heroes.abigail;
   const artifact = props.artifactId ? Artifacts[props.artifactId] : null;
   const fields = numberFields[props.side];
   const specialFields = props.side === 'attacker'
-    ? uniqueFields(withDerivedCalculatorFields([...(hero.heroSpecific || []), ...(artifact?.artifactSpecific || [])], props.heroId))
+    ? uniqueFields(withDerivedCalculatorFields([
+      ...(hero.heroSpecific || []),
+      ...(artifact?.artifactSpecific || []),
+      ...(props.hasAdditionalDamage ? ['casterHasStellarKnowledge'] : []),
+    ], props.heroId))
       .filter((field) => !fields.some(([key]) => key === field))
       .filter((field) => !mainAttackerBuffs.some(([key]) => key === field))
     : [];
   const activeExtraBuffs = extraAttackerBuffs
     .filter(([key]) => Boolean(props.values[key]))
     .filter(([key]) => !specialFields.includes(key));
-  const buffs = props.side === 'attacker' ? [...mainAttackerBuffs, ...activeExtraBuffs] : defenderBuffs;
+  const buffs = props.side === 'attacker'
+    ? [...mainAttackerBuffs, ...activeExtraBuffs]
+    : [
+      ...defenderBuffs,
+      ...(props.heroId === 'lisette'
+        ? [['targetDivinityStack', '神圣', 'buffs/divinity-buff.webp'] as const]
+        : []),
+    ];
 
   return (
     <section className={`combat-panel ${props.tone}`}>
@@ -981,7 +1007,13 @@ function CombatPanel(props: {
 
       <div className="buff-row">
         {buffs.map(([key, label, icon]) => {
-          const stackLimit = key === 'torrentSetStack' ? 3 : key === 'targetLingeringFragranceStack' ? 5 : 0;
+          const stackLimit = key === 'torrentSetStack'
+            ? 3
+            : key === 'targetLingeringFragranceStack'
+              ? 5
+              : key === 'targetDivinityStack'
+                ? 4
+                : 0;
           const stackCount = stackLimit ? Math.min(stackLimit, Math.max(0, Number(props.values[key] || 0))) : 0;
           return (
             <Chip
@@ -2055,6 +2087,18 @@ function shortFieldName(field: string) {
     casterMaxHP: '施法者最大生命',
     casterMaxHPIncrease: '最大生命增加(%)',
     casterLingeringFragranceStack: '余香',
+    casterDefenseUp: '防御力提升',
+    casterDefenseDown: '防御力降低',
+    casterVigor: '魄力',
+    casterPilfered: '抢夺',
+    casterHasTrauma: '创伤',
+    casterHasSuperhumanization: '超人化',
+    casterIndomitable: '不屈',
+    casterAttackMission: '攻击任务',
+    casterDefenseMission: '防御任务',
+    casterHasStellarKnowledge: '星辰知识',
+    casterDivinityStack: '神圣层数',
+    targetDivinityStack: '神圣层数',
     casterSpeedUp: '速度提升',
     casterSpeedDown: '速度降低',
     casterEnraged: '狂气',

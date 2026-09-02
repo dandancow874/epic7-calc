@@ -18,4 +18,13 @@ describe('derived calculator fields', () => {
 
     expect(boosted).toBe(Math.round(normal * 1.3));
   });
+
+  it('adds the combat states that modify Defense, max Health, and Speed scaling', () => {
+    expect(withDerivedCalculatorFields(['casterDefense'])).toEqual(expect.arrayContaining([
+      'casterDefenseUp', 'casterDefenseDown', 'casterVigor', 'casterHasTrauma',
+    ]));
+    expect(withDerivedCalculatorFields(['casterDefense'])).not.toEqual(expect.arrayContaining(['casterFury', 'casterPilfered']));
+    expect(withDerivedCalculatorFields(['casterMaxHP'])).toContain('casterHasSuperhumanization');
+    expect(withDerivedCalculatorFields(['casterSpeed'])).toContain('casterHasSuperhumanization');
+  });
 });

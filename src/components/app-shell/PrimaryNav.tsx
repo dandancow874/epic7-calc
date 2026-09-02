@@ -102,6 +102,16 @@ export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props
               </button>
             </div>
 
+            {updateState.latestVersion && updateState.releaseNotes && (
+              <section className="ui-release-notes" aria-label={`${updateState.releaseName || `v${updateState.latestVersion}`} 更新说明`}>
+                <div>
+                  <strong>{updateState.releaseName || `v${updateState.latestVersion}`} 更新说明</strong>
+                  {updateState.releaseUrl && <a href={updateState.releaseUrl} target="_blank" rel="noreferrer">查看 Release</a>}
+                </div>
+                <pre>{updateState.releaseNotes}</pre>
+              </section>
+            )}
+
             <p>设置与更新均由你确认后执行。</p>
           </section>
         </div>

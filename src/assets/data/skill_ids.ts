@@ -1934,3 +1934,12 @@ SkillIDs.tidal_rift_elvira = {
     "s1_extra": "sk_c2148_1",
     "s3": "sk_c2148_3",
 };
+
+SkillIDs.lisette = {
+    "s1": "sk_c2186_1",
+};
+
+SkillIDs.uncharted_pioneer_politis = {
+    "s1": "sk_c5112_1",
+    "s3": "sk_c5112_2",
+};

@@ -1,5 +1,62 @@
 [
   {
+    "code": "light-and-darkness",
+    "name": "光与暗",
+    "nameEn": "Light and Darkness",
+    "nameZht": null,
+    "description": "站在悬崖峭壁之上，佛里蒂丝紧握光簇。即使身处于未知中，求知的执念依然闪耀着光芒。",
+    "skillDescription": "发动全体攻击后，造成1000(2000)点额外伤害，有50(100)%的几率使目标速攻值降低15%。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/light-and-darkness.png",
+    "artwork": "/library/artifact-artworks/light-and-darkness.png",
+    "publishDate": "2026-09-03 11:00:00"
+  },
+  {
+    "code": "land-of-lingering-light",
+    "name": "光耀之地",
+    "nameEn": "Land of Lingering Light",
+    "nameZht": null,
+    "description": "“历经成千上万条世界线后，我终于找到了你。以璀璨的光芒为誓……让我们一起迈向明天吧。”",
+    "skillDescription": "队内英雄在Episode、支线故事、精灵祭坛、紧急任务、讨伐、维度裂缝、异界之隙结束时获得的亲密度提升100%。亲密度提升效果重复时，以最强效果为准。该神器升等时，效果不会提升。",
+    "rarity": 5,
+    "role": "common",
+    "limited": false,
+    "stats": {
+      "atk": 195,
+      "hp": 702,
+      "def": 0
+    },
+    "image": "/library/artifacts/land-of-lingering-light.png",
+    "artwork": "/library/artifact-artworks/land-of-lingering-light.png",
+    "publishDate": "2026-08-27 11:00:00"
+  },
+  {
+    "code": "intoxicating-indulgence",
+    "name": "无法自拔的沉溺",
+    "nameEn": "Intoxicating Indulgence",
+    "nameZht": "无法自拔的沉溺",
+    "description": "深海之中，空影珊瑚伸出触手缠缚着奥芙的身体。这甜蜜而又黏腻的触动，正在一点点吞噬她的灵魂与肉体。",
+    "skillDescription": "使用非攻击类技能后，各有50(100)%的几率使攻击力最高的我军人员获得速攻、在2回合内获得速度提升效果。3回合仅能发动1次。",
+    "rarity": 5,
+    "role": "ranger",
+    "limited": true,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/intoxicating-indulgence.png",
+    "artwork": "/library/artifact-artworks/intoxicating-indulgence.png",
+    "publishDate": "2026-07-23 11:00:00"
+  },
+  {
     "code": "refracted-desire",
     "name": "扭曲欲望",
     "nameEn": "Refracted Desire",

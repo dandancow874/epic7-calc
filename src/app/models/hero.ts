@@ -180,7 +180,9 @@ export class Hero {
     }
 
     const additionalDamageReduction = 1 - (inputValues.additionalDamageReduction / 100)
-    const additionalDamageIncrease = inputValues.pursuitSet ? 1.2 : 1;
+    const additionalDamageIncrease = 1
+      + (inputValues.pursuitSet ? 0.2 : 0)
+      + (inputValues.casterHasStellarKnowledge ? 1 : 0);
 
     return skillDamage * additionalDamageIncrease * additionalDamageReduction;
   }
@@ -192,7 +194,9 @@ export class Hero {
     const attack = this.getAttack(artifact, inputValues, attackMultiplier, skill, soulburn, hitType, isExtra || skill.id.endsWith('extra'))
     const speed = this.getSpeed(inputValues, artifact)
     const additionalDamageReduction = 1 - (inputValues.additionalDamageReduction / 100)
-    const additionalDamageIncrease = inputValues.pursuitSet ? 1.2 : 1;
+    const additionalDamageIncrease = 1
+      + (inputValues.pursuitSet ? 0.2 : 0)
+      + (inputValues.casterHasStellarKnowledge ? 1 : 0);
     // TODO: can aftermath skills just use the same skill as DoTSkill now?
     if (artiMultipliers !== null) {
       if (artiMultipliers.attackPercent) {

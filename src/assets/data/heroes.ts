@@ -987,6 +987,7 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1283,
     baseHP: 5138,
     baseDefense: 522,
+    heroSpecific: ['exclusiveEquipment3'],
     skills: {
       s1: new Skill({
         id: 's1',
@@ -1010,6 +1011,7 @@ export const Heroes: Record<string, Hero> = {
         soulburn: true,
         rate: (soulburn: boolean) => soulburn ? 1.35 : 1.1,
         pow: () => 1,
+        exclusiveEquipmentMultiplier: (inputValues: DamageFormData) => inputValues.exclusiveEquipment3 ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.05, 0.15],
         isAOE: () => true,
       })
@@ -11786,7 +11788,10 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 621,
     baseHP: 5474,
     baseDefense: 802,
-    heroSpecific: ['casterMaxHP', 'allyMaxHP'],
+    heroSpecific: ['casterMaxHP', 'allyMaxHP', 'exclusiveEquipment2', 'exclusiveEquipment3'],
+    barrierSkills: ['S3'],
+    barrier: (_hero: Hero, _skill: Skill, artifact: Artifact, inputValues: DamageFormData) =>
+      inputValues.exclusiveEquipment3 ? inputValues.casterFinalMaxHP(artifact) * 0.2 : 0,
     skills: {
       s1: new Skill({
         id: 's1',
@@ -11801,8 +11806,10 @@ export const Heroes: Record<string, Hero> = {
         hpScaling: true,
         rate: () => 1,
         pow: () => 1,
-        fixed: (hitType: HitType, inputValues: DamageFormData, artifact: Artifact) => (hitType !== HitType.miss) ? inputValues.casterFinalMaxHP(artifact) * 0.15 : 0,
-        fixed2: (hitType: HitType, inputValues: DamageFormData) => (hitType !== HitType.miss) ? inputValues.allyMaxHP * 0.15 : 0,
+        fixed: (hitType: HitType, inputValues: DamageFormData, artifact: Artifact) =>
+          (hitType !== HitType.miss) ? inputValues.casterFinalMaxHP(artifact) * (inputValues.exclusiveEquipment2 ? 0.2 : 0.15) : 0,
+        fixed2: (hitType: HitType, inputValues: DamageFormData) =>
+          (hitType !== HitType.miss) ? inputValues.allyMaxHP * (inputValues.exclusiveEquipment2 ? 0.2 : 0.15) : 0,
         isExtra: true,
         isAOE: () => true,
       })
@@ -12208,6 +12215,62 @@ Heroes.tidal_rift_elvira = new Hero({
   },
 });
 
+Heroes.lisette = new Hero({
+  gameID: 'c2186',
+  element: HeroElement.light,
+  class: HeroClass.soul_weaver,
+  baseAttack: 830,
+  baseHP: 5121,
+  baseDefense: 735,
+  heroSpecific: ['casterMaxHP', 'casterDivinityStack'],
+  heroSpecificMaximums: { casterDivinityStack: 4 },
+  skills: {
+    s1: new Skill({
+      id: 's1',
+      name: 'lisette_light_source',
+      rate: () => 1,
+      pow: () => 1,
+      flat: (_soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) =>
+        inputValues.casterFinalMaxHP(artifact) * 0.1,
+      flatTip: () => ({ casterMaxHP: 10 }),
+      enhance: [0.05, 0, 0.1, 0, 0.15, 0],
+      hpScaling: true,
+      isSingle: () => true,
+    }),
+  },
+});
+
+Heroes.uncharted_pioneer_politis = new Hero({
+  gameID: 'c5112',
+  element: HeroElement.ice,
+  class: HeroClass.ranger,
+  baseAttack: 993,
+  baseHP: 6002,
+  baseDefense: 611,
+  skills: {
+    s1: new Skill({
+      id: 's1',
+      name: 'uncharted_pioneer_politis_pulse_release',
+      rate: () => 0.5,
+      pow: () => 1,
+      fixed: () => 1000,
+      fixedTip: () => ({ fixed: 1000 }),
+      enhance: [0.05, 0, 0.05, 0.05, 0.05, 0, 0.1],
+      isAOE: () => true,
+    }),
+    s3: new Skill({
+      id: 's3',
+      name: 'uncharted_pioneer_politis_light_piercing_the_end',
+      rate: () => 0.7,
+      pow: () => 1,
+      fixed: () => 3000,
+      fixedTip: () => ({ fixed: 3000 }),
+      enhance: [0.05, 0.05, 0, 0, 0, 0.05, 0.05, 0.1],
+      isAOE: () => true,
+    }),
+  },
+});
+
 Heroes.aki = new Hero({
   ...Heroes.aki_old,
   baseAttack: 966,
@@ -12298,6 +12361,8 @@ Heroes.little_queen_charlotte = new Hero({
 
 Heroes.schniel = new Hero({
   ...Heroes.schniel_old,
+  heroSpecific: ['casterIndomitable'],
+  heroSpecificMaximums: {},
   skills: {
     ...Heroes.schniel_old.skills,
     s1: new Skill({
@@ -12309,8 +12374,10 @@ Heroes.schniel = new Hero({
       ...Heroes.schniel_old.skills.s3,
       pow: () => 1.1,
       fixed: (_hitType: HitType, inputValues: DamageFormData) =>
-        5000 * (inputValues.skill3Stack + 1),
-      fixedTip: () => ({ fixed: 5000, fixed_per_stack: 5000 }),
+        inputValues.casterIndomitable ? 15000 : 5000,
+      fixedTip: (_fixedDamage: number, inputValues: DamageFormData) => ({
+        fixed: inputValues.casterIndomitable ? 15000 : 5000,
+      }),
       enhance: [0.05, 0, 0, 0, 0, 0, 0.15],
     }),
   },

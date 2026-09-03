@@ -25,6 +25,7 @@ $calculatorFiles = @(
   'src\features\calculator\mergeCalculatorValues.ts',
   'src\features\calculator\septemberHeroes.test.ts',
   'src\features\calculator\lightAndDarkness.test.ts',
+  'src\features\calculator\blackHandCritDamage.test.ts',
   'public\library\heroes.json',
   'public\library\artifacts.json',
   'public\library\presets.json',

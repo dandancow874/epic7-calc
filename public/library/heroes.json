@@ -52042,7 +52042,7 @@
       {
         "id": "sk_c1050_1",
         "name": "暗黑爆发",
-        "description": "使暗黑之息爆发，攻击目标，并有60(70)%的几率在1回合内造成睡眠效果。发生睡眠时，自身速攻值提升50%。此技能不会触发夹攻。",
+        "description": "使暗黑之息爆发，攻击2名敌人，并有60(70)%的几率在1回合内造成睡眠效果。发生睡眠时，自身速攻值提升25%。此技能不会触发夹攻。",
         "icon": "/library/heroes/tenebria-sk_c1050_1.png",
         "cooldown": "",
         "soulGain": 1,
@@ -52104,7 +52104,7 @@
       {
         "id": "sk_c1050_2",
         "name": "不祥闪电",
-        "description": "召唤不祥闪电，攻击全体敌人，使速攻值降低20(30)%，并在2回合内造成速度降低、束缚效果。",
+        "description": "召唤不祥闪电，解除全体敌人的1个强化效果后进行攻击，使速攻值降低20(30)%，并在2回合内造成速度降低、无法强化效果。",
         "icon": "/library/heroes/tenebria-sk_c1050_2.png",
         "cooldown": "冷却时间3回合",
         "soulGain": 2,
@@ -52144,8 +52144,8 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "0.8",
-                "displayValue": "0.8"
+                "value": "1",
+                "displayValue": "1"
               },
               {
                 "key": "pow",
@@ -52162,8 +52162,8 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "1.05",
-                "displayValue": "1.05"
+                "value": "1.25",
+                "displayValue": "1.25"
               },
               {
                 "key": "pow",
@@ -52183,18 +52183,18 @@
             "icon": "/assets/debuffs/speed-debuff.png"
           },
           {
-            "id": "230",
-            "name": "束缚",
+            "id": "219",
+            "name": "无法强化",
             "type": "debuff",
-            "description": "除了根据速度提升的速攻值提升效果外，无法获得速攻值提升效果。",
-            "icon": "/assets/debuffs/restrict-debuff.png"
+            "description": "无法获得任何强化效果。",
+            "icon": "/library/effects/stic_buf_impossible.webp"
           }
         ]
       },
       {
         "id": "sk_c1050_3",
         "name": "梦魇",
-        "description": "坠下噩梦之月攻击全体敌人，各有70(85)%的几率在2回合内造成防御力降低、在1回合内造成睡眠效果后，使自身在2回合内获得攻击力提升效果。",
+        "description": "坠下噩梦之月攻击全体敌人，造成2回合防御力降低，并有70(85)%的几率在1回合内造成睡眠效果后，使自身在2回合内获得攻击力提升效果。",
         "icon": "/library/heroes/tenebria-sk_c1050_3.png",
         "cooldown": "冷却时间4(3)回合",
         "soulGain": 3,

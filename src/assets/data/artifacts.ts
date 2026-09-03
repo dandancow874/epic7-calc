@@ -75,13 +75,13 @@ export const Artifacts: Record<string, Artifact> = {
   black_hand_of_the_goddess: new Artifact({
     id: 'black_hand_of_the_goddess',
     name: 'Black Hand of the Goddess',
-    scale: [0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.24],
+    scale: [0.18, 0.198, 0.216, 0.234, 0.252, 0.27, 0.288, 0.306, 0.324, 0.342, 0.36],
     type: ArtifactDamageType.critDamageBoost,
     exclusive: HeroClass.mage,
-    // TODO: listen to form Maximums for artifacts
     artifactSpecific:['attackSkillStack'],
-    artifactSpecificMaximums:{'attackSkillStack': 5},
-    value: (artiScale: number, inputValues: DamageFormData) => artiScale - ((artiScale / 10) * inputValues.attackSkillStack),
+    artifactSpecificMaximums:{'attackSkillStack': 4},
+    value: (artiScale: number, inputValues: DamageFormData) =>
+      Math.max(artiScale - 0.03 * inputValues.attackSkillStack, artiScale - 0.12),
   }),
   border_coin: new Artifact({
     id: 'border_coin',
@@ -616,6 +616,13 @@ export const Artifacts: Record<string, Artifact> = {
     applies: (skill: Skill, inputValues: DamageFormData) => {
       return inputValues.elementalAdvantage || skill.elementalAdvantage(inputValues);
     },
+  }),
+  sword_of_autumn_eclipse: new Artifact({
+    id: 'sword_of_autumn_eclipse',
+    name: 'Sword of Autumn Eclipse',
+    scale: [0.05, 0.055, 0.06, 0.065, 0.07, 0.075, 0.08, 0.085, 0.09, 0.095, 0.1],
+    type: ArtifactDamageType.attack,
+    exclusive: HeroClass.warrior,
   }),
   sword_of_summer_twilight: new Artifact({
     id: 'sword_of_summer_twilight',

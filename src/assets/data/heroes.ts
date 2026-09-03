@@ -8291,18 +8291,17 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1182,
     baseHP: 5299,
     baseDefense: 571,
-    heroSpecific: ['targetBurnDetonate', 'targetBombDetonate'],
-    dot: [DoT.burn, DoT.bomb],
+    heroSpecific: ['targetBombDetonate'],
+    dot: [DoT.bomb],
     skills: {
       s1: new Skill({
         id: 's1',
         rate: () => 0.7,
         pow: () => 0.95,
-        detonate: [DoT.burn, DoT.bomb],
+        detonate: DoT.bomb,
         detonation: () => 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         isSingle: () => true,
-        noCrit: true,
       }),
       s3: new Skill({
         id: 's3',
@@ -8310,7 +8309,6 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 1,
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
         isAOE: () => true,
-        noCrit: true,
       }),
     }
   }),
@@ -10967,12 +10965,11 @@ export const Heroes: Record<string, Hero> = {
         rate: () => 1.2,
         pow: () => 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
-        isSingle: () => true,
       }),
       s2: new Skill({
         id: 's2',
         soulburn: true,
-        rate: (soulburn: boolean) => soulburn ? 1.05 : 0.8,
+        rate: (soulburn: boolean) => soulburn ? 1.25 : 1,
         pow: () => 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         isAOE: () => true,
@@ -12363,6 +12360,9 @@ Heroes.schniel = new Hero({
   ...Heroes.schniel_old,
   heroSpecific: ['casterIndomitable'],
   heroSpecificMaximums: {},
+  barrierSkills: ['S3', 'S3 Soulburn'],
+  barrier: (_hero: Hero, _skill: Skill, artifact: Artifact, inputValues: DamageFormData, _attackMultiplier: number, soulburn: boolean) =>
+    inputValues.casterFinalMaxHP(artifact) * (soulburn ? 0.19 : 0.15),
   skills: {
     ...Heroes.schniel_old.skills,
     s1: new Skill({

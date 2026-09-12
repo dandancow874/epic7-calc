@@ -73,9 +73,10 @@ const numberFields = {
 
 const mainAttackerBuffs = [
   ['elementalAdvantage', '属性克制', 'dynamic:advantage'],
-  ['decreasedAttack', '攻击力降低', 'debuffs/attack-debuff.png'],
   ['attackUp', '攻击力提升', 'buffs/attack-buff.png'],
-  ['attackUpGreat', '攻击力大幅提升', 'buffs/greater-attack-buff.png'],
+  ['torrentSetStack', '激流套', 'sets/torrent-set.png'],
+  ['penetrationSet', '穿透套', 'sets/penetration-set.png'],
+  ['fervorSet', '全力套装', 'sets/fervor-set.png'],
 ] as const;
 
 const extraAttackerBuffs = [
@@ -108,11 +109,11 @@ const extraAttackerBuffs = [
 const stateGroups = [
   {
     title: '攻击增益',
-    items: extraAttackerBuffs.slice(0, 17),
+    items: [...extraAttackerBuffs.slice(0, 17), ['attackUpGreat', '攻击力大幅提升', 'buffs/greater-attack-buff.png'] as const],
   },
   {
     title: '异常 / 减益',
-    items: extraAttackerBuffs.slice(17, 19),
+    items: [...extraAttackerBuffs.slice(17, 19), ['decreasedAttack', '攻击力降低', 'debuffs/attack-debuff.png'] as const],
   },
   {
     title: '装备套装',
@@ -723,6 +724,7 @@ export function CalculatorWorkspace() {
 
       {moreOpen && (
         <StateModal
+          hasAdditionalDamage={attackerHasAdditionalDamage}
           values={attacker}
           onClose={() => setMoreOpen(false)}
           onChange={(key, value) => updateSide('attacker', key, value)}
@@ -875,6 +877,10 @@ function CombatPanel(props: {
   const hero = Heroes[props.heroId] ?? Heroes.abigail;
   const artifact = props.artifactId ? Artifacts[props.artifactId] : null;
   const fields = numberFields[props.side];
+  const commonAttackerBuffs = [
+    ...mainAttackerBuffs,
+    ...(props.hasAdditionalDamage ? [['pursuitSet', '追击套', 'sets/pursuit-set.png'] as const] : []),
+  ];
   const specialFields = props.side === 'attacker'
     ? uniqueFields(withDerivedCalculatorFields([
       ...(hero.heroSpecific || []),
@@ -882,13 +888,14 @@ function CombatPanel(props: {
       ...(props.hasAdditionalDamage ? ['casterHasStellarKnowledge'] : []),
     ], props.heroId))
       .filter((field) => !fields.some(([key]) => key === field))
-      .filter((field) => !mainAttackerBuffs.some(([key]) => key === field))
+      .filter((field) => !commonAttackerBuffs.some(([key]) => key === field))
     : [];
   const activeExtraBuffs = extraAttackerBuffs
+    .filter(([key]) => !commonAttackerBuffs.some(([commonKey]) => commonKey === key))
     .filter(([key]) => Boolean(props.values[key]))
     .filter(([key]) => !specialFields.includes(key));
   const buffs = props.side === 'attacker'
-    ? [...mainAttackerBuffs, ...activeExtraBuffs]
+    ? [...commonAttackerBuffs, ...activeExtraBuffs]
     : [
       ...defenderBuffs,
       ...(props.heroId === 'lisette'
@@ -1818,6 +1825,7 @@ function ocrStateText(state: 'idle' | 'reading' | 'done' | 'error', count: numbe
 }
 
 function StateModal(props: {
+  hasAdditionalDamage?: boolean;
   values: ProfileValues;
   onClose: () => void;
   onChange: (key: string, value: boolean | number) => void;
@@ -1827,7 +1835,10 @@ function StateModal(props: {
   const groups = stateGroups
     .map((group) => ({
       ...group,
-      items: group.items.filter(([key, label]) => !q || `${key} ${label}`.toLowerCase().includes(q)),
+      items: group.items
+        .filter(([key]) => !mainAttackerBuffs.some(([commonKey]) => commonKey === key))
+        .filter(([key]) => !(props.hasAdditionalDamage && key === 'pursuitSet'))
+        .filter(([key, label]) => !q || `${key} ${label}`.toLowerCase().includes(q)),
     }))
     .filter((group) => group.items.length);
 

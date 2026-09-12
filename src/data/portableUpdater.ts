@@ -125,14 +125,19 @@ function compareVersions(left: string, right: string) {
 }
 
 async function fetchLatestRelease(): Promise<GitHubRelease | null> {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 5000);
   try {
     const response = await fetch(RELEASES_URL, {
       headers: { Accept: 'application/vnd.github+json' },
+      signal: controller.signal,
     });
     if (!response.ok) return null;
     return await response.json();
   } catch {
     return null;
+  } finally {
+    window.clearTimeout(timeout);
   }
 }
 

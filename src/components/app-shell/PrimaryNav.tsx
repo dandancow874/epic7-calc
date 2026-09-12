@@ -1,5 +1,5 @@
 import { Calculator, Check, Download, FlaskConical, RefreshCw, Shield, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { AppPage } from '../../app/navigation';
 import { UI_SCALE_OPTIONS, type UiScale } from '../../app/uiScale';
 import { checkPortableUpdate, initialPortableUpdateState, startPortableUpdate, type PortableUpdateState } from '../../data/portableUpdater';
@@ -20,6 +20,23 @@ export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [scaleRestartRequired, setScaleRestartRequired] = useState(false);
   const [updateState, setUpdateState] = useState<PortableUpdateState>(() => initialPortableUpdateState());
+  const [updateNoticeDismissed, setUpdateNoticeDismissed] = useState(false);
+  const autoCheckTimer = useRef<number | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    autoCheckTimer.current = window.setTimeout(async () => {
+      const nextState = await checkPortableUpdate();
+      if (!cancelled && nextState.status === 'available') {
+        setUpdateState(nextState);
+        setUpdateNoticeDismissed(false);
+      }
+    }, 2500);
+    return () => {
+      cancelled = true;
+      if (autoCheckTimer.current !== null) window.clearTimeout(autoCheckTimer.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (!settingsOpen) return;
@@ -32,6 +49,10 @@ export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props
 
   const handleUpdate = async () => {
     if (updateState.status === 'checking' || updateState.status === 'updating') return;
+    if (autoCheckTimer.current !== null) {
+      window.clearTimeout(autoCheckTimer.current);
+      autoCheckTimer.current = null;
+    }
     if (updateState.status === 'available') {
       const size = formatBytes(updateState.downloadSize);
       const confirmed = window.confirm(`发现新版本 ${updateState.latestVersion}${size ? `（${size}）` : ''}\n\n现在下载并安装吗？程序将在完成后自动重启。`);
@@ -45,7 +66,9 @@ export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props
       return;
     }
     setUpdateState((state) => ({ ...state, status: 'checking', message: '正在检查更新' }));
-    setUpdateState(await checkPortableUpdate());
+    const nextState = await checkPortableUpdate();
+    setUpdateState(nextState);
+    if (nextState.status === 'available') setUpdateNoticeDismissed(false);
   };
 
   return (
@@ -65,6 +88,26 @@ export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props
           })}
         </div>
       </nav>
+
+      {!settingsOpen && updateState.status === 'available' && !updateNoticeDismissed && (
+        <aside className="portable-update-notice" role="status" aria-live="polite" aria-label="发现程序更新">
+          <button type="button" className="portable-update-notice__close" onClick={() => setUpdateNoticeDismissed(true)} aria-label="稍后提醒">
+            <X size={17} />
+          </button>
+          <div className="portable-update-notice__icon"><Download size={20} /></div>
+          <div className="portable-update-notice__copy">
+            <strong>发现新版本 v{updateState.latestVersion}</strong>
+            <span>{releaseSummary(updateState.releaseNotes)}</span>
+          </div>
+          <div className="portable-update-notice__actions">
+            <button type="button" onClick={() => setUpdateNoticeDismissed(true)}>稍后</button>
+            <button type="button" className="primary" onClick={() => {
+              setUpdateNoticeDismissed(true);
+              setSettingsOpen(true);
+            }}>查看并更新</button>
+          </div>
+        </aside>
+      )}
 
       {settingsOpen && (
         <div className="ui-settings-backdrop" role="presentation" onMouseDown={() => setSettingsOpen(false)}>
@@ -139,4 +182,13 @@ function formatBytes(bytes?: number) {
   if (!bytes || bytes <= 0) return '';
   if (bytes >= 1024 * 1024) return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
   return `${Math.ceil(bytes / 1024)} KB`;
+}
+
+function releaseSummary(notes?: string) {
+  const summary = notes
+    ?.split(/\r?\n/)
+    .map((line) => line.trim().replace(/^[-*#]+\s*/, ''))
+    .find(Boolean);
+  if (!summary) return '新版本已经可以下载，点击查看更新内容。';
+  return summary.length > 58 ? `${summary.slice(0, 58)}…` : summary;
 }

@@ -94,6 +94,24 @@
 .ui-release-notes pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: rgba(255,255,255,.72); font: inherit; font-size: 13px; line-height: 1.65; }
 .ui-settings-panel > p { margin: 0; padding: 12px 18px; border-top: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.48); font-size: 12px; }
 
+.portable-update-notice { position: fixed; z-index: 290; top: 72px; right: 18px; width: min(370px, calc(100vw - 36px)); display: grid; grid-template-columns: 38px minmax(0,1fr); gap: 10px 12px; padding: 15px; overflow: hidden; border: 1px solid rgba(75,189,244,.35); border-radius: 10px; color: #f5f2ea; background: rgba(24,29,31,.97); box-shadow: 0 18px 52px rgba(0,0,0,.48); backdrop-filter: blur(16px); }
+.portable-update-notice::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 3px; background: #4bbdf4; }
+.portable-update-notice__icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 8px; color: #a4e1ff; background: rgba(75,189,244,.12); }
+.portable-update-notice__copy { min-width: 0; display: grid; gap: 4px; padding-right: 24px; }
+.portable-update-notice__copy strong { color: #fff; font-size: 14px; }
+.portable-update-notice__copy span { display: -webkit-box; overflow: hidden; color: rgba(255,255,255,.62); font-size: 12px; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.portable-update-notice__close { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 6px; color: rgba(255,255,255,.55); background: transparent; }
+.portable-update-notice__close:hover { color: #fff; background: rgba(255,255,255,.07); }
+.portable-update-notice__actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 8px; padding-top: 2px; }
+.portable-update-notice__actions button { min-height: 34px; padding: 0 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 7px; color: rgba(255,255,255,.72); background: rgba(255,255,255,.04); font-weight: 800; }
+.portable-update-notice__actions button.primary { border-color: rgba(75,189,244,.45); color: #fff; background: #137eb3; }
+.portable-update-notice button:focus-visible { outline: 2px solid #75cef7; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .portable-update-notice { animation: portable-update-notice-in .18s ease-out; }
+  @keyframes portable-update-notice-in { from { opacity: 0; transform: translateY(-8px); } }
+}
+
 .library-shell {
   width: min(1360px, calc(100vw - 32px));
   padding-top: 12px;

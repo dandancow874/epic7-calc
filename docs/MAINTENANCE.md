@@ -1,5 +1,7 @@
 # Epic7 Damage Calc 维护说明
 
+> 本项目是 `e7-tools` 的下游发行版。共享逻辑的来源、同步顺序和平台边界见 `C:\Users\Administrator\Desktop\e7-tools\docs\DOWNSTREAM_SYNC_POLICY.md`。
+
 ## 项目边界
 
 `epic7-calc` 是从 `e7-tools` 拆出的便携版，只包含：
@@ -60,10 +62,10 @@ npx tauri build --no-bundle
 release/Epic7 Damage Calc Portable.exe
 ```
 
-GitHub Release 标签使用 `v0.1.13` 形式，便携更新包使用：
+GitHub Release 标签使用 `v0.1.14` 形式，便携更新包使用：
 
 ```text
-Epic7.Damage.Calc.Portable_v0.1.13.zip
+Epic7.Damage.Calc.Portable_v0.1.14.zip
 ```
 
 Release 正文会在应用的“界面设置 → 程序更新”中显示，因此每次发布都应填写简洁的更新说明。

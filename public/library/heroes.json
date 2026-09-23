@@ -1,5 +1,931 @@
 [
   {
+    "code": "renoa",
+    "gameId": "c1193",
+    "name": "蕾诺娅",
+    "nameEn": "Renoa",
+    "nameZht": null,
+    "nicknames": [
+      "leinuoya"
+    ],
+    "attribute": "dark",
+    "role": "ranger",
+    "rarity": 5,
+    "zodiac": "waterbearer",
+    "publishDate": "2026-09-17 11:00:00",
+    "descriptionLine": "引领梦境号的\n黑玫瑰诗人",
+    "story": "梦境号的副舰长，在任何情况下都能保持冷静从容的精英战员。出人意料的是，她很喜欢写诗。内心保留着少女的细腻感性。除了写作之外，她并不太喜欢谈论自己。",
+    "profile": {
+      "hobby": "未知",
+      "likes": "未知",
+      "dislikes": "未知",
+      "motto": "未知",
+      "specialty": "未知",
+      "voiceCv": {
+        "en": "VA: Mayuka Nomura",
+        "ja": "CV: 野村真悠華",
+        "kr": "CV: 강새봄",
+        "zhs": "CV: 野村真悠華"
+      }
+    },
+    "baseStats": {
+      "atk": 970,
+      "hp": 5299,
+      "def": 603,
+      "spd": 122,
+      "chc": 0.27,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/renoa.webp",
+    "avatar": "/library/heroes/renoa-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c1193_1",
+        "name": "罪孽宣判",
+        "description": "用枪攻击敌人。根据自身防御力等比提升伤害量。\n回合开始时，若专注力达到上限，则变更为黑夜荆棘。\n黑夜荆棘（消耗专注力5点）：用荆棘攻击敌人，使自身获得最大值的镇魂子弹。根据自身防御力等比提升伤害量。变更后的攻击不会触发夹攻。",
+        "icon": "/library/heroes/renoa-sk_c1193_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 6,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 7,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 8,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.8",
+                "displayValue": "0.8"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.85",
+                "displayValue": "0.85"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
+                "label": "伤害加成",
+                "value": "150.0% 自身 防御力",
+                "displayValue": "150.0% 自身 防御力"
+              }
+            ]
+          },
+          {
+            "id": "multiplier_黑夜荆棘",
+            "name": "黑夜荆棘倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1.5",
+                "displayValue": "1.5"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
+                "label": "伤害加成",
+                "value": "300.0% 自身 防御力",
+                "displayValue": "300.0% 自身 防御力"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "1445",
+            "name": "镇魂子弹（固有效果）",
+            "type": "buff",
+            "description": "速度、暴击伤害提升20%。回合结束时解除。",
+            "icon": "/library/effects/stic_bullet_aura.webp"
+          }
+        ]
+      },
+      {
+        "id": "pa_c1193_2",
+        "name": "黑玫瑰",
+        "description": "自身附带的强化效果及弱化效果变更为镇魂子弹。\n在自身回合使用技能后，若附带镇魂子弹，则对随机敌人使用镇魂子弹。\n镇魂子弹（获得专注力1点）：用枪攻击敌人。根据自身防御力等比提升伤害量。根据镇魂子弹数量等比提升伤害量和攻击次数。",
+        "icon": "/library/heroes/renoa-pa_c1193_2.png",
+        "cooldown": "",
+        "soulGain": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "100.0% (自身回合)",
+                "displayValue": "100.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "200.0% (自身回合)",
+                "displayValue": "200.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "300.0% (自身回合)",
+                "displayValue": "300.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "400.0% (自身回合)",
+                "displayValue": "400.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "500.0% (自身回合)",
+                "displayValue": "500.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "100.0% (自身回合)",
+                "displayValue": "100.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "500.0% (自身回合)",
+                "displayValue": "500.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "200.0% (自身回合)",
+                "displayValue": "200.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "500.0% (自身回合)",
+                "displayValue": "500.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "300.0% (自身回合)",
+                "displayValue": "300.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "500.0% (自身回合)",
+                "displayValue": "500.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "400.0% (自身回合)",
+                "displayValue": "400.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "500.0% (自身回合)",
+                "displayValue": "500.0% (自身回合)"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "500.0% (自身回合)",
+                "displayValue": "500.0% (自身回合)"
+              }
+            ]
+          },
+          {
+            "id": "multiplier_镇魂子弹",
+            "name": "镇魂子弹倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.8",
+                "displayValue": "0.8"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
+                "label": "伤害加成",
+                "value": "150.0% 自身 防御力",
+                "displayValue": "150.0% 自身 防御力"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "1445",
+            "name": "镇魂子弹（固有效果）",
+            "type": "buff",
+            "description": "速度、暴击伤害提升20%。回合结束时解除。",
+            "icon": "/library/effects/stic_bullet_aura.webp"
+          }
+        ]
+      },
+      {
+        "id": "sk_c1193_2",
+        "name": "吞噬命运之花",
+        "description": "使全体我军人员速攻值最多提升40%，使自身获得3个镇魂子弹。",
+        "icon": "/library/heroes/renoa-sk_c1193_2.png",
+        "cooldown": "冷却时间6(3)回合",
+        "soulGain": 2,
+        "soulBurn": {
+          "cost": 10,
+          "description": "产生2倍镇魂子弹。"
+        },
+        "isAoe": true,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 2,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 5,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 6,
+            "text": "速攻值提升3%"
+          },
+          {
+            "level": 7,
+            "text": "速攻值提升3%"
+          },
+          {
+            "level": 8,
+            "text": "速攻值提升4%"
+          }
+        ],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "1445",
+            "name": "镇魂子弹（固有效果）",
+            "type": "buff",
+            "description": "速度、暴击伤害提升20%。回合结束时解除。",
+            "icon": "/library/effects/stic_bullet_aura.webp"
+          }
+        ]
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "def_rate",
+        "self_effect_max": 0.21,
+        "self_effect": 0.21,
+        "public_type": "acc",
+        "public_effect_max": 0.15,
+        "public_effect": 0.15,
+        "public_slot": "1234"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
+    "code": "haru",
+    "gameId": "c1192",
+    "name": "小春",
+    "nameEn": "Haru",
+    "nameZht": null,
+    "nicknames": [
+      "xiaochun"
+    ],
+    "attribute": "ice",
+    "role": "warrior",
+    "rarity": 5,
+    "zodiac": "goat",
+    "publishDate": "2026-09-17 11:00:00",
+    "descriptionLine": "拥有独特审美的\n学院学生会委员",
+    "story": "身为学院的学生会委员，温柔随和，待人友善。与可爱的外表不同，她的食量大得惊人，尤其喜欢甜点。虽然声称摄取食物只是为了补充能量，但其实每次品尝美食都会露出无比幸福的表情。只不过嘛，一提到体重就会表现得相当敏感。",
+    "profile": {
+      "hobby": "未知",
+      "likes": "未知",
+      "dislikes": "未知",
+      "motto": "未知",
+      "specialty": "未知",
+      "voiceCv": {
+        "en": "CV: Hina Youmiya",
+        "ja": "CV: 羊宮妃那",
+        "kr": "CV: 김이안",
+        "zhs": "CV: 羊宮妃那"
+      }
+    },
+    "baseStats": {
+      "atk": 966,
+      "hp": 7323,
+      "def": 657,
+      "spd": 102,
+      "chc": 0.15,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/haru.webp",
+    "avatar": "/library/heroes/haru-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c1192_1",
+        "name": "力量之锚",
+        "description": "用锚攻击敌人，使全体我军人员在1回合内获得防护罩。根据自身最大生命值等比提升伤害量和防护罩强度。\n回合开始时，若专注力达到上限，则变更为奋力一击。\n奋力一击（消耗专注力5点）：攻击敌人，使自身获得额外回合。对目标造成防御力穿透。不受不利属性的影响。根据自身最大生命值等比提升伤害量。变更后的攻击不会触发夹攻。",
+        "icon": "/library/heroes/haru-sk_c1192_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "12.0% 自身 最大生命值",
+                "displayValue": "12.0% 自身 最大生命值"
+              },
+              {
+                "key": "CS_ADD_SHIELD_CASTER_MAXHP_value",
+                "label": "防护罩",
+                "value": "9.0% 自身 最大生命值",
+                "displayValue": "9.0% 自身 最大生命值"
+              }
+            ]
+          },
+          {
+            "id": "multiplier_奋力一击",
+            "name": "奋力一击倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "def_pen",
+                "label": "防御穿透",
+                "value": "100%",
+                "displayValue": "100%"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "10.0% 自身 最大生命值",
+                "displayValue": "10.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "106",
+            "name": "防护罩",
+            "type": "buff",
+            "description": "受到伤害时，代替生命值吸收部分伤害。",
+            "icon": "/library/effects/stic_protect.webp"
+          },
+          {
+            "id": "add_turn",
+            "name": "额外回合",
+            "type": "common",
+            "description": "令目标可以再行动一次。",
+            "icon": null
+          },
+          {
+            "id": "pierce",
+            "name": "穿透",
+            "type": "common",
+            "description": "无视防御力造成伤害。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "pa_c1192_2",
+        "name": "锚点追踪",
+        "description": "战斗开始时，获得专注力3点，有70(100)%的几率使全体我军人员在1回合内获得不屈效果。\n回合开始时，若处于强化效果状态，则解除自身的所有弱化效果，锚之打击冷却时间重置。",
+        "icon": "/library/heroes/haru-pa_c1192_2.png",
+        "cooldown": "",
+        "soulGain": 0,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "效果发生率提升5%"
+          },
+          {
+            "level": 2,
+            "text": "效果发生率提升5%"
+          },
+          {
+            "level": 3,
+            "text": "效果发生率提升5%"
+          },
+          {
+            "level": 4,
+            "text": "效果发生率提升5%"
+          },
+          {
+            "level": 5,
+            "text": "效果发生率提升10%"
+          }
+        ],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "145k",
+            "name": "不屈（无法解除）",
+            "type": "buff",
+            "description": "防御力、效果抗性提升30%。",
+            "icon": "/library/effects/stic_indomitable_keep.webp"
+          }
+        ]
+      },
+      {
+        "id": "sk_c1192_2",
+        "name": "锚之打击",
+        "description": "用锚攻击敌人，将部分伤害量作为生命值恢复，使全体我军人员在2回合内获得士气效果。若目标处于防护罩状态，则造成70%的防御力穿透。根据自身最大生命值等比提升伤害量。每次使用此技能时，伤害量提升，最多可叠加5次。",
+        "icon": "/library/heroes/haru-sk_c1192_2.png",
+        "cooldown": "冷却时间4(3)回合",
+        "soulGain": 2,
+        "soulBurn": {
+          "cost": 10,
+          "description": "攻击的命中提升100%。"
+        },
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "锚之打击详细倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1.0",
+                "displayValue": "1.0"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1.0",
+                "displayValue": "1.0"
+              },
+              {
+                "key": "max_hp_rate",
+                "label": "生命值伤害加成",
+                "value": "25.0% 自身最大生命值",
+                "displayValue": "25.0% 自身最大生命值"
+              },
+              {
+                "key": "damage_stack",
+                "label": "每次使用后的整段伤害提升",
+                "value": "45.0%/层，最多5层",
+                "displayValue": "45.0%/层（最多5层，最高225%）"
+              },
+              {
+                "key": "barrier_penetration",
+                "label": "目标处于防护罩时防御穿透",
+                "value": "70.0%",
+                "displayValue": "70.0%"
+              },
+              {
+                "key": "damage_heal",
+                "label": "生命恢复",
+                "value": "造成伤害的30.0%",
+                "displayValue": "造成伤害的30.0%"
+              },
+              {
+                "key": "morale",
+                "label": "士气效果",
+                "value": "攻击时伤害提升10.0%，可重复应用",
+                "displayValue": "每层+10.0%攻击伤害，可重复应用"
+              },
+              {
+                "key": "soulburn_hit",
+                "label": "灵魂燃烧",
+                "value": "攻击命中提升100.0%，伤害倍率不变",
+                "displayValue": "命中+100.0%（伤害倍率不变）"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "157",
+            "name": "士气",
+            "type": "buff",
+            "description": "攻击时，伤害量提升10%。可重复应用。",
+            "icon": "/library/effects/stic_morale.webp"
+          },
+          {
+            "id": "106",
+            "name": "防护罩",
+            "type": "buff",
+            "description": "受到伤害时，代替生命值吸收部分伤害。",
+            "icon": "/library/effects/stic_protect.webp"
+          },
+          {
+            "id": "pierce",
+            "name": "穿透",
+            "type": "common",
+            "description": "无视防御力造成伤害。",
+            "icon": null
+          }
+        ]
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "cri",
+        "self_effect_max": 0.18,
+        "self_effect": 0.18,
+        "public_type": "max_hp_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
+    "code": "uncharted-pioneer-politis",
+    "gameId": "c5112",
+    "name": "未知开拓者佛里蒂丝",
+    "nameEn": "Uncharted Pioneer Politis",
+    "nameZht": null,
+    "nicknames": [
+      "weizhikaituozhefulidisi",
+      "weizhikaituozhefolidisi",
+      "shuishuang",
+      "水双"
+    ],
+    "attribute": "ice",
+    "role": "ranger",
+    "rarity": 5,
+    "zodiac": "fish",
+    "publishDate": "2026-09-03 00:00:00",
+    "descriptionLine": "为解开母星灭亡谜团\n追寻真相的学者",
+    "story": "一路追踪使母星灭亡的陨石而进入深渊的学者。虽然她希望奇迹降临使一切复原如初，但等待她的却是连新安身处也即将迎来终末的残酷现实。",
+    "profile": {
+      "hobby": "采集痕迹、整理记录、擦拭无人机的积尘",
+      "likes": "新的星座、写信、烤篝火",
+      "dislikes": "无稽之谈、自己无能为力的事、内部矛盾",
+      "motto": "忘却是怠惰的证据，无知是恐惧的根源。",
+      "specialty": "探索未知、分析污染源",
+      "voiceCv": {
+        "en": "VA: Reba Buhr",
+        "ja": "CV: 小倉唯",
+        "kr": "CV: 이지영",
+        "zhs": "CV: 宴宁"
+      }
+    },
+    "baseStats": {
+      "atk": 993,
+      "hp": 6002,
+      "def": 611,
+      "spd": 120,
+      "chc": 0.15,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/uncharted-pioneer-politis.webp",
+    "avatar": "/library/heroes/uncharted-pioneer-politis-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c5112_1",
+        "name": "脉冲释放",
+        "description": "用光芒攻击全体敌人，有50(65)%的几率解除1个强化效果。无论是否命中，都会造成1000点额外伤害。",
+        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "效果发生率提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 6,
+            "text": "效果发生率提升10%"
+          },
+          {
+            "level": 7,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.5",
+                "displayValue": "0.5"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      },
+      {
+        "id": "sk_c5112_3",
+        "name": "遗留者的使命",
+        "description": "战斗开始时，若位于前排，则触发攻击任务；若位于后排，则触发防御任务。\n完成任务时，解除自身的任务和所有弱化效果，使用亡星遗言。\n亡星遗言：使全体我军人员获得星辰知识效果，使自身获得额外回合。",
+        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_3.png",
+        "cooldown": "",
+        "soulGain": 0,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": false,
+        "enhancements": [],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "1439",
+            "name": "攻击任务（固有效果）",
+            "type": "buff",
+            "description": "使全体我军人员攻击力提升10%。我军人员攻击10次时，完成任务。",
+            "icon": "/library/effects/stic_offensive_aura.webp"
+          },
+          {
+            "id": "1440",
+            "name": "防御任务（固有效果）",
+            "type": "buff",
+            "description": "使全体我军人员最大生命值提升10%。我军人员受到攻击10次时，完成任务。",
+            "icon": "/library/effects/stic_defensive_aura.webp"
+          },
+          {
+            "id": "1441",
+            "name": "星辰知识（固有效果）",
+            "type": "buff",
+            "description": "额外伤害的伤害量提升100%。",
+            "icon": "/library/effects/stic_starlore_aura.webp"
+          },
+          {
+            "id": "add_turn",
+            "name": "额外回合",
+            "type": "common",
+            "description": "令目标可以再行动一次。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c5112_2",
+        "name": "划破终焉之光",
+        "description": "用无人机攻击全体敌人，解除所有强化效果后，使技能冷却时间增加1回合。无论是否命中，都会造成3000点额外伤害。",
+        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_2.png",
+        "cooldown": "冷却时间7(4)回合",
+        "soulGain": 3,
+        "soulBurn": {
+          "cost": 20,
+          "description": "无视效果抗性。"
+        },
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 5,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 6,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 7,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 8,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.7",
+                "displayValue": "0.7"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "acc",
+        "self_effect_max": 0.27,
+        "self_effect": 0.27,
+        "public_type": "att_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
     "code": "lisette",
     "gameId": "c2186",
     "name": "黎洁特",
@@ -8,7 +934,13 @@
     "nicknames": [
       "lijiete",
       "迪彩",
-      "dicai"
+      "dicai",
+      "尼采",
+      "nicai",
+      "女神",
+      "nvshen",
+      "妈妈",
+      "mama"
     ],
     "attribute": "light",
     "role": "soul_weaver",
@@ -249,241 +1181,6 @@
         "public_effect_max": 0.15,
         "public_effect": 0.15,
         "public_slot": "24"
-      }
-    ],
-    "exclusives": [],
-    "tags": [],
-    "dataStatus": "complete"
-  },
-  {
-    "code": "uncharted-pioneer-politis",
-    "gameId": "c5112",
-    "name": "未知开拓者佛里蒂丝",
-    "nameEn": "Uncharted Pioneer Politis",
-    "nameZht": null,
-    "nicknames": [
-      "weizhikaituozhefulidisi",
-      "weizhikaituozhefolidisi",
-      "shuishuang",
-      "水双"
-    ],
-    "attribute": "ice",
-    "role": "ranger",
-    "rarity": 5,
-    "zodiac": "fish",
-    "publishDate": "2026-08-29 11:00:00",
-    "descriptionLine": "为解开母星灭亡谜团\n追寻真相的学者",
-    "story": "一路追踪使母星灭亡的陨石而进入深渊的学者。虽然她希望奇迹降临使一切复原如初，但等待她的却是连新安身处也即将迎来终末的残酷现实。",
-    "profile": {
-      "hobby": "采集痕迹、整理记录、擦拭无人机的积尘",
-      "likes": "新的星座、写信、烤篝火",
-      "dislikes": "无稽之谈、自己无能为力的事、内部矛盾",
-      "motto": "忘却是怠惰的证据，无知是恐惧的根源。",
-      "specialty": "探索未知、分析污染源",
-      "voiceCv": {
-        "en": "VA: Reba Buhr",
-        "ja": "CV: 小倉唯",
-        "kr": "CV: 이지영",
-        "zhs": "CV: 宴宁"
-      }
-    },
-    "baseStats": {
-      "atk": 993,
-      "hp": 6002,
-      "def": 611,
-      "spd": 120,
-      "chc": 0.15,
-      "chd": 1.5,
-      "eff": 0,
-      "efr": 0
-    },
-    "artwork": "/library/heroes/uncharted-pioneer-politis.webp",
-    "avatar": "/library/heroes/uncharted-pioneer-politis-avatar.png",
-    "skills": [
-      {
-        "id": "sk_c5112_1",
-        "name": "脉冲释放",
-        "description": "用光芒攻击全体敌人，有50(65)%的几率解除1个强化效果。无论是否命中，都会造成1000点额外伤害。",
-        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_1.png",
-        "cooldown": "",
-        "soulGain": 1,
-        "soulBurn": null,
-        "isAoe": true,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "效果发生率提升5%"
-          },
-          {
-            "level": 3,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 4,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 5,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 6,
-            "text": "效果发生率提升10%"
-          },
-          {
-            "level": 7,
-            "text": "伤害量提升10%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "0.5",
-                "displayValue": "0.5"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
-              }
-            ]
-          }
-        ],
-        "effects": []
-      },
-      {
-        "id": "sk_c5112_3",
-        "name": "遗留者的使命",
-        "description": "战斗开始时，若位于前排，则触发攻击任务；若位于后排，则触发防御任务。\n完成任务时，解除自身的任务和所有弱化效果，使用亡星遗言。\n亡星遗言：使全体我军人员获得星辰知识效果，使自身获得额外回合。",
-        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_3.png",
-        "cooldown": "",
-        "soulGain": 0,
-        "soulBurn": null,
-        "isAoe": true,
-        "dealsDamage": false,
-        "enhancements": [],
-        "multipliers": [],
-        "effects": [
-          {
-            "id": "1439",
-            "name": "攻击任务（固有效果）",
-            "type": "buff",
-            "description": "使全体我军人员攻击力提升10%。我军人员攻击10次时，完成任务。",
-            "icon": "/library/effects/stic_offensive_aura.webp"
-          },
-          {
-            "id": "1440",
-            "name": "防御任务（固有效果）",
-            "type": "buff",
-            "description": "使全体我军人员最大生命值提升10%。我军人员受到攻击10次时，完成任务。",
-            "icon": "/library/effects/stic_defensive_aura.webp"
-          },
-          {
-            "id": "1441",
-            "name": "星辰知识（固有效果）",
-            "type": "buff",
-            "description": "额外伤害的伤害量提升100%。",
-            "icon": "/library/effects/stic_starlore_aura.webp"
-          },
-          {
-            "id": "add_turn",
-            "name": "额外回合",
-            "type": "common",
-            "description": "令目标可以再行动一次。",
-            "icon": null
-          }
-        ]
-      },
-      {
-        "id": "sk_c5112_2",
-        "name": "划破终焉之光",
-        "description": "用无人机攻击全体敌人，解除所有强化效果后，使技能冷却时间增加1回合。无论是否命中，都会造成3000点额外伤害。",
-        "icon": "/library/heroes/uncharted-pioneer-politis-sk_c5112_2.png",
-        "cooldown": "冷却时间7(4)回合",
-        "soulGain": 3,
-        "soulBurn": {
-          "cost": 20,
-          "description": "无视效果抗性。"
-        },
-        "isAoe": true,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "冷却时间减少1回合"
-          },
-          {
-            "level": 4,
-            "text": "冷却时间减少1回合"
-          },
-          {
-            "level": 5,
-            "text": "冷却时间减少1回合"
-          },
-          {
-            "level": 6,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 7,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 8,
-            "text": "伤害量提升10%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "0.7",
-                "displayValue": "0.7"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
-              }
-            ]
-          }
-        ],
-        "effects": []
-      }
-    ],
-    "devotion": [
-      {
-        "self_type": "acc",
-        "self_effect_max": 0.27,
-        "self_effect": 0.27,
-        "public_type": "att_rate",
-        "public_effect_max": 0.12,
-        "public_effect": 0.12,
-        "public_slot": "1234"
       }
     ],
     "exclusives": [],
@@ -1559,7 +2256,14 @@
     ],
     "exclusives": [],
     "tags": [],
-    "dataStatus": "complete"
+    "dataStatus": "complete",
+    "gearScoreAdjustments": {
+      "finalMultipliers": {
+        "def": 1.3
+      },
+      "additivePercentPoints": {},
+      "libraryBaseStatsIncludes": []
+    }
   },
   {
     "code": "rhianna-and-luciella",
@@ -1725,7 +2429,7 @@
         "soulGain": 1,
         "soulBurn": {
           "cost": 20,
-          "description": "（里安娜）无视效果抗性。\n\n（路西艾拉）伤害量提升。"
+          "description": "里安娜：无视效果抗性。路西艾拉：伤害量提升。"
         },
         "isAoe": false,
         "dealsDamage": true,
@@ -1745,44 +2449,26 @@
         ],
         "multipliers": [
           {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
+            "id": "rhianna",
+            "name": "里安娜倍率",
             "items": [
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "1",
-                "displayValue": "1"
+                "value": "1.0",
+                "displayValue": "1.0"
               },
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
-              },
-              {
-                "key": "CSP_STATUS_UP_SELF_STATUS_rate",
-                "label": "属性提升",
-                "value": "0.003",
-                "displayValue": "暴击伤害=速度*0.003"
+                "value": "1.0",
+                "displayValue": "1.0"
               }
             ]
           },
           {
-            "id": "multiplier_死亡追击",
-            "name": "死亡追击倍率",
-            "items": [
-              {
-                "key": "CSP_STATUS_UP_SELF_STATUS_rate",
-                "label": "属性提升",
-                "value": "0.003",
-                "displayValue": "效果命中=速度*0.003"
-              }
-            ]
-          },
-          {
-            "id": "multiplier_追击刀刃",
-            "name": "追击刀刃倍率",
+            "id": "luciella",
+            "name": "路西艾拉倍率",
             "items": [
               {
                 "key": "att_rate",
@@ -1793,14 +2479,26 @@
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
+                "value": "1.0",
+                "displayValue": "1.0"
+              }
+            ]
+          },
+          {
+            "id": "soulburn",
+            "name": "灵魂燃烧倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "3.0",
+                "displayValue": "3.0"
               },
               {
-                "key": "CSP_STATUS_UP_SELF_STATUS_rate",
-                "label": "属性提升",
-                "value": "0.003",
-                "displayValue": "效果命中=速度*0.003"
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1.0",
+                "displayValue": "1.0"
               }
             ]
           }
@@ -1925,7 +2623,7 @@
             "name": "残梦之蝶（固有效果）",
             "type": "buff",
             "description": "回避提升70%。\n首次战斗开始时，里安娜效果命中、路西艾拉暴击伤害提升相当于速度的30%。",
-            "icon": null
+            "icon": "/library/effects/stic_starlore_aura.webp"
           }
         ]
       }
@@ -2264,7 +2962,7 @@
       {
         "id": "sk_c1183_1",
         "name": "盾牌打击",
-        "description": "攻击敌人，造成最多10%的伤口效果，恢复自身生命值。命中时触发暴击。根据自身最大生命值等比提升恢复量和伤害量。若非自身回合，则伤害量和伤口量提升为2倍。\n攻击后，若斗志达到上限，则消耗全部斗志，使用守护之风。\n守护之风（获得灵魂10点）：根据自身最大生命值使全体我军人员在2回合内获得等比强度的防护罩，使自身速攻值提升35%。",
+        "description": "攻击敌人，造成最多10%的伤口效果，恢复自身生命值。命中时触发暴击。根据自身最大生命值等比提升恢复量和伤害量。若非自身回合，则伤害量和伤口量提升为2倍。\n使用后，获得斗志25点。\n攻击后，若斗志达到上限，则消耗全部斗志，使用守护之风。\n守护之风（获得灵魂10点）：根据自身最大生命值使全体我军人员在2回合内获得等比强度的防护罩，使自身速攻值提升35%。",
         "icon": "/library/heroes/estelle-sk_c1183_1.png",
         "cooldown": "",
         "soulGain": 1,
@@ -2430,7 +3128,7 @@
       {
         "id": "sk_c1183_3",
         "name": "闪耀一击",
-        "description": "用盾牌攻击敌人，造成最多20%的伤口效果，恢复自身生命值。对目标造成50%的防御力穿透。命中时触发暴击。根据自身最大生命值等比提升恢复量和伤害量。",
+        "description": "用盾牌攻击敌人，造成最多20%的伤口效果，恢复自身生命值。对目标造成50%的防御力穿透。命中时触发暴击。根据自身最大生命值等比提升恢复量和伤害量。\n使用后，获得斗志50点。",
         "icon": "/library/heroes/estelle-sk_c1183_3.png",
         "cooldown": "冷却时间4(3)回合",
         "soulGain": 2,
@@ -4037,7 +4735,7 @@
     "gameId": "c6024",
     "name": "宝剑君主伊赛丽亚",
     "nameEn": "Monarch of the Sword Iseria",
-    "nameZht": "寶劍君主伊賽麗亞",
+    "nameZht": null,
     "nicknames": [
       "guangfeijian",
       "guangfei",
@@ -4060,7 +4758,6 @@
       "specialty": "静静地坐着什么也不做",
       "voiceCv": {
         "en": "CV: Lisa Luck",
-        "id": "c6024",
         "ja": "CV: ゆかな",
         "kr": "CV: 조경이",
         "zhs": "CV: 喵☆酱"
@@ -4138,7 +4835,7 @@
               {
                 "key": "def_pen",
                 "label": "防御穿透",
-                "value": "1",
+                "value": "100%",
                 "displayValue": "100%"
               }
             ]
@@ -4162,7 +4859,7 @@
               {
                 "key": "def_pen",
                 "label": "防御穿透",
-                "value": "1",
+                "value": "100%",
                 "displayValue": "100%"
               }
             ]
@@ -4186,7 +4883,7 @@
               {
                 "key": "HPDOWN_CASTER_ATT_value",
                 "label": "额外伤害",
-                "value": "125.0",
+                "value": "125.0% 自身 攻击力",
                 "displayValue": "125.0% 自身 攻击力"
               }
             ]
@@ -4205,21 +4902,21 @@
             "name": "龟裂（固有效果）",
             "type": "debuff",
             "description": "攻击力提升20%，但防御力降低5%。最多可叠加10次。复活时也会保留。",
-            "icon": null
+            "icon": "/library/effects/stic_crack_1_aura.webp"
           },
           {
             "id": "dhp",
             "name": "伤口",
             "type": "common",
             "description": "根据伤害量等比累积降低最大生命值。只适用于英雄，最多可累积至50%。不受命中及效果抗性的影响。",
-            "icon": "/assets/debuffs/laceration-debuff.png"
+            "icon": null
           }
         ]
       },
       {
         "id": "sk_c6024_2",
         "name": "埃布利斯的继承人",
-        "description": "穿透抗性提升50(70)%。\n自身所有反击率提升为2倍，反击时，若目标为英雄，则使前排我军人员一起反击。\n攻击后，根据攻击力使自身在2回合内获得等比强度的防护罩。",
+        "description": "命中和穿透抗性提升50(70)%。\n自身所有反击率提升为2倍，反击时，若目标为英雄，则使前排我军人员一起反击。\n攻击后，根据攻击力使自身在2回合内获得等比强度的防护罩。",
         "icon": "/library/heroes/monarch-of-the-sword-iseria-sk_c6024_2.png",
         "cooldown": "",
         "soulGain": 0,
@@ -4229,50 +4926,37 @@
         "enhancements": [
           {
             "level": 1,
-            "text": "穿透抗性提升3%"
+            "text": "各能力值提升3%"
           },
           {
             "level": 2,
-            "text": "穿透抗性提升3%"
+            "text": "各能力值提升3%"
           },
           {
             "level": 3,
-            "text": "穿透抗性提升3%"
+            "text": "各能力值提升3%"
           },
           {
             "level": 4,
-            "text": "穿透抗性提升3%"
+            "text": "各能力值提升3%"
           },
           {
             "level": 5,
-            "text": "穿透抗性提升3%"
+            "text": "各能力值提升3%"
           },
           {
             "level": 6,
-            "text": "穿透抗性提升5%"
+            "text": "各能力值提升5%"
           }
         ],
-        "multipliers": [
-          {
-            "id": "multiplier_sk_c6024_8_sknm",
-            "name": "附加倍率",
-            "items": [
-              {
-                "key": "CS_ADD_SHIELD_CASTER_ATT_value",
-                "label": "防护罩",
-                "value": "70.0",
-                "displayValue": "70.0% 自身 攻击力"
-              }
-            ]
-          }
-        ],
+        "multipliers": [],
         "effects": [
           {
             "id": "106",
             "name": "防护罩",
             "type": "buff",
             "description": "受到伤害时，代替生命值吸收部分伤害。",
-            "icon": "/assets/buffs/barrier-buff.png"
+            "icon": "/library/effects/stic_protect.webp"
           }
         ]
       },
@@ -4320,8 +5004,14 @@
               {
                 "key": "HPDOWN_CASTER_ATT_value",
                 "label": "额外伤害",
-                "value": "155.0",
+                "value": "155.0% 自身 攻击力",
                 "displayValue": "155.0% 自身 攻击力"
+              },
+              {
+                "key": "CS_ADD_SHIELD_CASTER_ATT_value",
+                "label": "防护罩",
+                "value": "70.0% 自身 攻击力",
+                "displayValue": "70.0% 自身 攻击力"
               }
             ]
           }
@@ -4332,34 +5022,48 @@
             "name": "龟裂（固有效果）",
             "type": "debuff",
             "description": "攻击力提升20%，但防御力降低5%。最多可叠加10次。复活时也会保留。",
-            "icon": null
+            "icon": "/library/effects/stic_crack_1_aura.webp"
           },
           {
             "id": "dhp",
             "name": "伤口",
             "type": "common",
             "description": "根据伤害量等比累积降低最大生命值。只适用于英雄，最多可累积至50%。不受命中及效果抗性的影响。",
-            "icon": "/assets/debuffs/laceration-debuff.png"
+            "icon": null
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 411,
-        "createTime": "2026-04-07 22:43:08",
-        "updateTime": "2026-04-08 09:31:21",
-        "tenantId": null,
-        "hero_code": "monarch-of-the-sword-iseria",
-        "public_type": "max_hp_rate",
-        "public_effect_max": "0.12",
         "self_type": "att_rate",
-        "self_effect_max": "0.21",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 0.21,
+        "self_effect": 0.21,
+        "public_type": "max_hp_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "monarch-of-the-sword-iseria-exclusive-equipment",
+        "name": "曙光轨迹",
+        "description": "宝剑曙光，无远弗届。这道剑击必将斩裂时空，一剑刺穿敌人的灵魂。",
+        "iconKey": "/library/exclusives/monarch-of-the-sword-iseria-exclusive.webp",
+        "mainStat": {
+          "type": "att_rate",
+          "min": 0.07,
+          "max": 0.14
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 2,
+            "description": "因埃布利斯的继承人而提升的命中和穿透抗性提升30%。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete"
   },
@@ -12578,7 +13282,7 @@
     "gameId": "c1163",
     "name": "弗莉达",
     "nameEn": "Frida",
-    "nameZht": "弗莉達",
+    "nameZht": null,
     "nicknames": [
       "fulida",
       "fenmao",
@@ -12600,7 +13304,6 @@
       "specialty": "背诵、数学、礼仪",
       "voiceCv": {
         "en": "VA: Risa Mei",
-        "id": "c1163",
         "ja": "CV: 石見舞菜香",
         "kr": "CV: 우정신",
         "zhs": "CV: 王晓彤"
@@ -12684,7 +13387,7 @@
               {
                 "key": "CS_ADD_SHIELD_CASTER_MAXHP_value",
                 "label": "防护罩",
-                "value": "20.0",
+                "value": "20.0% 自身 最大生命值",
                 "displayValue": "20.0% 自身 最大生命值"
               }
             ]
@@ -12695,12 +13398,12 @@
       {
         "id": "sk_c1163_2",
         "name": "幻想国度邀请函",
-        "description": "首次战斗开始时，使自身和前排我军人员获得绿洲周游券。\n我军人员使用灵魂燃烧时，使自身速攻值提升15(20)%。",
+        "description": "首次战斗开始时，使全体我军人员获得绿洲周游券效果。\n我军人员使用灵魂燃烧时，使自身速攻值提升15(20)%。",
         "icon": "/library/heroes/frida-sk_c1163_2.png",
         "cooldown": "",
         "soulGain": 0,
         "soulBurn": null,
-        "isAoe": false,
+        "isAoe": true,
         "dealsDamage": false,
         "enhancements": [
           {
@@ -12723,19 +13426,19 @@
             "name": "绿洲周游券（无法解除）",
             "type": "buff",
             "description": "首次使用灵魂燃烧时，不会消耗灵魂。效果发生时解除。",
-            "icon": null
+            "icon": "/library/effects/stic_freepass_keep.webp"
           }
         ]
       },
       {
         "id": "sk_c1163_3",
         "name": "绿洲乐园开业啦！",
-        "description": "解除全体我军人员的1个弱化效果后，使速攻值提升15(25)%，并在2回合内攻击力提升。",
+        "description": "解除全体我军人员的1个弱化效果后，使速攻值提升15(25)%，在3回合内获得攻击力提升、无视分配效果。",
         "icon": "/library/heroes/frida-sk_c1163_3.png",
         "cooldown": "冷却时间5(4)回合",
         "soulGain": 2,
         "soulBurn": null,
-        "isAoe": false,
+        "isAoe": true,
         "dealsDamage": false,
         "enhancements": [
           {
@@ -12770,24 +13473,27 @@
             "name": "攻击力提升",
             "type": "buff",
             "description": "攻击力提升50%。",
-            "icon": "/assets/buffs/attack-buff.png"
+            "icon": "/library/effects/stic_att_up.webp"
+          },
+          {
+            "id": "154",
+            "name": "无视分配",
+            "type": "buff",
+            "description": "攻击时，无视伤害分配效果。只适用于英雄。",
+            "icon": "/library/effects/stic_guard_block.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 641,
-        "createTime": "2026-04-07 22:53:36",
-        "updateTime": "2026-04-08 09:31:55",
-        "tenantId": null,
-        "hero_code": "frida",
-        "public_type": "att_rate",
-        "public_effect_max": "0.12",
         "self_type": "res",
-        "self_effect_max": "0.27",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 0.27,
+        "self_effect": 0.27,
+        "public_type": "att_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [],
@@ -17574,7 +18280,7 @@
     "gameId": "c2016",
     "name": "深渊优芬妮",
     "nameEn": "Abyssal Yufine",
-    "nameZht": "深淵優芬妮",
+    "nameZht": null,
     "nicknames": [
       "yuyulong",
       "anmulong",
@@ -17600,7 +18306,6 @@
       "specialty": "切没熟透的肉、同时熄灭多支蜡烛",
       "voiceCv": {
         "en": "CV: Kat Cressida",
-        "id": "c2016",
         "ja": "CV: 花守ゆみり",
         "kr": "CV: 조경이",
         "zhs": "CV: 陶典"
@@ -17622,7 +18327,7 @@
       {
         "id": "sk_c2016_1",
         "name": "龙之吐息",
-        "description": "喷吐龙息攻击全体敌人，有45(60)%的几率在1回合内造成攻击力降低效果。根据自身防御力等比提升伤害量。\n若自身处于心理阴影状态，则使用暴走代替龙之吐息。\n暴走：用巨剑攻击敌人。对目标造成70%的防御力穿透。",
+        "description": "用吐息攻击全体敌人，有45(60)%的几率在1回合内造成攻击力降低效果。根据自身防御力等比提升伤害量。\n若自身处于心理阴影状态，则使用暴走代替龙之吐息。\n暴走：用巨剑攻击敌人。对目标造成防御力穿透。",
         "icon": "/library/heroes/abyssal-yufine-sk_c2016_1.png",
         "cooldown": "",
         "soulGain": 1,
@@ -17661,7 +18366,7 @@
         "multipliers": [
           {
             "id": "skill_multiplier",
-            "name": "技能倍率",
+            "name": "龙之吐息倍率",
             "items": [
               {
                 "key": "att_rate",
@@ -17672,20 +18377,20 @@
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
+                "value": "1.0",
+                "displayValue": "1.0"
               },
               {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
-                "label": "伤害加成",
-                "value": "90.0",
-                "displayValue": "90.0% 自身 防御力"
+                "key": "def_rate",
+                "label": "防御力伤害加成",
+                "value": "90.0% 自身防御力",
+                "displayValue": "90.0% 自身防御力"
               }
             ]
           },
           {
             "id": "soulburn_multiplier",
-            "name": "灵魂燃烧倍率",
+            "name": "龙之吐息灵魂燃烧倍率",
             "items": [
               {
                 "key": "att_rate",
@@ -17696,38 +18401,62 @@
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
+                "value": "1.0",
+                "displayValue": "1.0"
               },
               {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
-                "label": "伤害加成",
-                "value": "110.0",
-                "displayValue": "110.0% 自身 防御力"
+                "key": "def_rate",
+                "label": "防御力伤害加成",
+                "value": "110.0% 自身防御力",
+                "displayValue": "110.0% 自身防御力"
               }
             ]
           },
           {
-            "id": "multiplier_暴走",
+            "id": "proc_multiplier",
             "name": "暴走倍率",
             "items": [
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "0.8",
-                "displayValue": "0.8"
+                "value": "0.43",
+                "displayValue": "0.43"
               },
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
+                "value": "1.0",
+                "displayValue": "1.0"
               },
               {
                 "key": "def_pen",
                 "label": "防御穿透",
-                "value": "0.7",
-                "displayValue": "70.0%"
+                "value": "100%",
+                "displayValue": "100%"
+              }
+            ]
+          },
+          {
+            "id": "proc_soulburn_multiplier",
+            "name": "暴走灵魂燃烧倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.6",
+                "displayValue": "0.6"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1.0",
+                "displayValue": "1.0"
+              },
+              {
+                "key": "def_pen",
+                "label": "防御穿透",
+                "value": "100%",
+                "displayValue": "100%"
               }
             ]
           }
@@ -17738,14 +18467,14 @@
             "name": "攻击力降低",
             "type": "debuff",
             "description": "攻击力降低50%。",
-            "icon": "/assets/debuffs/attack-debuff.png"
+            "icon": "/library/effects/stic_att_dn.webp"
           },
           {
             "id": "1403",
             "name": "心理阴影（固有效果）",
             "type": "debuff",
             "description": "防御力降低70%，但攻击力、速度提升100%。\n若防御力在2000点以上，则能力值提升效果提升为2倍。",
-            "icon": null
+            "icon": "/library/effects/stic_trauma_aura.webp"
           },
           {
             "id": "pierce",
@@ -17845,24 +18574,20 @@
             "name": "心理阴影（固有效果）",
             "type": "debuff",
             "description": "防御力降低70%，但攻击力、速度提升100%。\n若防御力在2000点以上，则能力值提升效果提升为2倍。",
-            "icon": null
+            "icon": "/library/effects/stic_trauma_aura.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 612,
-        "createTime": "2026-04-07 22:52:46",
-        "updateTime": "2026-04-08 09:31:51",
-        "tenantId": null,
-        "hero_code": "abyssal-yufine",
-        "public_type": "max_hp_rate",
-        "public_effect_max": "0.15",
         "self_type": "def_rate",
-        "self_effect_max": "0.21",
-        "public_slot": "14",
-        "remarks": null
+        "self_effect_max": 0.21,
+        "self_effect": 0.21,
+        "public_type": "max_hp_rate",
+        "public_effect_max": 0.15,
+        "public_effect": 0.15,
+        "public_slot": "14"
       }
     ],
     "exclusives": [],
@@ -18726,7 +19451,7 @@
     "gameId": "c2101",
     "name": "都市暗影小泡芙",
     "nameEn": "Urban Shadow Choux",
-    "nameZht": "都市暗影小泡芙",
+    "nameZht": null,
     "nicknames": [
       "anpaofu",
       "anpaopao",
@@ -18749,7 +19474,6 @@
       "specialty": "露出天真无邪的表情、改良及控制电子设备、（利用诡辩达成）不公平交易",
       "voiceCv": {
         "en": "CV: Carlie Craig",
-        "id": "c2101",
         "ja": "CV: 長縄まりあ",
         "kr": "CV: 여윤미",
         "zhs": "CV: 诺亚"
@@ -18760,7 +19484,7 @@
       "hp": 6266,
       "def": 637,
       "spd": 117,
-      "chc": 0.45,
+      "chc": 0.15,
       "chd": 1.5,
       "eff": 0,
       "efr": 0
@@ -18777,7 +19501,7 @@
         "soulGain": 1,
         "soulBurn": {
           "cost": 10,
-          "description": "伤害量提升。"
+          "description": "伤害量提升，造成相当于目标附带的伤口效果40%的额外伤害。"
         },
         "isAoe": false,
         "dealsDamage": true,
@@ -18823,7 +19547,7 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "10.0",
+                "value": "10.0% 自身 最大生命值",
                 "displayValue": "10.0% 自身 最大生命值"
               }
             ]
@@ -18835,8 +19559,8 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "0.8",
-                "displayValue": "0.8"
+                "value": "0.65",
+                "displayValue": "0.65"
               },
               {
                 "key": "pow",
@@ -18847,8 +19571,8 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "16.0",
-                "displayValue": "16.0% 自身 最大生命值"
+                "value": "13.0% 自身 最大生命值",
+                "displayValue": "13.0% 自身 最大生命值"
               }
             ]
           }
@@ -18858,7 +19582,7 @@
       {
         "id": "sk_c2101_2",
         "name": "疯狂伏特",
-        "description": "暴击率提升20(30)%。\n回合开始时，获得1点专注力，并使自身在1回合内获得酥酥麻麻效果，若专注力达到上限，则奶油面包大作战的冷却时间重置。",
+        "description": "暴击率提升20(30)%。\n首次战斗开始时，获得专注力1点。\n回合开始时，获得专注力1点，在1回合内获得酥酥麻麻效果，若专注力达到上限，则奶油面包大作战冷却时间重置。",
         "icon": "/library/heroes/urban-shadow-choux-sk_c2101_2.png",
         "cooldown": "",
         "soulGain": 0,
@@ -18893,20 +19617,20 @@
             "id": "148k",
             "name": "酥酥麻麻（无法解除）",
             "type": "buff",
-            "description": "攻击后，对全体敌人造成2000点额外伤害和最多10%的伤口效果。",
-            "icon": null
+            "description": "攻击后，对全体敌人造成2500点额外伤害和最多10%的伤口效果。",
+            "icon": "/library/effects/stic_tingling_keep.webp"
           }
         ]
       },
       {
         "id": "sk_c2101_3",
         "name": "奶油面包大作战",
-        "description": "用灵活战术攻击敌人，造成最多25%的伤口效果，使全体我军人员在2回合内获得速度提升效果。若专注力达到上限，则消耗全部专注力，恢复自身生命值，造成相当于目标附带的伤口效果60%的额外伤害。\n根据自身最大生命值等比提升伤害量和恢复量。",
+        "description": "用灵活战术攻击敌人，造成最多25%的伤口效果，使全体我军人员在2回合内获得速度提升效果。对目标造成50%的防御力穿透。若专注力达到上限，则消耗全部专注力，恢复自身生命值，造成相当于目标附带的伤口效果60%的额外伤害。\n根据自身最大生命值等比提升伤害量和恢复量。",
         "icon": "/library/heroes/urban-shadow-choux-sk_c2101_3.png",
         "cooldown": "冷却时间5(4)回合",
         "soulGain": 2,
         "soulBurn": null,
-        "isAoe": false,
+        "isAoe": true,
         "dealsDamage": true,
         "enhancements": [
           {
@@ -18948,10 +19672,16 @@
                 "displayValue": "1"
               },
               {
+                "key": "def_pen",
+                "label": "防御穿透",
+                "value": "50.0%",
+                "displayValue": "50.0%"
+              },
+              {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "25.0",
-                "displayValue": "25.0% 自身 最大生命值"
+                "value": "20.0% 自身 最大生命值",
+                "displayValue": "20.0% 自身 最大生命值"
               }
             ]
           },
@@ -18972,16 +19702,22 @@
                 "displayValue": "1"
               },
               {
+                "key": "def_pen",
+                "label": "防御穿透",
+                "value": "50.0%",
+                "displayValue": "50.0%"
+              },
+              {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "25.0",
-                "displayValue": "25.0% 自身 最大生命值"
+                "value": "20.0% 自身 最大生命值",
+                "displayValue": "20.0% 自身 最大生命值"
               },
               {
                 "key": "HPUP_CASTER_MAXHP_value",
                 "label": "生命恢复",
-                "value": "20.0",
-                "displayValue": "20.0% 自身 最大生命值"
+                "value": "30.0% 自身 最大生命值",
+                "displayValue": "30.0% 自身 最大生命值"
               }
             ]
           }
@@ -18992,42 +19728,38 @@
             "name": "伤口",
             "type": "common",
             "description": "根据伤害量等比累积降低最大生命值。只适用于英雄，最多可累积至50%。不受命中及效果抗性的影响。",
-            "icon": "/assets/debuffs/laceration-debuff.png"
+            "icon": null
           },
           {
             "id": "104",
             "name": "速度提升",
             "type": "buff",
             "description": "速度提升30%。",
-            "icon": "/assets/buffs/speed-buff.png"
+            "icon": "/library/effects/stic_speed_up.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 561,
-        "createTime": "2026-04-07 22:51:19",
-        "updateTime": "2026-04-08 09:31:43",
-        "tenantId": null,
-        "hero_code": "urban-shadow-choux",
-        "public_type": "max_hp_rate",
-        "public_effect_max": "0.12",
         "self_type": "max_hp_rate",
-        "self_effect_max": "0.21",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 0.21,
+        "self_effect": 0.21,
+        "public_type": "max_hp_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [
       {
-        "id": "154",
+        "id": "urban-shadow-choux-exclusive-equipment",
         "name": "奶油面包探测器",
         "description": "连接着指挥奶油面包军团主服务器的智能眼镜。具有测定对方战斗力的简单功能。",
-        "iconKey": "/library/exclusives/icon_eq_exclusive_c2101.png",
+        "iconKey": "/library/exclusives/urban-shadow-choux-exclusive.webp",
         "mainStat": {
           "type": "speed",
-          "min": 5,
+          "min": 6,
           "max": 10
         },
         "skillOptions": [
@@ -42286,7 +43018,7 @@
     "gameId": "c1073",
     "name": "卡威利",
     "nameEn": "Kawerik",
-    "nameZht": "卡威利",
+    "nameZht": null,
     "nicknames": [
       "huoka",
       "huoqiazi",
@@ -42309,7 +43041,6 @@
       "specialty": "为达目的不择手段",
       "voiceCv": {
         "en": "CV: Braden Lynch",
-        "id": "c1073",
         "ja": "CV: 谷山紀章",
         "kr": "CV: 황창영",
         "zhs": "CV: 萧翟"
@@ -42331,7 +43062,7 @@
       {
         "id": "sk_c1073_1",
         "name": "瞬间移动",
-        "description": "通过亚空间接近敌人进行攻击后，有50(75)%的几率在1回合内造成沉默效果。根据自身速度等比提升伤害量。",
+        "description": "通过亚空间接近敌人，发动攻击，使自身速攻值提升10(15)%。若自身处于魔力力场状态，则消耗斗志10点，对随机敌人使用相同的额外攻击。",
         "icon": "/library/heroes/kawerik-sk_c1073_1.png",
         "cooldown": "",
         "soulGain": 1,
@@ -42345,7 +43076,7 @@
           },
           {
             "level": 2,
-            "text": "效果发生率提升10%"
+            "text": "速攻值提升2%"
           },
           {
             "level": 3,
@@ -42353,7 +43084,7 @@
           },
           {
             "level": 4,
-            "text": "效果发生率提升15%"
+            "text": "速攻值提升3%"
           },
           {
             "level": 5,
@@ -42368,40 +43099,34 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "0.9",
-                "displayValue": "0.9"
+                "value": "1.2",
+                "displayValue": "1.2"
               },
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
                 "value": "1",
                 "displayValue": "1"
-              },
-              {
-                "key": "BF_DMG_UP_STATUS_MUL_speed_rate",
-                "label": "伤害加成",
-                "value": "0.075",
-                "displayValue": "0.075% 自身 速度"
               }
             ]
           }
         ],
         "effects": [
           {
-            "id": "218",
-            "name": "沉默",
-            "type": "debuff",
-            "description": "在自身回合选择技能时，无法选择除基本技能外的其他技能。",
-            "icon": "/assets/debuffs/silence-debuff.png"
+            "id": "1444",
+            "name": "魔力力场（无法解除）",
+            "type": "buff",
+            "description": "受到攻击时，消耗斗志10点，使技能造成的伤害无效化。",
+            "icon": "/library/effects/stic_manafield_keep.webp"
           }
         ]
       },
       {
         "id": "sk_c1073_2",
         "name": "次元回廊",
-        "description": "攻击回廊内的敌人，各有75(100)%的几率解除2个强化效果后，造成2次技能冷却时间增加1回合。使自身在2回合内隐身且速度提升。根据目标速度等比提升伤害量。",
+        "description": "攻击回廊内的敌人，各有75(100)%的几率解除2个强化效果后，使技能冷却时间增加到最多。暴击时，获得额外回合。",
         "icon": "/library/heroes/kawerik-sk_c1073_2.png",
-        "cooldown": "冷却时间4回合",
+        "cooldown": "冷却时间5回合",
         "soulGain": 2,
         "soulBurn": {
           "cost": 20,
@@ -42447,39 +43172,26 @@
                 "label": "修正倍率(Pow)",
                 "value": "1",
                 "displayValue": "1"
-              },
-              {
-                "key": "BF_DMG_UP_STATUS_MUL_speed_rate",
-                "label": "伤害加成",
-                "value": "0.3",
-                "displayValue": "0.3% 目标 速度"
               }
             ]
           }
         ],
         "effects": [
           {
-            "id": "130",
-            "name": "隐身",
-            "type": "buff",
-            "description": "若存在其他我军人员，则不会成为攻击目标。受到全体攻击时，获得伤害降低效果，受到攻击造成的伤害时解除。",
-            "icon": "/assets/buffs/stealth-buff.png"
-          },
-          {
-            "id": "104",
-            "name": "速度提升",
-            "type": "buff",
-            "description": "速度提升30%。",
-            "icon": "/assets/buffs/speed-buff.png"
+            "id": "add_turn",
+            "name": "额外回合",
+            "type": "common",
+            "description": "令目标可以再行动一次。",
+            "icon": null
           }
         ]
       },
       {
         "id": "sk_c1073_3",
         "name": "次元爆炸",
-        "description": "用爆炸攻击全体敌人，在1回合内造成沉默效果。对目标造成30%的防御力穿透。根据自身速度等比提升伤害量。",
+        "description": "用爆炸攻击全体敌人，使自身在2回合内获得速度提升效果。对目标造成50%的防御力穿透。\n首次战斗开始时，获得最大值的斗志；战斗中，若斗志在10点以上，则获得魔力力场效果。",
         "icon": "/library/heroes/kawerik-sk_c1073_3.png",
-        "cooldown": "冷却时间5(4)回合",
+        "cooldown": "",
         "soulGain": 3,
         "soulBurn": null,
         "isAoe": true,
@@ -42495,11 +43207,11 @@
           },
           {
             "level": 3,
-            "text": "冷却时间减少1回合"
+            "text": "伤害量提升5%"
           },
           {
             "level": 4,
-            "text": "伤害量提升10%"
+            "text": "伤害量提升5%"
           },
           {
             "level": 5,
@@ -42514,8 +43226,8 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "0.8",
-                "displayValue": "0.8"
+                "value": "1.1",
+                "displayValue": "1.1"
               },
               {
                 "key": "pow",
@@ -42526,25 +43238,19 @@
               {
                 "key": "def_pen",
                 "label": "防御穿透",
-                "value": "0.3",
-                "displayValue": "30.0%"
-              },
-              {
-                "key": "BF_DMG_UP_STATUS_MUL_speed_rate",
-                "label": "伤害加成",
-                "value": "0.075",
-                "displayValue": "0.075% 自身 速度"
+                "value": "50.0%",
+                "displayValue": "50.0%"
               }
             ]
           }
         ],
         "effects": [
           {
-            "id": "218",
-            "name": "沉默",
-            "type": "debuff",
-            "description": "在自身回合选择技能时，无法选择除基本技能外的其他技能。",
-            "icon": "/assets/debuffs/silence-debuff.png"
+            "id": "104",
+            "name": "速度提升",
+            "type": "buff",
+            "description": "速度提升30%。",
+            "icon": "/library/effects/stic_speed_up.webp"
           },
           {
             "id": "pierce",
@@ -42552,31 +43258,34 @@
             "type": "common",
             "description": "无视防御力造成伤害。",
             "icon": null
+          },
+          {
+            "id": "1444",
+            "name": "魔力力场（无法解除）",
+            "type": "buff",
+            "description": "受到攻击时，消耗斗志10点，使技能造成的伤害无效化。",
+            "icon": "/library/effects/stic_manafield_keep.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 724,
-        "createTime": "2026-04-07 22:55:53",
-        "updateTime": "2026-04-08 09:32:07",
-        "tenantId": null,
-        "hero_code": "kawerik",
-        "public_type": "att_rate",
-        "public_effect_max": "0.12",
         "self_type": "att_rate",
-        "self_effect_max": "0.21",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 0.21,
+        "self_effect": 0.21,
+        "public_type": "att_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [
       {
-        "id": "226",
+        "id": "kawerik-exclusive-equipment",
         "name": "选择的证据",
         "description": "带领强化魔法师部队的队长所拥有的标志。为了牢记过去，一直戴在身上未曾拿下来。",
-        "iconKey": "/library/exclusives/icon_eq_exclusive_c1073.png",
+        "iconKey": "/library/exclusives/kawerik-exclusive.webp",
         "mainStat": {
           "type": "cri",
           "min": 0.06,
@@ -42585,11 +43294,11 @@
         "skillOptions": [
           {
             "skillNumber": 3,
-            "description": "使用次元爆炸时，在攻击前使自身在2回合内攻击力提升。"
+            "description": "使用次元爆炸时，攻击前使自身在3回合内获得攻击力提升效果。"
           },
           {
             "skillNumber": 3,
-            "description": "使用次元爆炸时，在1回合内造成命中降低。"
+            "description": "使用次元爆炸时，在1回合内造成沉默效果。"
           },
           {
             "skillNumber": 3,
@@ -44092,7 +44801,7 @@
     "gameId": "c1091",
     "name": "艾蕾娜",
     "nameEn": "Elena",
-    "nameZht": "艾蕾娜",
+    "nameZht": null,
     "nicknames": [
       "shuiqin",
       "aileina",
@@ -44113,7 +44822,6 @@
       "specialty": "唱颂歌",
       "voiceCv": {
         "en": "CV: Cyrina Fiallo",
-        "id": "c1091",
         "ja": "CV: 種﨑敦美",
         "kr": "CV: 박신희",
         "zhs": "CV: 秦紫翼"
@@ -44188,12 +44896,12 @@
       {
         "id": "sk_c1091_2",
         "name": "守护权能",
-        "description": "我军人员受到全体攻击时，使其获得15.0(20.0)%的伤害降低效果，使用受到祝福的大地。\n受到祝福的大地：根据自身最大生命值使全体我军人员等比恢复生命值后，使自身速攻值提升20%。",
+        "description": "我军人员受到全体攻击时，使其获得25.0(30.0)%的伤害降低效果，使用受到祝福的大地。\n受到祝福的大地：解除全体我军人员的1个弱化效果后，根据自身最大生命值使其等比恢复生命值，使自身速攻值提升30%。",
         "icon": "/library/heroes/elena-sk_c1091_2.png",
         "cooldown": "受到祝福的大地\n冷却时间2回合",
         "soulGain": 0,
         "soulBurn": null,
-        "isAoe": false,
+        "isAoe": true,
         "dealsDamage": false,
         "enhancements": [
           {
@@ -44233,7 +44941,7 @@
               {
                 "key": "HPUP_CASTER_MAXHP_value",
                 "label": "生命恢复",
-                "value": "20.0",
+                "value": "20.0% 自身 最大生命值",
                 "displayValue": "20.0% 自身 最大生命值"
               }
             ]
@@ -44299,43 +45007,39 @@
         ],
         "effects": [
           {
-            "id": "137",
-            "name": "效果抗性提升",
-            "type": "buff",
-            "description": "效果抗性提升50%。",
-            "icon": null
-          },
-          {
             "id": "107",
             "name": "无敌",
             "type": "buff",
             "description": "使所有伤害无效化。",
-            "icon": "/assets/buffs/invincible-buff.png"
+            "icon": "/library/effects/stic_invincible.webp"
+          },
+          {
+            "id": "137",
+            "name": "效果抗性提升",
+            "type": "buff",
+            "description": "效果抗性提升50%。",
+            "icon": "/library/effects/stic_res_inc.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 710,
-        "createTime": "2026-04-07 22:55:30",
-        "updateTime": "2026-04-08 09:32:06",
-        "tenantId": null,
-        "hero_code": "elena",
-        "public_type": "att_rate",
-        "public_effect_max": "0.15",
         "self_type": "res",
-        "self_effect_max": "0.27",
-        "public_slot": "24",
-        "remarks": null
+        "self_effect_max": 0.27,
+        "self_effect": 0.27,
+        "public_type": "att_rate",
+        "public_effect_max": 0.15,
+        "public_effect": 0.15,
+        "public_slot": "24"
       }
     ],
     "exclusives": [
       {
-        "id": "217",
+        "id": "elena-exclusive-equipment",
         "name": "圣辉的指引",
         "description": "成为寇斯特拉的大祭司后被赋予的饰品。即便是漆黑的夜晚也能用隐约散发的光芒为大祭司指引方向。",
-        "iconKey": "/library/exclusives/icon_eq_exclusive_c1091.png",
+        "iconKey": "/library/exclusives/elena-exclusive.webp",
         "mainStat": {
           "type": "res",
           "min": 0.08,
@@ -44348,7 +45052,7 @@
           },
           {
             "skillNumber": 2,
-            "description": "使用受到祝福的大地时，解除全体我军人员的1个弱化效果。（先于恢复发动）"
+            "description": "使用受到祝福的大地时，额外解除全体我军人员的1个弱化效果。"
           },
           {
             "skillNumber": 3,
@@ -45895,7 +46599,7 @@
     "gameId": "c2053",
     "name": "沙漠宝石巴萨尔",
     "nameEn": "Desert Jewel Basar",
-    "nameZht": "沙漠寶石巴薩爾",
+    "nameZht": null,
     "nicknames": [
       "guangaiji",
       "guangbasaer",
@@ -45919,7 +46623,6 @@
       "specialty": "过目不忘、敷衍了事也能把事做好",
       "voiceCv": {
         "en": "CV: Matthew Mercer",
-        "id": "c2053",
         "ja": "CV: 杉田智和",
         "kr": "CV: 김영선",
         "zhs": "CV: 李春胤"
@@ -45949,7 +46652,7 @@
           "cost": 10,
           "description": "恢复量提升。"
         },
-        "isAoe": false,
+        "isAoe": true,
         "dealsDamage": true,
         "enhancements": [
           {
@@ -45993,7 +46696,7 @@
               {
                 "key": "HPUP_TARGET_MAXHP_value",
                 "label": "生命恢复",
-                "value": "9.0",
+                "value": "9.0% 目标最大生命值",
                 "displayValue": "9.0% 目标最大生命值"
               }
             ]
@@ -46017,7 +46720,7 @@
               {
                 "key": "HPUP_TARGET_MAXHP_value",
                 "label": "生命恢复",
-                "value": "18.0",
+                "value": "18.0% 目标最大生命值",
                 "displayValue": "18.0% 目标最大生命值"
               }
             ]
@@ -46029,44 +46732,51 @@
             "name": "晕眩",
             "type": "debuff",
             "description": "在持续回合内无法行动。",
-            "icon": "/assets/debuffs/stun-debuff.png"
+            "icon": "/library/effects/stic_stun.webp"
           }
         ]
       },
       {
-        "id": "sk_c2053_2",
-        "name": "沙漠暴风",
-        "description": "用沙尘暴风对全体敌人造成防护罩转换效果后，解除2个强化效果，有75(100)%的几率使速攻值降低20%。若目标处于防护罩状态，则获得额外回合。",
-        "icon": "/library/heroes/desert-jewel-basar-sk_c2053_2.png",
-        "cooldown": "冷却时间5(4)回合",
-        "soulGain": 2,
+        "id": "pa_c2053_2",
+        "name": "沙漠循环",
+        "description": "受到攻击时，获得25.0(30.0)%的伤害降低效果。\n敌人使用技能后，若处于防护罩状态，则使用沙漠暴风。\n沙漠暴风：对全体敌人造成防护罩转换效果后，使速攻值降低20%。使自身速攻值提升20%。",
+        "icon": "/library/heroes/desert-jewel-basar-pa_c2053_2.png",
+        "cooldown": "沙漠暴风冷却时间2回合",
+        "soulGain": 0,
         "soulBurn": null,
         "isAoe": true,
         "dealsDamage": false,
         "enhancements": [
           {
             "level": 1,
-            "text": "效果发生率提升5%"
+            "text": "所受伤害量降低0.5%"
           },
           {
             "level": 2,
-            "text": "效果发生率提升5%"
+            "text": "所受伤害量降低0.5%"
           },
           {
             "level": 3,
-            "text": "冷却时间减少1回合"
+            "text": "所受伤害量降低1%"
           },
           {
             "level": 4,
-            "text": "效果发生率提升5%"
+            "text": "所受伤害量降低1%"
           },
           {
             "level": 5,
-            "text": "效果发生率提升10%"
+            "text": "所受伤害量降低2%"
           }
         ],
         "multipliers": [],
         "effects": [
+          {
+            "id": "dmg_reduce",
+            "name": "伤害降低",
+            "type": "common",
+            "description": "受到攻击时，所受伤害量降低。伤害降低效果重复时，以最强效果为准。",
+            "icon": null
+          },
           {
             "id": "damage_shield",
             "name": "防护罩转换",
@@ -46079,26 +46789,19 @@
             "name": "防护罩",
             "type": "buff",
             "description": "受到伤害时，代替生命值吸收部分伤害。",
-            "icon": "/assets/buffs/barrier-buff.png"
-          },
-          {
-            "id": "add_turn",
-            "name": "额外回合",
-            "type": "common",
-            "description": "令目标可以再行动一次。",
-            "icon": null
+            "icon": "/library/effects/stic_protect.webp"
           }
         ]
       },
       {
         "id": "sk_c2053_3",
         "name": "芭丝特的咆哮",
-        "description": "芭丝特发出咆哮，解除全体我军人员的所有弱化效果后，使其在2回合内获得免疫效果，使速攻值提升20(30)%。若此技能未处于冷却状态，则受到攻击时，获得30%的伤害降低效果。",
+        "description": "芭丝特发出咆哮，解除全体我军人员的所有弱化效果后，使其在2回合内获得免疫效果，使速攻值提升20(30)%。",
         "icon": "/library/heroes/desert-jewel-basar-sk_c2053_3.png",
         "cooldown": "冷却时间5(4)回合",
-        "soulGain": 2,
+        "soulGain": 3,
         "soulBurn": null,
-        "isAoe": false,
+        "isAoe": true,
         "dealsDamage": false,
         "enhancements": [
           {
@@ -46129,34 +46832,41 @@
             "name": "免疫",
             "type": "buff",
             "description": "不受任何弱化效果及部分有害效果的影响。",
-            "icon": null
-          },
-          {
-            "id": "dmg_reduce",
-            "name": "伤害降低",
-            "type": "common",
-            "description": "受到攻击时，所受伤害量降低。伤害降低效果重复时，以最强效果为准。",
-            "icon": null
+            "icon": "/library/effects/stic_debuf_impossible.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 585,
-        "createTime": "2026-04-07 22:52:01",
-        "updateTime": "2026-04-08 09:31:46",
-        "tenantId": null,
-        "hero_code": "desert-jewel-basar",
-        "public_type": "max_hp_rate",
-        "public_effect_max": "0.12",
         "self_type": "res",
-        "self_effect_max": "0.27",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 0.27,
+        "self_effect": 0.27,
+        "public_type": "max_hp_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "desert-jewel-basar-exclusive-equipment",
+        "name": "太阳庇护",
+        "description": "巴萨尔穿越沙海之前，向刻有太阳纹样的法杖献上了祈祷。或许正因如此，连炽热的烈阳在他身边也会暂歇锋芒。",
+        "iconKey": "/library/exclusives/desert-jewel-basar-exclusive.webp",
+        "mainStat": {
+          "type": "res",
+          "min": 0.08,
+          "max": 0.16
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 3,
+            "description": "使用芭丝特的咆哮时，使全体我军人员在2回合内获得不屈效果。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete"
   },
@@ -52970,7 +53680,7 @@
           },
           {
             "skillNumber": 2,
-            "description": "使用炙热燃烧！时，根据攻击力使自身在2回合内获得等比强度的防护罩。"
+            "description": "使用炙热燃烧！时，根据自身攻击力120.0%使自身在2回合内获得等比强度的防护罩。"
           },
           {
             "skillNumber": 3,
@@ -57438,6 +58148,297 @@
     "dataStatus": "complete"
   },
   {
+    "code": "jack-o",
+    "gameId": "c1130",
+    "name": "洁克‧欧",
+    "nameEn": "Jack-O'",
+    "nameZht": "潔克‧歐",
+    "nicknames": [
+      "jieke‧ou"
+    ],
+    "attribute": "fire",
+    "role": "warrior",
+    "rarity": 5,
+    "zodiac": "bull",
+    "publishDate": null,
+    "descriptionLine": "与使魔并肩作战的\n捣蛋鬼战士",
+    "story": "为了阻止正义复活而创造的人工生命体。融合了索尔昔日恋人雅莉亚一半的灵魂，兼具理智的成人和纯真的孩童性格。因此，为了控制特有的情绪变化，战斗时会配戴面具。",
+    "profile": {
+      "hobby": "未知",
+      "likes": "未知",
+      "dislikes": "未知",
+      "motto": "未知",
+      "specialty": "未知",
+      "voiceCv": {
+        "en": "VA: Hiromi Igarashi",
+        "id": "c1130",
+        "ja": "CV: 五十嵐裕美",
+        "kr": "CV: 이가라시 히로미",
+        "zhs": ""
+      }
+    },
+    "baseStats": {
+      "atk": 1228,
+      "hp": 5784,
+      "def": 553,
+      "spd": 109,
+      "chc": 0.23,
+      "chd": 1.65,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/jack-o.webp",
+    "avatar": "/library/heroes/jack-o-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c1130_1",
+        "name": "投掷使魔",
+        "description": "用使魔攻击敌人，有30(40)%的几率在1回合内造成晕眩效果。在自身回合攻击后，若目标处于弱化效果状态，则额外使用碎尘攻击。\n碎尘攻击：浮空敌人进行攻击，并使自身在1回合内隐身。",
+        "icon": "/library/heroes/jack-o-sk_c1130_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": {
+          "cost": 10,
+          "description": "效果发生率提升为100%。"
+        },
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "效果发生率提升10%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.75",
+                "displayValue": "0.75"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          },
+          {
+            "id": "multiplier_碎尘攻击",
+            "name": "碎尘攻击倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1.1",
+                "displayValue": "1.1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "205",
+            "name": "晕眩",
+            "type": "debuff",
+            "description": "在持续回合内无法行动。",
+            "icon": "/assets/debuffs/stun-debuff.png"
+          },
+          {
+            "id": "130",
+            "name": "隐身",
+            "type": "buff",
+            "description": "若存在其他我军人员，则不会成为攻击目标。受到全体攻击时，获得伤害降低效果，受到攻击造成的伤害时解除。",
+            "icon": "/assets/buffs/stealth-buff.png"
+          }
+        ]
+      },
+      {
+        "id": "sk_c1130_2",
+        "name": "不给糖就捣蛋",
+        "description": "战斗开始时，使后排我军人员在2回合内获得喀戎之锁效果。\n我军人员攻击后，若目标处于弱化效果状态，则使自身速攻值提升20(30)%。此效果在攻击者的所有效果发生后发动。",
+        "icon": "/library/heroes/jack-o-sk_c1130_2.png",
+        "cooldown": "速攻值提升冷却时间3回合",
+        "soulGain": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "速攻值提升1%"
+          },
+          {
+            "level": 2,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 3,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 4,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 5,
+            "text": "速攻值提升3%"
+          }
+        ],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "c1130_chiron",
+            "name": "喀戎之锁（无法解除）",
+            "type": "buff",
+            "description": "攻击后，在1回合内对目标造成随机弱化效果。",
+            "icon": null
+          },
+          {
+            "id": "c1130_r",
+            "name": "随机弱化效果",
+            "type": "debuff",
+            "description": "晕眩、无法强化、命中降低、束缚",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c1130_3",
+        "name": "永恒乐园打桩机",
+        "description": "使自身在2回合内攻击力提升后，用南瓜灯吞噬敌人进行攻击。消灭敌人时，使全体我军人员的速攻值提升20%，并使自身获得额外回合。对目标造成50%的防御力穿透。若目标处于弱化效果状态，则伤害量提升。",
+        "icon": "/library/heroes/jack-o-sk_c1130_3.png",
+        "cooldown": "冷却时间4(3)回合",
+        "soulGain": 2,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "def_pen",
+                "label": "防御穿透",
+                "value": "0.5",
+                "displayValue": "50.0%"
+              },
+              {
+                "key": "BF_DMG_UP_value",
+                "label": "伤害加成",
+                "value": "50.0",
+                "displayValue": "50.0%目标debuff数量大于1"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "102",
+            "name": "攻击力提升",
+            "type": "buff",
+            "description": "攻击力提升50%。",
+            "icon": "/assets/buffs/attack-buff.png"
+          },
+          {
+            "id": "add_turn",
+            "name": "额外回合",
+            "type": "common",
+            "description": "令目标可以再行动一次。",
+            "icon": null
+          },
+          {
+            "id": "pierce",
+            "name": "穿透",
+            "type": "common",
+            "description": "无视防御力造成伤害。",
+            "icon": null
+          }
+        ]
+      }
+    ],
+    "devotion": [
+      {
+        "id": 673,
+        "createTime": "2026-04-07 22:54:28",
+        "updateTime": "2026-04-08 09:32:00",
+        "tenantId": null,
+        "hero_code": "jack-o",
+        "public_type": "acc",
+        "public_effect_max": "0.18",
+        "self_type": "att_rate",
+        "self_effect_max": "0.21",
+        "public_slot": "14",
+        "remarks": null
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
     "code": "ae-giselle",
     "gameId": "c1138",
     "name": "ae-GISELLE",
@@ -59877,297 +60878,6 @@
         "self_type": "cri",
         "self_effect_max": "0.18",
         "public_slot": "1234",
-        "remarks": null
-      }
-    ],
-    "exclusives": [],
-    "tags": [],
-    "dataStatus": "complete"
-  },
-  {
-    "code": "jack-o",
-    "gameId": "c1130",
-    "name": "洁克‧欧",
-    "nameEn": "Jack-O'",
-    "nameZht": "潔克‧歐",
-    "nicknames": [
-      "jieke‧ou"
-    ],
-    "attribute": "fire",
-    "role": "warrior",
-    "rarity": 5,
-    "zodiac": "bull",
-    "publishDate": null,
-    "descriptionLine": "与使魔并肩作战的\n捣蛋鬼战士",
-    "story": "为了阻止正义复活而创造的人工生命体。融合了索尔昔日恋人雅莉亚一半的灵魂，兼具理智的成人和纯真的孩童性格。因此，为了控制特有的情绪变化，战斗时会配戴面具。",
-    "profile": {
-      "hobby": "未知",
-      "likes": "未知",
-      "dislikes": "未知",
-      "motto": "未知",
-      "specialty": "未知",
-      "voiceCv": {
-        "en": "VA: Hiromi Igarashi",
-        "id": "c1130",
-        "ja": "CV: 五十嵐裕美",
-        "kr": "CV: 이가라시 히로미",
-        "zhs": ""
-      }
-    },
-    "baseStats": {
-      "atk": 1228,
-      "hp": 5784,
-      "def": 553,
-      "spd": 109,
-      "chc": 0.23,
-      "chd": 1.65,
-      "eff": 0,
-      "efr": 0
-    },
-    "artwork": "/library/heroes/jack-o.webp",
-    "avatar": "/library/heroes/jack-o-avatar.png",
-    "skills": [
-      {
-        "id": "sk_c1130_1",
-        "name": "投掷使魔",
-        "description": "用使魔攻击敌人，有30(40)%的几率在1回合内造成晕眩效果。在自身回合攻击后，若目标处于弱化效果状态，则额外使用碎尘攻击。\n碎尘攻击：浮空敌人进行攻击，并使自身在1回合内隐身。",
-        "icon": "/library/heroes/jack-o-sk_c1130_1.png",
-        "cooldown": "",
-        "soulGain": 1,
-        "soulBurn": {
-          "cost": 10,
-          "description": "效果发生率提升为100%。"
-        },
-        "isAoe": false,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "效果发生率提升10%"
-          },
-          {
-            "level": 4,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 5,
-            "text": "伤害量提升10%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "0.75",
-                "displayValue": "0.75"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
-              }
-            ]
-          },
-          {
-            "id": "multiplier_碎尘攻击",
-            "name": "碎尘攻击倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "1.1",
-                "displayValue": "1.1"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "205",
-            "name": "晕眩",
-            "type": "debuff",
-            "description": "在持续回合内无法行动。",
-            "icon": "/assets/debuffs/stun-debuff.png"
-          },
-          {
-            "id": "130",
-            "name": "隐身",
-            "type": "buff",
-            "description": "若存在其他我军人员，则不会成为攻击目标。受到全体攻击时，获得伤害降低效果，受到攻击造成的伤害时解除。",
-            "icon": "/assets/buffs/stealth-buff.png"
-          }
-        ]
-      },
-      {
-        "id": "sk_c1130_2",
-        "name": "不给糖就捣蛋",
-        "description": "战斗开始时，使后排我军人员在2回合内获得喀戎之锁效果。\n我军人员攻击后，若目标处于弱化效果状态，则使自身速攻值提升20(30)%。此效果在攻击者的所有效果发生后发动。",
-        "icon": "/library/heroes/jack-o-sk_c1130_2.png",
-        "cooldown": "速攻值提升冷却时间3回合",
-        "soulGain": 0,
-        "soulBurn": null,
-        "isAoe": false,
-        "dealsDamage": false,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "速攻值提升1%"
-          },
-          {
-            "level": 2,
-            "text": "速攻值提升2%"
-          },
-          {
-            "level": 3,
-            "text": "速攻值提升2%"
-          },
-          {
-            "level": 4,
-            "text": "速攻值提升2%"
-          },
-          {
-            "level": 5,
-            "text": "速攻值提升3%"
-          }
-        ],
-        "multipliers": [],
-        "effects": [
-          {
-            "id": "c1130_chiron",
-            "name": "喀戎之锁（无法解除）",
-            "type": "buff",
-            "description": "攻击后，在1回合内对目标造成随机弱化效果。",
-            "icon": null
-          },
-          {
-            "id": "c1130_r",
-            "name": "随机弱化效果",
-            "type": "debuff",
-            "description": "晕眩、无法强化、命中降低、束缚",
-            "icon": null
-          }
-        ]
-      },
-      {
-        "id": "sk_c1130_3",
-        "name": "永恒乐园打桩机",
-        "description": "使自身在2回合内攻击力提升后，用南瓜灯吞噬敌人进行攻击。消灭敌人时，使全体我军人员的速攻值提升20%，并使自身获得额外回合。对目标造成50%的防御力穿透。若目标处于弱化效果状态，则伤害量提升。",
-        "icon": "/library/heroes/jack-o-sk_c1130_3.png",
-        "cooldown": "冷却时间4(3)回合",
-        "soulGain": 2,
-        "soulBurn": null,
-        "isAoe": false,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "冷却时间减少1回合"
-          },
-          {
-            "level": 4,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 5,
-            "text": "伤害量提升10%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "1",
-                "displayValue": "1"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "1",
-                "displayValue": "1"
-              },
-              {
-                "key": "def_pen",
-                "label": "防御穿透",
-                "value": "0.5",
-                "displayValue": "50.0%"
-              },
-              {
-                "key": "BF_DMG_UP_value",
-                "label": "伤害加成",
-                "value": "50.0",
-                "displayValue": "50.0%目标debuff数量大于1"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "102",
-            "name": "攻击力提升",
-            "type": "buff",
-            "description": "攻击力提升50%。",
-            "icon": "/assets/buffs/attack-buff.png"
-          },
-          {
-            "id": "add_turn",
-            "name": "额外回合",
-            "type": "common",
-            "description": "令目标可以再行动一次。",
-            "icon": null
-          },
-          {
-            "id": "pierce",
-            "name": "穿透",
-            "type": "common",
-            "description": "无视防御力造成伤害。",
-            "icon": null
-          }
-        ]
-      }
-    ],
-    "devotion": [
-      {
-        "id": 673,
-        "createTime": "2026-04-07 22:54:28",
-        "updateTime": "2026-04-08 09:32:00",
-        "tenantId": null,
-        "hero_code": "jack-o",
-        "public_type": "acc",
-        "public_effect_max": "0.18",
-        "self_type": "att_rate",
-        "self_effect_max": "0.21",
-        "public_slot": "14",
         "remarks": null
       }
     ],
@@ -64347,7 +65057,15 @@
     "nameEn": "Inferno Khawazu",
     "nameZht": null,
     "nicknames": [
-      "lieyandekawazhu"
+      "lieyandekawazhu",
+      "暗蕉",
+      "anjiao",
+      "暗香蕉",
+      "anxiangjiao",
+      "蕉哥",
+      "jiaoge",
+      "夜凯",
+      "yekai"
     ],
     "attribute": "dark",
     "role": "warrior",
@@ -65543,7 +66261,7 @@
     "gameId": "c2005",
     "name": "外太空的玫勒赛德丝",
     "nameEn": "Celestial Mercedes",
-    "nameZht": "外太空的玫勒賽德絲",
+    "nameZht": null,
     "nicknames": [
       "waitaikongdemeileisaidesi"
     ],
@@ -65562,7 +66280,6 @@
       "specialty": "复制一切、次元旅行、观察世界",
       "voiceCv": {
         "en": "CV: Joy Osmanski",
-        "id": "c2005",
         "ja": "CV: 櫻庭有紗",
         "kr": "CV: 여윤미",
         "zhs": "CV: 子音"
@@ -65584,7 +66301,7 @@
       {
         "id": "sk_c2005_1",
         "name": "天诛",
-        "description": "用电击魔法攻击敌人，有30(50)%的几率在2回合内造成无法恢复效果。",
+        "description": "用电击魔法攻击包含目标在内的2名敌人。根据目标最大生命值等比提升伤害量。",
         "icon": "/library/heroes/celestial-mercedes-sk_c2005_1.png",
         "cooldown": "",
         "soulGain": 1,
@@ -65598,19 +66315,19 @@
           },
           {
             "level": 2,
-            "text": "伤害量提升10%"
+            "text": "伤害量提升5%"
           },
           {
             "level": 3,
-            "text": "效果发生率提升10%"
+            "text": "伤害量提升5%"
           },
           {
             "level": 4,
-            "text": "效果发生率提升10%"
+            "text": "伤害量提升5%"
           },
           {
             "level": 5,
-            "text": "伤害量提升15%"
+            "text": "伤害量提升10%"
           }
         ],
         "multipliers": [
@@ -65629,30 +66346,28 @@
                 "label": "修正倍率(Pow)",
                 "value": "1",
                 "displayValue": "1"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "2.0% 目标 最大生命值",
+                "displayValue": "2.0% 目标 最大生命值"
               }
             ]
           }
         ],
-        "effects": [
-          {
-            "id": "216",
-            "name": "无法恢复",
-            "type": "debuff",
-            "description": "无法获得生命值恢复效果。",
-            "icon": null
-          }
-        ]
+        "effects": []
       },
       {
         "id": "sk_c2005_2",
         "name": "次元龟裂",
-        "description": "用庞大的电击球攻击全体敌人，根据目标的最大生命值等比提升伤害量。",
+        "description": "用巨大电击球攻击全体敌人，将部分伤害量作为生命值恢复。根据目标最大生命值等比提升伤害量。",
         "icon": "/library/heroes/celestial-mercedes-sk_c2005_2.png",
-        "cooldown": "冷却时间4回合",
-        "soulGain": 2,
+        "cooldown": "冷却时间2回合",
+        "soulGain": 1,
         "soulBurn": {
-          "cost": 20,
-          "description": "所有技能冷却时间减少2回合。"
+          "cost": 10,
+          "description": "伤害量提升。"
         },
         "isAoe": true,
         "dealsDamage": true,
@@ -65698,8 +66413,44 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "4.0",
+                "value": "4.0% 目标 最大生命值",
                 "displayValue": "4.0% 目标 最大生命值"
+              },
+              {
+                "key": "HPUP_DAMAGE_value",
+                "label": "生命恢复",
+                "value": "20.0% 伤害量",
+                "displayValue": "20.0% 伤害量"
+              }
+            ]
+          },
+          {
+            "id": "soulburn_multiplier",
+            "name": "灵魂燃烧倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1.05",
+                "displayValue": "1.05"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.9",
+                "displayValue": "0.9"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "5.0% 目标 最大生命值",
+                "displayValue": "5.0% 目标 最大生命值"
+              },
+              {
+                "key": "HPUP_DAMAGE_value",
+                "label": "生命恢复",
+                "value": "20.0% 伤害量",
+                "displayValue": "20.0% 伤害量"
               }
             ]
           }
@@ -65709,10 +66460,10 @@
       {
         "id": "sk_c2005_3",
         "name": "终结",
-        "description": "释放最后的魔法书，攻击全体敌人。每发生1次暴击，速攻值提升20%，使自己在2回合内攻击力提升。",
+        "description": "释放最后的魔法书攻击全体敌人，使自身在2回合内获得攻击力提升效果。每触发一次暴击，使自身速攻值提升25%。",
         "icon": "/library/heroes/celestial-mercedes-sk_c2005_3.png",
-        "cooldown": "冷却时间6(5)回合",
-        "soulGain": 3,
+        "cooldown": "冷却时间4(3)回合",
+        "soulGain": 2,
         "soulBurn": null,
         "isAoe": true,
         "dealsDamage": true,
@@ -65764,24 +66515,20 @@
             "name": "攻击力提升",
             "type": "buff",
             "description": "攻击力提升50%。",
-            "icon": "/assets/buffs/attack-buff.png"
+            "icon": "/library/effects/stic_att_up.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 623,
-        "createTime": "2026-04-07 22:53:05",
-        "updateTime": "2026-04-08 09:31:52",
-        "tenantId": null,
-        "hero_code": "celestial-mercedes",
-        "public_type": "cri",
-        "public_effect_max": "0.13",
         "self_type": "cri",
-        "self_effect_max": "0.15",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 0.15,
+        "self_effect": 0.15,
+        "public_type": "cri",
+        "public_effect_max": 0.13,
+        "public_effect": 0.13,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [],
@@ -66598,7 +67345,7 @@
     "gameId": "c2008",
     "name": "红焰亚敏",
     "nameEn": "Crimson Armin",
-    "nameZht": "紅焰亞敏",
+    "nameZht": null,
     "nicknames": [
       "guangmaomi",
       "guangyamin",
@@ -66620,8 +67367,7 @@
       "motto": "亚敏会成为超可爱守护者的！",
       "specialty": "撒娇、在任何情况下都能正面思考",
       "voiceCv": {
-        "en": "CV：Olivia Hack",
-        "id": "c2008",
+        "en": "CV: Olivia Hack",
         "ja": "CV: 明坂聡美",
         "kr": "CV: 박신희",
         "zhs": "CV: 钟可"
@@ -66696,7 +67442,7 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
                 "label": "伤害加成",
-                "value": "60.0",
+                "value": "60.0% 自身 防御力",
                 "displayValue": "60.0% 自身 防御力"
               }
             ]
@@ -66708,14 +67454,14 @@
             "name": "挑衅",
             "type": "debuff",
             "description": "回合开始时，被迫对施展挑衅的目标使用基本技能。",
-            "icon": "/assets/debuffs/provoke-debuff.png"
+            "icon": "/library/effects/stic_provoke.webp"
           }
         ]
       },
       {
         "id": "pa_2008_2",
         "name": "警戒架势",
-        "description": "我军人员受到攻击时，使其获得10.0(15.0)%的伤害降低效果。",
+        "description": "我军人员受到攻击时，使其获得15.0(20.0)%的伤害降低效果。",
         "icon": "/library/heroes/crimson-armin-pa_2008_2.png",
         "cooldown": "",
         "soulGain": 0,
@@ -66774,7 +67520,7 @@
           "cost": 10,
           "description": "该技能冷却时间减少2回合。"
         },
-        "isAoe": false,
+        "isAoe": true,
         "dealsDamage": false,
         "enhancements": [
           {
@@ -66794,7 +67540,7 @@
               {
                 "key": "HPUP_CASTER_MAXHP_value",
                 "label": "生命恢复",
-                "value": "20.0",
+                "value": "20.0% 自身 最大生命值",
                 "displayValue": "20.0% 自身 最大生命值"
               }
             ]
@@ -66806,39 +67552,35 @@
             "name": "免疫",
             "type": "buff",
             "description": "不受任何弱化效果及部分有害效果的影响。",
-            "icon": null
+            "icon": "/library/effects/stic_debuf_impossible.webp"
           },
           {
             "id": "107",
             "name": "无敌",
             "type": "buff",
             "description": "使所有伤害无效化。",
-            "icon": "/assets/buffs/invincible-buff.png"
+            "icon": "/library/effects/stic_invincible.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 620,
-        "createTime": "2026-04-07 22:53:00",
-        "updateTime": "2026-04-08 09:31:52",
-        "tenantId": null,
-        "hero_code": "crimson-armin",
-        "public_type": "res",
-        "public_effect_max": "0.13",
         "self_type": "def_rate",
-        "self_effect_max": "0.18",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 0.18,
+        "self_effect": 0.18,
+        "public_type": "res",
+        "public_effect_max": 0.13,
+        "public_effect": 0.13,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [
       {
-        "id": "182",
+        "id": "crimson-armin-exclusive-equipment",
         "name": "超可爱盾牌",
         "description": "红焰亚敏随身携带的盾牌。看到亚敏挥舞时轻松自如的样子与盾牌可爱的外观，大家都误以为十分轻巧，但实际上坚固无比，沉重得连食人魔也难以驾驭。",
-        "iconKey": "/library/exclusives/icon_eq_exclusive_c2008.png",
+        "iconKey": "/library/exclusives/crimson-armin-exclusive.webp",
         "mainStat": {
           "type": "max_hp_rate",
           "min": 0.07,
@@ -67147,7 +67889,7 @@
     "gameId": "c2003",
     "name": "暗影萝季",
     "nameEn": "Shadow Rose",
-    "nameZht": "暗影蘿季",
+    "nameZht": null,
     "nicknames": [
       "anyingluoji"
     ],
@@ -67165,8 +67907,7 @@
       "motto": "为了我的赛西莉亚大人……",
       "specialty": "坚持不懈地贯彻目标",
       "voiceCv": {
-        "en": "CV：Jeannie Tirado",
-        "id": "c2003",
+        "en": "CV: Jeannie Tirado",
         "ja": "CV: 石上静香",
         "kr": "CV: 곽규미",
         "zhs": "CV: 陈雨"
@@ -67239,31 +67980,31 @@
         ],
         "effects": [
           {
-            "id": "216",
-            "name": "无法恢复",
-            "type": "debuff",
-            "description": "无法获得生命值恢复效果。",
-            "icon": null
-          },
-          {
             "id": "203",
             "name": "防御力降低",
             "type": "debuff",
             "description": "防御力降低70%。",
-            "icon": "/assets/debuffs/defense-debuff.png"
+            "icon": "/library/effects/stic_def_dn.webp"
+          },
+          {
+            "id": "216",
+            "name": "无法恢复",
+            "type": "debuff",
+            "description": "无法获得生命值恢复效果。",
+            "icon": "/library/effects/stic_heal_impossible.webp"
           }
         ]
       },
       {
         "id": "sk_c2003_2",
         "name": "黑暗之矛",
-        "description": "跳至空中，用剑气攻击敌人并解除1个强化效果，使其2回合内防御力降低。",
+        "description": "腾空跃起用剑气攻击敌人，解除1个强化效果，在2回合内造成防御力降低效果。获得额外回合。",
         "icon": "/library/heroes/shadow-rose-sk_c2003_2.png",
         "cooldown": "冷却时间3回合",
         "soulGain": 2,
         "soulBurn": {
           "cost": 10,
-          "description": "该技能冷却时间减少2回合。"
+          "description": "无视效果抗性。"
         },
         "isAoe": false,
         "dealsDamage": true,
@@ -67315,14 +68056,21 @@
             "name": "防御力降低",
             "type": "debuff",
             "description": "防御力降低70%。",
-            "icon": "/assets/debuffs/defense-debuff.png"
+            "icon": "/library/effects/stic_def_dn.webp"
+          },
+          {
+            "id": "add_turn",
+            "name": "额外回合",
+            "type": "common",
+            "description": "令目标可以再行动一次。",
+            "icon": null
           }
         ]
       },
       {
         "id": "sk_c2003_3",
         "name": "破坏女神",
-        "description": "用破坏之息攻击全体敌人，使速攻值降低25%，使全体我军人员速攻值提升25%。使自身在2回合内获得效果命中提升效果。",
+        "description": "使全体我军人员在2回合内获得攻击力提升效果后，用破坏之息攻击全体敌人，使速攻值降低25%，使全体我军人员速攻值提升25%。若敌人目标在3人以下，则目标越少，伤害量越提升。",
         "icon": "/library/heroes/shadow-rose-sk_c2003_3.png",
         "cooldown": "冷却时间5(4)回合",
         "soulGain": 2,
@@ -67367,42 +68115,44 @@
                 "label": "修正倍率(Pow)",
                 "value": "0.8",
                 "displayValue": "0.8"
+              },
+              {
+                "key": "BF_DMG_UP_TARGET_LESS_value",
+                "label": "伤害加成",
+                "value": "50.0% * (4-目标数量)",
+                "displayValue": "50.0% * (4-目标数量)"
               }
             ]
           }
         ],
         "effects": [
           {
-            "id": "138",
-            "name": "效果命中提升",
+            "id": "102",
+            "name": "攻击力提升",
             "type": "buff",
-            "description": "效果命中提升50%。",
-            "icon": null
+            "description": "攻击力提升50%。",
+            "icon": "/library/effects/stic_att_up.webp"
           }
         ]
       }
     ],
     "devotion": [
       {
-        "id": 625,
-        "createTime": "2026-04-07 22:53:09",
-        "updateTime": "2026-04-08 09:31:53",
-        "tenantId": null,
-        "hero_code": "shadow-rose",
-        "public_type": "coop",
-        "public_effect_max": "0.07",
         "self_type": "acc",
-        "self_effect_max": "0.24",
-        "public_slot": "23",
-        "remarks": null
+        "self_effect_max": 0.24,
+        "self_effect": 0.24,
+        "public_type": "coop",
+        "public_effect_max": 0.07,
+        "public_effect": 0.07,
+        "public_slot": "23"
       }
     ],
     "exclusives": [
       {
-        "id": "185",
+        "id": "shadow-rose-exclusive-equipment",
         "name": "暗影翅膀",
         "description": "被内心的阴影蚕食的漆黑色翅膀的头环。会使扭曲的执念燃烧起来。",
-        "iconKey": "/library/exclusives/icon_eq_exclusive_c2003.png",
+        "iconKey": "/library/exclusives/shadow-rose-exclusive.webp",
         "mainStat": {
           "type": "acc",
           "min": 0.08,
@@ -80641,13 +81391,652 @@
     "dataStatus": "complete"
   },
   {
+    "code": "church-of-ilryos-axe",
+    "gameId": "c3025",
+    "name": "伊利欧斯教斧兵",
+    "nameEn": "Church of Ilryos Axe",
+    "nameZht": null,
+    "nicknames": [
+      "yiliousijiaofubing",
+      "斧兵",
+      "fubing"
+    ],
+    "attribute": "dark",
+    "role": "warrior",
+    "rarity": 3,
+    "zodiac": "lion",
+    "publishDate": null,
+    "descriptionLine": "信奉伊利欧斯教，\n跟随教团的斧兵",
+    "story": "狂热信奉伊利欧斯教的士兵。奉教团之命，负责对抗企图打压伊利欧斯教的人，并处决教团的叛徒。",
+    "profile": {
+      "hobby": "背诵伊利欧斯教的教义、养护斧刃",
+      "likes": "烈酒、伊利欧斯教的信徒",
+      "dislikes": "镇压、信奉其他宗教的人、叛教者",
+      "motto": "伊利欧斯教会拯救众生！",
+      "specialty": "处决叛教者、抗击镇压者",
+      "voiceCv": {
+        "en": "CV: Elijah Nelson",
+        "ja": "CV: 櫻井トオル",
+        "kr": "CV: 오인성",
+        "zhs": "CV: 刘飞"
+      }
+    },
+    "baseStats": {
+      "atk": 1144,
+      "hp": 4895,
+      "def": 543,
+      "spd": 101,
+      "chc": 0.23,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": null,
+    "avatar": "/library/heroes/church-of-ilryos-axe-avatar.png",
+    "skills": [
+      {
+        "id": "sk_m0013_d",
+        "name": "分离",
+        "description": "用斧头攻击敌人，造成最多10%的伤口效果。根据自身最大生命值等比提升伤害量。",
+        "icon": "/library/heroes/church-of-ilryos-axe-sk_m0013_d.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.7",
+                "displayValue": "0.7"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.95",
+                "displayValue": "0.95"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "6.0% 自身 最大生命值",
+                "displayValue": "6.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "dhp",
+            "name": "伤口",
+            "type": "common",
+            "description": "根据伤害量等比累积降低最大生命值。只适用于英雄，最多可累积至50%。不受命中及效果抗性的影响。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_m0014_d",
+        "name": "连锁攻击",
+        "description": "用冲击波攻击全体敌人，造成最多15%的伤口效果后，恢复自身生命值。根据自身最大生命值等比提升伤害量和恢复量。",
+        "icon": "/library/heroes/church-of-ilryos-axe-sk_m0014_d.png",
+        "cooldown": "冷却时间3回合",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.7",
+                "displayValue": "0.7"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.95",
+                "displayValue": "0.95"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "8.0% 自身 最大生命值",
+                "displayValue": "8.0% 自身 最大生命值"
+              },
+              {
+                "key": "HPUP_CASTER_MAXHP_value",
+                "label": "生命恢复",
+                "value": "25.0% 自身 最大生命值",
+                "displayValue": "25.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "dhp",
+            "name": "伤口",
+            "type": "common",
+            "description": "根据伤害量等比累积降低最大生命值。只适用于英雄，最多可累积至50%。不受命中及效果抗性的影响。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_m0017_d",
+        "name": "瘟疫一击",
+        "description": "攻击目标，解除所有强化效果。消灭时，该技能冷却时间重置。根据自身最大生命值等比提升伤害量。",
+        "icon": "/library/heroes/church-of-ilryos-axe-sk_m0017_d.png",
+        "cooldown": "冷却时间3回合",
+        "soulGain": 2,
+        "soulBurn": {
+          "cost": 10,
+          "description": "伤害量提升。"
+        },
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 6,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 7,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.9",
+                "displayValue": "0.9"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "20.0% 自身 最大生命值",
+                "displayValue": "20.0% 自身 最大生命值"
+              }
+            ]
+          },
+          {
+            "id": "soulburn_multiplier",
+            "name": "灵魂燃烧倍率",
+            "items": [
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "30.0% 自身 最大生命值",
+                "displayValue": "30.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "cri",
+        "self_effect_max": 0.12,
+        "self_effect": 0.12,
+        "public_type": "max_hp",
+        "public_effect_max": 600,
+        "public_effect": 600,
+        "public_slot": "1234"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
+    "code": "chaos-sect-axe",
+    "gameId": "c4025",
+    "name": "混沌教巨斧大将军",
+    "nameEn": "Chaos Sect Axe",
+    "nameZht": null,
+    "nicknames": [
+      "dajiangjun",
+      "hundunjiaojufudajiangjun",
+      "大将军",
+      "董卓",
+      "dongzhuo"
+    ],
+    "attribute": "dark",
+    "role": "warrior",
+    "rarity": 3,
+    "zodiac": "lion",
+    "publishDate": null,
+    "descriptionLine": "受到混沌的呼唤，\n展开圣战的巨斧大将军",
+    "story": "魔神战争后，伊利欧斯教斧兵随着教团的没落，也经历着艰难彷徨的时期。但是自从他偶然听见了混沌之神的声音，有了神秘的体验之后，便开始计划创建一个名为混沌教的新兴宗教，决心用自己的斧头征服世界。",
+    "profile": {
+      "hobby": "背诵伊利欧斯教的教义、养护斧刃",
+      "likes": "烈酒、伊利欧斯教的信徒",
+      "dislikes": "镇压、信奉其他宗教的人、叛教者",
+      "motto": "伊利欧斯教会拯救众生！",
+      "specialty": "处决叛教者、抗击镇压者",
+      "voiceCv": {
+        "en": "CV: Elijah Nelson",
+        "ja": "CV: 櫻井トオル",
+        "kr": "CV: 오인성",
+        "zhs": "CV: 王和逸"
+      }
+    },
+    "baseStats": {
+      "atk": 1144,
+      "hp": 6013,
+      "def": 624,
+      "spd": 101,
+      "chc": 0.23,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": null,
+    "avatar": "/library/heroes/chaos-sect-axe-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c4025_1",
+        "name": "分离",
+        "description": "用斧头攻击敌人，造成最多10%的伤口效果。根据自身最大生命值等比提升伤害量。",
+        "icon": "/library/heroes/chaos-sect-axe-sk_c4025_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.7",
+                "displayValue": "0.7"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.95",
+                "displayValue": "0.95"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "6.0% 自身 最大生命值",
+                "displayValue": "6.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "dhp",
+            "name": "伤口",
+            "type": "common",
+            "description": "根据伤害量等比累积降低最大生命值。只适用于英雄，最多可累积至50%。不受命中及效果抗性的影响。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c4025_2",
+        "name": "连锁攻击",
+        "description": "用冲击波攻击全体敌人，造成最多15%的伤口效果后，恢复自身生命值。根据自身最大生命值等比提升伤害量和恢复量。",
+        "icon": "/library/heroes/chaos-sect-axe-sk_c4025_2.png",
+        "cooldown": "冷却时间3回合",
+        "soulGain": 1,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.7",
+                "displayValue": "0.7"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.95",
+                "displayValue": "0.95"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "8.0% 自身 最大生命值",
+                "displayValue": "8.0% 自身 最大生命值"
+              },
+              {
+                "key": "HPUP_CASTER_MAXHP_value",
+                "label": "生命恢复",
+                "value": "25.0% 自身 最大生命值",
+                "displayValue": "25.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "dhp",
+            "name": "伤口",
+            "type": "common",
+            "description": "根据伤害量等比累积降低最大生命值。只适用于英雄，最多可累积至50%。不受命中及效果抗性的影响。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c4025_3",
+        "name": "血气一击",
+        "description": "攻击目标，解除所有强化效果后，有75%的几率使技能冷却时间增加2回合。消灭时，该技能冷却时间重置。根据自身最大生命值等比提升伤害量。",
+        "icon": "/library/heroes/chaos-sect-axe-sk_c4025_3.png",
+        "cooldown": "冷却时间3回合",
+        "soulGain": 2,
+        "soulBurn": {
+          "cost": 10,
+          "description": "伤害量提升。"
+        },
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 6,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 7,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.9",
+                "displayValue": "0.9"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "20.0% 自身 最大生命值",
+                "displayValue": "20.0% 自身 最大生命值"
+              }
+            ]
+          },
+          {
+            "id": "soulburn_multiplier",
+            "name": "灵魂燃烧倍率",
+            "items": [
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "30.0% 自身 最大生命值",
+                "displayValue": "30.0% 自身 最大生命值"
+              },
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1.5",
+                "displayValue": "1.5"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "0.9",
+                "displayValue": "0.9"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "cri",
+        "self_effect_max": 0.12,
+        "self_effect": 0.12,
+        "public_type": "max_hp",
+        "public_effect_max": 600,
+        "public_effect": 600,
+        "public_slot": "1234"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete",
+    "specialtyChange": {
+      "generalEffects": [
+        {
+          "id": "earth-rune-3",
+          "name": "大地符文3",
+          "description": "防御力提升15%。"
+        },
+        {
+          "id": "harvest-rune-3",
+          "name": "收获符文3",
+          "description": "受到光明属性敌人攻击后，使除自身外的全体我军人员速攻值提升10%。"
+        },
+        {
+          "id": "wedge-rune-3",
+          "name": "楔子符文3",
+          "description": "光明属性敌人回合结束时，使自身速攻值提升30%。"
+        },
+        {
+          "id": "life-rune-3",
+          "name": "生命符文3",
+          "description": "生命值提升15%。"
+        },
+        {
+          "id": "health-rune-3",
+          "name": "健康符文3",
+          "description": "生命值提升10%。"
+        },
+        {
+          "id": "thorn-rune-3",
+          "name": "芒刺符文3",
+          "description": "攻击时，根据目标的伤口效果等比提升40%的伤害量。"
+        }
+      ],
+      "skillEffects": [
+        {
+          "id": "chain-attack",
+          "name": "连锁攻击",
+          "icon": "/library/heroes/chaos-sect-axe-sk_c4025_2.png",
+          "effects": [
+            {
+              "id": "courage-rune-3",
+              "name": "勇气符文3",
+              "description": "我军人员受到光明属性敌人攻击时，有30%的几率使用连锁攻击反击。"
+            },
+            {
+              "id": "disease-rune-3",
+              "name": "疾病符文3",
+              "description": "使用连锁攻击时，若为自身回合，则有100%的几率使目标技能冷却时间增加1回合。若目标为光明属性，则无视效果抵抗。"
+            },
+            {
+              "id": "unknown-rune-3",
+              "name": "未知符文3",
+              "description": "连锁攻击的伤害量提升10%。"
+            }
+          ]
+        },
+        {
+          "id": "bloody-blow",
+          "name": "血气一击",
+          "icon": "/library/heroes/chaos-sect-axe-sk_c4025_3.png",
+          "effects": [
+            {
+              "id": "fruit-rune-3",
+              "name": "果实符文3",
+              "description": "使用血气一击时，若目标为光明属性，则效果发生率提升25%，并无视目标的效果抵抗。"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "code": "christy",
     "gameId": "c3123",
     "name": "克莉丝媞",
     "nameEn": "Christy",
     "nameZht": "克莉絲媞",
     "nicknames": [
-      "kelisishi"
+      "kelisishi",
+      "克里丝媞"
     ],
     "attribute": "wind",
     "role": "knight",
@@ -80870,7 +82259,84 @@
     ],
     "exclusives": [],
     "tags": [],
-    "dataStatus": "complete"
+    "dataStatus": "complete",
+    "specialtyChange": {
+      "generalEffects": [
+        {
+          "id": "prosperity-rune",
+          "name": "繁荣符文",
+          "description": "后排我军人员的防御力提升15%。"
+        },
+        {
+          "id": "protection-rune",
+          "name": "守护符文",
+          "description": "对后排我军人员所受伤害的30%进行伤害分配。"
+        },
+        {
+          "id": "wedge-rune",
+          "name": "楔子符文",
+          "description": "效果命中提升20%。"
+        },
+        {
+          "id": "stride-rune",
+          "name": "疾走符文",
+          "description": "速度提升5。"
+        },
+        {
+          "id": "trust-rune",
+          "name": "信赖符文",
+          "description": "效果命中提升15%。"
+        }
+      ],
+      "skillEffects": [
+        {
+          "id": "guarding-sword",
+          "name": "守护之剑",
+          "icon": "/library/heroes/christy-sk_c3123_1.png",
+          "effects": [
+            {
+              "id": "cognition-rune",
+              "name": "认知符文",
+              "description": "使用守护之剑时，若自身未处于弱化效果状态，则挑衅发生率提升25%。"
+            },
+            {
+              "id": "gain-rune",
+              "name": "获得符文",
+              "description": "使用守护之剑时，若自身未处于弱化效果状态，则有100%的几率使自身生命值恢复5%。"
+            },
+            {
+              "id": "fruit-rune",
+              "name": "果实符文",
+              "description": "守护之剑的伤害量提升10%。"
+            }
+          ]
+        },
+        {
+          "id": "covenant-shield",
+          "name": "誓约盾牌",
+          "icon": "/library/heroes/christy-sk_c3123_2.png",
+          "effects": [
+            {
+              "id": "glory-rune",
+              "name": "荣耀符文",
+              "description": "因誓约盾牌效果使后排我军人员获得的速攻值提升5%。"
+            }
+          ]
+        },
+        {
+          "id": "dragon-knight-support",
+          "name": "龙骑士助阵",
+          "icon": "/library/heroes/christy-sk_c3123_3.png",
+          "effects": [
+            {
+              "id": "health-rune",
+              "name": "健康符文",
+              "description": "龙骑士助阵的恢复量提升20%。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "code": "ras",
@@ -81649,283 +83115,6 @@
         "public_effect_max": "120.0",
         "self_type": "acc",
         "self_effect_max": "0.18",
-        "public_slot": "1234",
-        "remarks": null
-      }
-    ],
-    "exclusives": [],
-    "tags": [],
-    "dataStatus": "complete"
-  },
-  {
-    "code": "church-of-ilryos-axe",
-    "gameId": "c3025",
-    "name": "伊利欧斯教斧兵",
-    "nameEn": "Church of Ilryos Axe",
-    "nameZht": "伊利歐斯教斧兵",
-    "nicknames": [
-      "yiliousijiaofubing"
-    ],
-    "attribute": "dark",
-    "role": "warrior",
-    "rarity": 3,
-    "zodiac": "lion",
-    "publishDate": null,
-    "descriptionLine": "信奉伊利欧斯教，\n跟随教团的斧兵",
-    "story": "狂热信奉伊利欧斯教的士兵。奉教团之命，负责对抗企图打压伊利欧斯教的人，并处决教团的叛徒。",
-    "profile": {
-      "hobby": "背诵伊利欧斯教的教义、养护斧刃",
-      "likes": "烈酒、伊利欧斯教的信徒",
-      "dislikes": "镇压、信奉其他宗教的人、叛教者",
-      "motto": "伊利欧斯教会拯救众生！",
-      "specialty": "处决叛教者、抗击镇压者",
-      "voiceCv": {
-        "en": "CV: Elijah Nelson",
-        "id": "c3025",
-        "ja": "CV: 櫻井トオル",
-        "kr": "CV: 오인성",
-        "zhs": "CV: 刘飞"
-      }
-    },
-    "baseStats": {
-      "atk": 1144,
-      "hp": 4895,
-      "def": 543,
-      "spd": 101,
-      "chc": 0.23,
-      "chd": 1.5,
-      "eff": 0,
-      "efr": 0
-    },
-    "artwork": null,
-    "avatar": "/library/heroes/church-of-ilryos-axe-avatar.png",
-    "skills": [
-      {
-        "id": "sk_m0013_d",
-        "name": "分离",
-        "description": "用斧头攻击敌人，有75%的几率在1回合内造成挑衅。根据自身最大生命值等比提升伤害量。",
-        "icon": "/library/heroes/church-of-ilryos-axe-sk_m0013_d.png",
-        "cooldown": "",
-        "soulGain": 1,
-        "soulBurn": null,
-        "isAoe": false,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 4,
-            "text": "伤害量提升15%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "0.7",
-                "displayValue": "0.7"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "0.95",
-                "displayValue": "0.95"
-              },
-              {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
-                "label": "伤害加成",
-                "value": "6.0",
-                "displayValue": "6.0% 自身 最大生命值"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "212",
-            "name": "挑衅",
-            "type": "debuff",
-            "description": "回合开始时，被迫对施展挑衅的目标使用基本技能。",
-            "icon": "/assets/debuffs/provoke-debuff.png"
-          }
-        ]
-      },
-      {
-        "id": "sk_m0014_d",
-        "name": "连锁攻击",
-        "description": "发动冲击波攻击全体敌人，有60%的几率在1回合内造成挑衅后，使自身在1回合内获得免疫效果。根据自身最大生命值等比提升伤害量。",
-        "icon": "/library/heroes/church-of-ilryos-axe-sk_m0014_d.png",
-        "cooldown": "冷却时间3回合",
-        "soulGain": 1,
-        "soulBurn": {
-          "cost": 10,
-          "description": "该技能冷却时间减少2回合。"
-        },
-        "isAoe": true,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 4,
-            "text": "伤害量提升15%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "0.7",
-                "displayValue": "0.7"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "0.95",
-                "displayValue": "0.95"
-              },
-              {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
-                "label": "伤害加成",
-                "value": "8.0",
-                "displayValue": "8.0% 自身 最大生命值"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "212",
-            "name": "挑衅",
-            "type": "debuff",
-            "description": "回合开始时，被迫对施展挑衅的目标使用基本技能。",
-            "icon": "/assets/debuffs/provoke-debuff.png"
-          },
-          {
-            "id": "120",
-            "name": "免疫",
-            "type": "buff",
-            "description": "不受任何弱化效果及部分有害效果的影响。",
-            "icon": null
-          }
-        ]
-      },
-      {
-        "id": "sk_m0017_d",
-        "name": "瘟疫一击",
-        "description": "猛击目标，有80(100)%的几率在2回合内造成防御力降低。根据自身最大生命值等比提升伤害量。",
-        "icon": "/library/heroes/church-of-ilryos-axe-sk_m0017_d.png",
-        "cooldown": "冷却时间3回合",
-        "soulGain": 2,
-        "soulBurn": null,
-        "isAoe": false,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 4,
-            "text": "效果发生率提升10%"
-          },
-          {
-            "level": 5,
-            "text": "效果发生率提升10%"
-          },
-          {
-            "level": 6,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 7,
-            "text": "伤害量提升15%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "1",
-                "displayValue": "1"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "0.9",
-                "displayValue": "0.9"
-              },
-              {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
-                "label": "伤害加成",
-                "value": "20.0",
-                "displayValue": "20.0% 自身 最大生命值"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "203",
-            "name": "防御力降低",
-            "type": "debuff",
-            "description": "防御力降低70%。",
-            "icon": "/assets/debuffs/defense-debuff.png"
-          }
-        ]
-      }
-    ],
-    "devotion": [
-      {
-        "id": 527,
-        "createTime": "2026-04-07 22:50:22",
-        "updateTime": "2026-04-08 09:31:38",
-        "tenantId": null,
-        "hero_code": "church-of-ilryos-axe",
-        "public_type": "max_hp",
-        "public_effect_max": "600.0",
-        "self_type": "cri",
-        "self_effect_max": "0.12",
         "public_slot": "1234",
         "remarks": null
       }
@@ -83416,7 +84605,7 @@
     "gameId": "c3103",
     "name": "格伦",
     "nameEn": "Glenn",
-    "nameZht": "格倫",
+    "nameZht": null,
     "nicknames": [
       "gelun"
     ],
@@ -83435,7 +84624,6 @@
       "specialty": "3分钟内洗漱完毕",
       "voiceCv": {
         "en": "VA: Ben Lepley",
-        "id": "c3103",
         "ja": "CV: 石谷春貴",
         "kr": "CV: 남도형",
         "zhs": "CV: 邵晨"
@@ -83520,14 +84708,14 @@
             "name": "防御力降低",
             "type": "debuff",
             "description": "防御力降低70%。",
-            "icon": "/assets/debuffs/defense-debuff.png"
+            "icon": "/library/effects/stic_def_dn.webp"
           }
         ]
       },
       {
         "id": "sk_m0025_w",
         "name": "精确打击",
-        "description": "精确发射导弹攻击并消灭敌人时，造成灭亡效果。攻击的命中提升15%。",
+        "description": "精确发射导弹攻击敌人，消灭时，造成灭亡效果，使自身获得激流效果。攻击的命中提升50%。",
         "icon": "/library/heroes/glenn-sk_m0025_w.png",
         "cooldown": "冷却时间4回合",
         "soulGain": 1,
@@ -83612,13 +84800,20 @@
             "type": "common",
             "description": "因此技能死亡的目标无法复活。",
             "icon": null
+          },
+          {
+            "id": "1310",
+            "name": "激流（无法解除）",
+            "type": "buff",
+            "description": "使用基本技能后，若为单一攻击，则对目标造成相当于已造成伤害量70%的额外伤害。激流在攻击后解除。",
+            "icon": "/library/effects/stic_torrent_keep.webp"
           }
         ]
       },
       {
         "id": "sk_m0026_w",
         "name": "火力集中",
-        "description": "用强化魔方使自身在2回合内攻击力大幅提升，并获得额外回合。",
+        "description": "用强化魔方使自身在2回合内获得攻击力大幅提升、命中提升效果。获得额外回合。",
         "icon": "/library/heroes/glenn-sk_m0026_w.png",
         "cooldown": "冷却时间5(4)回合",
         "soulGain": 2,
@@ -83638,7 +84833,14 @@
             "name": "攻击力大幅提升",
             "type": "buff",
             "description": "攻击力提升75%。",
-            "icon": "/assets/buffs/greater-attack-buff.png"
+            "icon": "/library/effects/stic_att_up2.webp"
+          },
+          {
+            "id": "149",
+            "name": "命中提升",
+            "type": "buff",
+            "description": "命中提升50%。",
+            "icon": "/library/effects/stic_increase_hit.webp"
           },
           {
             "id": "add_turn",
@@ -83652,17 +84854,13 @@
     ],
     "devotion": [
       {
-        "id": 492,
-        "createTime": "2026-04-07 22:49:28",
-        "updateTime": "2026-04-08 09:31:33",
-        "tenantId": null,
-        "hero_code": "glenn",
-        "public_type": "att",
-        "public_effect_max": "120.0",
         "self_type": "att",
-        "self_effect_max": "168.0",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 168,
+        "self_effect": 168,
+        "public_type": "att",
+        "public_effect_max": 120,
+        "public_effect": 120,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [],
@@ -88060,297 +89258,6 @@
         "public_effect_max": "600.0",
         "self_type": "att",
         "self_effect_max": "168.0",
-        "public_slot": "1234",
-        "remarks": null
-      }
-    ],
-    "exclusives": [],
-    "tags": [],
-    "dataStatus": "complete"
-  },
-  {
-    "code": "chaos-sect-axe",
-    "gameId": "c4025",
-    "name": "混沌教巨斧大将军",
-    "nameEn": "Chaos Sect Axe",
-    "nameZht": "混沌教巨斧大將軍",
-    "nicknames": [
-      "dajiangjun",
-      "hundunjiaojufudajiangjun"
-    ],
-    "attribute": "dark",
-    "role": "warrior",
-    "rarity": 3,
-    "zodiac": "lion",
-    "publishDate": null,
-    "descriptionLine": "受到混沌的呼唤，\n展开圣战的巨斧大将军",
-    "story": "魔神战争后，伊利欧斯教斧兵随着教团的没落，也经历着艰难彷徨的时期。但是自从他偶然听见了混沌之神的声音，有了神秘的体验之后，便开始计划创建一个名为混沌教的新兴宗教，决心用自己的斧头征服世界。",
-    "profile": {
-      "hobby": "背诵伊利欧斯教的教义、养护斧刃",
-      "likes": "烈酒、伊利欧斯教的信徒",
-      "dislikes": "镇压、信奉其他宗教的人、叛教者",
-      "motto": "伊利欧斯教会拯救众生！",
-      "specialty": "处决叛教者、抗击镇压者",
-      "voiceCv": {
-        "en": "CV: Elijah Nelson",
-        "id": "c4025",
-        "ja": "CV: 櫻井トオル",
-        "kr": "CV: 오인성",
-        "zhs": "CV: 王西瓜"
-      }
-    },
-    "baseStats": {
-      "atk": 1144,
-      "hp": 6013,
-      "def": 624,
-      "spd": 101,
-      "chc": 0.23,
-      "chd": 1.5,
-      "eff": 0,
-      "efr": 0
-    },
-    "artwork": null,
-    "avatar": "/library/heroes/chaos-sect-axe-avatar.png",
-    "skills": [
-      {
-        "id": "sk_c4025_1",
-        "name": "分离",
-        "description": "用斧头攻击敌人，有75%的几率在1回合内造成挑衅。根据自身最大生命值等比提升伤害量。",
-        "icon": "/library/heroes/chaos-sect-axe-sk_c4025_1.png",
-        "cooldown": "",
-        "soulGain": 1,
-        "soulBurn": null,
-        "isAoe": false,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 4,
-            "text": "伤害量提升15%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "0.7",
-                "displayValue": "0.7"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "0.95",
-                "displayValue": "0.95"
-              },
-              {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
-                "label": "伤害加成",
-                "value": "6.0",
-                "displayValue": "6.0% 自身 最大生命值"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "212",
-            "name": "挑衅",
-            "type": "debuff",
-            "description": "回合开始时，被迫对施展挑衅的目标使用基本技能。",
-            "icon": "/assets/debuffs/provoke-debuff.png"
-          }
-        ]
-      },
-      {
-        "id": "sk_c4025_2",
-        "name": "连锁攻击",
-        "description": "发动冲击波攻击全体敌人，有60%的几率在1回合内造成挑衅后，使自身在1回合内获得免疫效果。根据自身最大生命值等比提升伤害量。",
-        "icon": "/library/heroes/chaos-sect-axe-sk_c4025_2.png",
-        "cooldown": "冷却时间3回合",
-        "soulGain": 1,
-        "soulBurn": {
-          "cost": 10,
-          "description": "该技能冷却时间减少2回合。"
-        },
-        "isAoe": true,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 4,
-            "text": "伤害量提升15%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "0.7",
-                "displayValue": "0.7"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "0.95",
-                "displayValue": "0.95"
-              },
-              {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
-                "label": "伤害加成",
-                "value": "8.0",
-                "displayValue": "8.0% 自身 最大生命值"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "212",
-            "name": "挑衅",
-            "type": "debuff",
-            "description": "回合开始时，被迫对施展挑衅的目标使用基本技能。",
-            "icon": "/assets/debuffs/provoke-debuff.png"
-          },
-          {
-            "id": "120",
-            "name": "免疫",
-            "type": "buff",
-            "description": "不受任何弱化效果及部分有害效果的影响。",
-            "icon": null
-          }
-        ]
-      },
-      {
-        "id": "sk_c4025_3",
-        "name": "血气一击",
-        "description": "猛击目标，有80(100)%的几率在2回合内造成防御力降低效果后，生命值恢复20%。消灭时，获得额外回合。根据自身最大生命值等比提升伤害量。",
-        "icon": "/library/heroes/chaos-sect-axe-sk_c4025_3.png",
-        "cooldown": "冷却时间3回合",
-        "soulGain": 2,
-        "soulBurn": null,
-        "isAoe": false,
-        "dealsDamage": true,
-        "enhancements": [
-          {
-            "level": 1,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 2,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 3,
-            "text": "伤害量提升5%"
-          },
-          {
-            "level": 4,
-            "text": "效果发生率提升10%"
-          },
-          {
-            "level": 5,
-            "text": "效果发生率提升10%"
-          },
-          {
-            "level": 6,
-            "text": "伤害量提升10%"
-          },
-          {
-            "level": 7,
-            "text": "伤害量提升15%"
-          }
-        ],
-        "multipliers": [
-          {
-            "id": "skill_multiplier",
-            "name": "技能倍率",
-            "items": [
-              {
-                "key": "att_rate",
-                "label": "基础倍率(Attack Rate)",
-                "value": "1",
-                "displayValue": "1"
-              },
-              {
-                "key": "pow",
-                "label": "修正倍率(Pow)",
-                "value": "0.9",
-                "displayValue": "0.9"
-              },
-              {
-                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
-                "label": "伤害加成",
-                "value": "20.0",
-                "displayValue": "20.0% 自身 最大生命值"
-              },
-              {
-                "key": "HPUP_CASTER_MAXHP_value",
-                "label": "生命恢复",
-                "value": "20.0",
-                "displayValue": "20.0% 自身 最大生命值"
-              }
-            ]
-          }
-        ],
-        "effects": [
-          {
-            "id": "203",
-            "name": "防御力降低",
-            "type": "debuff",
-            "description": "防御力降低70%。",
-            "icon": "/assets/debuffs/defense-debuff.png"
-          },
-          {
-            "id": "add_turn",
-            "name": "额外回合",
-            "type": "common",
-            "description": "令目标可以再行动一次。",
-            "icon": null
-          }
-        ]
-      }
-    ],
-    "devotion": [
-      {
-        "id": 457,
-        "createTime": "2026-04-07 22:44:26",
-        "updateTime": "2026-04-08 09:31:27",
-        "tenantId": null,
-        "hero_code": "chaos-sect-axe",
-        "public_type": "max_hp",
-        "public_effect_max": "600.0",
-        "self_type": "cri",
-        "self_effect_max": "0.12",
         "public_slot": "1234",
         "remarks": null
       }
@@ -95080,7 +95987,77 @@
     ],
     "exclusives": [],
     "tags": [],
-    "dataStatus": "complete"
+    "dataStatus": "complete",
+    "specialtyChange": {
+      "generalEffects": [
+        {
+          "id": "faith-rune",
+          "name": "信仰符文",
+          "description": "速度提升5。"
+        },
+        {
+          "id": "prosperity-rune",
+          "name": "繁荣符文",
+          "description": "全体我军人员的效果抗性提升5%。"
+        },
+        {
+          "id": "harvest-rune",
+          "name": "收获符文",
+          "description": "受到黑暗属性敌人暴击时，有100%的几率获得30%的伤害降低效果。"
+        },
+        {
+          "id": "order-rune",
+          "name": "秩序符文",
+          "description": "受到黑暗属性敌人的攻击后，有10%的几率使全体我军人员在1回合内防御力提升。"
+        },
+        {
+          "id": "solitude-rune",
+          "name": "孤独符文",
+          "description": "受到黑暗属性敌人的攻击后，使全体我军人员的生命值恢复2%。"
+        },
+        {
+          "id": "relic-rune",
+          "name": "圣物符文",
+          "description": "效果抗性提升25%。"
+        },
+        {
+          "id": "health-rune",
+          "name": "健康符文",
+          "description": "生命值提升10%。"
+        }
+      ],
+      "skillEffects": [
+        {
+          "id": "mana-bullet",
+          "name": "魔力弹",
+          "icon": "/library/heroes/magic-scholar-doris-sk_c4044_1.png",
+          "effects": [
+            {
+              "id": "sacrifice-rune",
+              "name": "牺牲符文",
+              "description": "使用魔力弹时，有100%的几率使自身速攻值提升5%。"
+            },
+            {
+              "id": "guard-rune",
+              "name": "守护符文",
+              "description": "魔力弹的命中降低发生率提升5%。"
+            }
+          ]
+        },
+        {
+          "id": "primal-light",
+          "name": "太初之光",
+          "icon": "/library/heroes/magic-scholar-doris-sk_c4044_3.png",
+          "effects": [
+            {
+              "id": "mercy-rune",
+              "name": "宽宏符文",
+              "description": "使用太初之光时，有100%的几率额外解除目标的1个弱化效果。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "code": "carmainerose",
@@ -98433,7 +99410,7 @@
     "gameId": "c4103",
     "name": "自卫队队长格伦",
     "nameEn": "Vigilante Leader Glenn",
-    "nameZht": "自衛隊隊長格倫",
+    "nameZht": null,
     "nicknames": [
       "gelun",
       "ziweiduiduizhanggelun"
@@ -98453,7 +99430,6 @@
       "specialty": "3分钟内洗漱完毕",
       "voiceCv": {
         "en": "VA: Ben Lepley",
-        "id": "c4103",
         "ja": "CV: 石谷春貴",
         "kr": "CV: 남도형",
         "zhs": "CV: 邵晨"
@@ -98538,14 +99514,14 @@
             "name": "防御力降低",
             "type": "debuff",
             "description": "防御力降低70%。",
-            "icon": "/assets/debuffs/defense-debuff.png"
+            "icon": "/library/effects/stic_def_dn.webp"
           }
         ]
       },
       {
         "id": "sk_c4103_2",
         "name": "精确打击",
-        "description": "精确发射导弹攻击并消灭敌人时，造成灭亡效果。攻击的命中提升15%。",
+        "description": "精确发射导弹攻击敌人，消灭时，造成灭亡效果，使自身获得激流效果。攻击的命中提升50%。",
         "icon": "/library/heroes/vigilante-leader-glenn-sk_c4103_2.png",
         "cooldown": "冷却时间4回合",
         "soulGain": 1,
@@ -98630,13 +99606,20 @@
             "type": "common",
             "description": "因此技能死亡的目标无法复活。",
             "icon": null
+          },
+          {
+            "id": "1310",
+            "name": "激流（无法解除）",
+            "type": "buff",
+            "description": "使用基本技能后，若为单一攻击，则对目标造成相当于已造成伤害量70%的额外伤害。激流在攻击后解除。",
+            "icon": "/library/effects/stic_torrent_keep.webp"
           }
         ]
       },
       {
         "id": "sk_c4103_3",
         "name": "解除限制器",
-        "description": "解除限制器，使自身在2回合内获得攻击力大幅提升、暴击率提升效果。获得额外回合。",
+        "description": "解除限制器，使自身在2回合内获得攻击力大幅提升、暴击率提升、命中提升效果。获得额外回合。",
         "icon": "/library/heroes/vigilante-leader-glenn-sk_c4103_3.png",
         "cooldown": "冷却时间5(4)回合",
         "soulGain": 2,
@@ -98656,14 +99639,21 @@
             "name": "攻击力大幅提升",
             "type": "buff",
             "description": "攻击力提升75%。",
-            "icon": "/assets/buffs/greater-attack-buff.png"
+            "icon": "/library/effects/stic_att_up2.webp"
           },
           {
             "id": "105",
             "name": "暴击率提升",
             "type": "buff",
             "description": "暴击率提升50%。",
-            "icon": null
+            "icon": "/library/effects/stic_cri_up.webp"
+          },
+          {
+            "id": "149",
+            "name": "命中提升",
+            "type": "buff",
+            "description": "命中提升50%。",
+            "icon": "/library/effects/stic_increase_hit.webp"
           },
           {
             "id": "add_turn",
@@ -98677,22 +99667,95 @@
     ],
     "devotion": [
       {
-        "id": 445,
-        "createTime": "2026-04-07 22:44:08",
-        "updateTime": "2026-04-08 09:31:26",
-        "tenantId": null,
-        "hero_code": "vigilante-leader-glenn",
-        "public_type": "att",
-        "public_effect_max": "120.0",
         "self_type": "att",
-        "self_effect_max": "168.0",
-        "public_slot": "1234",
-        "remarks": null
+        "self_effect_max": 168,
+        "self_effect": 168,
+        "public_type": "att",
+        "public_effect_max": 120,
+        "public_effect": 120,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [],
     "tags": [],
-    "dataStatus": "complete"
+    "dataStatus": "complete",
+    "specialtyChange": {
+      "generalEffects": [
+        {
+          "id": "achievement-rune",
+          "name": "成就符文",
+          "description": "攻击力提升15%。"
+        },
+        {
+          "id": "health-rune",
+          "name": "健康符文",
+          "description": "生命值提升10%。"
+        },
+        {
+          "id": "trust-rune",
+          "name": "信赖符文",
+          "description": "速攻值提升2%。"
+        },
+        {
+          "id": "restraint-rune",
+          "name": "制约符文",
+          "description": "攻击时，若自身生命值在50%以上，则伤害量提升20%。"
+        },
+        {
+          "id": "abundance-rune",
+          "name": "富裕符文",
+          "description": "全体我军人员的攻击力提升5%。"
+        }
+      ],
+      "skillEffects": [
+        {
+          "id": "rapid-fire",
+          "name": "神速射击",
+          "icon": "/library/heroes/vigilante-leader-glenn-sk_c4103_1.png",
+          "effects": [
+            {
+              "id": "unity-rune",
+              "name": "团结符文",
+              "description": "神速射击的伤害量提升10%。"
+            },
+            {
+              "id": "unknown-rune",
+              "name": "未知符文",
+              "description": "使用神速射击时，使自身速攻值提升15%。"
+            }
+          ]
+        },
+        {
+          "id": "accurate-strike",
+          "name": "精确打击",
+          "icon": "/library/heroes/vigilante-leader-glenn-sk_c4103_2.png",
+          "effects": [
+            {
+              "id": "harvest-rune",
+              "name": "收获符文",
+              "description": "使用精确打击消灭敌人时，有100%的几率使自身技能冷却时间减少1回合。"
+            },
+            {
+              "id": "wedge-rune",
+              "name": "楔子符文",
+              "description": "精确打击的伤害量提升10%。"
+            }
+          ]
+        },
+        {
+          "id": "limit-breaker",
+          "name": "解除限制器",
+          "icon": "/library/heroes/vigilante-leader-glenn-sk_c4103_3.png",
+          "effects": [
+            {
+              "id": "courage-rune",
+              "name": "勇气符文",
+              "description": "使用解除限制器时，有100%的几率解除自身的1个弱化效果。"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "code": "aither",

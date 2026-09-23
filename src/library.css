@@ -1,5 +1,5 @@
 .suite-nav-shell {
-  width: min(1360px, calc(100vw - 32px));
+  width: calc(var(--workspace-viewport-width, 100vw) - 32px);
   margin: 14px auto 0;
 }
 
@@ -113,7 +113,7 @@
 }
 
 .library-shell {
-  width: min(1360px, calc(100vw - 32px));
+  width: calc(var(--workspace-viewport-width, 100vw) - 32px);
   padding-top: 12px;
 }
 

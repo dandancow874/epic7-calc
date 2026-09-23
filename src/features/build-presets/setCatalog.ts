@@ -15,7 +15,7 @@ export const equipmentSets: EquipmentSet[] = [
   { code: 'set_def', name: '防御套', pieces: 2, icon: icon('setdefense') }, { code: 'set_immune', name: '免疫套', pieces: 2, icon: icon('setimmunity') },
   { code: 'set_penetrate', name: '穿透套', pieces: 2, icon: icon('setpenetration') }, { code: 'set_torrent', name: '激流套', pieces: 2, icon: icon('settorrent') },
   { code: 'set_chase', name: '追击套', pieces: 2, icon: icon('setpursuit') }, { code: 'set_coop', name: '夹攻套', pieces: 2, icon: icon('setunity') },
-  { code: 'set_weak', name: '弱化套', pieces: 2, icon: icon('setweakening') },
+  { code: 'set_weak', name: '弱化套', pieces: 4, icon: icon('setweakening') },
 ];
 
 export function equipmentSet(code: string) {

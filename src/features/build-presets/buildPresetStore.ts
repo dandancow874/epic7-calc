@@ -1,5 +1,6 @@
 import { readPortableJson, writePortableJson } from '../../data/portableData';
 import { emptyTargetStats, type BuildPreset } from './types';
+import { forecastPreset, forecastRoster } from './forecastRoster';
 
 type BuildPresetDb = {
   manual: Record<string, BuildPreset[]>;
@@ -19,6 +20,23 @@ export async function hydrateBuildPresetsFromDisk() {
   } else {
     await writePortableJson(FILE_NAME, cachedDb);
   }
+}
+
+/** Add the latest roster screenshot as one editable local preset per hero. */
+export async function ensureForecastPresets() {
+  let changed = false;
+  const manual = { ...cachedDb.manual };
+  for (const entry of forecastRoster) {
+    const preset = forecastPreset(entry);
+    const rows = manual[entry.heroCode] || [];
+    // Keep an existing preset (including a user-edited copy named 预测) intact.
+    if (rows.some((row) => row.id === preset.id || row.name === preset.name)) continue;
+    manual[entry.heroCode] = [...rows, preset];
+    changed = true;
+  }
+  if (!changed) return;
+  cachedDb = { ...cachedDb, manual };
+  await persist();
 }
 
 export function listBuildPresets(heroCode: string, community?: BuildPreset | null) {

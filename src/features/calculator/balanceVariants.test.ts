@@ -4,8 +4,16 @@ import { DamageFormData } from '../../app/models/forms';
 import { HitType } from '../../app/models/skill';
 
 describe('new heroes and balance variants', () => {
-  it('does not expose pre-balance Old entries in the calculator hero list', () => {
-    expect(Object.keys(Heroes).filter((id) => id.endsWith('_old'))).toEqual([]);
+  it('keeps the September 2026 pre-balance formulas under .old display entries', () => {
+    expect(Object.keys(Heroes).filter((id) => id.endsWith('_old')).sort()).toEqual([
+      'abyssal_yufine_old',
+      'celestial_mercedes_old',
+      'chaos_sect_axe_old',
+      'church_of_ilryos_axe_old',
+      'kawerik_old',
+      'shadow_rose_old',
+      'vigilante_leader_glenn_old',
+    ]);
   });
 
   it('loads Aube and Tidal Rift Elvira from the current library multipliers', () => {
@@ -45,6 +53,8 @@ describe('new heroes and balance variants', () => {
     expect(Heroes.little_queen_charlotte.skills.s3.mult(false, new DamageFormData({ elementalAdvantage: true }), {} as never, 0)).toBe(1.35);
 
     expect(Heroes.schniel.skills.s3.pow(false, new DamageFormData({}))).toBe(1.1);
-    expect(Heroes.schniel.skills.s3.fixed(HitType.miss, new DamageFormData({ skill3Stack: 0 }), {} as never, false)).toBe(5000);
+    expect(Heroes.schniel.heroSpecific).not.toContain('skill3Stack');
+    expect(Heroes.schniel.skills.s3.fixed(HitType.miss, new DamageFormData({}), {} as never, false)).toBe(5000);
+    expect(Heroes.schniel.skills.s3.fixed(HitType.miss, new DamageFormData({ casterIndomitable: true }), {} as never, false)).toBe(15000);
   });
 });

@@ -15,6 +15,20 @@ const preset = {
 } as BuildPreset;
 
 describe('equipment score inference', () => {
+  it('removes Aubade Ludwig passive defense from equipment score without changing the panel', () => {
+    const ludwig = { ...hero, code: 'aubade-ludwig',
+      baseStats: { atk: 1003, hp: 5704, def: 585, spd: 115, chc: .15, chd: 1.5, eff: .3, efr: 0 },
+      devotion: [{ self_type: 'acc', self_effect_max: '.27' }], exclusives: [],
+      gearScoreAdjustments: { finalMultipliers: { def: 1.3 }, additivePercentPoints: {}, libraryBaseStatsIncludes: [] },
+    } as LibraryHero;
+    const sample = { ...preset, heroCode: ludwig.code, artifactCode: null,
+      sets: ['set_chase', 'set_weak'],
+      rightMainStats: { necklace: 'hp_rate', ring: 'eff', boots: 'spd' },
+      targetStats: { ...emptyTargetStats, atk: 1528, hp: 20747, def: 1558, spd: 262, chc: 15, chd: 150, eff: 254 },
+    } as BuildPreset;
+    expect(calculateGearScore(ludwig, sample, null)?.average).toBe(89.48);
+    expect(sample.targetStats.def).toBe(1558);
+  });
   it('derives artifact stats for a selected enhancement level', () => {
     expect(artifactStatsAtLevel(artifact, 24)).toEqual({ atk: 222, hp: 339, def: 0 });
     expect(artifactStatsAtLevel(artifact, 30)).toEqual({ atk: 273, hp: 416, def: 0 });

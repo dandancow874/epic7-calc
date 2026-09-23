@@ -1,5 +1,14 @@
 {
   "heroes": {
+      "haru": "Haru",
+      "renoa": "Renoa",
+      "abyssal_yufine_old": "Abyssal Yufine.old",
+      "celestial_mercedes_old": "Mercedes Celestial.old",
+      "chaos_sect_axe_old": "Machadeiro da Seita do Caos.old",
+      "church_of_ilryos_axe_old": "Machadeiro de Ilírio.old",
+      "kawerik_old": "Kawerik.old",
+      "shadow_rose_old": "Rosa Sombria.old",
+      "vigilante_leader_glenn_old": "Líder Justiceiro Glenn.old",
     "abigail": "Abigail",
     "achates": "Acates",
     "adin": "Adine",
@@ -585,6 +594,9 @@
     "with_more": "Com mais"
   },
   "skills": {
+      "haruPowerfulStrike": "Powerful Strike",
+      "renoaBlackThorn": "Black Thorn",
+      "renoaSoulBullet": "Soul Bullet",
     "nonApplicable": "Não Aplicável",
     "s1": "S1",
     "s2": "S2",

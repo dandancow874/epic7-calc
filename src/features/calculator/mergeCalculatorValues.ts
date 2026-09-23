@@ -26,6 +26,12 @@ export function defenderBattleMaxHP(defender: ProfileValues) {
   return Math.round(base * (1 + hpIncrease / 100) * (1 + lingeringStack * 0.05) * (1 + divinityStack * 0.2) * superhumanization * collapse);
 }
 
+/** Opening barriers of the same buff type do not stack; keep the stronger source. */
+export function defenderOpeningBarrier(defender: ProfileValues, artifactBarrierPercent = 0, hasShieldSet = false) {
+  const barrierPercent = Math.max(0, Number(artifactBarrierPercent || 0), hasShieldSet ? 12 : 0);
+  return Math.round(defenderBattleMaxHP(defender) * barrierPercent / 100);
+}
+
 export function isLinkedTargetField(field: string) {
   return linkedTargetFields.includes(field as typeof linkedTargetFields[number]);
 }

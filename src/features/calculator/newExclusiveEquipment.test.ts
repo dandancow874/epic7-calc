@@ -26,4 +26,5 @@ describe('new exclusive equipment damage effects', () => {
     expect(normal.getBarriers()).toEqual([]);
     expect(equipped.getBarriers()).toEqual([{ label: 'S3', value: 5000 }]);
   });
+
 });

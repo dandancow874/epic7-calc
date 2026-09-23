@@ -1,5 +1,14 @@
 {
   "heroes": {
+      "haru": "Haru",
+      "renoa": "Renoa",
+      "abyssal_yufine_old": "Abyssal Yufine.old",
+      "celestial_mercedes_old": "Celestial Mercedes.old",
+      "chaos_sect_axe_old": "Chaos Sect Axe.old",
+      "church_of_ilryos_axe_old": "Church of Ilryos Axe.old",
+      "kawerik_old": "Kawerik.old",
+      "shadow_rose_old": "Shadow Rose.old",
+      "vigilante_leader_glenn_old": "Vigilante Leader Glenn.old",
     "pre_balance": "Pre-Balance",
     "abigail": "Abigail",
     "abyssal_yufine": "Abyssal Yufine",
@@ -149,6 +158,7 @@
     "frida": "Frida",
     "frieren": "Frieren",
     "fumyr": "Fumyr",
+    "eye_of_the_abyss_fumyr": "Eye of the Abyss Fumyr",
     "furious": "Furious",
     "general_purrgis": "General Purrgis",
     "genesis_ras": "Genesis Ras",
@@ -559,6 +569,9 @@
     "wanderer_silk": "ml.silk mlsilk"
   },
   "skills": {
+      "haruPowerfulStrike": "Powerful Strike",
+      "renoaBlackThorn": "Black Thorn",
+      "renoaSoulBullet": "Soul Bullet",
     "aube_coral_wave": "Coral Wave",
     "lisette_light_source": "Light Source",
     "uncharted_pioneer_politis_pulse_release": "Pulse Release",
@@ -882,6 +895,7 @@
     "skill": "Skill",
     "skill1Stack": "Skill 1 Stack",
     "skill3Stack": "Skill 3 Stack",
+    "casterMoraleStack": "Morale stacks (+10% damage per stack)",
     "skillTreeCompleted": "Skill Tree Completed",
     "slower_max_speed": "Slower Unit Max Speed",
     "slower_min_speed": "Slower Unit Min Speed",

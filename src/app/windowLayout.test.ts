@@ -24,12 +24,28 @@ describe('calculateDockedWindowLayout', () => {
     expect(layout.minHeight).toBeLessThanOrEqual(layout.innerHeight);
   });
 
-  it('shrinks the docked window width with the UI scale', () => {
-    const normal = calculateDockedWindowLayout({ workX: 0, workY: 0, workWidth: 3840, workHeight: 2080, scaleFactor: 2, frameWidth: 16, frameHeight: 62, uiScale: 1 });
-    const compact = calculateDockedWindowLayout({ workX: 0, workY: 0, workWidth: 3840, workHeight: 2080, scaleFactor: 2, frameWidth: 16, frameHeight: 62, uiScale: 0.67 });
+  it('shrinks only the window width with the saved UI scale and keeps it docked right', () => {
+    const normal = calculateDockedWindowLayout({
+      workX: 0, workY: 0, workWidth: 3840, workHeight: 2080,
+      scaleFactor: 2, frameWidth: 16, frameHeight: 62, uiScale: 1,
+    });
+    const compact = calculateDockedWindowLayout({
+      workX: 0, workY: 0, workWidth: 3840, workHeight: 2080,
+      scaleFactor: 2, frameWidth: 16, frameHeight: 62, uiScale: 0.67,
+    });
+
     expect(compact.innerWidth / 2 / 0.67).toBeGreaterThanOrEqual(820);
     expect(compact.innerWidth).toBeLessThan(normal.innerWidth);
     expect(compact.innerHeight).toBe(normal.innerHeight);
     expect(compact.x + compact.innerWidth + 16).toBe(3840);
+  });
+
+  it('uses the wider five-twelfths desktop proportion before UI scaling', () => {
+    const layout = calculateDockedWindowLayout({
+      workX: 0, workY: 0, workWidth: 3840, workHeight: 2080,
+      scaleFactor: 1.5, frameWidth: 12, frameHeight: 46, uiScale: 1,
+    });
+
+    expect(layout.innerWidth + 12).toBe(1600);
   });
 });

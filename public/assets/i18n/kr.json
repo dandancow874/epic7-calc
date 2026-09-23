@@ -1,5 +1,14 @@
 {
     "heroes": {
+        "haru": "Haru",
+        "renoa": "Renoa",
+        "abyssal_yufine_old": "심연의 유피네.old",
+        "celestial_mercedes_old": "외우주의 메르세데스.old",
+        "chaos_sect_axe_old": "카오스교 도끼 대장군.old",
+        "church_of_ilryos_axe_old": "일리오스교 도끼병.old",
+        "kawerik_old": "카웨릭.old",
+        "shadow_rose_old": "그림자 로제.old",
+        "vigilante_leader_glenn_old": "자경단장 글렌.old",
         "pre_balance": "이전 버전",
         "abigail": "아비게일",
         "abyssal_yufine": "심연의 유피네",
@@ -146,6 +155,7 @@
         "frida": "프리다",
         "frieren": "프리렌",
         "fumyr": "후미르",
+        "eye_of_the_abyss_fumyr": "심해의 눈 후미르",
         "furious": "퓨리우스",
         "general_purrgis": "대장 퍼지스",
         "genesis_ras": "기원의 라스",
@@ -680,6 +690,7 @@
         "skill": "스킬",
         "skill1Stack": "1스킬 스택",
         "skill3Stack": "3스킬 스택",
+        "casterMoraleStack": "사기 중첩 (중첩당 피해량 +10%)",
         "skillTreeCompleted": "스킬 트리 완성",
         "slower_max_speed": "느린 영웅 최대 속도",
         "slower_min_speed": "느린 영웅 최소 속도",
@@ -756,6 +767,9 @@
         "with_more": "더"
     },
     "skills": {
+        "haruPowerfulStrike": "Powerful Strike",
+        "renoaBlackThorn": "Black Thorn",
+        "renoaSoulBullet": "Soul Bullet",
         "abyssalYufineUnbridledOutburstSoulburn": "폭주 소울번",
         "abyssalYufineUnbridledOutburst": "폭주",
         "afterMathDmg": "후유장해",

@@ -2,6 +2,15 @@ import { describe, expect, it } from 'vitest';
 import { cycleEquipmentSet, equipmentSet } from './setCatalog';
 
 describe('equipment set catalog', () => {
+  it('counts weakening as four pieces and pairs it with a two-piece set', () => {
+    const weakening = equipmentSet('set_weak');
+    expect(weakening.pieces).toBe(4);
+    const sets = cycleEquipmentSet(['set_chase'], weakening);
+    expect(sets.reduce((sum, code) => sum + equipmentSet(code).pieces, 0)).toBe(6);
+    expect(cycleEquipmentSet(sets, weakening)).toEqual(['set_chase']);
+    expect(cycleEquipmentSet(['set_chase', 'set_weak', 'set_weak'], weakening)).toEqual(['set_chase']);
+  });
+
   it('contains the two-piece full-power set', () => {
     expect(equipmentSet('set_fervor')).toMatchObject({ name: '全力套装', pieces: 2 });
   });

@@ -11,16 +11,19 @@ describe('attack imprint damage calculation', () => {
   };
 
   it('adds a percentage of base attack instead of multiplying the final attack panel', () => {
-    const hero = new DamageEngine('abigail', 'noProc', values).currentHero;
     const imprintDamage = new DamageEngine('abigail', 'noProc', {
       ...values,
       attackImprint: 10,
-    }).getDamage(hero.skills.s3).crit;
+    }).getDamage(
+      new DamageEngine('abigail', 'noProc', values).currentHero.skills.s3,
+    ).crit;
 
     const generalIncreaseDamage = new DamageEngine('abigail', 'noProc', {
       ...values,
       attackIncrease: 10,
-    }).getDamage(hero.skills.s3).crit;
+    }).getDamage(
+      new DamageEngine('abigail', 'noProc', values).currentHero.skills.s3,
+    ).crit;
 
     expect(imprintDamage).toBe(7348);
     expect(generalIncreaseDamage).toBe(7609);

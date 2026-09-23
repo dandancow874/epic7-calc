@@ -53,6 +53,24 @@ export type LibraryExclusiveEquipment = {
   }>;
 };
 
+export type LibrarySpecialtyRune = {
+  id: string;
+  name: string;
+  description: string;
+};
+
+export type LibrarySpecialtySkill = {
+  id: string;
+  name: string;
+  icon: string | null;
+  effects: LibrarySpecialtyRune[];
+};
+
+export type LibrarySpecialtyChange = {
+  generalEffects: LibrarySpecialtyRune[];
+  skillEffects: LibrarySpecialtySkill[];
+};
+
 export type LibraryHero = {
   code: string;
   gameId: string | null;
@@ -79,6 +97,7 @@ export type LibraryHero = {
   skills: LibrarySkill[];
   devotion: unknown[];
   exclusives: LibraryExclusiveEquipment[];
+  specialtyChange?: LibrarySpecialtyChange | null;
   tags: string[];
   dataStatus: LibraryDataStatus;
 };

@@ -1,5 +1,14 @@
 {
   "heroes": {
+      "haru": "Haru",
+      "renoa": "Renoa",
+      "abyssal_yufine_old": "深淵のユピネ.old",
+      "celestial_mercedes_old": "天穹のメルセデス.old",
+      "chaos_sect_axe_old": "カオス教団 重斧総長.old",
+      "church_of_ilryos_axe_old": "イリオス教団 斧兵.old",
+      "kawerik_old": "カーウェリック.old",
+      "shadow_rose_old": "暗躍のロゼ.old",
+      "vigilante_leader_glenn_old": "自警団長 グレン.old",
     "pre_balance": "前のバージョン",
     "abigail": "アビゲイル",
     "abyssal_yufine": "深淵のユピネ",
@@ -146,6 +155,7 @@
     "frida": "フリーダ",
     "frieren": "フリーレン",
     "fumyr": "フミル",
+    "eye_of_the_abyss_fumyr": "深海の瞳フミル",
     "furious": "フューリオス",
     "general_purrgis": "勇将 ファジス",
     "genesis_ras": "起源のラス",
@@ -678,6 +688,7 @@
     "skill": "スキル",
     "skill1Stack": "スキル1スタック",
     "skill3Stack": "スキル3スタック",
+    "casterMoraleStack": "士気スタック（1スタックごとにダメージ+10%）",
     "skillTreeCompleted": "スキルツリーコンプリート",
     "slower_max_speed": "遅いユニットの最高スピード",
     "slower_min_speed": "遅いユニットの最小スピード",
@@ -754,6 +765,9 @@
     "with_more": "もっと"
   },
   "skills": {
+      "haruPowerfulStrike": "Powerful Strike",
+      "renoaBlackThorn": "Black Thorn",
+      "renoaSoulBullet": "Soul Bullet",
     "abyssalYufineUnbridledOutburstSoulburn": "暴走 魂力解放",
     "abyssalYufineUnbridledOutburst": "暴走",
     "afterMathDmg": "余波ダメージ",

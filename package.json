@@ -1,7 +1,7 @@
 {
   "name": "epic7-calc",
   "private": true,
-  "version": "0.1.15",
+  "version": "0.1.17",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5174 --strictPort",
@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:e2e": "node scripts/test-library.mjs",
+    "test:desktop-layout": "node scripts/test-desktop-layout.mjs",
     "library:build": "node scripts/build-library-data.mjs",
     "assets:update": "node scripts/update-assets.mjs",
     "tauri": "tauri"

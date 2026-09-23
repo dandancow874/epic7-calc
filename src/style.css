@@ -1,3 +1,14 @@
+/* Mobile wrappers are structural only in the Windows desktop release. */
+.mobile-combatant,
+.mobile-combatant__body {
+  display: contents;
+}
+
+.mobile-combatant__summary,
+.mobile-combatant__collapse {
+  display: none;
+}
+
 :root {
   color-scheme: dark;
   font-family: "Microsoft YaHei UI", "Segoe UI", sans-serif;
@@ -31,7 +42,7 @@ button {
 }
 
 .app-shell {
-  width: min(1080px, calc(100vw - 32px));
+  width: calc(var(--workspace-viewport-width, 100vw) - 32px);
   min-height: 100vh;
   margin: 0 auto;
   padding: 18px 0 22px;

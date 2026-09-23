@@ -29,6 +29,7 @@ export class Hero {
     flatAttackIncrease: (inputValues: DamageFormData, artifact: Artifact) => number;
     defenseIncrease: (inputValues: DamageFormData) => number;
     speedIncrease: (inputValues: DamageFormData) => number;
+    critDamageIncrease: (inputValues: DamageFormData) => number;
     barrier?: (hero: Hero, skill: Skill, artifact: Artifact, inputValues: DamageFormData, attackMultiplier: number, soulburn: boolean) => number;
     barrier2?: (hero: Hero, skill: Skill, artifact: Artifact, inputValues: DamageFormData, attackMultiplier: number, soulburn: boolean) => number;
     barrier2Enhance?: string;
@@ -58,6 +59,7 @@ export class Hero {
     this.flatAttackIncrease = _.get(heroValues, 'flatAttackIncrease', () => 0);
     this.defenseIncrease = _.get(heroValues, 'defenseIncrease', () => 0);
     this.speedIncrease = _.get(heroValues, 'speedIncrease', () => 1);
+    this.critDamageIncrease = _.get(heroValues, 'critDamageIncrease', () => 0);
     this.barrier = _.get(heroValues, 'barrier', null);
     this.barrier2 = _.get(heroValues, 'barrier2', null);
     this.barrier2Enhance = _.get(heroValues, 'barrier2Enhance', '');

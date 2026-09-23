@@ -764,6 +764,9 @@ export const SkillIDs: Record<string, Record<string, string>> = {
         "s2": "sk_c1147_2",
         "s3": "sk_c1147_3"
     },
+    "eye_of_the_abyss_fumyr": {
+        "s1": "sk_c5147_1"
+    },
     "elvira": {
         "s1": "sk_c1148_1",
         "s2": "sk_c1148_2",
@@ -1924,6 +1927,31 @@ for (const heroId of [
 ]) {
     SkillIDs[`${heroId}_old`] = SkillIDs[heroId];
 }
+
+for (const heroId of [
+    "abyssal_yufine",
+    "celestial_mercedes",
+    "chaos_sect_axe",
+    "church_of_ilryos_axe",
+    "kawerik",
+    "shadow_rose",
+    "urban_shadow_choux",
+    "vigilante_leader_glenn",
+]) {
+    SkillIDs[`${heroId}_old`] = SkillIDs[heroId];
+}
+
+SkillIDs.haru = {
+    "s1": "sk_c1192_1",
+    "s1_bis": "sk_c1192_1",
+    "s3": "sk_c1192_2",
+};
+
+SkillIDs.renoa = {
+    "s1": "sk_c1193_1",
+    "s1_bis": "sk_c1193_1",
+    "s2": "pa_c1193_2",
+};
 
 SkillIDs.aube = {
     "s1": "sk_c5190_1",

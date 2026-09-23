@@ -1,5 +1,14 @@
 {
     "heroes": {
+        "haru": "小春",
+        "renoa": "蕾諾婭",
+        "abyssal_yufine_old": "深淵優芬妮.old",
+        "celestial_mercedes_old": "外太空的玫勒賽德絲.old",
+        "chaos_sect_axe_old": "混沌教巨斧大將軍.old",
+        "church_of_ilryos_axe_old": "伊利歐斯教斧兵.old",
+        "kawerik_old": "卡威利.old",
+        "shadow_rose_old": "暗影蘿季.old",
+        "vigilante_leader_glenn_old": "自衛隊隊長格倫.old",
         "pre_balance": "以前的版本",
         "abigail": "雅碧凱",
         "abyssal_yufine": "深淵優芬妮",
@@ -146,6 +155,7 @@
         "frida": "弗莉達",
         "frieren": "芙莉蓮",
         "fumyr": "芙米爾",
+        "eye_of_the_abyss_fumyr": "深海之眼芙米爾",
         "furious": "尤貝烏斯",
         "general_purrgis": "大將法濟斯",
         "genesis_ras": "起源拉斯",
@@ -677,6 +687,7 @@
         "skill": "技能",
         "skill1Stack": "技能1堆棧",
         "skill3Stack": "技能3堆棧",
+        "casterMoraleStack": "士氣層數（每層傷害提升10%）",
         "skillTreeCompleted": "技能樹完成了",
         "slower_max_speed": "較慢的單位最大速度",
         "slower_min_speed": "較慢的單位最小速度",
@@ -754,6 +765,9 @@
         "with_more": "更多的"
     },
     "skills": {
+        "haruPowerfulStrike": "奮力一擊",
+        "renoaBlackThorn": "黑夜荊棘",
+        "renoaSoulBullet": "鎮魂子彈",
         "abyssalYufineUnbridledOutburstSoulburn": "暴走 靈魂燃燒",
         "abyssalYufineUnbridledOutburst": "暴走",
         "afterMathDmg": "行動後追加傷害",

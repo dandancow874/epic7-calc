@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Check, ChevronDown, MoreHorizontal, Plus, RefreshCw, Search, X } from 'lucide-react';
+import { Check, ChevronDown, ChevronUp, MoreHorizontal, Plus, RefreshCw, Search, X } from 'lucide-react';
 import { Artifacts } from 'src/assets/data/artifacts';
 import { Heroes } from 'src/assets/data/heroes';
 import { FormDefaults } from 'src/app/models/forms';
@@ -31,13 +31,15 @@ import { checkAssetsUpdate, importLatestAssets, loadAssetsMarker, type AssetsUpd
 import { createProfile, deleteProfile, hydrateProfilesFromDisk, listProfiles, loadProfile, renameProfile, saveProfile, selectProfile } from './data/profiles';
 import type { ProfileSummary, ProfileValues, Side } from './data/profiles';
 import { loadRecentHeroes, rememberHero } from './data/recents';
+import { sortLatestChangedHeroesFirst } from './features/calculator/latestChangedHeroes';
+import { calculatorSpecialFieldLabel } from './features/calculator/specialFieldLabel';
 import { applyBuildToCalculator, calculatorArtifactIdForLibraryArtifact, calculatorBuildOptions, calculatorHeroCode, defaultCalculatorBuild, libraryArtifactForCalculatorId, loadCalculatorBuildCatalog, rememberCalculatorBuild, restoreManualBuildValues, withCalculatorArtifact, withCalculatorStat, type CalculatorBuildCatalog } from './features/build-presets/calculatorBuildBridge';
 import { createManualBuildPreset, saveBuildPreset } from './features/build-presets/buildPresetStore';
 import { withDerivedCalculatorFields } from './features/calculator/derivedFields';
 import { equipmentSet } from './features/build-presets/setCatalog';
 import type { BuildPreset } from './features/build-presets/types';
 import { resolveDefenderArtifactEffects } from './features/defender-effects/defenderArtifactEffects';
-import { defenderBattleMaxHP, mergeCalculatorValues, isLinkedTargetField } from './features/calculator/mergeCalculatorValues';
+import { defenderBattleMaxHP, defenderOpeningBarrier, mergeCalculatorValues, isLinkedTargetField } from './features/calculator/mergeCalculatorValues';
 import { damageRemainingPercent } from './features/calculator/damageDisplay';
 import type { LibraryArtifact } from './library/types';
 
@@ -73,14 +75,15 @@ const numberFields = {
 
 const mainAttackerBuffs = [
   ['elementalAdvantage', '属性克制', 'dynamic:advantage'],
-  ['attackUp', '攻击力提升', 'buffs/attack-buff.png'],
+  ['attackUp', '攻击提升', 'buffs/attack-buff.png'],
+  ['increasedCritDamage', '爆伤提升', 'buffs/critical-hit-damage-buff.png'],
   ['torrentSetStack', '激流套', 'sets/torrent-set.png'],
   ['penetrationSet', '穿透套', 'sets/penetration-set.png'],
   ['fervorSet', '全力套装', 'sets/fervor-set.png'],
 ] as const;
 
 const extraAttackerBuffs = [
-  ['increasedCritDamage', '爆伤提升', 'buffs/critical-hit-damage-buff.png'],
+  ['casterHasExploitWeakness', '突破弱点', 'skills/pa_weak.png'],
   ['casterVigor', '魄力', 'buffs/vigor-buff.png'],
   ['casterEnraged', '狂气', 'buffs/rage-buff.png'],
   ['casterRampage', '暴走', 'buffs/rampage-buff.png'],
@@ -97,6 +100,8 @@ const extraAttackerBuffs = [
   ['casterAttackMission', '攻击任务', 'buffs/attack-mission-buff.webp'],
   ['casterDefenseMission', '防御任务', 'buffs/defense-mission-buff.webp'],
   ['casterHasStellarKnowledge', '星辰知识', 'buffs/stellar-knowledge-buff.webp'],
+  ['casterHasExplosives', '爆炸物', 'buffs/explosives-buff.png'],
+  ['casterMoraleStack', '士气', 'buffs/morale-buff.webp'],
   ['casterPilfered', '抢夺', 'debuffs/pilfer-debuff.png'],
   ['casterHasTrauma', '创伤', 'debuffs/trauma-debuff.png'],
   ['rageSet', '愤怒套', 'sets/rage-set.png'],
@@ -109,15 +114,15 @@ const extraAttackerBuffs = [
 const stateGroups = [
   {
     title: '攻击增益',
-    items: [...extraAttackerBuffs.slice(0, 17), ['attackUpGreat', '攻击力大幅提升', 'buffs/greater-attack-buff.png'] as const],
+    items: [...extraAttackerBuffs.slice(0, 19), ['attackUpGreat', '攻击大提升', 'buffs/greater-attack-buff.png'] as const],
   },
   {
     title: '异常 / 减益',
-    items: [...extraAttackerBuffs.slice(17, 19), ['decreasedAttack', '攻击力降低', 'debuffs/attack-debuff.png'] as const],
+    items: [...extraAttackerBuffs.slice(19, 21), ['decreasedAttack', '攻击力降低', 'debuffs/attack-debuff.png'] as const],
   },
   {
     title: '装备套装',
-    items: extraAttackerBuffs.slice(19),
+    items: extraAttackerBuffs.slice(21),
   },
 ] as const;
 
@@ -135,9 +140,10 @@ const defenderBuffs = [
   ['targetLingeringFragranceStack', '余香', 'buffs/lingering-fragrance-buff.png'],
 ] as const;
 
-export function CalculatorWorkspace() {
+export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: { requestedMode?: AppMode; onModeChange?: (mode: AppMode) => void } = {}) {
   const [attackerId, setAttackerId] = useState(() => readCalculatorHero('attacker'));
-  const [mode, setMode] = useState<AppMode>('damage');
+  const [mode, setModeState] = useState<AppMode>(requestedMode);
+  const [mobileExpandedSide, setMobileExpandedSide] = useState<Side | null>(null);
   const [defenderId, setDefenderId] = useState(() => readCalculatorHero('defender'));
   const [artifactId, setArtifactId] = useState('noProc');
   const [attacker, setAttacker] = useState<ProfileValues>(() => loadProfile('attacker', 'abigail'));
@@ -173,6 +179,18 @@ export function CalculatorWorkspace() {
   const skipArtifactValidationRef = useRef<string | null>(null);
   const pendingBuildRef = useRef<Partial<Record<Side, BuildPreset>>>({});
   const buildSaveTimersRef = useRef<Partial<Record<Side, number>>>({});
+
+  useEffect(() => setModeState(requestedMode), [requestedMode]);
+  const collapseFromBlankArea = (event: React.MouseEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLElement;
+    if (!target.closest('button, input, select, textarea, a, label, [role="button"], [role="slider"], [contenteditable="true"]')) {
+      setMobileExpandedSide(null);
+    }
+  };
+  const setMode = (next: AppMode) => {
+    setModeState(next);
+    onModeChange?.(next);
+  };
 
   const hero = Heroes[attackerId] ?? Heroes.abigail;
   const targetHero = Heroes[defenderId] ?? Heroes.abigail;
@@ -402,27 +420,53 @@ export function CalculatorWorkspace() {
 
   useEffect(() => {
     const effects = resolveDefenderArtifactEffects(defenderArtifact, Number(defender.defenderArtifactLevel ?? 30));
+    const activeBuild = defenderBuilds.find((preset) => preset.id === defenderBuildId);
+    const hasShieldSet = defender.useBuildPreset !== false && Boolean(activeBuild?.sets.includes('set_shield'));
     setDefender((current) => {
-      const battleMaxHP = defenderBattleMaxHP({ ...current, targetMaxHPIncrease: effects.hpIncrease });
+      const withArtifactHP = { ...current, targetMaxHPIncrease: effects.hpIncrease };
       const next: ProfileValues = {
         ...current,
         targetMaxHPIncrease: effects.hpIncrease,
         targetDefenseIncrease: effects.defenseIncrease,
         damageReduction: effects.damageReduction,
         damageTransfer: effects.damageTransfer,
-        targetBarrier: Math.round(battleMaxHP * effects.barrierPercent / 100),
+        targetBarrier: defenderOpeningBarrier(withArtifactHP, effects.barrierPercent, hasShieldSet),
       };
       return (['targetMaxHPIncrease', 'targetDefenseIncrease', 'damageReduction', 'damageTransfer', 'targetBarrier'] as const)
         .every((key) => current[key] === next[key]) ? current : next;
     });
-  }, [defenderArtifact, defender.defenderArtifactCode, defender.defenderArtifactLevel, defender.targetMaxHP, defender.targetLingeringFragranceStack]);
+  }, [defenderArtifact, defender.defenderArtifactCode, defender.defenderArtifactLevel, defender.targetMaxHP,
+    defender.targetLingeringFragranceStack, defender.targetDivinityStack, defender.targetHasSuperhumanization,
+    defender.targetHasCollapse, defender.useBuildPreset, defenderBuildId, defenderBuilds]);
 
   const updateSide = (side: Side, key: string, value: number | boolean) => {
     const updatedPreset = typeof value === 'number' ? queueBuildStatSave(side, key, value) : null;
     if (side === 'attacker') setAttacker((prev) => {
+      const statePatch: Partial<ProfileValues> = {};
+      if (key === 'attackUp') {
+        // The game treats normal and great attack up as one exclusive buff.
+        // The visible chip is a three-state control: off → normal → great → off.
+        if (value) {
+          statePatch.attackUp = true;
+          statePatch.attackUpGreat = false;
+        } else if (prev.attackUp) {
+          statePatch.attackUp = false;
+          statePatch.attackUpGreat = true;
+        } else if (prev.attackUpGreat) {
+          statePatch.attackUp = false;
+          statePatch.attackUpGreat = false;
+        } else {
+          statePatch.attackUp = false;
+          statePatch.attackUpGreat = false;
+        }
+      } else if (key === 'attackUpGreat') {
+        statePatch.attackUp = false;
+        statePatch.attackUpGreat = Boolean(value);
+      }
       const next: ProfileValues = {
         ...prev,
         [key]: value,
+        ...statePatch,
         ...(updatedPreset && key === 'artifactLevel' ? {
         attack: updatedPreset.targetStats.atk,
         casterMaxHP: updatedPreset.targetStats.hp,
@@ -596,8 +640,17 @@ export function CalculatorWorkspace() {
 
       {mode === 'damage' ? (
         <>
-          <section className="duel-grid">
-            <CombatPanel
+          <section className="duel-grid mobile-duel-grid">
+            <section className={`mobile-combatant attack ${mobileExpandedSide === 'attacker' ? 'expanded' : 'collapsed'}`}>
+              <button type="button" className="mobile-combatant__summary" onClick={() => setMobileExpandedSide(current => current === 'attacker' ? null : 'attacker')} aria-expanded={mobileExpandedSide === 'attacker'}>
+                <img src={`/assets/heroes/${attackerId}-icon.png`} onError={fallback('/assets/heroes/missing.png')} alt="" />
+                <span><small>攻击对象</small><strong>{heroName(attackerId)}</strong><em>{attackerBuilds.find((preset) => preset.id === attackerBuildId)?.name || '手动面板'} · 攻击 {Math.round(Number(mergedValues.attack || 0))}</em></span>
+                {(attackerLibraryArtifact || artifactId !== 'noProc') && <img className="mobile-combatant__artifact" src={attackerLibraryArtifact?.image || `/assets/artifacts/${Artifacts[artifactId]?.id || 'noProc'}.png`} onError={fallback('/assets/artifacts/noProc.png')} alt="" />}
+                {mobileExpandedSide === 'attacker' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+              </button>
+              <button type="button" className="mobile-combatant__collapse" onClick={() => setMobileExpandedSide(null)} aria-label="收起攻击对象"><ChevronUp size={18} />收起</button>
+              <div className="mobile-combatant__body" onClick={collapseFromBlankArea}>
+              <CombatPanel
               side="attacker"
               heroId={attackerId}
               artifactId={artifactId}
@@ -621,7 +674,18 @@ export function CalculatorWorkspace() {
               onUseBuildPreset={(checked) => toggleBuildPreset('attacker', checked)}
               hasAdditionalDamage={attackerHasAdditionalDamage}
             />
-            <CombatPanel
+              </div>
+            </section>
+            <section className={`mobile-combatant defense ${mobileExpandedSide === 'defender' ? 'expanded' : 'collapsed'}`}>
+              <button type="button" className="mobile-combatant__summary" onClick={() => setMobileExpandedSide(current => current === 'defender' ? null : 'defender')} aria-expanded={mobileExpandedSide === 'defender'}>
+                <img src={`/assets/heroes/${defenderId}-icon.png`} onError={fallback('/assets/heroes/missing.png')} alt="" />
+                <span><small>防守对象</small><strong>{heroName(defenderId)}</strong><em>{defenderBuilds.find((preset) => preset.id === defenderBuildId)?.name || '手动面板'} · 生命 {Math.round(targetFinalMaxHP).toLocaleString('zh-CN')}</em></span>
+                <img className="mobile-combatant__artifact" src={defenderArtifact?.image || '/assets/artifacts/noProc.png'} onError={fallback('/assets/artifacts/noProc.png')} alt="" />
+                {mobileExpandedSide === 'defender' ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+              </button>
+              <button type="button" className="mobile-combatant__collapse" onClick={() => setMobileExpandedSide(null)} aria-label="收起防守对象"><ChevronUp size={18} />收起</button>
+              <div className="mobile-combatant__body" onClick={collapseFromBlankArea}>
+              <CombatPanel
               side="defender"
               heroId={defenderId}
               values={defender}
@@ -640,6 +704,8 @@ export function CalculatorWorkspace() {
               useBuildPreset={defender.useBuildPreset !== false}
               onUseBuildPreset={(checked) => toggleBuildPreset('defender', checked)}
             />
+              </div>
+            </section>
           </section>
 
           <DamageTable
@@ -699,11 +765,6 @@ export function CalculatorWorkspace() {
             setAttacker(nextAttacker);
             flushAttackerProfile(nextAttacker, id);
             setPicker(null);
-            window.setTimeout(() => {
-              const input = document.querySelector<HTMLInputElement>('[data-artifact-level]');
-              input?.focus();
-              input?.select();
-            }, 50);
           }}
           onSelectDefenderArtifact={(code) => {
             const updatedPreset = queueBuildArtifactSave('defender', code, 30);
@@ -724,6 +785,7 @@ export function CalculatorWorkspace() {
 
       {moreOpen && (
         <StateModal
+          heroId={attackerId}
           hasAdditionalDamage={attackerHasAdditionalDamage}
           values={attacker}
           onClose={() => setMoreOpen(false)}
@@ -877,7 +939,7 @@ function CombatPanel(props: {
   const hero = Heroes[props.heroId] ?? Heroes.abigail;
   const artifact = props.artifactId ? Artifacts[props.artifactId] : null;
   const fields = numberFields[props.side];
-  const commonAttackerBuffs = [
+      const commonAttackerBuffs = [
     ...mainAttackerBuffs,
     ...(props.hasAdditionalDamage ? [['pursuitSet', '追击套', 'sets/pursuit-set.png'] as const] : []),
   ];
@@ -1003,6 +1065,7 @@ function CombatPanel(props: {
             <SpecialInput
               key={field}
               field={field}
+              label={calculatorSpecialFieldLabel(props.heroId, field, props.values[field])}
               value={props.values[field]}
               maximum={hero.heroSpecificMaximums?.[field] ?? artifact?.artifactSpecificMaximums?.[field]}
               locked={props.useDefenderPreset !== false && isLinkedTargetField(field)}
@@ -1013,21 +1076,20 @@ function CombatPanel(props: {
       )}
 
       <div className="buff-row">
-        {buffs.map(([key, label, icon]) => {
-          const stackLimit = key === 'torrentSetStack'
-            ? 3
-            : key === 'targetLingeringFragranceStack'
-              ? 5
-              : key === 'targetDivinityStack'
-                ? 4
-                : 0;
+      {buffs.map(([key, label, icon]) => {
+          const stackLimit = stateStackLimit(key);
           const stackCount = stackLimit ? Math.min(stackLimit, Math.max(0, Number(props.values[key] || 0))) : 0;
+          const attackState = key === 'attackUp'
+            ? (props.values.attackUpGreat ? 'great' : props.values.attackUp ? 'normal' : 'off')
+            : null;
+          const displayLabel = attackState === 'great' ? '攻击大提升' : label;
+          const displayIcon = attackState === 'great' ? 'buffs/greater-attack-buff.png' : icon;
           return (
             <Chip
               key={key}
-              label={stackCount ? `${label} ${stackCount}` : label}
-              icon={icon === 'dynamic:advantage' ? `elements/${counterElement(hero.element)}.png` : icon}
-              checked={Boolean(props.values[key])}
+              label={stackCount ? `${displayLabel} ${stackCount}` : displayLabel}
+              icon={displayIcon === 'dynamic:advantage' ? `elements/${counterElement(hero.element)}.png` : displayIcon}
+              checked={attackState === 'great' || attackState === 'normal' ? true : Boolean(props.values[key])}
               onChange={(checked) => props.onValueChange(
                 props.side,
                 key,
@@ -1046,6 +1108,7 @@ function CombatPanel(props: {
 
 function SpecialInput(props: {
   field: string;
+  label?: string;
   value: unknown;
   maximum?: number;
   locked?: boolean;
@@ -1055,6 +1118,10 @@ function SpecialInput(props: {
   useEffect(() => {
     setDraft(String(props.value ?? FormDefaults[props.field]?.defaultValue ?? ''));
   }, [props.field, props.value]);
+
+  if (props.field === 'allyMaxHPIncrease') {
+    return <AllyMaxHPIncreaseInput value={props.value} locked={props.locked} onChange={props.onChange} />;
+  }
 
   const config = FormDefaults[props.field];
   const isBoolean = typeof config?.default === 'boolean' || booleanFieldFallback(props.field);
@@ -1075,7 +1142,7 @@ function SpecialInput(props: {
   const value = Number(props.value ?? config?.defaultValue ?? min);
   return (
     <label className="special-input">
-      <span title={fieldName(props.field)}>{shortFieldName(props.field)}</span>
+      <span title={fieldName(props.field)}>{props.label || shortFieldName(props.field)}</span>
       <input
         type="number"
         min={min}
@@ -1122,6 +1189,52 @@ function StatField(props: { label: string; value: number; min: number; max: numb
         onCommit={props.onChange}
       />}
     </label>
+  );
+}
+
+function AllyMaxHPIncreaseInput(props: {
+  value: unknown;
+  locked?: boolean;
+  onChange: (value: number) => void;
+}) {
+  const value = Number(props.value ?? FormDefaults.allyMaxHPIncrease?.defaultValue ?? 0);
+  const presets = [0, 5, 10, 15, 20];
+
+  return (
+    <div className="special-input ally-hp-input">
+      <div className="ally-hp-input-label">
+        <span>前排盟友生命增加</span>
+        <small>与友情信物等生命倍率加算</small>
+      </div>
+      <div className="ally-hp-controls">
+        <div className="ally-hp-presets" aria-label="前排盟友生命增加快捷值">
+          {presets.map((preset) => (
+            <button
+              key={preset}
+              type="button"
+              className={`ally-hp-preset ${value === preset ? 'active' : ''}`}
+              disabled={props.locked}
+              onClick={() => props.onChange(preset)}
+            >
+              +{preset}%
+            </button>
+          ))}
+        </div>
+        <input
+          type="number"
+          min={0}
+          max={100}
+          step={1}
+          value={value}
+          disabled={props.locked}
+          aria-label="前排盟友生命增加百分比"
+          onChange={(event) => {
+            const next = Number(event.target.value);
+            if (!Number.isNaN(next)) props.onChange(clampNumber(next, 0, 100));
+          }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -1199,16 +1312,16 @@ function DamageTable(props: {
         </thead>
         <tbody>
           {props.rows.map((row) => {
-            const base = row.skill.match(/s[123]/)?.[0] || 's1';
+            const base = row.skillId?.match(/^s[123]/)?.[0] || row.skill.match(/s[123]/)?.[0] || 's1';
             const levelKey = `molagoras${base.slice(1)}`;
             const max = props.hero.skills[base]?.enhance.length || 0;
             return (
-              <React.Fragment key={row.skill}>
+              <React.Fragment key={`${row.skill}-${row.variant ?? 'base'}`}>
                 <tr className={row.breakdown ? 'damage-total-row' : undefined}>
                   <td>
                     <span className="skill-cell">
                       <img src={skillIcon(props.heroId, row.skill)} onError={fallback('/assets/skills/missing.png')} alt="" />
-                      <span>{skillName(row.skill)}</span>
+                      <span>{skillName(row.skill)}{row.variant ? `(${row.variant})` : ''}</span>
                       <NumberDraftInput
                         className="level-input"
                         value={Number(props.values[levelKey] ?? max)}
@@ -1732,10 +1845,11 @@ function Picker(props: {
     ? heroEntries
       .filter(([id]) => !q || `${id} ${heroName(id)} ${heroNickname(id)}`.toLowerCase().includes(q))
       .sort(([a], [b]) => recentRank(a, props.recentHeroes) - recentRank(b, props.recentHeroes))
-      .slice(0, 120)
     : [];
   const recentHeroItems = !q ? filteredHeroes.filter(([id]) => recentSet.has(id)).slice(0, 10) : [];
-  const heroItems = !q ? filteredHeroes.filter(([id]) => !recentSet.has(id)) : filteredHeroes;
+  const heroItems = !q
+    ? sortLatestChangedHeroesFirst(filteredHeroes.filter(([id]) => !recentSet.has(id))).slice(0, 120)
+    : filteredHeroes.slice(0, 120);
 
   return (
     <div className="modal-scrim" onClick={props.onClose}>
@@ -1825,6 +1939,7 @@ function ocrStateText(state: 'idle' | 'reading' | 'done' | 'error', count: numbe
 }
 
 function StateModal(props: {
+  heroId: string;
   hasAdditionalDamage?: boolean;
   values: ProfileValues;
   onClose: () => void;
@@ -1837,6 +1952,7 @@ function StateModal(props: {
       ...group,
       items: group.items
         .filter(([key]) => !mainAttackerBuffs.some(([commonKey]) => commonKey === key))
+        .filter(([key]) => !(props.heroId === 'haru' && key === 'casterMoraleStack'))
         .filter(([key]) => !(props.hasAdditionalDamage && key === 'pursuitSet'))
         .filter(([key, label]) => !q || `${key} ${label}`.toLowerCase().includes(q)),
     }))
@@ -2031,13 +2147,14 @@ function StateGroup(props: {
       <h3>{props.title}</h3>
       <div className="state-grid">
         {props.items.map(([key, label, icon]) => (
-          key === 'torrentSetStack'
+          stateStackLimit(key)
             ? (
-              <TorrentSetControl
+              <StackStateControl
                 key={key}
                 label={label}
                 icon={icon}
                 value={Number(props.values[key] || 0)}
+                maximum={stateStackLimit(key)}
                 onChange={(value) => props.onChange(key, value)}
               />
             )
@@ -2060,22 +2177,27 @@ function barrierLabel(label: string) {
   return label.replace(/^s([123])$/i, 'S$1').replace(/\bSoulburn\b/g, 'Soulburn');
 }
 
-function TorrentSetControl(props: {
+function StackStateControl(props: {
   label: string;
   icon: string;
   value: number;
+  maximum: number;
   onChange: (value: number) => void;
 }) {
-  const value = Math.min(3, Math.max(0, Math.round(props.value || 0)));
+  const value = Math.min(props.maximum, Math.max(0, Math.round(props.value || 0)));
   return (
     <div className={`torrent-control ${value ? 'checked' : ''}`}>
-      <button className="torrent-main" onClick={() => props.onChange(value ? 0 : 1)}>
+      <button className="torrent-main" onClick={() => props.onChange(value >= props.maximum ? 0 : value + 1)}>
         <span className="checkmark">{value ? '✓' : ''}</span>
         <img src={`/assets/${props.icon}`} onError={fallback('/assets/icons/help-circle-outline.svg')} alt="" />
         <span>{props.label}</span>
       </button>
-      <div className="torrent-count" aria-label="激流套数量">
-        {[1, 2, 3].map((count) => (
+      <div
+        className="torrent-count"
+        aria-label={`${props.label}数量`}
+        style={{ gridTemplateColumns: `repeat(${Math.min(props.maximum, 5)}, 32px)` }}
+      >
+        {Array.from({ length: props.maximum }, (_, index) => index + 1).map((count) => (
           <button
             key={count}
             className={value === count ? 'active' : ''}
@@ -2089,6 +2211,14 @@ function TorrentSetControl(props: {
   );
 }
 
+function stateStackLimit(key: string) {
+  if (key === 'torrentSetStack') return 3;
+  if (key === 'targetLingeringFragranceStack') return 5;
+  if (key === 'targetDivinityStack') return 4;
+  if (key === 'casterMoraleStack') return 3;
+  return 0;
+}
+
 function uniqueFields(fields: string[]) {
   return Array.from(new Set(fields.filter(Boolean)));
 }
@@ -2096,6 +2226,8 @@ function uniqueFields(fields: string[]) {
 function shortFieldName(field: string) {
   const names: Record<string, string> = {
     casterMaxHP: '施法者最大生命',
+    allyMaxHP: '前排盟友最大生命',
+    allyMaxHPIncrease: '前排盟友生命增加(%)',
     casterMaxHPIncrease: '最大生命增加(%)',
     casterLingeringFragranceStack: '余香',
     casterDefenseUp: '防御力提升',
@@ -2108,6 +2240,7 @@ function shortFieldName(field: string) {
     casterAttackMission: '攻击任务',
     casterDefenseMission: '防御任务',
     casterHasStellarKnowledge: '星辰知识',
+    casterMoraleStack: '士气层数（每层伤害+10%）',
     casterDivinityStack: '神圣层数',
     targetDivinityStack: '神圣层数',
     casterSpeedUp: '速度提升',
@@ -2120,6 +2253,7 @@ function shortFieldName(field: string) {
     targetSpeedDown: '目标速度降低',
     targetHasRampage: '目标暴走',
     targetDefenseDownAftermath: '追加前防破',
+    renoaSoulBullets: '镇魂子弹数量',
   };
   return names[field] || fieldName(field);
 }

@@ -45,6 +45,7 @@ export class Artifact {
     penetrate: number;
     extraAttackBonus: boolean;
     speedBoost: ((inputValues: DamageFormData) => number) | null;
+    affectsAllyHP: boolean;
     artifactSpecific: string[];
     artifactSpecificMaximums: Record<string, number>;
     ignoreDamageTransfer: (inputValues: DamageFormData) => boolean;
@@ -65,6 +66,7 @@ export class Artifact {
         this.speedScaling = _.get(data, 'speedScaling', false);
         this.extraAttackBonus = _.get(data, 'extraAttackBonus', false);
         this.speedBoost = _.get(data, 'speedBoost', null);
+        this.affectsAllyHP = _.get(data, 'affectsAllyHP', false);
         this.value = _.get(data, 'value', (artifactScale: number) => artifactScale);
         this.barrier = _.get(data, 'barrier', null);
         this.barrierScale = _.get(data, 'barrierScale', []);

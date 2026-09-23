@@ -34,10 +34,10 @@ export function calculateDockedWindowLayout(input: DockedWindowLayoutInput): Doc
   const bottomGap = Math.min(workHeight - 1, Math.max(1, Math.round(8 * scaleFactor)));
 
   const minimumOuterWidth = Math.min(workWidth, 720);
-  const proportionalOuterWidth = Math.round(workWidth * 0.375);
+  // Keep the default desktop layout near 1600px on a 3840px-wide work area.
+  // The previous 37.5% ratio produced roughly 1420px on the user's work area.
+  const proportionalOuterWidth = Math.round(workWidth * (5 / 12));
   const baseOuterWidth = Math.min(workWidth, Math.max(minimumOuterWidth, proportionalOuterWidth));
-  // Keep enough effective CSS width for both calculator panels. WebView zoom
-  // and Windows DPI both change how many physical pixels that layout needs.
   const minimumCalculatorOuterWidth = Math.round(820 * scaleFactor * uiScale) + frameWidth;
   const outerWidth = Math.min(workWidth, Math.max(1, Math.round(baseOuterWidth * uiScale), minimumCalculatorOuterWidth));
   const outerHeight = Math.max(1, workHeight - bottomGap);

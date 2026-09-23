@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { defenderBattleMaxHP, mergeCalculatorValues } from './mergeCalculatorValues';
+import { defenderBattleMaxHP, defenderOpeningBarrier, mergeCalculatorValues } from './mergeCalculatorValues';
 
 describe('calculator target preset linking', () => {
   const attacker = { attack: 3000, targetAttack: 1111, targetMaxHP: 9000, targetCurrentHP: 3500, targetDefense: 800, targetSpeed: 120 };
@@ -22,5 +22,15 @@ describe('calculator target preset linking', () => {
     expect(defenderBattleMaxHP(boosted)).toBe(30250);
     expect(mergeCalculatorValues(attacker, boosted, true).targetCurrentHP).toBe(30250);
     expect(mergeCalculatorValues(attacker, boosted, false).targetCurrentHP).toBe(3500);
+  });
+
+  it('calculates Protection Set barrier from final battle HP including Lingering Fragrance and Divinity', () => {
+    expect(defenderOpeningBarrier({ targetMaxHP: 25000, targetDivinityStack: 4 }, 0, true)).toBe(5400);
+    expect(defenderOpeningBarrier({ targetMaxHP: 25000, targetLingeringFragranceStack: 5 }, 0, true)).toBe(3750);
+    expect(defenderOpeningBarrier({ targetMaxHP: 25000, targetLingeringFragranceStack: 5, targetDivinityStack: 4 }, 0, true)).toBe(6750);
+  });
+
+  it('uses the stronger opening barrier when an artifact and Protection Set are both equipped', () => {
+    expect(defenderOpeningBarrier({ targetMaxHP: 25000 }, 30, true)).toBe(7500);
   });
 });

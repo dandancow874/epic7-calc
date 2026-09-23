@@ -9,6 +9,8 @@ import { AftermathSkill, DoT, DoTSkill, HitType, Skill } from 'src/app/models/sk
 
 export interface DamageRow {
   skill: string;
+  skillId?: string;
+  variant?: 'a' | 'b';
   crit: number | null;
   crush: number | null;
   normal: number | null;
@@ -124,7 +126,7 @@ export class DamageEngine {
   }
 
   getGlobalDamageMult(skill: Skill, soulburn: boolean): number {
-    let mult = 0.0;
+    let mult = this.form.casterMoraleStack * 0.1;
     damageMultSets.forEach((set) => {
       const stack = _.get(this.form, `${set}Stack`, 1) as number;
       mult += (this.form[set] || !!this.form[`${set}Stack`]) ? _.get(BattleConstants, set) * stack : 0.0;
@@ -160,6 +162,7 @@ export class DamageEngine {
     const dmgMod = 1.0
       + this.getGlobalDamageMult(skill, soulburn)
       + this.form.damageIncrease / 100
+      + (this.form.casterHasExploitWeakness ? 0.2 : 0)
       + this.currentArtifact.getDamageMultiplier(this.form.artifactLevel, this.form, skill, soulburn, hitType, isExtra)
       + (skill.mult ? skill.mult(soulburn, this.form, this.currentArtifact, heroAttack) - 1 : 0);
 
@@ -240,6 +243,7 @@ export class DamageEngine {
     let critDmgBuff = this.form.increasedCritDamage ? BattleConstants.increasedCritDamage : 0.0;
     critDmgBuff += this.form.casterHasStarsBlessing ? BattleConstants.casterHasStarsBlessing - 1 : 0;
     critDmgBuff += this.form.casterHasGodOfBattle ? this.form.critDamage / 100 : 0;
+    critDmgBuff += this.currentHero.critDamageIncrease(this.form);
     const fixedDamageTransfer = (skill.ignoreDamageTransfer(this.form) || this.currentArtifact.ignoreDamageTransfer(this.form))
       ? 1
       : Math.max(0, 1 - this.form.damageTransfer / 100);
@@ -287,6 +291,7 @@ export class DamageEngine {
 
     return {
       skill: (skill.name || skill.id) + (soulburn ? '_soulburn' : (isExtra ? '_extra' : (isCounter && !skill.isCounter ? '_counter' : ''))),
+      skillId: skill.id,
       ...total,
       breakdown: detonate > 0 ? { direct, detonate: detonateValues, other, total } : undefined,
     };
@@ -315,7 +320,9 @@ export class DamageEngine {
   }
 
   getDotDamages(): DotDamage[] {
-    return Array.from(new Set(this.currentHero.getDoT(this.currentArtifact)))
+    const dotTypes = this.currentHero.getDoT(this.currentArtifact);
+    if (this.form.casterHasExplosives) dotTypes.push(DoT.bomb);
+    return Array.from(new Set(dotTypes))
       .map((type) => ({ type, value: Math.round(this.getDotDamage(DoTSkill, type)) }))
       .filter((item) => item.value > 0);
   }
@@ -386,6 +393,18 @@ export class DamageEngine {
     const rows: DamageRow[] = [];
     for (const skill of Object.values(this.currentHero.skills)) {
       if (skill.rate(false, this.form, false) || skill.pow(false, this.form) || skill.afterMath(HitType.crit, this.form, false) || skill.detonation(true, this.form)) {
+        if (this.heroId === 'renoa' && skill.id === 's2' && this.form.renoaSoulBullets > 5) {
+          const originalBulletsOnTarget = this.form.renoaSoulBulletsOnTarget;
+          try {
+            this.form.renoaSoulBulletsOnTarget = 5;
+            rows.push({ ...this.getDamage(skill), variant: 'a' });
+            this.form.renoaSoulBulletsOnTarget = Math.min(this.form.renoaSoulBullets - 5, 5);
+            rows.push({ ...this.getDamage(skill), variant: 'b' });
+          } finally {
+            this.form.renoaSoulBulletsOnTarget = originalBulletsOnTarget;
+          }
+          continue;
+        }
         rows.push(this.getDamage(skill, false, false, skill.isCounter));
         if (skill.soulburn) rows.push(this.getDamage(skill, true, false));
         if (skill.canExtra && (this.currentArtifact.extraAttackBonus || skill.extraModifier)) rows.push(this.getDamage(skill, false, true));

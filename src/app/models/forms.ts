@@ -76,6 +76,12 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
         min: 1000,
         defaultValue: 10000
     },
+    allyMaxHPIncrease: {
+        max: 100,
+        min: 0,
+        defaultValue: 0,
+        step: 1,
+    },
     casterDefenseUp: {
         icon: 'buffs/defense-buff.png'
     },
@@ -204,6 +210,10 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
     },
     casterHasStealth: {
         icon: 'buffs/stealth-buff.png'
+    },
+    casterHasExploitWeakness: {
+        icon: 'skills/pa_weak.png',
+        default: false
     },
     targetHasDebuff: {
         icon: 'icons/e7-chevron-down.png'
@@ -564,6 +574,12 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
         min: 0,
         defaultValue: 0
     },
+    casterMoraleStack: {
+        max: 3,
+        min: 0,
+        defaultValue: 0,
+        icon: 'buffs/morale-buff.webp'
+    },
     skill1Stack: {
         max: 3,
         min: 0,
@@ -588,6 +604,11 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
         max: 80,
         min: 0,
         defaultValue: 0
+    },
+    renoaSoulBullets: {
+        max: 10,
+        min: 1,
+        defaultValue: 1
     },
 }
 
@@ -649,6 +670,7 @@ export class DamageFormData {
     casterHasDemonBladeUnleashed: boolean;
     targetHasDemonBladeUnleashed: boolean;
     casterHasStealth: boolean;
+    casterHasExploitWeakness: boolean;
     casterHasTrauma: boolean;
     casterPilfered: boolean;
     targetRuptured: boolean;
@@ -672,6 +694,7 @@ export class DamageFormData {
     casterLingeringFragranceStack: number;
     casterTurn: boolean;
     allyMaxHP: number;
+    allyMaxHPIncrease: number;
     casterNumberOfBuffs: number;
     alliesNumberOfBuffs: number;
     casterPerception: boolean;
@@ -723,10 +746,13 @@ export class DamageFormData {
     S3OnCooldown: boolean;
     singleAttackStack: number;
     skill3Stack: number;
+    casterMoraleStack: number;
     skill1Stack: number;
     skillTreeCompleted: boolean;
     soulburnStack: number;
     numberOfSouls: number;
+    renoaSoulBullets: number;
+    renoaSoulBulletsOnTarget: number;
     targetAsleep: boolean;
     targetAttack: number;
     targetBleedDetonate: number;
@@ -834,6 +860,7 @@ export class DamageFormData {
         this.casterHasDemonBladeUnleashed = _.get(data, 'casterHasDemonBladeUnleashed', false);
         this.targetHasDemonBladeUnleashed = _.get(data, 'targetHasDemonBladeUnleashed', false);
         this.casterHasStealth = _.get(data, 'casterHasStealth', false);
+        this.casterHasExploitWeakness = _.get(data, 'casterHasExploitWeakness', false);
         this.casterHasTrauma = _.get(data, 'casterHasTrauma', false);
         this.casterHasStarsBlessing = _.get(data, 'casterHasStarsBlessing', false);
         this.casterHasWarGod = _.get(data, 'casterHasWarGod', false);
@@ -854,6 +881,7 @@ export class DamageFormData {
         this.casterMaxHPIncrease = _.get(data, 'casterMaxHPIncrease', 0);
         this.casterLingeringFragranceStack = _.get(data, 'casterLingeringFragranceStack', 0);
         this.allyMaxHP = _.get(data, 'allyMaxHP', 10000);
+        this.allyMaxHPIncrease = _.get(data, 'allyMaxHPIncrease', 0);
         this.casterNumberOfBuffs = _.get(data, 'casterNumberOfBuffs', 0)
         this.alliesNumberOfBuffs = _.get(data, 'alliesNumberOfBuffs', 0)
         this.casterPerception = _.get(data, 'casterPerception', false);
@@ -889,8 +917,8 @@ export class DamageFormData {
         this.highestAllyAttackUpGreat = _.get(data, 'highestAllyAttackUpGreat', false);
         this.highestAllyAttackDown = _.get(data, 'highestAllyAttackDown', false);
         this.inBattleHP = _.get(data, 'inBattleHP', false);
-        this.attackUp = _.get(data, 'attackUp', false);
         this.attackUpGreat = _.get(data, 'attackUpGreat', false);
+        this.attackUp = _.get(data, 'attackUp', false) && !this.attackUpGreat;
         this.molagoras1 = _.get(data, 'molagoraS1', 0);
         this.molagoras2 = _.get(data, 'molagoraS2', 0);
         this.molagoras3 = _.get(data, 'molagoraS3', 0);
@@ -908,10 +936,13 @@ export class DamageFormData {
         this.singleAttackStack = _.get(data, 'singleAttackStack', 0);
         this.effectResistance = _.get(data, 'effectResistance', 200);
         this.skill3Stack = _.get(data, 'skill3Stack', 0);
+        this.casterMoraleStack = Math.min(3, Math.max(0, _.get(data, 'casterMoraleStack', 0)));
         this.skill1Stack = _.get(data, 'skill1Stack', 0);
         this.skillTreeCompleted = _.get(data, 'skillTreeCompleted', true);
         this.soulburnStack = _.get(data, 'soulburnStack', 0);
         this.numberOfSouls = _.get(data, 'numberOfSouls', 0);
+        this.renoaSoulBullets = _.get(data, 'renoaSoulBullets', 1);
+        this.renoaSoulBulletsOnTarget = _.get(data, 'renoaSoulBulletsOnTarget', this.renoaSoulBullets);
         this.targetAsleep = _.get(data, 'targetAsleep', false);
         this.targetAttack = _.get(data, 'targetAttack', 2000);
         this.targetBleedDetonate = _.get(data, 'targetBleedDetonate', 0);
@@ -1028,10 +1059,7 @@ export class DamageFormData {
 
     // Get the caster's final max HP after modifiers
     casterFinalMaxHP = (artifact: Artifact) => {
-        const artifactHP = 
-              (artifact.type === ArtifactDamageType.health_only && artifact.scale?.length)
-            ? artifact.scale[Math.floor(this.artifactLevel/3)]
-            : artifact.maxHP;
+        const artifactHP = this.healthOnlyArtifactMultiplier(artifact);
 
         return (this.casterHasCollapse ? 0.5 : 1) 
                 * ((this.inputOverrides['casterMaxHP'] ? this.inputOverrides['casterMaxHP'] : this.casterMaxHP)
@@ -1042,6 +1070,22 @@ export class DamageFormData {
                 * (!this.inBattleHP && this.casterLingeringFragranceStack ? (1 + this.casterLingeringFragranceStack * BattleConstants.lingeringFragrance) : 1)
                 * (1 + (this.casterDefenseMission ? BattleConstants.defenseMission : 0) + this.casterDivinityStack * BattleConstants.divinityPerStack)
                );
+    }
+
+    // Proof of Friendship also raises the front ally's max HP. The ally value
+    // is entered separately because the calculator does not model a second
+    // hero's equipment panel. When the user enters in-battle final HP values,
+    // the artifact effect is already included and must not be applied twice.
+    allyFinalMaxHP = (artifact: Artifact) => {
+        const artifactHP = artifact.affectsAllyHP ? this.healthOnlyArtifactMultiplier(artifact) : 1;
+        return (this.inputOverrides['allyMaxHP'] ? this.inputOverrides['allyMaxHP'] : this.allyMaxHP)
+            * ((this.inBattleHP ? 1 : artifactHP) + this.allyMaxHPIncrease / 100);
+    }
+
+    private healthOnlyArtifactMultiplier = (artifact: Artifact) => {
+        if (artifact.type !== ArtifactDamageType.health_only) return 1;
+        if (artifact.scale?.length) return artifact.scale[Math.floor(this.artifactLevel / 3)];
+        return artifact.maxHP;
     }
 
     // Get the target's final max HP after modifiers

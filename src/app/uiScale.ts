@@ -18,6 +18,10 @@ export async function applyUiScale(scale: UiScale) {
   const root = document.documentElement;
   const isTauri = '__TAURI_INTERNALS__' in window;
   root.style.removeProperty('zoom');
+  // Both CSS zoom and WebView2 zoom scale fixed-width content without making
+  // viewport units wider. Compensate so the desktop workspace still reaches
+  // the native window edges at 80%, 75% and 67% UI scales.
+  root.style.setProperty('--workspace-viewport-width', `${100 / scale}vw`);
   if (isTauri) {
     const { getCurrentWebview } = await import('@tauri-apps/api/webview');
     await getCurrentWebview().setZoom(scale);

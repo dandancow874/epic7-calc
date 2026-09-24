@@ -8921,7 +8921,7 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 1,
         flat: (_soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalDefense(artifact) * 1.5,
         flatTip: () => ({ caster_defense: 150 }),
-        skillDamageMultiplier: (_soulburn: boolean, inputValues: DamageFormData) => Math.min(Math.max(inputValues.renoaSoulBulletsOnTarget, 0), 5),
+        skillDamageMultiplier: (_soulburn: boolean, inputValues: DamageFormData) => 1 + Math.min(Math.max(inputValues.renoaSoulBulletsOnTarget, 0), 5),
         multTip: () => ({ renoaSoulBullets: 100 }),
         isSingle: () => true,
       }),

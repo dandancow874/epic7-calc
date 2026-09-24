@@ -23,10 +23,10 @@ describe('September 2026 heroes and balance update', () => {
     expect(Heroes.renoa.baseDefense).toBe(603);
     expect(Heroes.renoa.skills.s1.flatTip()).toEqual({ caster_defense: 150 });
     expect(Heroes.renoa.skills.s1_bis.flatTip()).toEqual({ caster_defense: 300 });
-    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 0 }), artifact, 0)).toBe(0);
-    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 1 }), artifact, 0)).toBe(1);
-    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 5 }), artifact, 0)).toBe(5);
-    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 10 }), artifact, 0)).toBe(5);
+    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 0 }), artifact, 0)).toBe(1);
+    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 1 }), artifact, 0)).toBe(2);
+    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 5 }), artifact, 0)).toBe(6);
+    expect(Heroes.renoa.skills.s2.skillDamageMultiplier(false, new DamageFormData({ renoaSoulBullets: 10 }), artifact, 0)).toBe(6);
     expect(FormDefaults.renoaSoulBullets).toMatchObject({ min: 0, max: 10, defaultValue: 0 });
     expect(Heroes.renoa.heroSpecificMaximums.renoaSoulBullets).toBe(10);
     expect(Heroes.renoa.skills.s1.enhance).toHaveLength(8);
@@ -47,8 +47,20 @@ describe('September 2026 heroes and balance update', () => {
     const unityFiveBulletS2 = new DamageEngine('renoa', 'a_symbol_of_unity', {
       artifactLevel: 30, casterDefense: 1000, renoaSoulBullets: 5, targetDefense: 1000,
     }).getDamage(Heroes.renoa.skills.s2).normal!;
-    expect(fiveBulletS2 / oneBulletS2).toBeCloseTo(5, 2);
+    expect(fiveBulletS2 / oneBulletS2).toBeCloseTo(3, 2);
     expect(unityFiveBulletS2 / fiveBulletS2).toBeCloseTo(1.16, 2);
+    const reportedFiveBulletCrit = new DamageEngine('renoa', 'a_symbol_of_unity', {
+      artifactLevel: 30,
+      attack: 1678,
+      casterDefense: 2033,
+      critDamage: 150,
+      elementalAdvantage: true,
+      penetrationSet: true,
+      renoaSoulBullets: 10,
+      renoaSoulBulletsOnTarget: 5,
+      targetDefense: 1487,
+    }).getDamage(Heroes.renoa.skills.s2).crit;
+    expect(reportedFiveBulletCrit).toBe(42237);
     expect(Heroes.renoa.getSpeed(new DamageFormData({ casterSpeed: 100, renoaSoulBullets: 10 }))).toBe(300);
 
     const sixBulletRows = new DamageEngine('renoa', 'noProc', {
@@ -59,7 +71,7 @@ describe('September 2026 heroes and balance update', () => {
       targetDefense: 1000,
     }).updateDamages().filter((row) => row.skill === 'renoaSoulBullet');
     expect(sixBulletRows.map((row) => row.variant)).toEqual(['a', 'b']);
-    expect(Math.abs((sixBulletRows[0].normal ?? 0) - (sixBulletRows[1].normal ?? 0) * 5)).toBeLessThanOrEqual(1);
+    expect(Math.abs((sixBulletRows[0].normal ?? 0) - (sixBulletRows[1].normal ?? 0) * 3)).toBeLessThanOrEqual(1);
 
     const tenBulletRows = new DamageEngine('renoa', 'noProc', {
       casterDefense: 1000,

@@ -159,6 +159,7 @@ export class DamageEngine {
     const target = this.form.targetTargeted ? BattleConstants.target : 1.0;
     const laceration = this.form.targetLaceration ? BattleConstants.targetLaceration : 1.0;
     const heroAttack = this.currentHero.getAttack(this.currentArtifact, this.form, this.getGlobalAttackMult(), skill, soulburn, hitType, isExtra);
+    const skillDamageMultiplier = skill.skillDamageMultiplier(soulburn, this.form, this.currentArtifact, heroAttack);
     const dmgMod = 1.0
       + this.getGlobalDamageMult(skill, soulburn)
       + this.form.damageIncrease / 100
@@ -172,6 +173,7 @@ export class DamageEngine {
       * elementalAdvantage
       * target
       * laceration
+      * skillDamageMultiplier
       * dmgMod;
   }
 

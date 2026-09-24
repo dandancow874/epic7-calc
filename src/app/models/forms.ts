@@ -607,8 +607,8 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
     },
     renoaSoulBullets: {
         max: 10,
-        min: 1,
-        defaultValue: 1
+        min: 0,
+        defaultValue: 0
     },
 }
 
@@ -941,7 +941,7 @@ export class DamageFormData {
         this.skillTreeCompleted = _.get(data, 'skillTreeCompleted', true);
         this.soulburnStack = _.get(data, 'soulburnStack', 0);
         this.numberOfSouls = _.get(data, 'numberOfSouls', 0);
-        this.renoaSoulBullets = _.get(data, 'renoaSoulBullets', 1);
+        this.renoaSoulBullets = _.get(data, 'renoaSoulBullets', 0);
         this.renoaSoulBulletsOnTarget = _.get(data, 'renoaSoulBulletsOnTarget', this.renoaSoulBullets);
         this.targetAsleep = _.get(data, 'targetAsleep', false);
         this.targetAttack = _.get(data, 'targetAttack', 2000);

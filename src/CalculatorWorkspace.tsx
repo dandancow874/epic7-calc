@@ -373,8 +373,8 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: 
   }, []);
 
   const mergedValues = useMemo(
-    () => mergeCalculatorValues(attacker, defender, attacker.useDefenderPresetValues !== false),
-    [attacker, defender],
+    () => mergeCalculatorValues(attacker, defender, attacker.useDefenderPresetValues !== false, defenderId),
+    [attacker, defender, defenderId],
   );
 
   const rows = useMemo<DamageRow[]>(() => {
@@ -430,14 +430,14 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: 
         targetDefenseIncrease: effects.defenseIncrease,
         damageReduction: effects.damageReduction,
         damageTransfer: effects.damageTransfer,
-        targetBarrier: defenderOpeningBarrier(withArtifactHP, effects.barrierPercent, hasShieldSet),
+        targetBarrier: defenderOpeningBarrier(withArtifactHP, effects.barrierPercent, hasShieldSet, defenderId),
       };
       return (['targetMaxHPIncrease', 'targetDefenseIncrease', 'damageReduction', 'damageTransfer', 'targetBarrier'] as const)
         .every((key) => current[key] === next[key]) ? current : next;
     });
   }, [defenderArtifact, defender.defenderArtifactCode, defender.defenderArtifactLevel, defender.targetMaxHP,
     defender.targetLingeringFragranceStack, defender.targetDivinityStack, defender.targetHasSuperhumanization,
-    defender.targetHasCollapse, defender.useBuildPreset, defenderBuildId, defenderBuilds]);
+    defender.targetHasCollapse, defender.targetSkillTreeCompleted, defender.useBuildPreset, defenderBuildId, defenderBuilds, defenderId]);
 
   const updateSide = (side: Side, key: string, value: number | boolean) => {
     const updatedPreset = typeof value === 'number' ? queueBuildStatSave(side, key, value) : null;
@@ -951,7 +951,7 @@ function CombatPanel(props: {
     ], props.heroId))
       .filter((field) => !fields.some(([key]) => key === field))
       .filter((field) => !commonAttackerBuffs.some(([key]) => key === field))
-    : [];
+    : (Object.keys(hero.specialtyChangeStats).length ? ['targetSkillTreeCompleted'] : []);
   const activeExtraBuffs = extraAttackerBuffs
     .filter(([key]) => !commonAttackerBuffs.some(([commonKey]) => commonKey === key))
     .filter(([key]) => Boolean(props.values[key]))
@@ -1050,7 +1050,7 @@ function CombatPanel(props: {
         ))}
       </div>
 
-      {props.side === 'attacker' && <h3 className="section-label">角色特性</h3>}
+      {specialFields.length > 0 && <h3 className="section-label">角色特性</h3>}
 
       {props.side === 'attacker' && specialFields.some(isLinkedTargetField) && (
         <label className="preset-link-toggle">
@@ -1067,7 +1067,8 @@ function CombatPanel(props: {
               field={field}
               label={calculatorSpecialFieldLabel(props.heroId, field, props.values[field])}
               value={props.values[field]}
-              maximum={hero.heroSpecificMaximums?.[field] ?? artifact?.artifactSpecificMaximums?.[field]}
+              maximum={hero.heroSpecificMaximums?.[field]
+                ?? artifact?.artifactSpecificMaximums?.[field]}
               locked={props.useDefenderPreset !== false && isLinkedTargetField(field)}
               onChange={(value) => props.onValueChange(props.side, field, value)}
             />
@@ -2253,6 +2254,8 @@ function shortFieldName(field: string) {
     targetSpeedDown: '目标速度降低',
     targetHasRampage: '目标暴走',
     targetDefenseDownAftermath: '追加前防破',
+    targetSkillTreeCompleted: '转职技能树',
+    targetInjuryPercent: '目标伤口比例(%)',
     renoaSoulBullets: '镇魂子弹数量',
   };
   return names[field] || fieldName(field);

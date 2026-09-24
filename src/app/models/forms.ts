@@ -163,6 +163,10 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
         default: true,
         icon: 'icons/skill_tree.png'
     },
+    targetSkillTreeCompleted: {
+        default: true,
+        icon: 'icons/skill_tree.png'
+    },
     casterSpeedUp: {
         icon: 'buffs/speed-buff.png'
     },
@@ -371,6 +375,12 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
         max: 25000,
         min: 0,
         defaultValue: 0
+    },
+    targetInjuryPercent: {
+        max: 50,
+        min: 0,
+        defaultValue: 0,
+        step: 1
     },
     targetCurrentHPPercent: {
         max: 100,
@@ -691,6 +701,7 @@ export class DamageFormData {
     casterInvincible: boolean;
     casterMaxHP: number;
     casterMaxHPIncrease: number;
+    casterDefenseIncrease: number;
     casterLingeringFragranceStack: number;
     casterTurn: boolean;
     allyMaxHP: number;
@@ -755,6 +766,7 @@ export class DamageFormData {
     renoaSoulBulletsOnTarget: number;
     targetAsleep: boolean;
     targetAttack: number;
+    targetAttackIncrease: number;
     targetBleedDetonate: number;
     targetBombDetonate: number;
     targetBurnDetonate: number;
@@ -777,6 +789,8 @@ export class DamageFormData {
     targetHasDebuff: boolean;
     targetHasTrauma: boolean;
     targetInjuries: number;
+    targetInjuryPercent: number;
+    targetSkillTreeCompleted: boolean;
     targetIsHighestMaxHP: boolean;
     targetIsHighestDefense: boolean;
     targetMagicNailed: boolean;
@@ -879,6 +893,7 @@ export class DamageFormData {
         this.casterInjury = _.get(data, 'casterInjury', 0);
         this.casterMaxHP = _.get(data, 'casterMaxHP', 10000);
         this.casterMaxHPIncrease = _.get(data, 'casterMaxHPIncrease', 0);
+        this.casterDefenseIncrease = _.get(data, 'casterDefenseIncrease', 0);
         this.casterLingeringFragranceStack = _.get(data, 'casterLingeringFragranceStack', 0);
         this.allyMaxHP = _.get(data, 'allyMaxHP', 10000);
         this.allyMaxHPIncrease = _.get(data, 'allyMaxHPIncrease', 0);
@@ -945,6 +960,7 @@ export class DamageFormData {
         this.renoaSoulBulletsOnTarget = _.get(data, 'renoaSoulBulletsOnTarget', this.renoaSoulBullets);
         this.targetAsleep = _.get(data, 'targetAsleep', false);
         this.targetAttack = _.get(data, 'targetAttack', 2000);
+        this.targetAttackIncrease = _.get(data, 'targetAttackIncrease', 0);
         this.targetBleedDetonate = _.get(data, 'targetBleedDetonate', 0);
         this.targetBombDetonate = _.get(data, 'targetBombDetonate', 0);
         this.targetBurnDetonate = _.get(data, 'targetBurnDetonate', 0);
@@ -967,6 +983,8 @@ export class DamageFormData {
         this.targetHasDebuff = _.get(data, 'targetHasDebuff', false);
         this.targetHasTrauma = _.get(data, 'targetHasTrauma', false);
         this.targetInjuries = _.get(data, 'targetInjuries', 0);
+        this.targetInjuryPercent = Math.min(50, Math.max(0, _.get(data, 'targetInjuryPercent', 0)));
+        this.targetSkillTreeCompleted = _.get(data, 'targetSkillTreeCompleted', true);
         this.targetIsHighestMaxHP = _.get(data, 'targetIsHighestMaxHP', false);
         this.targetIsHighestDefense = _.get(data, 'targetIsHighestDefense', false);
         this.targetMagicNailed = _.get(data, 'targetMagicNailed', false);
@@ -1025,6 +1043,7 @@ export class DamageFormData {
         + (this.casterIndomitable ? BattleConstants.indomitable : 0)
         + this.casterDivinityStack * BattleConstants.divinityPerStack
         + (this.casterFury ? BattleConstants['caster-fury'] - 1 : 0)
+        + this.casterDefenseIncrease / 100
         + heroMultiplier);
 
         if (this.casterHasTrauma && this.casterDefenseDown) {
@@ -1111,6 +1130,6 @@ export class DamageFormData {
 
             targetAttackModifier += this[mod as keyof DamageFormData] ? modValue : 0.0;
         });
-        return this.targetAttack * targetAttackModifier
+        return this.targetAttack * (targetAttackModifier + this.targetAttackIncrease / 100)
     }
 }

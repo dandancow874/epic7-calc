@@ -11,6 +11,14 @@ import { Hero, HeroClass, HeroElement } from "src/app/models/hero";
 import { AftermathSkill, DoT, HitType, Skill } from "src/app/models/skill";
 import { BattleConstants } from "./constants";
 
+// Injury can accumulate to 50% of the target's original max HP. The maxed
+// Thorn Rune reaches +40% damage at that cap, so every 10% injury adds 8%.
+function chaosSectAxeInjuryMultiplier(inputValues: DamageFormData) {
+  if (!inputValues.skillTreeCompleted) return 1;
+  const injuryRatio = Math.min(0.5, Math.max(0, inputValues.targetInjuryPercent / 100));
+  return 1 + injuryRatio * 0.8;
+}
+
 export const Heroes: Record<string, Hero> = {
   // If a new first hero without an s3 is released, update the logic for the loading variable in damage-calculator.component.ts
   abigail: new Hero({
@@ -2429,9 +2437,9 @@ export const Heroes: Record<string, Hero> = {
         id: 's2',
         soulburn: true,
         rate: (soulburn: boolean) => soulburn ? 1.05 : 0.9,
-        pow: () => 0.9,
-        flat: (soulburn: boolean, inputValues: DamageFormData, _artifact: Artifact) => inputValues.targetFinalMaxHP() * (soulburn ? 0.05 : 0.04),
-        flatTip: (soulburn: boolean) => ({ targetMaxHP: soulburn ? 5 : 4 }),
+        pow: () => 1,
+        flat: (_soulburn: boolean, inputValues: DamageFormData, _artifact: Artifact) => inputValues.targetFinalMaxHP() * 0.05,
+        flatTip: () => ({ targetMaxHP: 5 }),
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
         isAOE: () => true,
       }),
@@ -2658,7 +2666,8 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1144,
     baseHP: 6013,
     baseDefense: 624,
-    heroSpecific: ['casterMaxHP', 'skillTreeCompleted'],
+    heroSpecific: ['casterMaxHP', 'skillTreeCompleted', 'targetInjuryPercent'],
+    specialtyChangeStats: { defense: 15, maxHP: 25 },
     skills: {
       s1: new Skill({
         id: 's1',
@@ -2667,6 +2676,10 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 0.95,
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * 0.06,
         flatTip: () => ({ casterMaxHP: 6 }),
+        // Pending live-game verification: currently interpreted as a linear
+        // scale where 50% wounds reaches the rune's stated 40% damage cap.
+        mult: (_soulburn: boolean, inputValues: DamageFormData) => chaosSectAxeInjuryMultiplier(inputValues),
+        multTip: (inputValues: DamageFormData) => (inputValues.skillTreeCompleted ? { skill_tree_injury: 40 } : null),
         enhance: [0.05, 0.05, 0.1, 0.15],
         isSingle: () => true,
       }),
@@ -2675,8 +2688,8 @@ export const Heroes: Record<string, Hero> = {
         hpScaling: true,
         rate: () => 0.7,
         pow: () => 0.95,
-        mult: (soulburn: boolean, inputValues: DamageFormData, _artifact: Artifact) => inputValues.skillTreeCompleted ? 1.1 : 1,
-        multTip: (inputValues: DamageFormData) => (inputValues.skillTreeCompleted ? { skill_tree: 10 } : null),
+        mult: (_soulburn: boolean, inputValues: DamageFormData) => chaosSectAxeInjuryMultiplier(inputValues) + (inputValues.skillTreeCompleted ? 0.1 : 0),
+        multTip: (inputValues: DamageFormData) => (inputValues.skillTreeCompleted ? { skill_tree: 10, skill_tree_injury: 40 } : null),
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * 0.08,
         flatTip: () => ({ casterMaxHP: 8 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
@@ -2687,10 +2700,12 @@ export const Heroes: Record<string, Hero> = {
         id: 's3',
         hpScaling: true,
         soulburn: true,
-        rate: (soulburn: boolean) => soulburn ? 1.5 : 1,
+        rate: (soulburn: boolean) => soulburn ? 1.4 : 1,
         pow: () => 0.9,
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * (soulburn ? 0.3 : 0.2),
         flatTip: (soulburn: boolean) => ({ casterMaxHP: soulburn ? 30 : 20 }),
+        mult: (_soulburn: boolean, inputValues: DamageFormData) => chaosSectAxeInjuryMultiplier(inputValues),
+        multTip: (inputValues: DamageFormData) => (inputValues.skillTreeCompleted ? { skill_tree_injury: 40 } : null),
         enhance: [0.05, 0.05, 0.05, 0, 0, 0.1, 0.15],
         isSingle: () => true,
       })
@@ -11759,6 +11774,11 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1026,
     baseHP: 5298,
     baseDefense: 525,
+    // Specialty tree battle stats: Achievement Rune +15% Attack and the
+    // Abundance Rune team aura +5% (which also affects Glenn) and +10% Max
+    // HP. Trust Rune is +2% Dual Attack Chance, not Combat Readiness. These
+    // battle stats are deliberately kept out of the saved equipment panel.
+    specialtyChangeStats: { attack: 20, maxHP: 10 },
     heroSpecific: ['skillTreeCompleted', 'casterAboveHalfHP'],
     skills: {
       s1: new Skill({

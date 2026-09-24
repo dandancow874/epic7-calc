@@ -64,9 +64,16 @@ export class DamageEngine {
     public artifactId: string,
     values: Record<string, unknown>,
   ) {
+    const specialtyStats = values.skillTreeCompleted === false || values.specialtyChangeStatsApplied === true
+      ? {}
+      : (Heroes[heroId]?.specialtyChangeStats || {});
     this.form = new DamageFormData({
       ...values,
-      attackIncreasePercent: ((values.attackIncreasePercent as number | undefined) ?? 0) + ((values.attackIncrease as number | undefined) ?? 0),
+      attackIncreasePercent: ((values.attackIncreasePercent as number | undefined) ?? 0)
+        + ((values.attackIncrease as number | undefined) ?? 0)
+        + (specialtyStats.attack ?? 0),
+      casterDefenseIncrease: ((values.casterDefenseIncrease as number | undefined) ?? 0) + (specialtyStats.defense ?? 0),
+      casterMaxHPIncrease: ((values.casterMaxHPIncrease as number | undefined) ?? 0) + (specialtyStats.maxHP ?? 0),
       molagoraS1: values.molagoras1 ?? values.molagoraS1,
       molagoraS2: values.molagoras2 ?? values.molagoraS2,
       molagoraS3: values.molagoras3 ?? values.molagoraS3,

@@ -61,6 +61,30 @@ describe('September 2026 heroes and balance update', () => {
       targetDefense: 1487,
     }).getDamage(Heroes.renoa.skills.s2).crit;
     expect(reportedFiveBulletCrit).toBe(42237);
+    const reportedBlackThornCrit = new DamageEngine('renoa', 'a_symbol_of_unity', {
+      artifactLevel: 30,
+      attack: 1678,
+      casterDefense: 2033,
+      critDamage: 179,
+      elementalAdvantage: true,
+      molagoras1: 8,
+      penetrationSet: true,
+      renoaSoulBullets: 0,
+      targetDefense: 1487,
+    }).getDamage(Heroes.renoa.skills.s1_bis).crit;
+    expect(reportedBlackThornCrit).toBe(10241);
+    const screenshotBlackThornCrit = new DamageEngine('renoa', 'a_symbol_of_unity', {
+      artifactLevel: 30,
+      attack: 1678,
+      casterDefense: 2033,
+      critDamage: 179,
+      elementalAdvantage: true,
+      molagoras1: 8,
+      penetrationSet: true,
+      renoaSoulBullets: 0,
+      targetDefense: 1803,
+    }).getDamage(Heroes.renoa.skills.s1_bis).crit;
+    expect(screenshotBlackThornCrit).toBe(8740);
     expect(Heroes.renoa.getSpeed(new DamageFormData({ casterSpeed: 100, renoaSoulBullets: 10 }))).toBe(300);
 
     const sixBulletRows = new DamageEngine('renoa', 'noProc', {
@@ -124,6 +148,8 @@ describe('September 2026 heroes and balance update', () => {
   it('updates the Mercedes, Choux, Axe, and Glenn formulas', () => {
     expect(Heroes.celestial_mercedes.skills.s1.flatTip()).toEqual({ targetMaxHP: 2 });
     expect(Heroes.celestial_mercedes.skills.s2.rate(true, new DamageFormData({}), false)).toBe(1.05);
+    expect(Heroes.celestial_mercedes.skills.s2.pow(false, new DamageFormData({}))).toBe(1);
+    expect(Heroes.celestial_mercedes.skills.s2.flatTip(false)).toEqual({ targetMaxHP: 5 });
     expect(Heroes.celestial_mercedes.skills.s2.flatTip(true)).toEqual({ targetMaxHP: 5 });
 
     const choux = Heroes.urban_shadow_choux;
@@ -134,7 +160,7 @@ describe('September 2026 heroes and balance update', () => {
     expect(choux.skills.s3.penetrate(false, new DamageFormData({}), artifact, 0, 0)).toBe(0.5);
 
     expect(Heroes.chaos_sect_axe.baseHP).toBe(6013);
-    expect(Heroes.chaos_sect_axe.skills.s3.rate(true, new DamageFormData({}), false)).toBe(1.5);
+    expect(Heroes.chaos_sect_axe.skills.s3.rate(true, new DamageFormData({}), false)).toBe(1.4);
     expect(Heroes.chaos_sect_axe.skills.s3.flatTip(true)).toEqual({ casterMaxHP: 30 });
     expect(Heroes.church_of_ilryos_axe.skills.s1.rate(false, new DamageFormData({}), false)).toBe(0.7);
     expect(Heroes.church_of_ilryos_axe.skills.s3.flatTip(true)).toEqual({ casterMaxHP: 30 });

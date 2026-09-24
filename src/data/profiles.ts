@@ -275,6 +275,7 @@ function defaultValues(side: Side, heroId: string): ProfileValues {
       molagoras1: hero.skills.s1?.enhance.length || 0,
       molagoras2: hero.skills.s2?.enhance.length || 0,
       molagoras3: hero.skills.s3?.enhance.length || 0,
+      ...(hero.heroSpecific.includes('skillTreeCompleted') ? { skillTreeCompleted: true } : {}),
     };
   }
 
@@ -309,5 +310,6 @@ function defaultValues(side: Side, heroId: string): ProfileValues {
     targetFractureStack: 0,
     targetMagicNailed: false,
     targetRuptured: false,
+    ...(Object.keys(hero.specialtyChangeStats).length ? { targetSkillTreeCompleted: true } : {}),
   };
 }

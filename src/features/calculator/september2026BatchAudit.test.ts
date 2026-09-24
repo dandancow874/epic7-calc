@@ -29,6 +29,7 @@ describe('September 2026 changed-hero batch audit', () => {
     expectBase('haru', 's1_bis', 1, 1);
     expect(Heroes.haru.skills.s1_bis.flatTip()).toEqual({ casterMaxHP: 10 });
     expect(Heroes.haru.skills.s1_bis.penetrate(false, form, Artifacts.noProc, 0, 0)).toBe(1);
+    expect(Heroes.haru.barrier?.(Heroes.haru, Heroes.haru.skills.s1, Artifacts.noProc, form, 0, false)).toBe(1800);
     expectBase('haru', 's3', 1, 1);
     expect(Heroes.haru.skills.s3.flatTip()).toEqual({ casterMaxHP: 25 });
     expect(Heroes.haru.skills.s3.mult(false, new DamageFormData({ skill3Stack: 5 }), Artifacts.noProc, 0)).toBeCloseTo(3.25);
@@ -108,9 +109,9 @@ describe('September 2026 changed-hero batch audit', () => {
 
     expectBase('celestial_mercedes', 's1', 1, 1);
     expect(Heroes.celestial_mercedes.skills.s1.flatTip()).toEqual({ targetMaxHP: 2 });
-    expectBase('celestial_mercedes', 's2', 0.9, 0.9);
-    expectBase('celestial_mercedes', 's2', 1.05, 0.9, true);
-    expect(Heroes.celestial_mercedes.skills.s2.flatTip(false)).toEqual({ targetMaxHP: 4 });
+    expectBase('celestial_mercedes', 's2', 0.9, 1);
+    expectBase('celestial_mercedes', 's2', 1.05, 1, true);
+    expect(Heroes.celestial_mercedes.skills.s2.flatTip(false)).toEqual({ targetMaxHP: 5 });
     expect(Heroes.celestial_mercedes.skills.s2.flatTip(true)).toEqual({ targetMaxHP: 5 });
     expectBase('celestial_mercedes', 's3', 1.2, 0.8);
 
@@ -123,10 +124,34 @@ describe('September 2026 changed-hero batch audit', () => {
       expect(Heroes[heroId].skills.s3.flatTip(false)).toEqual({ casterMaxHP: 20 });
       expect(Heroes[heroId].skills.s3.flatTip(true)).toEqual({ casterMaxHP: 30 });
     }
-    expectBase('chaos_sect_axe', 's3', 1.5, 0.9, true);
+    expectBase('chaos_sect_axe', 's3', 1.4, 0.9, true);
     expectBase('chaos_sect_axe', 's3', 1, 0.9);
     expect(Heroes.chaos_sect_axe.skills.s3.flatTip(false)).toEqual({ casterMaxHP: 20 });
     expect(Heroes.chaos_sect_axe.skills.s3.flatTip(true)).toEqual({ casterMaxHP: 30 });
+
+    const axeAt10Injury = new DamageFormData({ skillTreeCompleted: true, targetInjuryPercent: 10 });
+    const axeAt25Injury = new DamageFormData({ skillTreeCompleted: true, targetInjuryPercent: 25 });
+    const axeAt50Injury = new DamageFormData({ skillTreeCompleted: true, targetInjuryPercent: 50 });
+    expect(Heroes.chaos_sect_axe.skills.s1.mult(false, axeAt10Injury, Artifacts.noProc, 0)).toBeCloseTo(1.08);
+    expect(Heroes.chaos_sect_axe.skills.s1.mult(false, axeAt25Injury, Artifacts.noProc, 0)).toBeCloseTo(1.2);
+    expect(Heroes.chaos_sect_axe.skills.s1.mult(false, axeAt50Injury, Artifacts.noProc, 0)).toBeCloseTo(1.4);
+    expect(Heroes.chaos_sect_axe.skills.s2.mult(false, axeAt25Injury, Artifacts.noProc, 0)).toBeCloseTo(1.3);
+    expect(Heroes.chaos_sect_axe.skills.s3.mult(false, new DamageFormData({ skillTreeCompleted: false, targetInjuryPercent: 50 }), Artifacts.noProc, 0)).toBe(1);
+
+    const axeWithTree = new DamageEngine('chaos_sect_axe', 'noProc', {
+      casterMaxHP: 20000,
+      casterDefense: 1000,
+      skillTreeCompleted: true,
+    });
+    const axeWithoutTree = new DamageEngine('chaos_sect_axe', 'noProc', {
+      casterMaxHP: 20000,
+      casterDefense: 1000,
+      skillTreeCompleted: false,
+    });
+    expect(axeWithTree.form.casterFinalMaxHP(Artifacts.noProc)).toBe(25000);
+    expect(axeWithTree.form.casterFinalDefense(Artifacts.noProc)).toBe(1150);
+    expect(axeWithoutTree.form.casterFinalMaxHP(Artifacts.noProc)).toBe(20000);
+    expect(axeWithoutTree.form.casterFinalDefense(Artifacts.noProc)).toBe(1000);
 
     const bombEngine = new DamageEngine('abigail', 'noProc', {
       attack: 3000,

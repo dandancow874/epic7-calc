@@ -898,6 +898,7 @@
             "per_target": "{v}% 每个目标",
             "skill_tree_elemental": "技能树和元素优势: {v}%",
             "skill_tree": "技能树: {v}%",
+            "skill_tree_injury": "芒刺符文（50%伤口时，待验证）: {v}%",
             "target_bleed": "目标流血: {v}%",
             "target_current_hp": "{v}% 目标电流HP",
             "target_debuff": "目标Debuff: {v}%",

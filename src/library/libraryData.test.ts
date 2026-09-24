@@ -151,9 +151,16 @@ describe('generated library data', () => {
 
     const axeSoulburn = byCode('chaos-sect-axe')?.skills.find((skill) => skill.id === 'sk_c4025_3')
       ?.multipliers?.find((group) => group.id === 'soulburn_multiplier');
-    expect(axeSoulburn?.items.find((item) => item.key === 'att_rate')?.displayValue).toBe('1.5');
+    expect(axeSoulburn?.items.find((item) => item.key === 'att_rate')?.displayValue).toBe('1.4');
     expect(axeSoulburn?.items.find((item) => item.key === 'pow')?.displayValue).toBe('0.9');
     expect(axeSoulburn?.items.find((item) => item.key === 'BF_BONUSATT_UP_STATUS_ADD_max_hp_rate')?.displayValue).toContain('30.0%');
+
+    const mercedesS2 = byCode('celestial-mercedes')?.skills.find((skill) => skill.id === 'sk_c2005_2');
+    const mercedesNormal = mercedesS2?.multipliers?.find((group) => group.id === 'skill_multiplier');
+    const mercedesSoulburn = mercedesS2?.multipliers?.find((group) => group.id === 'soulburn_multiplier');
+    expect(mercedesNormal?.items.find((item) => item.key === 'pow')?.displayValue).toBe('1.0');
+    expect(mercedesNormal?.items.find((item) => item.key === 'BF_BONUSATT_UP_STATUS_ADD_max_hp_rate')?.displayValue).toContain('5.0%');
+    expect(mercedesSoulburn?.items.find((item) => item.key === 'pow')?.displayValue).toBe('1.0');
 
     const chouxBzzt = byCode('urban-shadow-choux')?.skills.find((skill) => skill.id === 'sk_c2101_2')
       ?.effects?.find((effect) => effect.name.includes('酥酥麻麻'));
@@ -163,9 +170,12 @@ describe('generated library data', () => {
     expect(axeRunes?.generalEffects.map((effect) => effect.name)).toEqual([
       '大地符文3', '收获符文3', '楔子符文3', '生命符文3', '健康符文3', '芒刺符文3',
     ]);
+    expect(axeRunes?.generalEffects.find((effect) => effect.id === 'thorn-rune-3')?.description)
+      .toBe('攻击时，根据目标的伤口效果等比提升40%的伤害量。');
     expect(axeRunes?.skillEffects[0]?.effects.map((effect) => effect.name)).toEqual(['勇气符文3', '疾病符文3', '未知符文3']);
 
     const glennRunes = byCode('vigilante-leader-glenn')?.specialtyChange;
+    expect(glennRunes?.generalEffects.find((effect) => effect.id === 'trust-rune')?.description).toBe('夹攻率提升2%。');
     expect(glennRunes?.generalEffects[3]?.description).toContain('50%以上');
     expect(glennRunes?.skillEffects.map((skill) => skill.name)).toEqual(['神速射击', '精确打击', '解除限制器']);
   });

@@ -33,4 +33,25 @@ describe('calculator target preset linking', () => {
   it('uses the stronger opening barrier when an artifact and Protection Set are both equipped', () => {
     expect(defenderOpeningBarrier({ targetMaxHP: 25000 }, 30, true)).toBe(7500);
   });
+
+  it('applies specialty-change stats in battle without changing the stored defender panel', () => {
+    const axe = {
+      ...defender,
+      targetMaxHP: 20000,
+      targetDefense: 1000,
+      targetSkillTreeCompleted: true,
+    };
+    const merged = mergeCalculatorValues(attacker, axe, true, 'chaos_sect_axe');
+    expect(axe.targetMaxHP).toBe(20000);
+    expect(axe.targetDefense).toBe(1000);
+    expect(merged.targetMaxHPIncrease).toBe(25);
+    expect(merged.targetDefenseIncrease).toBe(15);
+    expect(merged.targetCurrentHP).toBe(25000);
+    expect(defenderBattleMaxHP(axe, 'chaos_sect_axe')).toBe(25000);
+    expect(defenderOpeningBarrier(axe, 0, true, 'chaos_sect_axe')).toBe(3000);
+
+    const disabled = { ...axe, targetSkillTreeCompleted: false };
+    expect(mergeCalculatorValues(attacker, disabled, true, 'chaos_sect_axe').targetMaxHPIncrease).toBe(0);
+    expect(defenderBattleMaxHP(disabled, 'chaos_sect_axe')).toBe(20000);
+  });
 });

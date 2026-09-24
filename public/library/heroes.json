@@ -66407,14 +66407,14 @@
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
-                "value": "0.9",
-                "displayValue": "0.9"
+                "value": "1.0",
+                "displayValue": "1.0"
               },
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "4.0% 目标 最大生命值",
-                "displayValue": "4.0% 目标 最大生命值"
+                "value": "5.0% 目标 最大生命值",
+                "displayValue": "5.0% 目标 最大生命值"
               },
               {
                 "key": "HPUP_DAMAGE_value",
@@ -66437,8 +66437,8 @@
               {
                 "key": "pow",
                 "label": "修正倍率(Pow)",
-                "value": "0.9",
-                "displayValue": "0.9"
+                "value": "1.0",
+                "displayValue": "1.0"
               },
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
@@ -81928,8 +81928,8 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "1.5",
-                "displayValue": "1.5"
+                "value": "1.4",
+                "displayValue": "1.4"
               },
               {
                 "key": "pow",
@@ -81960,70 +81960,70 @@
     "specialtyChange": {
       "generalEffects": [
         {
+          "description": "防御力提升15%。",
           "id": "earth-rune-3",
-          "name": "大地符文3",
-          "description": "防御力提升15%。"
+          "name": "大地符文3"
         },
         {
+          "description": "受到光明属性敌人攻击后，使除自身外的全体我军人员速攻值提升10%。",
           "id": "harvest-rune-3",
-          "name": "收获符文3",
-          "description": "受到光明属性敌人攻击后，使除自身外的全体我军人员速攻值提升10%。"
+          "name": "收获符文3"
         },
         {
+          "description": "光明属性敌人回合结束时，使自身速攻值提升30%。",
           "id": "wedge-rune-3",
-          "name": "楔子符文3",
-          "description": "光明属性敌人回合结束时，使自身速攻值提升30%。"
+          "name": "楔子符文3"
         },
         {
+          "description": "生命值提升15%。",
           "id": "life-rune-3",
-          "name": "生命符文3",
-          "description": "生命值提升15%。"
+          "name": "生命符文3"
         },
         {
+          "description": "生命值提升10%。",
           "id": "health-rune-3",
-          "name": "健康符文3",
-          "description": "生命值提升10%。"
+          "name": "健康符文3"
         },
         {
+          "description": "攻击时，根据目标的伤口效果等比提升40%的伤害量。",
           "id": "thorn-rune-3",
-          "name": "芒刺符文3",
-          "description": "攻击时，根据目标的伤口效果等比提升40%的伤害量。"
+          "name": "芒刺符文3"
         }
       ],
       "skillEffects": [
         {
-          "id": "chain-attack",
-          "name": "连锁攻击",
-          "icon": "/library/heroes/chaos-sect-axe-sk_c4025_2.png",
           "effects": [
             {
+              "description": "我军人员受到光明属性敌人攻击时，有30%的几率使用连锁攻击反击。",
               "id": "courage-rune-3",
-              "name": "勇气符文3",
-              "description": "我军人员受到光明属性敌人攻击时，有30%的几率使用连锁攻击反击。"
+              "name": "勇气符文3"
             },
             {
+              "description": "使用连锁攻击时，若为自身回合，则有100%的几率使目标技能冷却时间增加1回合。若目标为光明属性，则无视效果抵抗。",
               "id": "disease-rune-3",
-              "name": "疾病符文3",
-              "description": "使用连锁攻击时，若为自身回合，则有100%的几率使目标技能冷却时间增加1回合。若目标为光明属性，则无视效果抵抗。"
+              "name": "疾病符文3"
             },
             {
+              "description": "连锁攻击的伤害量提升10%。",
               "id": "unknown-rune-3",
-              "name": "未知符文3",
-              "description": "连锁攻击的伤害量提升10%。"
+              "name": "未知符文3"
             }
-          ]
+          ],
+          "icon": "/library/heroes/chaos-sect-axe-sk_c4025_2.png",
+          "id": "chain-attack",
+          "name": "连锁攻击"
         },
         {
-          "id": "bloody-blow",
-          "name": "血气一击",
-          "icon": "/library/heroes/chaos-sect-axe-sk_c4025_3.png",
           "effects": [
             {
+              "description": "使用血气一击时，若目标为光明属性，则效果发生率提升25%，并无视目标的效果抵抗。",
               "id": "fruit-rune-3",
-              "name": "果实符文3",
-              "description": "使用血气一击时，若目标为光明属性，则效果发生率提升25%，并无视目标的效果抵抗。"
+              "name": "果实符文3"
             }
-          ]
+          ],
+          "icon": "/library/heroes/chaos-sect-axe-sk_c4025_3.png",
+          "id": "bloody-blow",
+          "name": "血气一击"
         }
       ]
     }
@@ -99694,7 +99694,7 @@
         {
           "id": "trust-rune",
           "name": "信赖符文",
-          "description": "速攻值提升2%。"
+          "description": "夹攻率提升2%。"
         },
         {
           "id": "restraint-rune",

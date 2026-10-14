@@ -1,10 +1,12 @@
 import { Heroes } from '../../assets/data/heroes';
 import type { ProfileValues } from '../../data/profiles';
+import { openingAttackDefense } from './openingStats';
 
 const linkedTargetFields = ['targetAttack', 'targetMaxHP', 'targetCurrentHP', 'targetDefense', 'targetSpeed'] as const;
 
 export function mergeCalculatorValues(attacker: ProfileValues, defender: ProfileValues, useDefenderPreset: boolean, defenderHeroId = '') {
   const merged = { ...defender, ...attacker };
+  merged.targetIgnoresDefenseUpDown = Boolean(Heroes[defenderHeroId]?.ignoresDefenseUpDown);
   if (useDefenderPreset) {
     for (const field of linkedTargetFields) {
       if (defender[field] !== undefined) merged[field] = defender[field];
@@ -18,6 +20,11 @@ export function mergeCalculatorValues(attacker: ProfileValues, defender: Profile
     merged.targetCurrentHP = defenderBattleMaxHP(defender, defenderHeroId);
   }
   if (Number(defender.targetBarrier || 0) > 0) merged.targetHasBarrier = true;
+  if (Heroes[defenderHeroId]?.equalizesAttackDefense) {
+    const openingStats = openingAttackDefense(defenderHeroId, Number(defender.targetAttack || 0), Number(defender.targetDefense || 0));
+    merged.targetDefense = openingStats.defense;
+    if (useDefenderPreset) merged.targetAttack = openingStats.attack;
+  }
   return merged;
 }
 

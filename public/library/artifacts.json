@@ -1,5 +1,24 @@
 [
   {
+    "code": "flame-dragons-jewel",
+    "name": "火龙宝石",
+    "nameEn": "Flame Dragon's Jewel",
+    "nameZht": null,
+    "description": "只传承给唯一一名香族继承人的火龙宝石。借助这颗宝石施展香族传统武术火龙拳时，便能使出宛如火龙腾跃而战般的华丽招式。",
+    "skillDescription": "攻击力提升10(20)%。\n受到攻击后，有50(100)%的几率使自身弱化效果减少1回合。",
+    "rarity": 5,
+    "role": "thief",
+    "limited": true,
+    "stats": {
+      "atk": 273,
+      "hp": 416,
+      "def": 0
+    },
+    "image": "/library/artifacts/flame-dragons-jewel.png",
+    "artwork": "/library/artifact-artworks/flame-dragons-jewel.png",
+    "publishDate": "2026-10-08 11:00:00"
+  },
+  {
     "code": "sorrow-of-the-rose",
     "name": "玫瑰之悲",
     "nameEn": "Sorrow of the Rose",

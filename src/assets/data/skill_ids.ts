@@ -1947,6 +1947,14 @@ SkillIDs.haru = {
     "s3": "sk_c1192_2",
 };
 
+SkillIDs.mei_lin = {
+    "s1": "sk_c1191_1",
+    "s2": "sk_c1191_2",
+    "s2_bis": "sk_c1191_2",
+    "s2_ter": "sk_c1191_2",
+    "s3": "sk_c1191_3",
+};
+
 SkillIDs.renoa = {
     "s1": "sk_c1193_1",
     "s1_bis": "sk_c1193_1",

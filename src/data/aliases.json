@@ -1273,6 +1273,13 @@
     "afternoon_soak_flan": [
       "Afternoon Soak Flan",
       "火芙兰"
+    ],
+    "mei_lin": [
+      "梅铃",
+      "梅玲",
+      "梅林",
+      "Mei Lin",
+      "Meirin"
     ]
   },
   "artifacts": {
@@ -1541,6 +1548,10 @@
     ],
     "with_a_little_friend": [
       "与小同伴同行"
+    ],
+    "flame_dragons_jewel": [
+      "火龙宝石",
+      "Flame Dragon's Jewel"
     ]
   }
 }

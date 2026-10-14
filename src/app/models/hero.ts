@@ -44,6 +44,8 @@ export class Hero {
     gameID: string;
     heroSpecific: string[];
     heroSpecificMaximums: Record<string, number>;
+    equalizesAttackDefense: boolean;
+    ignoresDefenseUpDown: boolean;
     specialtyChangeStats: { attack?: number; defense?: number; maxHP?: number };
     innateAttackIncrease: (inputValues: DamageFormData) => number;
     innateHPIncrease?: (inputValues: DamageFormData) => number;
@@ -75,6 +77,8 @@ export class Hero {
     this.gameID = _.get(heroValues, 'gameID', '0000');
     this.heroSpecific = _.get(heroValues, 'heroSpecific', []);
     this.heroSpecificMaximums = _.get(heroValues, 'heroSpecificMaximums', {});
+    this.equalizesAttackDefense = _.get(heroValues, 'equalizesAttackDefense', false);
+    this.ignoresDefenseUpDown = _.get(heroValues, 'ignoresDefenseUpDown', false);
     this.specialtyChangeStats = _.get(heroValues, 'specialtyChangeStats', {});
     this.innateAttackIncrease = _.get(heroValues, 'innateAttackIncrease', () => 0);
     this.innateHPIncrease = _.get(heroValues, 'innateHPIncrease', () => 0);

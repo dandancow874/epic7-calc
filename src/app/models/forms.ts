@@ -774,6 +774,7 @@ export class DamageFormData {
     targetCurrentHP: number;
     targetCurrentHPPercent: number;
     targetDefense: number;
+    targetIgnoresDefenseUpDown: boolean;
     targetDefenseIncrease: number;
     targetDefenseDown: boolean;
     targetFractured: boolean;
@@ -968,6 +969,7 @@ export class DamageFormData {
         this.targetCurrentHP = _.get(data, 'targetCurrentHP', 10000);
         this.targetCurrentHPPercent = _.get(data, 'targetCurrentHPPercent', 100);
         this.targetDefense = _.get(data, 'targetDefense', 1000);
+        this.targetIgnoresDefenseUpDown = _.get(data, 'targetIgnoresDefenseUpDown', false);
         this.targetDefenseIncrease = _.get(data, 'targetDefenseIncrease', 0);
         this.targetDefenseDown = _.get(data, 'targetDefenseDown', false);
         this.targetFractured = _.get(data, 'targetFractured', false);
@@ -1059,8 +1061,8 @@ export class DamageFormData {
     // Get the target's final defense after modifiers
     // TODO: add indomitable for peacemaker. Also just fix peacemaker lol
     targetFinalDefense = () => {
-        let defenseMultiplier = (1 + (this.targetDefenseUp ? BattleConstants.targetDefenseUp : 0)
-        + (this.targetDefenseDown ? BattleConstants.targetDefenseDown : 0)
+        let defenseMultiplier = (1 + (!this.targetIgnoresDefenseUpDown && this.targetDefenseUp ? BattleConstants.targetDefenseUp : 0)
+        + (!this.targetIgnoresDefenseUpDown && this.targetDefenseDown ? BattleConstants.targetDefenseDown : 0)
         + (this.targetPilfered ? BattleConstants.pilfer : 0)
         + (this.targetHasTrauma ? BattleConstants.trauma : 0)
         + (this.targetVigor ? BattleConstants.casterVigor - 1 : 0)
@@ -1068,7 +1070,7 @@ export class DamageFormData {
         + this.targetDivinityStack * BattleConstants.divinityPerStack
         + (this.targetFury ? BattleConstants['caster-fury'] - 1 : 0));
 
-        if (this.targetHasTrauma && this.targetDefenseDown) {
+        if (this.targetHasTrauma && this.targetDefenseDown && !this.targetIgnoresDefenseUpDown) {
             defenseMultiplier -= BattleConstants.trauma;
             defenseMultiplier *= BattleConstants.trauma * -1;
         }

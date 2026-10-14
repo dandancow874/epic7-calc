@@ -222,6 +222,13 @@ export const Artifacts: Record<string, Artifact> = {
     type: ArtifactDamageType.penetrate,
     exclusive: HeroClass.thief
   }),
+  flame_dragons_jewel: new Artifact({
+    id: 'flame_dragons_jewel',
+    name: "Flame Dragon's Jewel",
+    type: ArtifactDamageType.attack,
+    scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
+    exclusive: HeroClass.thief,
+  }),
   fairy_tale_for_a_nightmare: new Artifact({
     id: 'fairy_tale_for_a_nightmare',
     name: 'Fairy Tale for a Nightmare',

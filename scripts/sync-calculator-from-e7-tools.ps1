@@ -1,5 +1,6 @@
 param(
-  [string]$SourceRoot = (Join-Path $PSScriptRoot '..\..\e7-tools')
+  [string]$SourceRoot = (Join-Path $PSScriptRoot '..\..\e7-tools'),
+  [switch]$IncludeDesktopDisplay
 )
 
 $ErrorActionPreference = 'Stop'
@@ -32,6 +33,23 @@ $calculatorDirectories = @(
   'src\library',
   'public\library'
 )
+
+# Opt-in only: the Windows shell must integrate these helpers without replacing
+# its navigation, updater, CSS or app metadata. Never send them to Android.
+if ($IncludeDesktopDisplay) {
+  $calculatorFiles += @(
+    'src\app\uiScale.ts',
+    'src\app\uiScale.test.ts',
+    'src\app\useUiScale.ts',
+    'src\app\windowLayout.ts',
+    'src\app\windowLayout.test.ts',
+    'src\app\windowState.ts',
+    'src\app\windowState.test.ts',
+    'src\app\desktopWindow.ts',
+    'src\app\desktopWindow.test.ts',
+    'src\components\app-shell\DisplaySettings.tsx'
+  )
+}
 
 foreach ($relativePath in $calculatorFiles) {
   $source = Join-Path $SourceRoot $relativePath

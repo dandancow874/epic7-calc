@@ -1,7 +1,8 @@
-import { Calculator, Check, Download, FlaskConical, RefreshCw, Shield, X } from 'lucide-react';
+import { Calculator, Download, FlaskConical, RefreshCw, Shield, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import type { AppPage } from '../../app/navigation';
-import { UI_SCALE_OPTIONS, type UiScale } from '../../app/uiScale';
+import type { UiScale } from '../../app/uiScale';
+import { UiScaleControl } from './DisplaySettings';
 import { checkPortableUpdate, initialPortableUpdateState, startPortableUpdate, type PortableUpdateState } from '../../data/portableUpdater';
 
 type Props = {
@@ -18,7 +19,6 @@ const items: Array<{ page: AppPage; label: string; icon: typeof Calculator }> = 
 
 export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props) {
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [scaleRestartRequired, setScaleRestartRequired] = useState(false);
   const [updateState, setUpdateState] = useState<PortableUpdateState>(() => initialPortableUpdateState());
   const [updateNoticeDismissed, setUpdateNoticeDismissed] = useState(false);
   const autoCheckTimer = useRef<number | null>(null);
@@ -117,21 +117,7 @@ export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props
               <button type="button" onClick={() => setSettingsOpen(false)} aria-label="关闭界面设置"><X size={19} /></button>
             </header>
 
-            <div className="ui-settings-group">
-              <div><strong>UI 缩放</strong><small>字体、图片、图标、控件和窗口宽度一起缩放</small></div>
-              <div className="ui-scale-options">
-                {UI_SCALE_OPTIONS.map((scale) => (
-                  <button type="button" key={scale} className={uiScale === scale ? 'active' : ''} onClick={() => {
-                    if (scale === uiScale) return;
-                    onUiScaleChange(scale);
-                    setScaleRestartRequired(true);
-                  }}>
-                    {uiScale === scale && <Check size={15} />}{Math.round(scale * 100)}%
-                  </button>
-                ))}
-              </div>
-              {scaleRestartRequired && <div className="ui-settings-notice"><strong>缩放设置已保存</strong><span>请关闭并重新打开程序后生效。</span></div>}
-            </div>
+            <UiScaleControl uiScale={uiScale} onScaleChange={onUiScaleChange} />
 
             <div className="ui-update-group">
               <div className="ui-update-copy">
@@ -155,7 +141,7 @@ export function PrimaryNav({ page, onNavigate, uiScale, onUiScaleChange }: Props
               </section>
             )}
 
-            <p>设置与更新均由你确认后执行。</p>
+            <p>缩放和窗口大小、位置自动保存。Ctrl + 0 恢复 100%；程序更新需确认后执行。</p>
           </section>
         </div>
       )}

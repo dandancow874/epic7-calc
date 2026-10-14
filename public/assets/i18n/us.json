@@ -1,5 +1,6 @@
 {
   "heroes": {
+    "mei_lin": "Mei Lin",
       "haru": "Haru",
       "renoa": "Renoa",
       "abyssal_yufine_old": "Abyssal Yufine.old",
@@ -396,6 +397,7 @@
     "zio": "Zio"
   },
   "artifacts": {
+    "flame_dragons_jewel": "Flame Dragon's Jewel",
     "noProc": "No Artifact Proc",
     "a_little_queens_crown": "A Little Queen's Huge Crown",
     "a_precious_connection": "A Precious Connection",
@@ -567,6 +569,8 @@
     "wanderer_silk": "ml.silk mlsilk"
   },
   "skills": {
+    "meiLinS2Passion2": "S2(Passion 2)",
+    "meiLinS2Passion1": "S2(Passion 1)",
       "haruPowerfulStrike": "Powerful Strike",
       "renoaBlackThorn": "Black Thorn",
       "renoaSoulBullet": "Soul Bullet",

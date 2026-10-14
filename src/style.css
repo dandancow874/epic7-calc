@@ -42,7 +42,7 @@ button {
 }
 
 .app-shell {
-  width: calc(var(--workspace-viewport-width, 100vw) - 32px);
+  width: calc(100% - 32px);
   min-height: 100vh;
   margin: 0 auto;
   padding: 18px 0 22px;
@@ -176,7 +176,7 @@ h3 {
 
 .duel-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 384px), 1fr));
   gap: 18px;
   min-height: 940px;
 }
@@ -237,8 +237,8 @@ h3 {
   object-fit: contain;
 }
 
-@media (max-width: 790px) {
-  .duel-grid { grid-template-columns: 1fr; }
+@media (max-width: 860px) {
+  .topbar { height: auto; min-height: 68px; flex-wrap: wrap; padding-bottom: 12px; }
 }
 
 .artifact-icon-button:disabled { cursor: default; }

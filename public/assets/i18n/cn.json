@@ -1,5 +1,6 @@
 {
     "heroes": {
+      "mei_lin": "梅铃",
         "haru": "小春",
         "renoa": "蕾诺娅",
         "abyssal_yufine_old": "深渊优芬妮.old",
@@ -397,6 +398,7 @@
         "ae_winter": "aewinter"
     },
     "artifacts": {
+      "flame_dragons_jewel": "火龙宝石",
         "pre_balance": "以前的版本",
         "noProc": "无神器",
         "a_little_queens_crown": "小小女王的巨大王冠",
@@ -766,6 +768,8 @@
         "with_more": "更多的"
     },
     "skills": {
+      "meiLinS2Passion2": "S2(热情2)",
+      "meiLinS2Passion1": "S2(热情1)",
         "haruPowerfulStrike": "奋力一击",
         "renoaBlackThorn": "黑夜荆棘",
         "renoaSoulBullet": "镇魂子弹",

@@ -7584,6 +7584,41 @@ export const Heroes: Record<string, Hero> = {
       })
     }
   }),
+  mei_lin: new Hero({
+    element: HeroElement.fire,
+    class: HeroClass.thief,
+    gameID: 'c1191',
+    baseAttack: 1208,
+    baseHP: 5178,
+    baseDefense: 508,
+    equalizesAttackDefense: true,
+    ignoresDefenseUpDown: true,
+    skills: {
+      s1: new Skill({
+        id: 's1',
+        rate: () => 0.9,
+        pow: () => 1,
+        enhance: [0.05, 0, 0.05, 0.05, 0, 0.15],
+        onlyCrit: () => true,
+        isSingle: () => true,
+      }),
+      ...Object.fromEntries(([
+        ['s2', null, 1.0],
+        ['s2_bis', 'meiLinS2Passion1', 1.7],
+        ['s2_ter', 'meiLinS2Passion2', 2.4],
+      ] as const).map(([id, name, rate]) => [id, new Skill({
+        id,
+        name,
+        rate: () => rate,
+        pow: () => 0.95,
+        enhance: id === 's2' ? [0.05, 0.05, 0.05, 0.05, 0.05, 0.1] : [],
+        enhanceFrom: 's2',
+        // Select Attack buffs manually to model Unbuffable preventing S2's buff.
+        onlyCrit: () => true,
+        isSingle: () => true,
+      })])),
+    },
+  }),
   melissa: new Hero({
     element: HeroElement.fire,
     class: HeroClass.mage,

@@ -6,6 +6,7 @@ import { Target } from 'src/app/models/target';
 import { Artifact, ArtifactDamageType } from 'src/app/models/artifact';
 import { DamageFormData } from 'src/app/models/forms';
 import { AftermathSkill, DoT, DoTSkill, HitType, Skill } from 'src/app/models/skill';
+import { openingAttackDefense } from '../features/calculator/openingStats';
 
 export interface DamageRow {
   skill: string;
@@ -67,8 +68,11 @@ export class DamageEngine {
     const specialtyStats = values.skillTreeCompleted === false || values.specialtyChangeStatsApplied === true
       ? {}
       : (Heroes[heroId]?.specialtyChangeStats || {});
+    const openingStats = openingAttackDefense(heroId, Number(values.attack ?? 2500), Number(values.casterDefense ?? 750));
     this.form = new DamageFormData({
       ...values,
+      attack: openingStats.attack,
+      casterDefense: openingStats.defense,
       attackIncreasePercent: ((values.attackIncreasePercent as number | undefined) ?? 0)
         + ((values.attackIncrease as number | undefined) ?? 0)
         + (specialtyStats.attack ?? 0),
@@ -96,12 +100,13 @@ export class DamageEngine {
     let mult = 1.0;
 
     for (const defenseModifier of ['targetDefenseUp', 'targetDefenseDown', 'targetVigor', 'targetHasTrauma', 'targetPilfered']) {
+      if (this.form.targetIgnoresDefenseUpDown && (defenseModifier === 'targetDefenseUp' || defenseModifier === 'targetDefenseDown')) continue;
       mult += this.form[defenseModifier] ? BattleConstants[defenseModifier] : 0.0;
     }
     if (this.form.targetIndomitable) mult += BattleConstants.indomitable;
     mult += this.form.targetDivinityStack * BattleConstants.divinityPerStack;
 
-    if (isAftermath && this.form.targetDefenseDownAftermath && !this.form.targetDefenseDown) {
+    if (isAftermath && this.form.targetDefenseDownAftermath && !this.form.targetDefenseDown && !this.form.targetIgnoresDefenseUpDown) {
       mult += BattleConstants.targetDefenseDown;
     }
 
@@ -109,7 +114,7 @@ export class DamageEngine {
       mult -= Math.min(this.form.targetFractureStack, 10) * BattleConstants.fractureDefense;
     }
 
-    if (this.form.targetHasTrauma && this.form.targetDefenseDown) {
+    if (this.form.targetHasTrauma && this.form.targetDefenseDown && !this.form.targetIgnoresDefenseUpDown) {
       mult -= BattleConstants.trauma;
       mult *= 1 + BattleConstants.trauma;
     }

@@ -4,6 +4,7 @@ export const latestChangedHeroIds = [
   'haru',
 
   // Most recently added calculator/library entries.
+  'mei_lin',
   'aube',
   'tidal_rift_elvira',
   'lisette',

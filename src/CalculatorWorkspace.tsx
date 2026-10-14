@@ -41,6 +41,7 @@ import type { BuildPreset } from './features/build-presets/types';
 import { resolveDefenderArtifactEffects } from './features/defender-effects/defenderArtifactEffects';
 import { defenderBattleMaxHP, defenderOpeningBarrier, mergeCalculatorValues, isLinkedTargetField } from './features/calculator/mergeCalculatorValues';
 import { damageRemainingPercent } from './features/calculator/damageDisplay';
+import { openingAttackDefense } from './features/calculator/openingStats';
 import type { LibraryArtifact } from './library/types';
 
 type PickerState = null | 'attacker' | 'defender' | 'artifact' | 'defenderArtifact';
@@ -140,7 +141,7 @@ const defenderBuffs = [
   ['targetLingeringFragranceStack', '余香', 'buffs/lingering-fragrance-buff.png'],
 ] as const;
 
-export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: { requestedMode?: AppMode; onModeChange?: (mode: AppMode) => void } = {}) {
+export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, manageUiScale = true }: { requestedMode?: AppMode; onModeChange?: (mode: AppMode) => void; manageUiScale?: boolean } = {}) {
   const [attackerId, setAttackerId] = useState(() => readCalculatorHero('attacker'));
   const [mode, setModeState] = useState<AppMode>(requestedMode);
   const [mobileExpandedSide, setMobileExpandedSide] = useState<Side | null>(null);
@@ -244,11 +245,14 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: 
   }, []);
 
   useEffect(() => {
+    if (!manageUiScale) return;
     document.body.style.zoom = String(uiScale);
     localStorage.setItem(UI_SCALE_KEY, String(uiScale));
-  }, [uiScale]);
+    return () => { document.body.style.removeProperty('zoom'); };
+  }, [uiScale, manageUiScale]);
 
   useEffect(() => {
+    if (!manageUiScale) return;
     const handleWheel = (event: WheelEvent) => {
       if (!event.ctrlKey) return;
       event.preventDefault();
@@ -265,7 +269,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: 
       window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [manageUiScale]);
 
   useEffect(() => {
     const profile = loadProfile('attacker', attackerId);
@@ -483,6 +487,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: 
         ...(updatedPreset && key === 'defenderArtifactLevel' ? {
         targetMaxHP: updatedPreset.targetStats.hp,
         targetCurrentHP: updatedPreset.targetStats.hp,
+        targetAttack: updatedPreset.targetStats.atk,
         targetDefense: updatedPreset.targetStats.def,
       } : {}),
       };
@@ -775,6 +780,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange }: 
               ...(updatedPreset ? {
                 targetMaxHP: updatedPreset.targetStats.hp,
                 targetCurrentHP: updatedPreset.targetStats.hp,
+                targetAttack: updatedPreset.targetStats.atk,
                 targetDefense: updatedPreset.targetStats.def,
               } : {}),
             }));
@@ -938,7 +944,14 @@ function CombatPanel(props: {
 }) {
   const hero = Heroes[props.heroId] ?? Heroes.abigail;
   const artifact = props.artifactId ? Artifacts[props.artifactId] : null;
-  const fields = numberFields[props.side];
+  const fields: ReadonlyArray<readonly [string, string, number, number]> = props.side === 'defender' && hero.equalizesAttackDefense
+    ? numberFields.defender.map((field) => field[0] === 'targetDefense'
+        ? ['targetAttack', '攻击 / 开局防御', 0, 10000] as const
+        : field)
+    : numberFields[props.side];
+  const openingStats = openingAttackDefense(props.heroId,
+    Number(props.values[props.side === 'attacker' ? 'attack' : 'targetAttack'] || 0),
+    Number(props.values[props.side === 'attacker' ? 'casterDefense' : 'targetDefense'] || 0));
       const commonAttackerBuffs = [
     ...mainAttackerBuffs,
     ...(props.hasAdditionalDamage ? [['pursuitSet', '追击套', 'sets/pursuit-set.png'] as const] : []),
@@ -1050,6 +1063,8 @@ function CombatPanel(props: {
         ))}
       </div>
 
+      {props.side === 'defender' && hero.equalizesAttackDefense && <p className="opening-stat-note">防御按面板攻击 {openingStats.defense.toLocaleString()} 计算，不受攻击提升及防御提升／降低影响。</p>}
+
       {specialFields.length > 0 && <h3 className="section-label">角色特性</h3>}
 
       {props.side === 'attacker' && specialFields.some(isLinkedTargetField) && (
@@ -1069,7 +1084,9 @@ function CombatPanel(props: {
               value={props.values[field]}
               maximum={hero.heroSpecificMaximums?.[field]
                 ?? artifact?.artifactSpecificMaximums?.[field]}
-              locked={props.useDefenderPreset !== false && isLinkedTargetField(field)}
+              locked={props.side === 'attacker'
+                ? props.useDefenderPreset !== false && isLinkedTargetField(field)
+                : props.useBuildPreset && Boolean(props.buildId) && isBuildOwnedVisibleField(props.side, field)}
               onChange={(value) => props.onValueChange(props.side, field, value)}
             />
           ))}
@@ -1241,8 +1258,8 @@ function AllyMaxHPIncreaseInput(props: {
 
 function isBuildOwnedVisibleField(side: Side, key: string) {
   return side === 'attacker'
-    ? key === 'attack' || key === 'critDamage'
-    : key === 'targetMaxHP' || key === 'targetDefense';
+    ? key === 'attack' || key === 'critDamage' || key === 'casterDefense'
+    : key === 'targetMaxHP' || key === 'targetDefense' || key === 'targetAttack';
 }
 
 function Chip(props: { label: string; icon: string; checked: boolean; onChange: (checked: boolean) => void }) {

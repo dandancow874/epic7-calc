@@ -9,7 +9,7 @@ const url = `http://127.0.0.1:${port}`;
 const server = spawn(process.execPath, [
   path.join(root, 'node_modules', 'vite', 'bin', 'vite.js'),
   '--host', '127.0.0.1', '--port', String(port), '--strictPort',
-], { cwd: root, stdio: 'ignore' });
+], { cwd: root, stdio: 'ignore', windowsHide: true });
 let browser;
 
 try {
@@ -19,7 +19,7 @@ try {
     if (attempt === 79) throw new Error('Vite test server did not start');
   }
 
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({ headless: true, channel: 'chrome' });
   const page = await browser.newPage({ viewport: { width: 1580, height: 960 } });
   await page.goto(url, { waitUntil: 'commit' });
   await page.evaluate(() => localStorage.clear());

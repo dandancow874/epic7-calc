@@ -1,7 +1,7 @@
 {
   "name": "epic7-calc",
   "private": true,
-  "version": "0.1.19",
+  "version": "0.1.20",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5174 --strictPort",

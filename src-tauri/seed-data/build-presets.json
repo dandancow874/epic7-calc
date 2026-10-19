@@ -1,0 +1,563 @@
+{
+  "manual": {
+    "aube": [
+      {
+        "id": "manual:aube:1785346249694:2znfl",
+        "heroCode": "aube",
+        "name": "配置 1",
+        "source": "manual",
+        "sets": [],
+        "artifactCode": null,
+        "artifactName": null,
+        "artifactLevel": 30,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "exclusiveEquipmentId": null,
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 0,
+          "hp": 0,
+          "def": 0,
+          "spd": 0,
+          "chc": 0,
+          "chd": 0,
+          "eff": 0,
+          "efr": 0,
+          "gs": 0
+        },
+        "updatedAt": "2026-07-29T17:30:49.694Z"
+      }
+    ],
+    "abigail": [
+      {
+        "id": "forecast:abigail",
+        "heroCode": "abigail",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_speed",
+          "set_max_hp"
+        ],
+        "artifactCode": "proof-of-valor",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": "192",
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 1509,
+          "def": 1138,
+          "hp": 23450,
+          "spd": 256,
+          "chc": 100,
+          "chd": 211,
+          "eff": 0,
+          "efr": 0,
+          "gs": 0
+        },
+        "updatedAt": "2026-09-13T00:00:00.000Z"
+      }
+    ],
+    "christy": [
+      {
+        "id": "forecast:christy",
+        "heroCode": "christy",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_protection",
+          "set_res"
+        ],
+        "artifactCode": "aurius",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": null,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 1298,
+          "def": 1403,
+          "hp": 18042,
+          "spd": 188,
+          "chc": 15,
+          "chd": 150,
+          "eff": 43,
+          "efr": 270,
+          "gs": 0
+        },
+        "updatedAt": "2026-09-13T00:00:00.000Z"
+      }
+    ],
+    "afternoon-soak-flan": [
+      {
+        "id": "forecast:afternoon-soak-flan",
+        "heroCode": "afternoon-soak-flan",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_speed",
+          "set_penetrate"
+        ],
+        "artifactCode": "dreamlike-holiday",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": null,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 4201,
+          "def": 1160,
+          "hp": 12214,
+          "spd": 188,
+          "chc": 15,
+          "chd": 338,
+          "eff": 18,
+          "efr": 0,
+          "gs": 0
+        },
+        "updatedAt": "2026-09-13T00:00:00.000Z"
+      }
+    ],
+    "magic-scholar-doris": [
+      {
+        "id": "forecast:magic-scholar-doris",
+        "heroCode": "magic-scholar-doris",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_speed",
+          "set_res"
+        ],
+        "artifactCode": "waters-origin",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": null,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 1065,
+          "def": 1614,
+          "hp": 21757,
+          "spd": 241,
+          "chc": 15,
+          "chd": 150,
+          "eff": 0,
+          "efr": 145,
+          "gs": 0
+        },
+        "updatedAt": "2026-09-13T00:00:00.000Z"
+      }
+    ],
+    "apocalypse-ravi": [
+      {
+        "id": "forecast:apocalypse-ravi",
+        "heroCode": "apocalypse-ravi",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_cri_dmg",
+          "set_penetrate"
+        ],
+        "artifactCode": "abyssal-crown",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": "177",
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 1500,
+          "def": 1288,
+          "hp": 24561,
+          "spd": 163,
+          "chc": 100,
+          "chd": 331,
+          "eff": 0,
+          "efr": 0,
+          "gs": 0
+        },
+        "updatedAt": "2026-09-13T00:00:00.000Z"
+      }
+    ],
+    "angel-of-light-angelica": [
+      {
+        "id": "forecast:angel-of-light-angelica",
+        "heroCode": "angel-of-light-angelica",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_speed",
+          "set_acc"
+        ],
+        "artifactCode": "spirits-breath",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": null,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 1667,
+          "def": 1200,
+          "hp": 16960,
+          "spd": 240,
+          "chc": 15,
+          "chd": 150,
+          "eff": 130,
+          "efr": 130,
+          "gs": 0
+        },
+        "updatedAt": "2026-09-13T00:00:00.000Z"
+      }
+    ],
+    "sea-phantom-politis": [
+      {
+        "id": "forecast:sea-phantom-politis",
+        "heroCode": "sea-phantom-politis",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_speed",
+          "set_acc"
+        ],
+        "artifactCode": "awakened-leaf",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": null,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 1597,
+          "def": 1269,
+          "hp": 19340,
+          "spd": 280,
+          "chc": 15,
+          "chd": 150,
+          "eff": 171,
+          "efr": 0,
+          "gs": 0
+        },
+        "updatedAt": "2026-09-13T00:00:00.000Z"
+      }
+    ],
+    "rhianna-and-luciella": [
+      {
+        "id": "forecast:rhianna-and-luciella",
+        "heroCode": "rhianna-and-luciella",
+        "name": "预测",
+        "source": "manual",
+        "sets": [
+          "set_speed",
+          "set_cri"
+        ],
+        "artifactCode": "violet-talisman",
+        "artifactLevel": 30,
+        "exclusiveEquipmentId": null,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 2801,
+          "def": 821,
+          "hp": 7892,
+          "spd": 317,
+          "chc": 100,
+          "chd": 218,
+          "eff": 0,
+          "efr": 0,
+          "gs": 0
+        },
+        "updatedAt": "2026-10-19T09:43:50.578Z"
+      }
+    ],
+    "mei-lin": [
+      {
+        "id": "manual:mei-lin:1791966633062:xgtfj",
+        "heroCode": "mei-lin",
+        "name": "配置 1",
+        "source": "manual",
+        "sets": [],
+        "artifactCode": null,
+        "artifactName": null,
+        "artifactLevel": 30,
+        "imprintMode": "self",
+        "imprintRank": "SSS",
+        "exclusiveEquipmentId": null,
+        "rightMainStats": {
+          "necklace": "auto",
+          "ring": "auto",
+          "boots": "auto"
+        },
+        "targetStats": {
+          "atk": 0,
+          "hp": 0,
+          "def": 0,
+          "spd": 0,
+          "chc": 0,
+          "chd": 0,
+          "eff": 0,
+          "efr": 0,
+          "gs": 0
+        },
+        "updatedAt": "2026-10-14T08:30:33.062Z"
+      }
+    ]
+  },
+  "communityOverrides": {
+    "argent-waves-hwayoung": {
+      "id": "community:argent-waves-hwayoung",
+      "heroCode": "argent-waves-hwayoung",
+      "name": "社区主流高配",
+      "source": "community",
+      "sets": [
+        "set_cri_dmg",
+        "set_torrent"
+      ],
+      "artifactCode": "a-symbol-of-unity",
+      "artifactName": "A Symbol of Unity",
+      "targetStats": {
+        "atk": 4762,
+        "hp": 10055,
+        "def": 914,
+        "spd": 170,
+        "chc": 100,
+        "chd": 343,
+        "eff": 0,
+        "efr": 0,
+        "gs": 437
+      },
+      "selection": {
+        "source": "Fribbels Hero Library community builds",
+        "fetched_at": "2026-07-21T19:51:48.7125365Z",
+        "latest_sample_date": "2026-07-21",
+        "recent_days": 120,
+        "total_samples_seen": 2853,
+        "valid_complete_samples": 1301,
+        "elite_samples": 326,
+        "archetype_samples": 131,
+        "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      },
+      "artifactLevel": 30,
+      "imprintMode": "self",
+      "imprintRank": "SSS",
+      "exclusiveEquipmentId": null,
+      "rightMainStats": {
+        "necklace": "auto",
+        "ring": "auto",
+        "boots": "auto"
+      },
+      "updatedAt": "2026-10-16T10:45:36.012Z"
+    },
+    "sez": {
+      "id": "community:sez",
+      "heroCode": "sez",
+      "name": "社区主流高配",
+      "source": "community",
+      "sets": [
+        "set_penetrate",
+        "set_speed"
+      ],
+      "artifactCode": "a-symbol-of-unity",
+      "artifactName": "A Symbol of Unity",
+      "targetStats": {
+        "atk": 4172,
+        "hp": 11518,
+        "def": 814,
+        "spd": 231,
+        "chc": 100,
+        "chd": 306,
+        "eff": 0,
+        "efr": 0,
+        "gs": 435
+      },
+      "selection": {
+        "source": "Fribbels Hero Library community builds",
+        "fetched_at": "2026-07-21T18:24:49.5307913Z",
+        "latest_sample_date": "2026-07-21",
+        "recent_days": 120,
+        "total_samples_seen": 3000,
+        "valid_complete_samples": 1580,
+        "elite_samples": 395,
+        "archetype_samples": 151,
+        "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      },
+      "artifactLevel": 30,
+      "imprintMode": "self",
+      "imprintRank": "SSS",
+      "exclusiveEquipmentId": null,
+      "rightMainStats": {
+        "necklace": "auto",
+        "ring": "auto",
+        "boots": "auto"
+      },
+      "updatedAt": "2026-10-16T11:24:57.012Z"
+    },
+    "kawerik": {
+      "id": "community:kawerik",
+      "heroCode": "kawerik",
+      "name": "社区主流高配",
+      "source": "community",
+      "sets": [
+        "set_cri",
+        "set_speed"
+      ],
+      "artifactCode": null,
+      "artifactName": null,
+      "targetStats": {
+        "atk": 3630,
+        "hp": 8567,
+        "def": 1066,
+        "spd": 253,
+        "chc": 99,
+        "chd": 296,
+        "eff": 0,
+        "efr": 0,
+        "gs": 426
+      },
+      "selection": {
+        "source": "Fribbels Hero Library community builds",
+        "fetched_at": "2026-07-21T18:31:17.9900012Z",
+        "latest_sample_date": "2026-07-21",
+        "recent_days": 120,
+        "total_samples_seen": 3000,
+        "valid_complete_samples": 796,
+        "elite_samples": 199,
+        "archetype_samples": 143,
+        "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      },
+      "artifactLevel": 30,
+      "imprintMode": "self",
+      "imprintRank": "SSS",
+      "exclusiveEquipmentId": null,
+      "rightMainStats": {
+        "necklace": "auto",
+        "ring": "auto",
+        "boots": "auto"
+      },
+      "updatedAt": "2026-10-19T09:57:32.958Z"
+    },
+    "spirit-eye-celine": {
+      "id": "community:spirit-eye-celine",
+      "heroCode": "spirit-eye-celine",
+      "name": "社区主流高配",
+      "source": "community",
+      "sets": [
+        "set_penetrate",
+        "set_speed"
+      ],
+      "artifactCode": "master-of-the-nightmare",
+      "artifactName": "Master of the Nightmare",
+      "targetStats": {
+        "atk": 3667,
+        "hp": 9876,
+        "def": 834,
+        "spd": 273,
+        "chc": 100,
+        "chd": 301,
+        "eff": 0,
+        "efr": 0,
+        "gs": 447
+      },
+      "selection": {
+        "source": "Fribbels Hero Library community builds",
+        "fetched_at": "2026-07-21T19:24:38.9215583Z",
+        "latest_sample_date": "2026-07-21",
+        "recent_days": 120,
+        "total_samples_seen": 2921,
+        "valid_complete_samples": 1305,
+        "elite_samples": 327,
+        "archetype_samples": 299,
+        "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      },
+      "artifactLevel": 30,
+      "imprintMode": "self",
+      "imprintRank": "SSS",
+      "exclusiveEquipmentId": null,
+      "rightMainStats": {
+        "necklace": "auto",
+        "ring": "auto",
+        "boots": "auto"
+      },
+      "updatedAt": "2026-10-19T12:13:25.196Z"
+    },
+    "rinak": {
+      "id": "community:rinak",
+      "heroCode": "rinak",
+      "name": "社区主流高配",
+      "source": "community",
+      "sets": [
+        "set_chase",
+        "set_speed"
+      ],
+      "artifactCode": "discreet-hands",
+      "artifactName": "Discreet Hands",
+      "targetStats": {
+        "atk": 3080,
+        "hp": 15070,
+        "def": 1023,
+        "spd": 313,
+        "chc": 26,
+        "chd": 163,
+        "eff": 32,
+        "efr": 17,
+        "gs": 443
+      },
+      "selection": {
+        "source": "Fribbels Hero Library community builds",
+        "fetched_at": "2026-07-21T19:03:40.7702317Z",
+        "latest_sample_date": "2026-07-21",
+        "recent_days": 120,
+        "total_samples_seen": 3000,
+        "valid_complete_samples": 958,
+        "elite_samples": 240,
+        "archetype_samples": 179,
+        "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      },
+      "artifactLevel": 30,
+      "imprintMode": "self",
+      "imprintRank": "SSS",
+      "exclusiveEquipmentId": null,
+      "rightMainStats": {
+        "necklace": "auto",
+        "ring": "auto",
+        "boots": "auto"
+      },
+      "updatedAt": "2026-10-19T12:42:09.889Z"
+    }
+  },
+  "hiddenCommunity": []
+}

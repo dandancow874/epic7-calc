@@ -1,3 +1,4 @@
+mod user_data_seed;
 use std::fs;
 use std::path::PathBuf;
 use std::process::Command;
@@ -320,6 +321,7 @@ fn app_data_dir(app: &tauri::AppHandle) -> Result<PathBuf, String> {
 pub fn run() {
   tauri::Builder::default()
     .setup(|app| {
+      user_data_seed::install(&app_data_dir(app.handle())?)?;
       if cfg!(debug_assertions) {
         app.handle().plugin(
           tauri_plugin_log::Builder::default()

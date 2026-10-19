@@ -53,6 +53,36 @@ describe('calculator profile persistence', () => {
     });
   });
 
+  it('restores Boss HP and the Joker profile after a cold module reload', async () => {
+    const profiles = await import('./profiles');
+    await profiles.saveProfile('defender', 'abigail', {
+      useBuildPreset: false,
+      targetMaxHP: 233578,
+      targetCurrentHP: 233578,
+      targetDefense: 1950,
+    });
+    await profiles.saveProfile('attacker', 'alexa', {
+      useBuildPreset: false,
+      attack: 3000,
+      artifactId: 'daydream_joker',
+      artifactLevel: 30,
+    });
+    vi.resetModules();
+    const restored = await import('./profiles');
+    expect(restored.loadProfile('defender', 'abigail')).toMatchObject({
+      useBuildPreset: false,
+      targetMaxHP: 233578,
+      targetCurrentHP: 233578,
+      targetDefense: 1950,
+    });
+    expect(restored.loadProfile('attacker', 'alexa')).toMatchObject({
+      useBuildPreset: false,
+      attack: 3000,
+      artifactId: 'daydream_joker',
+      artifactLevel: 30,
+    });
+  });
+
   it('migrates the legacy attack imprint field without applying it as a general attack increase', async () => {
     const profiles = await import('./profiles');
     const migrated = profiles.migrateLegacyProfile({

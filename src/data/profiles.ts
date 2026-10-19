@@ -30,8 +30,6 @@ const defaults: ProfileDb = {
   },
 };
 
-let cachedDb: ProfileDb = readLocalDb();
-
 export function loadProfile(side: Side, heroId: string): ProfileValues {
   const db = loadDb();
   const profiles = ensureProfiles(db, side, heroId);
@@ -138,6 +136,10 @@ const profileStore = {
     await writePortableJson(FILE_NAME, db);
   },
 };
+
+// Initialize after profileStore exists; otherwise its temporal-dead-zone error
+// is caught as corrupt storage and every browser reload discards saved values.
+let cachedDb: ProfileDb = readLocalDb();
 
 function readLocalDb(): ProfileDb {
   try {

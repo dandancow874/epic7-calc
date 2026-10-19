@@ -362,12 +362,12 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
         defaultValue: 2000
     },
     targetCurrentHP: {
-        max: 50000,
+        max: Number.MAX_SAFE_INTEGER,
         min: 1,
         defaultValue: 10000
     },
     targetMaxHP: {
-        max: 50000,
+        max: Number.MAX_SAFE_INTEGER,
         min: 1000,
         defaultValue: 10000
     },

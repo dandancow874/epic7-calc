@@ -441,7 +441,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
     });
   }, [defenderArtifact, defender.defenderArtifactCode, defender.defenderArtifactLevel, defender.targetMaxHP,
     defender.targetLingeringFragranceStack, defender.targetDivinityStack, defender.targetHasSuperhumanization,
-    defender.targetHasCollapse, defender.targetSkillTreeCompleted, defender.useBuildPreset, defenderBuildId, defenderBuilds, defenderId]);
+    defender.targetHasCollapse, defender.targetDetermination, defender.targetSkillTreeCompleted, defender.useBuildPreset, defenderBuildId, defenderBuilds, defenderId]);
 
   const updateSide = (side: Side, key: string, value: number | boolean) => {
     const updatedPreset = typeof value === 'number' ? queueBuildStatSave(side, key, value) : null;
@@ -964,7 +964,10 @@ function CombatPanel(props: {
     ], props.heroId))
       .filter((field) => !fields.some(([key]) => key === field))
       .filter((field) => !commonAttackerBuffs.some(([key]) => key === field))
-    : (Object.keys(hero.specialtyChangeStats).length ? ['targetSkillTreeCompleted'] : []);
+    : [
+      ...(Object.keys(hero.specialtyChangeStats).length ? ['targetSkillTreeCompleted'] : []),
+      ...(props.heroId === 'bunny_girl_mafia_yufine' ? ['targetDetermination'] : []),
+    ];
   const activeExtraBuffs = extraAttackerBuffs
     .filter(([key]) => !commonAttackerBuffs.some(([commonKey]) => commonKey === key))
     .filter(([key]) => Boolean(props.values[key]))
@@ -1340,7 +1343,7 @@ function DamageTable(props: {
                   <td>
                     <span className="skill-cell">
                       <img src={skillIcon(props.heroId, row.skill)} onError={fallback('/assets/skills/missing.png')} alt="" />
-                      <span>{skillName(row.skill)}{row.variant ? `(${row.variant})` : ''}</span>
+                      <span>{skillName(row.skill)}{row.variant ? `(${row.variant})` : ''}{row.breakdown?.additional ? (row.skill.endsWith('_soulburn') ? '（烧魂·合计）' : '（合计）') : (row.skill.endsWith('_soulburn') ? '（烧魂）' : '')}</span>
                       <NumberDraftInput
                         className="level-input"
                         value={Number(props.values[levelKey] ?? max)}
@@ -1360,7 +1363,9 @@ function DamageTable(props: {
                 {row.breakdown && (
                   <>
                     <DamageDetailRow label="直伤" values={row.breakdown.direct} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} />
-                    <DamageDetailRow label="激爆" values={row.breakdown.detonate} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />
+                    {Object.values(row.breakdown.detonate).some((value) => Number(value) > 0) && <DamageDetailRow label="激爆" values={row.breakdown.detonate} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />}
+                    {row.breakdown.additional?.map((part) => <DamageDetailRow key={part.label} label={part.label} values={part.values} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />)}
+                    {Object.values(row.breakdown.other).some((value) => Number(value) > 0) && <DamageDetailRow label="其他额外伤害" values={row.breakdown.other} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />}
                   </>
                 )}
               </React.Fragment>
@@ -2245,6 +2250,8 @@ function uniqueFields(fields: string[]) {
 function shortFieldName(field: string) {
   const names: Record<string, string> = {
     casterMaxHP: '施法者最大生命',
+    casterFullFocus: '满专注',
+    targetInjuries: '目标伤口量',
     allyMaxHP: '前排盟友最大生命',
     allyMaxHPIncrease: '前排盟友生命增加(%)',
     casterMaxHPIncrease: '最大生命增加(%)',

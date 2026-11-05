@@ -1,5 +1,24 @@
 [
   {
+    "code": "a-bosss-dignity",
+    "name": "老大的威严",
+    "nameEn": "A Boss's Dignity",
+    "nameZht": null,
+    "description": "“敢对我们组织出手，那就必须为此付出代价。”\n称霸地下世界的兔女郎黑手党优芬妮，绝不会轻饶任何胆敢惹怒她的人。",
+    "skillDescription": "效果抗性提升25.0(50.0)%。受到攻击后，若自身未处于弱化效果状态，则有50(100)%的几率使速攻值提升15%。",
+    "rarity": 5,
+    "role": "knight",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/a-bosss-dignity.png",
+    "artwork": "/library/artifact-artworks/a-bosss-dignity.png",
+    "publishDate": "2026-11-05 11:00:00"
+  },
+  {
     "code": "flame-dragons-jewel",
     "name": "火龙宝石",
     "nameEn": "Flame Dragon's Jewel",

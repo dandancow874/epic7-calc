@@ -1463,6 +1463,42 @@
     }
   },
   {
+    "id": "community:aube",
+    "heroCode": "aube",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_acc",
+      "set_speed"
+    ],
+    "artifactCode": "intoxicating-indulgence",
+    "artifactName": "Intoxicating Indulgence",
+    "targetStats": {
+      "atk": 1803,
+      "hp": 17231,
+      "def": 1310,
+      "spd": 286,
+      "chc": 20,
+      "chd": 155,
+      "eff": 154,
+      "efr": 25,
+      "gs": 429
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-05T07:27:16.619Z",
+      "latest_sample_date": "2026-11-05",
+      "recent_days": 120,
+      "total_samples_seen": 3000,
+      "valid_complete_samples": 1850,
+      "elite_samples": 463,
+      "archetype_samples": 346,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
+    }
+  },
+  {
     "id": "community:auxiliary-lots",
     "heroCode": "auxiliary-lots",
     "name": "社区主流高配",
@@ -5381,6 +5417,42 @@
     }
   },
   {
+    "id": "community:haru",
+    "heroCode": "haru",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_cri_dmg",
+      "set_max_hp"
+    ],
+    "artifactCode": "custom-made-power-anchor",
+    "artifactName": "Custom-Made Power Anchor",
+    "targetStats": {
+      "atk": 1505,
+      "hp": 27378,
+      "def": 1361,
+      "spd": 188,
+      "chc": 100,
+      "chd": 332,
+      "eff": 0,
+      "efr": 0,
+      "gs": 444
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-05T07:27:02.900Z",
+      "latest_sample_date": "2026-11-05",
+      "recent_days": 120,
+      "total_samples_seen": 2456,
+      "valid_complete_samples": 2269,
+      "elite_samples": 568,
+      "archetype_samples": 336,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
+    }
+  },
+  {
     "id": "community:hasol",
     "heroCode": "hasol",
     "name": "社区主流高配",
@@ -7287,6 +7359,42 @@
     }
   },
   {
+    "id": "community:lisette",
+    "heroCode": "lisette",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_max_hp",
+      "set_speed"
+    ],
+    "artifactCode": "war-horn",
+    "artifactName": "War Horn",
+    "targetStats": {
+      "atk": 1515,
+      "hp": 23287,
+      "def": 1770,
+      "spd": 236,
+      "chc": 15,
+      "chd": 150,
+      "eff": 29,
+      "efr": 38,
+      "gs": 420
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-05T07:27:11.654Z",
+      "latest_sample_date": "2026-11-05",
+      "recent_days": 120,
+      "total_samples_seen": 3000,
+      "valid_complete_samples": 2825,
+      "elite_samples": 707,
+      "archetype_samples": 339,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
+    }
+  },
+  {
     "id": "community:little-queen-charlotte",
     "heroCode": "little-queen-charlotte",
     "name": "社区主流高配",
@@ -7829,6 +7937,43 @@
       "elite_samples": 106,
       "archetype_samples": 60,
       "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+    }
+  },
+  {
+    "id": "community:mei-lin",
+    "heroCode": "mei-lin",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_opener",
+      "set_opener",
+      "set_penetrate"
+    ],
+    "artifactCode": "flame-dragons-jewel",
+    "artifactName": "Flame Dragon's Jewel",
+    "targetStats": {
+      "atk": 4290,
+      "hp": 13809,
+      "def": 885,
+      "spd": 220,
+      "chc": 19,
+      "chd": 318,
+      "eff": 0,
+      "efr": 0,
+      "gs": 445
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-05T07:26:54.516Z",
+      "latest_sample_date": "2026-11-05",
+      "recent_days": 120,
+      "total_samples_seen": 1346,
+      "valid_complete_samples": 1281,
+      "elite_samples": 321,
+      "archetype_samples": 310,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
     }
   },
   {
@@ -9396,6 +9541,42 @@
       "elite_samples": 210,
       "archetype_samples": 185,
       "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+    }
+  },
+  {
+    "id": "community:renoa",
+    "heroCode": "renoa",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_penetrate",
+      "set_speed"
+    ],
+    "artifactCode": "aubade-orb",
+    "artifactName": "Aubade Orb",
+    "targetStats": {
+      "atk": 1792,
+      "hp": 12305,
+      "def": 2095,
+      "spd": 263,
+      "chc": 100,
+      "chd": 196,
+      "eff": 0,
+      "efr": 0,
+      "gs": 434
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-05T07:26:58.570Z",
+      "latest_sample_date": "2026-11-05",
+      "recent_days": 120,
+      "total_samples_seen": 2106,
+      "valid_complete_samples": 1709,
+      "elite_samples": 428,
+      "archetype_samples": 263,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
     }
   },
   {
@@ -11960,7 +12141,6 @@
     "source": "community",
     "sets": [
       "set_acc",
-      "set_weak",
       "set_weak"
     ],
     "artifactCode": "twilight-calamity",
@@ -12225,6 +12405,42 @@
       "elite_samples": 217,
       "archetype_samples": 81,
       "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+    }
+  },
+  {
+    "id": "community:uncharted-pioneer-politis",
+    "heroCode": "uncharted-pioneer-politis",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_chase",
+      "set_speed"
+    ],
+    "artifactCode": "light-and-darkness",
+    "artifactName": "Light and Darkness",
+    "targetStats": {
+      "atk": 1743,
+      "hp": 21475,
+      "def": 1506,
+      "spd": 265,
+      "chc": 15,
+      "chd": 150,
+      "eff": 101,
+      "efr": 18,
+      "gs": 434
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-05T07:27:06.955Z",
+      "latest_sample_date": "2026-11-05",
+      "recent_days": 120,
+      "total_samples_seen": 1669,
+      "valid_complete_samples": 1611,
+      "elite_samples": 403,
+      "archetype_samples": 326,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
     }
   },
   {

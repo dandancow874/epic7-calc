@@ -155,7 +155,7 @@ describe('September 2026 heroes and balance update', () => {
     const choux = Heroes.urban_shadow_choux;
     expect(choux.skills.s1.rate(true, new DamageFormData({}), false)).toBe(0.65);
     expect(choux.skills.s1.flatTip(true)).toEqual({ casterMaxHP: 13 });
-    expect(choux.skills.s1.afterMath(HitType.crit, new DamageFormData({}), true).injuryPercent).toBe(0.4);
+    expect(choux.skills.s1.fixed2(HitType.crit, new DamageFormData({ targetInjuries: 10000 }), artifact, true)).toBe(4000);
     expect(choux.skills.s3.flatTip()).toEqual({ casterMaxHP: 20 });
     expect(choux.skills.s3.penetrate(false, new DamageFormData({}), artifact, 0, 0)).toBe(0.5);
 

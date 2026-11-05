@@ -4,6 +4,9 @@ export const latestChangedHeroIds = [
   'haru',
 
   // Most recently added calculator/library entries.
+  'bunny_girl_mafia_yufine',
+  'bunny_girl_great_detective_moro',
+  'midnight_gala_lilias',
   'mei_lin',
   'aube',
   'tidal_rift_elvira',

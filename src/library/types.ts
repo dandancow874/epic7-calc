@@ -30,6 +30,7 @@ export type LibrarySkill = {
   cooldown: string;
   soulGain: number;
   pointType?: string | null;
+  pointGain?: number;
   pointRequire?: number;
   soulBurn: { cost: number; description: string } | null;
   isAoe: boolean;

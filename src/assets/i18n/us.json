@@ -1,5 +1,7 @@
 {
   "heroes": {
+    "bunny_girl_great_detective_moro": "Bunny Girl Great Detective Moro",
+    "bunny_girl_mafia_yufine": "Bunny Girl Mafia Yufine",
     "mei_lin": "Mei Lin",
       "haru": "Haru",
       "renoa": "Renoa",
@@ -571,6 +573,7 @@
     "wanderer_silk": "ml.silk mlsilk"
   },
   "skills": {
+    "bunny_girl_mafia_yufine_settlement": "Settlement",
     "meiLinS2Passion2": "S2(Passion 2)",
     "meiLinS2Passion1": "S2(Passion 1)",
       "haruPowerfulStrike": "Powerful Strike",
@@ -722,6 +725,8 @@
     }
   },
   "form": {
+    "targetDetermination": "Determination (Max Health +30%)",
+    "casterDetermination": "Determination (Max Health +30%)",
     "_or_": " OR",
     "abundance": "Abundance",
     "additionalDamageReduction": "Additional Damage Reduction (%)",

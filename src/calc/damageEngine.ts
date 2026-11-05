@@ -31,6 +31,7 @@ export interface DamageBreakdown {
   detonate: DamageValues;
   other: DamageValues;
   total: DamageValues;
+  additional?: Array<{ label: string; values: DamageValues }>;
 }
 
 export interface DotDamage {
@@ -261,7 +262,11 @@ export class DamageEngine {
     const fixedDamageTransfer = (skill.ignoreDamageTransfer(this.form) || this.currentArtifact.ignoreDamageTransfer(this.form))
       ? 1
       : Math.max(0, 1 - this.form.damageTransfer / 100);
-    const fixed = (skill.fixed(HitType.crit, this.form, this.currentArtifact, soulburn) + skill.fixed2(HitType.crit, this.form, this.currentArtifact, soulburn))
+    const additionalLabels = typeof skill.additionalDamageLabels === 'function'
+      ? skill.additionalDamageLabels(soulburn) : skill.additionalDamageLabels;
+    const splitAdditional = Boolean(additionalLabels);
+    const fixedMultiplier = additionalDamageIncrease * additionalDamageReduction * fixedDamageTransfer;
+    const fixed = splitAdditional ? 0 : (skill.fixed(HitType.crit, this.form, this.currentArtifact, soulburn) + skill.fixed2(HitType.crit, this.form, this.currentArtifact, soulburn))
       * additionalDamageIncrease
       * additionalDamageReduction
       * fixedDamageTransfer;
@@ -296,18 +301,31 @@ export class DamageEngine {
       normal: direct.normal == null ? null : Math.round(otherNormal),
       miss: direct.miss == null ? null : Math.round(otherMiss),
     };
+    const additional: Array<{ label: string; values: DamageValues }> = [];
+    for (const key of ['fixed', 'fixed2'] as const) {
+      const label = additionalLabels?.[key];
+      if (!label) continue;
+      const value = (hit: HitType) => direct[hit] == null ? null
+        : Math.round(skill[key](hit, this.form, this.currentArtifact, soulburn) * fixedMultiplier);
+      additional.push({ label, values: {
+        crit: value(HitType.crit), crush: value(HitType.crush),
+        normal: value(HitType.normal), miss: value(HitType.miss),
+      } });
+    }
     const total: DamageValues = {
-      crit: addDamageParts(direct.crit, detonateValues.crit, other.crit),
-      crush: addDamageParts(direct.crush, detonateValues.crush, other.crush),
-      normal: addDamageParts(direct.normal, detonateValues.normal, other.normal),
-      miss: addDamageParts(direct.miss, detonateValues.miss, other.miss),
+      crit: addDamageParts(direct.crit, detonateValues.crit, other.crit, ...additional.map((part) => part.values.crit)),
+      crush: addDamageParts(direct.crush, detonateValues.crush, other.crush, ...additional.map((part) => part.values.crush)),
+      normal: addDamageParts(direct.normal, detonateValues.normal, other.normal, ...additional.map((part) => part.values.normal)),
+      miss: addDamageParts(direct.miss, detonateValues.miss, other.miss, ...additional.map((part) => part.values.miss)),
     };
 
     return {
       skill: (skill.name || skill.id) + (soulburn ? '_soulburn' : (isExtra ? '_extra' : (isCounter && !skill.isCounter ? '_counter' : ''))),
       skillId: skill.id,
       ...total,
-      breakdown: detonate > 0 ? { direct, detonate: detonateValues, other, total } : undefined,
+      breakdown: detonate > 0 || splitAdditional
+        ? { direct, detonate: detonateValues, other, total, ...(splitAdditional ? { additional } : {}) }
+        : undefined,
     };
   }
 

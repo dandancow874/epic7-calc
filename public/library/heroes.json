@@ -1,5 +1,585 @@
 [
   {
+    "code": "bunny-girl-mafia-yufine",
+    "gameId": "c7016",
+    "name": "兔女郎黑手党优芬妮",
+    "nameEn": "Bunny Girl Mafia Yufine",
+    "nameZht": null,
+    "nicknames": [
+      "水玉玉",
+      "shuiyuyu",
+      "tunvlangheishoudangyoufenni",
+      "水玉玉龙",
+      "shuiyuyulong",
+      "黑手党",
+      "heishoudang"
+    ],
+    "attribute": "ice",
+    "role": "knight",
+    "rarity": 5,
+    "zodiac": "archer",
+    "publishDate": "2026-10-30 11:00:00",
+    "descriptionLine": "称霸地下世界的\n义气派黑手党老大",
+    "story": "凭借强大武力登上地下世界顶峰的黑手党老大。以非凡的领导力统领着众多组织成员。对背叛者绝不留情，但只要被接纳为组织的一员，她就会拼上自己的性命保护到底。",
+    "profile": {
+      "hobby": "卡牌游戏、收集稀有枪械",
+      "likes": "组织、金币",
+      "dislikes": "背叛、懦夫",
+      "motto": "每个选择都伴随着代价。",
+      "specialty": "谈判、射击",
+      "voiceCv": {
+        "en": "CV: Kat Cressida",
+        "ja": "CV: 花守ゆみり",
+        "kr": "CV: 조경이",
+        "zhs": "CV: 陈阳"
+      }
+    },
+    "baseStats": {
+      "atk": 894,
+      "hp": 6840,
+      "def": 694,
+      "spd": 104,
+      "chc": 0.15,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/bunny-girl-mafia-yufine.webp",
+    "avatar": "/library/heroes/bunny-girl-mafia-yufine-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c7016_1",
+        "name": "欢迎仪式",
+        "description": "用枪扫射攻击敌人。根据自身最大生命值等比提升伤害量。造成防御力穿透，不会触发暴击、强击。在自身回合使用时，若自身处于决意状态，则额外使用决算。\n决算：掏出秘密兵器攻击全体敌人。根据自身最大生命值等比提升伤害量。造成防御力穿透，不会触发暴击、强击。",
+        "icon": "/library/heroes/bunny-girl-mafia-yufine-sk_c7016_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "pointType": "bp",
+        "pointRequire": 0,
+        "soulBurn": {
+          "cost": 10,
+          "description": "发动相同的额外攻击。"
+        },
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.5",
+                "displayValue": "0.5"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "def_pen",
+                "label": "防御穿透",
+                "value": "100%",
+                "displayValue": "100%"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "5.0% 自身 最大生命值",
+                "displayValue": "5.0% 自身 最大生命值"
+              }
+            ]
+          },
+          {
+            "id": "multiplier_决算",
+            "name": "决算倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "0.5",
+                "displayValue": "0.5"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "def_pen",
+                "label": "防御穿透",
+                "value": "100%",
+                "displayValue": "100%"
+              },
+              {
+                "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
+                "label": "伤害加成",
+                "value": "15.0% 自身 最大生命值",
+                "displayValue": "15.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "pierce",
+            "name": "穿透",
+            "type": "common",
+            "description": "无视防御力造成伤害。",
+            "icon": null
+          },
+          {
+            "id": "1447",
+            "name": "决意（无法解除）",
+            "type": "buff",
+            "description": "最大生命值提升30%。使用决算时解除。",
+            "icon": null
+          }
+        ],
+        "pointGain": 10
+      },
+      {
+        "id": "sk_c7016_2",
+        "name": "老大气场",
+        "description": "首次战斗开始时，获得斗志40(60)点。\n我军人员受到攻击时，若预计的伤害量在最大生命值的20%以上，则消耗斗志10点，获得50%的伤害降低效果。\n我军人员死亡时，使自身获得决意效果，使速攻值提升50%。",
+        "icon": "/library/heroes/bunny-girl-mafia-yufine-sk_c7016_2.png",
+        "cooldown": "死亡时效果冷却时间4回合",
+        "soulGain": 0,
+        "pointType": "bp",
+        "pointRequire": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "首次战斗开始时，斗志获得量增加3"
+          },
+          {
+            "level": 2,
+            "text": "首次战斗开始时，斗志获得量增加4"
+          },
+          {
+            "level": 3,
+            "text": "首次战斗开始时，斗志获得量增加4"
+          },
+          {
+            "level": 4,
+            "text": "首次战斗开始时，斗志获得量增加4"
+          },
+          {
+            "level": 5,
+            "text": "首次战斗开始时，斗志获得量增加5"
+          }
+        ],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "dmg_reduce",
+            "name": "伤害降低",
+            "type": "common",
+            "description": "受到攻击时，所受伤害量降低。伤害降低效果重复时，以最强效果为准。",
+            "icon": null
+          },
+          {
+            "id": "1447",
+            "name": "决意（无法解除）",
+            "type": "buff",
+            "description": "最大生命值提升30%。使用决算时解除。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c7016_3",
+        "name": "特别分红",
+        "description": "解除我军人员和自身的2个弱化效果，在2回合内获得攻击力提升、防御力提升效果。使我军目标速攻值提升30(50)%。",
+        "icon": "/library/heroes/bunny-girl-mafia-yufine-sk_c7016_3.png",
+        "cooldown": "冷却时间5(4)回合",
+        "soulGain": 3,
+        "pointType": "bp",
+        "pointRequire": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "速攻值提升4%"
+          },
+          {
+            "level": 2,
+            "text": "速攻值提升5%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "速攻值提升5%"
+          },
+          {
+            "level": 5,
+            "text": "速攻值提升6%"
+          }
+        ],
+        "multipliers": [],
+        "effects": [
+          {
+            "id": "102",
+            "name": "攻击力提升",
+            "type": "buff",
+            "description": "攻击力提升50%。",
+            "icon": "/library/effects/stic_att_up.webp"
+          },
+          {
+            "id": "103",
+            "name": "防御力提升",
+            "type": "buff",
+            "description": "防御力提升60%。",
+            "icon": "/library/effects/stic_def_up.webp"
+          }
+        ],
+        "pointGain": 50
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "res",
+        "self_effect_max": 0.27,
+        "self_effect": 0.27,
+        "public_type": "att_rate",
+        "public_effect_max": 0.15,
+        "public_effect": 0.15,
+        "public_slot": "24"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
+    "code": "bunny-girl-great-detective-moro",
+    "gameId": "c2187",
+    "name": "兔女郎名侦探茉萝",
+    "nameEn": "Bunny Girl Great Detective Moro",
+    "nameZht": null,
+    "nicknames": [
+      "moluo",
+      "名侦探",
+      "mingzhentan",
+      "茉萝",
+      "tunvlangmingzhentanmoluo",
+      "光兔子",
+      "guangtuzi"
+    ],
+    "attribute": "light",
+    "role": "thief",
+    "rarity": 5,
+    "zodiac": "maiden",
+    "publishDate": "2026-10-30 11:00:00",
+    "descriptionLine": "拥有出色推理能力\n自由奔放的名侦探",
+    "story": "任何委托都包解决的顶尖名侦探。最喜欢健康饮料和金币，虽然性格古灵精怪，但看似不太靠谱的外表之下，却隐藏着连蛛丝马迹都不会放过的敏锐洞察力。",
+    "profile": {
+      "hobby": "开玩笑、观察人、喝饮料",
+      "likes": "揭露真相、喝饮料喝到醉、睡午觉",
+      "dislikes": "未解决事件、谎言、宿醉",
+      "motto": "拨开迷雾，让真相重现光芒。",
+      "specialty": "破解谜题、品鉴饮料",
+      "voiceCv": {
+        "en": "VA: Eden Riegal",
+        "ja": "CV: 中村カンナ",
+        "kr": "CV: 성예원",
+        "zhs": "CV: vila"
+      }
+    },
+    "baseStats": {
+      "atk": 1075,
+      "hp": 5562,
+      "def": 487,
+      "spd": 128,
+      "chc": 0.15,
+      "chd": 1.5,
+      "eff": 0.18,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/bunny-girl-great-detective-moro.webp",
+    "avatar": "/library/heroes/bunny-girl-great-detective-moro-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c2187_1",
+        "name": "突击检查",
+        "description": "用手提包攻击敌人，有75(100)%的几率使自身在1回合内获得隐身效果。",
+        "icon": "/library/heroes/bunny-girl-great-detective-moro-sk_c2187_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "pointType": null,
+        "pointRequire": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "效果发生率提升10%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 4,
+            "text": "效果发生率提升15%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "130",
+            "name": "隐身",
+            "type": "buff",
+            "description": "若存在其他我军人员，则不会被敌人指定为技能目标。受到全体攻击时，获得伤害降低效果，受到攻击造成的伤害时解除。",
+            "icon": "/library/effects/stic_hide.webp"
+          }
+        ]
+      },
+      {
+        "id": "sk_c2187_2",
+        "name": "名侦探的妙招",
+        "description": "分析敌人，根据目标职业使全体我军人员获得秘策强化效果、在2回合内获得免疫效果后，使速攻值提升20(25)%。",
+        "icon": "/library/heroes/bunny-girl-great-detective-moro-sk_c2187_2.png",
+        "cooldown": "冷却时间5(4)回合",
+        "soulGain": 2,
+        "pointType": null,
+        "pointRequire": 0,
+        "soulBurn": {
+          "cost": 20,
+          "description": "获得秘策大幅强化效果。"
+        },
+        "isAoe": true,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "速攻值提升1%"
+          },
+          {
+            "level": 2,
+            "text": "速攻值提升1%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "速攻值提升1%"
+          },
+          {
+            "level": 5,
+            "text": "速攻值提升2%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "BF_ATT_DEFPEN_value",
+                "label": "防御穿透",
+                "value": "50.0% (单一攻击)",
+                "displayValue": "50.0% (单一攻击)"
+              },
+              {
+                "key": "BF_ATT_DEFPEN_value",
+                "label": "防御穿透",
+                "value": "25.0% (单一攻击)",
+                "displayValue": "25.0% (单一攻击)"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "c2187_r",
+            "name": "秘策强化效果",
+            "type": "buff",
+            "description": "战士、盗贼：回避增加2回合\n射手、魔导士：速攻\n骑士、精灵师：穿透提升",
+            "icon": null
+          },
+          {
+            "id": "158",
+            "name": "穿透提升",
+            "type": "buff",
+            "description": "攻击时，对目标造成25%的防御力穿透。发动单一攻击时，效果提升为2倍。攻击后解除。",
+            "icon": null
+          },
+          {
+            "id": "159",
+            "name": "穿透大幅提升",
+            "type": "buff",
+            "description": "攻击时，对目标造成35%的防御力穿透。发动单一攻击时，效果提升为2倍。攻击后解除。",
+            "icon": null
+          },
+          {
+            "id": "160",
+            "name": "大幅速攻",
+            "type": "buff",
+            "description": "回合结束时，速攻值提升75%。效果发生时解除。",
+            "icon": null
+          }
+        ]
+      },
+      {
+        "id": "sk_c2187_3",
+        "name": "逮捕现行犯",
+        "description": "用敏捷的身手攻击敌人，解除所有强化效果，在2回合内造成束缚、拘禁、沉默效果。使自身速攻值提升50%。",
+        "icon": "/library/heroes/bunny-girl-great-detective-moro-sk_c2187_3.png",
+        "cooldown": "冷却时间5(4)回合",
+        "soulGain": 2,
+        "pointType": null,
+        "pointRequire": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升10%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1.5",
+                "displayValue": "1.5"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              }
+            ]
+          }
+        ],
+        "effects": [
+          {
+            "id": "230",
+            "name": "束缚",
+            "type": "debuff",
+            "description": "除了根据速度提升的速攻值提升效果外，无法获得速攻值提升效果。",
+            "icon": "/library/effects/stic_ab_up_block.webp"
+          },
+          {
+            "id": "241",
+            "name": "拘禁",
+            "type": "debuff",
+            "description": "若非自身回合，则无法发动额外技能、反击、夹攻。只适用于英雄。",
+            "icon": "/library/effects/stic_restrict.webp"
+          },
+          {
+            "id": "218",
+            "name": "沉默",
+            "type": "debuff",
+            "description": "在自身回合选择技能时，无法选择除基本技能外的其他技能。",
+            "icon": "/library/effects/stic_silence.webp"
+          }
+        ]
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "acc",
+        "self_effect_max": 0.27,
+        "self_effect": 0.27,
+        "public_type": "max_hp_rate",
+        "public_effect_max": 0.15,
+        "public_effect": 0.15,
+        "public_slot": "14"
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
     "code": "mei-lin",
     "gameId": "c1191",
     "name": "梅铃",
@@ -5566,6 +6146,18 @@
                 "displayValue": "+40.0%"
               }
             ]
+          },
+          {
+            "id": "exclusive_1_detonation",
+            "name": "专属装备1激爆倍率",
+            "items": [
+              {
+                "key": "EXPLOSION_DEBUFF_rate",
+                "label": "激爆",
+                "value": "+50.0%",
+                "displayValue": "+50.0%（原+40%，专属1额外+10%）"
+              }
+            ]
           }
         ],
         "effects": [
@@ -5733,7 +6325,33 @@
         "remarks": null
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "aki-exclusive-equipment",
+        "name": "热暴走抑制套件",
+        "description": "余热失控之时，火焰将直冲亚奇的心脏。为帮助一生与死亡为伴的亚奇而特别设计的应急灭火器。",
+        "iconKey": "/library/exclusives/aki-exclusive.webp",
+        "mainStat": {
+          "max": 0.14,
+          "min": 0.07,
+          "type": "att_rate"
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 1,
+            "description": "火焰洗礼的激爆伤害量提升10%。"
+          },
+          {
+            "skillNumber": 1,
+            "description": "使用火焰洗礼的灵魂燃烧时增加的烧伤持续回合数减少1回合，攻击全体敌人。"
+          },
+          {
+            "skillNumber": 3,
+            "description": "使用业火火花时，不会触发敌人的反击。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete",
     "gearScoreAdjustments": {
@@ -20141,7 +20759,33 @@
         "remarks": null
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "midnight-gala-lilias-exclusive-equipment",
+        "name": "控制与凝聚",
+        "description": "支配之道其实很简单——控制、嘉奖、凝聚。而她，比任何人都深谙此道。",
+        "iconKey": "/library/exclusives/midnight-gala-lilias-exclusive.webp",
+        "mainStat": {
+          "max": 10,
+          "min": 6,
+          "type": "speed"
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 1,
+            "description": "使用凯拉，上！时，使自身在1回合内获得速度提升效果。"
+          },
+          {
+            "skillNumber": 1,
+            "description": "凯拉，上！的伤害量提升10%。"
+          },
+          {
+            "skillNumber": 2,
+            "description": "战斗开始时和回合结束时，使自身在1回合内获得反击效果。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete"
   },

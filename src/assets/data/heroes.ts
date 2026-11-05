@@ -7719,13 +7719,14 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1208,
     baseHP: 5178,
     baseDef: 508,
-    heroSpecific: ['casterMaxHP', 'targetMaxHP'],
+    heroSpecific: ['casterMaxHP', 'targetMaxHP', 'exclusiveEquipment2'],
     skills: {
       s1: new Skill({
         id: 's1',
         onlyCrit: () => true,
         rate: (soulburn: boolean) => soulburn ? 1.8 : 1.1,
         pow: () => 1,
+        exclusiveEquipmentMultiplier: (inputValues: DamageFormData) => inputValues.exclusiveEquipment2 ? 0.1 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         isSingle: () => true,
         soulburn: true
@@ -9417,7 +9418,8 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 1,
         mult: (soulburn: boolean, inputValues: DamageFormData, _artifact: Artifact) => 1 + inputValues.casterFinalSpeed() * 0.003,
         multTip: () => ({ casterSpeed: 0.3 }),
-        fixed: (hitType: HitType, _inputValues: DamageFormData) => (hitType !== HitType.miss) ? 7000 : 0,
+        fixed: () => 7000,
+        additionalDamageLabels: { fixed: '额外伤害（全体，每人）' },
         enhance: [0.05, 0.05, 0, 0.05, 0.15],
         isSingle: () => true,
         penetrate: () => 1,
@@ -11665,7 +11667,7 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 984,
     baseHP: 6266,
     baseDefense: 637,
-    heroSpecific: ['casterMaxHP', 'casterHasBzzt', 'targetInjuries'],
+    heroSpecific: ['casterMaxHP', 'casterHasBzzt', 'casterFullFocus', 'targetInjuries'],
     skills: {
       s1: new Skill({
         id: 's1',
@@ -11675,11 +11677,13 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 1,
         fixed: (hitType: HitType, inputValues: DamageFormData) => inputValues.casterHasBzzt ? 2500 : 0,
         fixedTip: () => ({ caster_has_bzzt: 2500 }),
+        additionalDamageLabels: (soulburn: boolean) => ({
+          fixed: '酥酥麻麻额外伤害',
+          ...(soulburn ? { fixed2: '伤口额外伤害（烧魂40%）' } : {}),
+        }),
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * (soulburn ? 0.13 : 0.1),
         flatTip: (soulburn: boolean) => ({ casterMaxHP: soulburn ? 13 : 10 }),
-        afterMath: (_hitType: HitType, inputValues: DamageFormData, soulburn: boolean) => soulburn
-          ? new AftermathSkill({ injuryPercent: 0.4 })
-          : null,
+        fixed2: (_hitType: HitType, inputValues: DamageFormData, _artifact: Artifact, soulburn: boolean) => soulburn ? inputValues.targetInjuries * 0.4 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         isSingle: () => true,
       }),
@@ -11690,7 +11694,8 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 1,
         fixed: (hitType: HitType, inputValues: DamageFormData) => inputValues.casterHasBzzt ? 2500 : 0,
         fixedTip: () => ({ caster_has_bzzt: 2500 }),
-        fixed2: (hitType: HitType, inputValues: DamageFormData) => inputValues.targetInjuries * 0.6,
+        additionalDamageLabels: { fixed: '酥酥麻麻额外伤害', fixed2: '伤口额外伤害（满专注60%）' },
+        fixed2: (hitType: HitType, inputValues: DamageFormData) => inputValues.casterFullFocus && hitType !== HitType.miss ? inputValues.targetInjuries * 0.6 : 0,
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * 0.2,
         flatTip: () => ({ casterMaxHP: 20 }),
         penetrate: () => 0.5,
@@ -12737,12 +12742,14 @@ Heroes.uncharted_pioneer_politis = new Hero({
 Heroes.aki = new Hero({
   ...Heroes.aki_old,
   baseAttack: 966,
+  heroSpecific: ['targetBurnDetonate', 'exclusiveEquipment1'],
   skills: {
     ...Heroes.aki_old.skills,
     s1: new Skill({
       ...Heroes.aki_old.skills.s1,
+      soulburn: false,
       rate: () => 0.2,
-      detonation: () => 1.4,
+      detonation: (_soulburn: boolean, inputValues: DamageFormData) => inputValues.exclusiveEquipment1 ? 1.5 : 1.4,
     }),
     s3: new Skill({
       ...Heroes.aki_old.skills.s3,
@@ -12845,6 +12852,69 @@ Heroes.schniel = new Hero({
         fixed: inputValues.casterIndomitable ? 15000 : 5000,
       }),
       enhance: [0.05, 0, 0, 0, 0, 0, 0.15],
+    }),
+  },
+});
+
+Heroes.bunny_girl_mafia_yufine = new Hero({
+  gameID: 'c7016',
+  element: HeroElement.ice,
+  class: HeroClass.knight,
+  baseAttack: 894,
+  baseHP: 6840,
+  baseDefense: 694,
+  heroSpecific: ['casterMaxHP', 'casterDetermination'],
+  skills: {
+    s1: new Skill({
+      id: 's1',
+      rate: () => 0.5,
+      pow: () => 1,
+      flat: (_soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * 0.05,
+      flatTip: () => ({ casterMaxHP: 5 }),
+      penetrate: () => 1,
+      noCrit: true,
+      hpScaling: true,
+      enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+      isSingle: () => true,
+    }),
+    s1_extra: new Skill({
+      id: 's1_extra',
+      name: 'bunny_girl_mafia_yufine_settlement',
+      rate: () => 0.5,
+      pow: () => 1,
+      flat: (_soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalMaxHP(artifact) * 0.15,
+      flatTip: () => ({ casterMaxHP: 15 }),
+      penetrate: () => 1,
+      noCrit: true,
+      hpScaling: true,
+      enhanceFrom: 's1',
+      isExtra: true,
+      isAOE: () => true,
+    }),
+  },
+});
+
+Heroes.bunny_girl_great_detective_moro = new Hero({
+  gameID: 'c2187',
+  element: HeroElement.light,
+  class: HeroClass.thief,
+  baseAttack: 1075,
+  baseHP: 5562,
+  baseDefense: 487,
+  skills: {
+    s1: new Skill({
+      id: 's1',
+      rate: () => 1,
+      pow: () => 1,
+      enhance: [0.05, 0, 0.1, 0, 0.15],
+      isSingle: () => true,
+    }),
+    s3: new Skill({
+      id: 's3',
+      rate: () => 1.5,
+      pow: () => 1,
+      enhance: [0.05, 0.05, 0, 0.1, 0.1],
+      isSingle: () => true,
     }),
   },
 });

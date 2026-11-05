@@ -1,4 +1,14 @@
 export const SkillIDs: Record<string, Record<string, string>> = {
+    "bunny_girl_mafia_yufine": {
+        "s1": "sk_c7016_1",
+        "s2": "sk_c7016_2",
+        "s3": "sk_c7016_3"
+    },
+    "bunny_girl_great_detective_moro": {
+        "s1": "sk_c2187_1",
+        "s2": "sk_c2187_2",
+        "s3": "sk_c2187_3"
+    },
     "ras": {
         "s1": "sk_c1001_1",
         "s2": "sk_c1001_2",

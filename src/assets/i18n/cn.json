@@ -1,5 +1,7 @@
 {
     "heroes": {
+      "bunny_girl_great_detective_moro": "兔女郎名侦探茉萝",
+      "bunny_girl_mafia_yufine": "兔女郎黑手党优芬妮",
       "mei_lin": "梅铃",
         "haru": "小春",
         "renoa": "蕾诺娅",
@@ -492,6 +494,8 @@
         "with_a_little_friend": "与小同伴同行"
     },
     "form": {
+      "targetDetermination": "决意（最大生命+30%）",
+      "casterDetermination": "决意（最大生命+30%）",
         "_or_": " 或者",
         "abundance": "丰饶",
         "additionalDamageReduction": "减少额外的伤害 (%)",
@@ -770,6 +774,7 @@
         "with_more": "更多的"
     },
     "skills": {
+      "bunny_girl_mafia_yufine_settlement": "决算",
       "meiLinS2Passion2": "S2(热情2)",
       "meiLinS2Passion1": "S2(热情1)",
         "haruPowerfulStrike": "奋力一击",

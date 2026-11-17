@@ -14,12 +14,19 @@ export class Target {
       const base = skill.penetrate(soulburn, inputValues, artifact, casterAttack, casterSpeed);
       const artifactPenetration = artifact.getDefensePenetration(inputValues.artifactLevel, inputValues, skill, soulburn, hitType);
       const set = (skill.isSingle(inputValues, soulburn)) && inputValues.penetrationSet ? BattleConstants.penetrationSet : 0;
+      // These buffs affect attacks, not fixed-penetration aftermath or DoT.
+      // Normal/greater are one exclusive buff; single attacks double its value.
+      const penetrationBuff = skill.id === 'FixedPenetration' ? 0
+        : (inputValues.casterHasIncreasePenetrationGreater ? BattleConstants.casterHasIncreasePenetrationGreater
+          : inputValues.casterHasIncreasePenetration ? BattleConstants.casterHasIncreasePenetration : 0)
+          * (skill.isSingle(inputValues, soulburn) ? 2 : 1);
       const penResist = skill.id !== 'FixedPenetration' ? inputValues.penetrationResistance / 100 : 0;
 
       // Each source of penetration is mitigated by pen resist
       const totalPenetration = (1 - (base * (1 - penResist)))
                              * (1 - (set * (1 - penResist)))
                              * (1 - (artifactPenetration * (1 - penResist)))
+                             * (1 - (penetrationBuff * (1 - penResist)))
 
       return Math.min(1, totalPenetration);
     }

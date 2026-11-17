@@ -15,6 +15,7 @@ $calculatorFiles = @(
   'src\app\models\forms.ts',
   'src\app\models\hero.ts',
   'src\app\models\skill.ts',
+  'src\app\models\target.ts',
   'src\assets\i18n\cn.json',
   'src\assets\i18n\us.json',
   'src\data\aliases.json',

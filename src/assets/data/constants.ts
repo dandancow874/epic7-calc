@@ -19,6 +19,8 @@ export const BattleConstants: Record<string, number> = {
   'torrentSet': 0.1,
   'fervorSet': 0.2,
   'penetrationSet': 0.15,
+  'casterHasIncreasePenetration': 0.25,
+  'casterHasIncreasePenetrationGreater': 0.35,
   'targetDefenseUp': 0.6,
   'targetDefenseDown': -0.7,
   'target': 1.15,

@@ -11156,7 +11156,7 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1057,
     baseHP: 5542,
     baseDefense: 532,
-    heroSpecific: ['targetBombDetonate', 'casterOverload', 'casterEnergyDepletion'],
+    heroSpecific: ['targetBleedDetonate', 'targetBombDetonate', 'casterOverload', 'casterEnergyDepletion'],
     dot: [DoT.bomb, DoT.bleed],
     skills: {
       s1: new Skill({
@@ -11180,7 +11180,7 @@ export const Heroes: Record<string, Hero> = {
         id: 's3',
         rate: () => 0.9,
         pow: () => 1,
-        enhance: [0.05, 0, 0, 0.1, 0, 0.1],
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15],
         detonate: [DoT.bomb],
         detonation: () => 1.2,
         isAOE: () => true,

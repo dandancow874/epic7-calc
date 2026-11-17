@@ -11,7 +11,6 @@ import { solveOpeningSpeeds, type AllySpeedInput, type EnemySpeedInput, type Ope
 import { readReadinessFromScreenshot, type ReadinessRow } from './calc/screenshotReader';
 import {
   advantageousElement,
-  artifactAliases,
   artifactName,
   counterElement,
   fieldName,
@@ -33,13 +32,15 @@ import type { ProfileSummary, ProfileValues, Side } from './data/profiles';
 import { loadRecentHeroes, rememberHero } from './data/recents';
 import { sortLatestChangedHeroesFirst } from './features/calculator/latestChangedHeroes';
 import { calculatorSpecialFieldLabel } from './features/calculator/specialFieldLabel';
-import { applyBuildToCalculator, calculatorArtifactIdForLibraryArtifact, calculatorBuildOptions, calculatorHeroCode, defaultCalculatorBuild, libraryArtifactForCalculatorId, loadCalculatorBuildCatalog, rememberCalculatorBuild, restoreManualBuildValues, withCalculatorArtifact, withCalculatorStat, type CalculatorBuildCatalog } from './features/build-presets/calculatorBuildBridge';
+import { applyBuildToCalculator, calculatorBuildOptions, calculatorHeroCode, defaultCalculatorBuild, libraryArtifactForCalculatorId, loadCalculatorBuildCatalog, rememberCalculatorBuild, restoreManualBuildValues, withCalculatorArtifact, withCalculatorStat, type CalculatorBuildCatalog } from './features/build-presets/calculatorBuildBridge';
 import { createManualBuildPreset, saveBuildPreset } from './features/build-presets/buildPresetStore';
 import { withDerivedCalculatorFields } from './features/calculator/derivedFields';
 import { equipmentSet } from './features/build-presets/setCatalog';
 import type { BuildPreset } from './features/build-presets/types';
 import { resolveDefenderArtifactEffects } from './features/defender-effects/defenderArtifactEffects';
 import { defenderBattleMaxHP, defenderOpeningBarrier, mergeCalculatorValues, isLinkedTargetField } from './features/calculator/mergeCalculatorValues';
+import { ArtifactPicker } from './features/calculator/ArtifactPicker';
+import { attackerWithArtifact, type ArtifactComparisonContext } from './features/calculator/artifactComparison';
 import { damageRemainingPercent } from './features/calculator/damageDisplay';
 import { openingAttackDefense } from './features/calculator/openingStats';
 import type { LibraryArtifact } from './library/types';
@@ -78,6 +79,9 @@ const mainAttackerBuffs = [
   ['elementalAdvantage', '属性克制', 'dynamic:advantage'],
   ['attackUp', '攻击提升', 'buffs/attack-buff.png'],
   ['increasedCritDamage', '爆伤提升', 'buffs/critical-hit-damage-buff.png'],
+  ['casterVigor', '魄力', 'buffs/vigor-buff.png'],
+  ['casterEnraged', '狂气', 'buffs/rage-buff.png'],
+  ['casterHasIncreasePenetration', '穿透提升', 'buffs/increase-penetration-buff.png'],
   ['torrentSetStack', '激流套', 'sets/torrent-set.png'],
   ['penetrationSet', '穿透套', 'sets/penetration-set.png'],
   ['fervorSet', '全力套装', 'sets/fervor-set.png'],
@@ -85,6 +89,7 @@ const mainAttackerBuffs = [
 
 const extraAttackerBuffs = [
   ['casterHasExploitWeakness', '突破弱点', 'skills/pa_weak.png'],
+  ['casterHasIncreasePenetration', '穿透提升', 'buffs/increase-penetration-buff.png'],
   ['casterVigor', '魄力', 'buffs/vigor-buff.png'],
   ['casterEnraged', '狂气', 'buffs/rage-buff.png'],
   ['casterRampage', '暴走', 'buffs/rampage-buff.png'],
@@ -115,15 +120,15 @@ const extraAttackerBuffs = [
 const stateGroups = [
   {
     title: '攻击增益',
-    items: [...extraAttackerBuffs.slice(0, 19), ['attackUpGreat', '攻击大提升', 'buffs/greater-attack-buff.png'] as const],
+    items: [...extraAttackerBuffs.slice(0, 20), ['attackUpGreat', '攻击大提升', 'buffs/greater-attack-buff.png'] as const],
   },
   {
     title: '异常 / 减益',
-    items: [...extraAttackerBuffs.slice(19, 21), ['decreasedAttack', '攻击力降低', 'debuffs/attack-debuff.png'] as const],
+    items: [...extraAttackerBuffs.slice(20, 22), ['decreasedAttack', '攻击力降低', 'debuffs/attack-debuff.png'] as const],
   },
   {
     title: '装备套装',
-    items: extraAttackerBuffs.slice(21),
+    items: extraAttackerBuffs.slice(22),
   },
 ] as const;
 
@@ -466,6 +471,12 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
       } else if (key === 'attackUpGreat') {
         statePatch.attackUp = false;
         statePatch.attackUpGreat = Boolean(value);
+      } else if (key === 'casterHasIncreasePenetration') {
+        statePatch.casterHasIncreasePenetration = Boolean(value);
+        statePatch.casterHasIncreasePenetrationGreater = !value && Boolean(prev.casterHasIncreasePenetration);
+      } else if (key === 'casterHasIncreasePenetrationGreater') {
+        statePatch.casterHasIncreasePenetration = false;
+        statePatch.casterHasIncreasePenetrationGreater = Boolean(value);
       }
       const next: ProfileValues = {
         ...prev,
@@ -741,6 +752,12 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
           attackerClass={hero.class}
           defenderClass={targetHero.class}
           libraryArtifacts={buildCatalog?.artifacts || []}
+          artifactComparison={{
+            heroId: attackerId, defenderId, attacker, defender,
+            preset: pendingBuildRef.current.attacker || attackerBuilds.find((preset) => preset.id === attackerBuildId),
+            artifacts: buildCatalog?.artifacts || [],
+          }}
+          damageRows={rows}
           recentHeroes={picker === 'defender' ? recentHeroes.defender : recentHeroes.attacker}
           onQuery={setQuery}
           onClose={() => setPicker(null)}
@@ -755,17 +772,11 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
             setPicker(null);
           }}
           onSelectArtifact={(id) => {
-            const updatedPreset = queueBuildArtifactSave('attacker', id, 30);
-            const nextAttacker = {
-              ...attacker,
-              artifactId: id,
-              artifactLevel: 30,
-              ...(updatedPreset ? {
-                attack: updatedPreset.targetStats.atk,
-                casterMaxHP: updatedPreset.targetStats.hp,
-                casterDefense: updatedPreset.targetStats.def,
-              } : {}),
-            };
+            const nextAttacker = attackerWithArtifact({
+              attacker, artifacts: buildCatalog?.artifacts || [],
+              preset: pendingBuildRef.current.attacker || attackerBuilds.find((preset) => preset.id === attackerBuildId),
+            }, id);
+            queueBuildArtifactSave('attacker', id, 30);
             setArtifactId(id);
             setAttacker(nextAttacker);
             flushAttackerProfile(nextAttacker, id);
@@ -970,7 +981,7 @@ function CombatPanel(props: {
     ];
   const activeExtraBuffs = extraAttackerBuffs
     .filter(([key]) => !commonAttackerBuffs.some(([commonKey]) => commonKey === key))
-    .filter(([key]) => Boolean(props.values[key]))
+    .filter(([key]) => Boolean(props.values[key]) || (key === 'casterHasIncreasePenetration' && Boolean(props.values.casterHasIncreasePenetrationGreater)))
     .filter(([key]) => !specialFields.includes(key));
   const buffs = props.side === 'attacker'
     ? [...commonAttackerBuffs, ...activeExtraBuffs]
@@ -1104,14 +1115,15 @@ function CombatPanel(props: {
           const attackState = key === 'attackUp'
             ? (props.values.attackUpGreat ? 'great' : props.values.attackUp ? 'normal' : 'off')
             : null;
-          const displayLabel = attackState === 'great' ? '攻击大提升' : label;
-          const displayIcon = attackState === 'great' ? 'buffs/greater-attack-buff.png' : icon;
+          const penetrationGreat = key === 'casterHasIncreasePenetration' && Boolean(props.values.casterHasIncreasePenetrationGreater);
+          const displayLabel = attackState === 'great' ? '攻击大提升' : penetrationGreat ? '穿透大幅提升' : label;
+          const displayIcon = attackState === 'great' ? 'buffs/greater-attack-buff.png' : penetrationGreat ? 'buffs/increase-penetration-greater-buff.png' : icon;
           return (
             <Chip
               key={key}
               label={stackCount ? `${displayLabel} ${stackCount}` : displayLabel}
               icon={displayIcon === 'dynamic:advantage' ? `elements/${counterElement(hero.element)}.png` : displayIcon}
-              checked={attackState === 'great' || attackState === 'normal' ? true : Boolean(props.values[key])}
+              checked={attackState === 'great' || attackState === 'normal' || penetrationGreat ? true : Boolean(props.values[key])}
               onChange={(checked) => props.onValueChange(
                 props.side,
                 key,
@@ -1844,6 +1856,8 @@ function Picker(props: {
   attackerClass: HeroClass;
   defenderClass: HeroClass;
   libraryArtifacts: LibraryArtifact[];
+  artifactComparison: ArtifactComparisonContext;
+  damageRows: DamageRow[];
   recentHeroes: string[];
   onQuery: (value: string) => void;
   onClose: () => void;
@@ -1852,12 +1866,6 @@ function Picker(props: {
   onSelectDefenderArtifact: (code: string) => void;
 }) {
   const q = props.query.trim().toLowerCase();
-  const artifactItems = props.mode === 'artifact'
-    ? props.libraryArtifacts
-      .filter((artifact) => artifact.role === 'common' || artifact.role === props.attackerClass)
-      .filter((artifact) => !q || `${artifact.code} ${artifact.name} ${artifact.nameEn || ''} ${artifactAliases(artifact.code.replaceAll('-', '_'))}`.toLowerCase().includes(q))
-      .slice(0, 80)
-    : [];
   const defenderArtifactItems = props.mode === 'defenderArtifact'
     ? props.libraryArtifacts
       .filter((artifact) => artifact.role === 'common' || artifact.role === props.defenderClass)
@@ -1877,28 +1885,15 @@ function Picker(props: {
 
   return (
     <div className="modal-scrim" onClick={props.onClose}>
-      <div className="picker" onClick={(event) => event.stopPropagation()}>
+      <div className={`picker${props.mode === 'artifact' ? ' artifact-picker' : ''}`} onClick={(event) => event.stopPropagation()}>
         <div className="searchbox">
           <Search size={20} />
           <input autoFocus value={props.query} onChange={(event) => props.onQuery(event.target.value)} placeholder={props.mode === 'artifact' || props.mode === 'defenderArtifact' ? '搜索神器' : '搜索角色名 / 别名'} />
         </div>
-        <div className="picker-list">
-          {props.mode === 'artifact'
-            ? (
-              <>
-                <button className="picker-row" onClick={() => props.onSelectArtifact('noProc')}>
-                  <img src="/assets/artifacts/noProc.png" alt="" />
-                  <span>不使用神器</span>
-                </button>
-                {artifactItems.map((artifact) => (
-                  <button key={artifact.code} className="picker-row" onClick={() => props.onSelectArtifact(calculatorArtifactIdForLibraryArtifact(artifact))}>
-                    <img src={artifact.image || '/assets/artifacts/noProc.png'} onError={fallback('/assets/artifacts/noProc.png')} alt="" />
-                    <span>{artifact.name}</span>
-                  </button>
-                ))}
-              </>
-            )
-            : props.mode === 'defenderArtifact'
+        {props.mode === 'artifact'
+          ? <ArtifactPicker context={props.artifactComparison} rows={props.damageRows} query={props.query} onSelect={props.onSelectArtifact} />
+          : <div className="picker-list">
+            {props.mode === 'defenderArtifact'
               ? (
                 <>
                   <button className="picker-row" onClick={() => props.onSelectDefenderArtifact('')}>
@@ -1921,7 +1916,7 @@ function Picker(props: {
                 {heroItems.map(([id, hero]) => <HeroPickerRow key={id} id={id} hero={hero} onSelect={props.onSelectHero} />)}
               </>
             )}
-        </div>
+          </div>}
       </div>
     </div>
   );
@@ -1978,7 +1973,7 @@ function StateModal(props: {
         .filter(([key]) => !mainAttackerBuffs.some(([commonKey]) => commonKey === key))
         .filter(([key]) => !(props.heroId === 'haru' && key === 'casterMoraleStack'))
         .filter(([key]) => !(props.hasAdditionalDamage && key === 'pursuitSet'))
-        .filter(([key, label]) => !q || `${key} ${label}`.toLowerCase().includes(q)),
+        .filter(([key, label]) => !q || `${key} ${label} ${key === 'casterHasIncreasePenetration' ? '穿透大幅提升' : ''}`.toLowerCase().includes(q)),
     }))
     .filter((group) => group.items.length);
 
@@ -2185,9 +2180,9 @@ function StateGroup(props: {
             : (
               <Chip
                 key={key}
-                label={label}
-                icon={icon}
-                checked={Boolean(props.values[key])}
+                label={key === 'casterHasIncreasePenetration' && props.values.casterHasIncreasePenetrationGreater ? '穿透大幅提升' : label}
+                icon={key === 'casterHasIncreasePenetration' && props.values.casterHasIncreasePenetrationGreater ? 'buffs/increase-penetration-greater-buff.png' : icon}
+                checked={Boolean(props.values[key]) || (key === 'casterHasIncreasePenetration' && Boolean(props.values.casterHasIncreasePenetrationGreater))}
                 onChange={(checked) => props.onChange(key, checked)}
               />
             )

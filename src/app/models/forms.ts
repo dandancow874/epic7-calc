@@ -221,6 +221,14 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
         icon: 'skills/pa_weak.png',
         default: false
     },
+    casterHasIncreasePenetration: {
+        icon: 'buffs/increase-penetration-buff.png',
+        default: false
+    },
+    casterHasIncreasePenetrationGreater: {
+        icon: 'buffs/increase-penetration-greater-buff.png',
+        default: false
+    },
     targetHasDebuff: {
         icon: 'icons/e7-chevron-down.png'
     },
@@ -683,6 +691,8 @@ export class DamageFormData {
     targetHasDemonBladeUnleashed: boolean;
     casterHasStealth: boolean;
     casterHasExploitWeakness: boolean;
+    casterHasIncreasePenetration: boolean;
+    casterHasIncreasePenetrationGreater: boolean;
     casterHasTrauma: boolean;
     casterPilfered: boolean;
     targetRuptured: boolean;
@@ -880,6 +890,8 @@ export class DamageFormData {
         this.targetHasDemonBladeUnleashed = _.get(data, 'targetHasDemonBladeUnleashed', false);
         this.casterHasStealth = _.get(data, 'casterHasStealth', false);
         this.casterHasExploitWeakness = _.get(data, 'casterHasExploitWeakness', false);
+        this.casterHasIncreasePenetrationGreater = _.get(data, 'casterHasIncreasePenetrationGreater', false);
+        this.casterHasIncreasePenetration = !this.casterHasIncreasePenetrationGreater && _.get(data, 'casterHasIncreasePenetration', false);
         this.casterHasTrauma = _.get(data, 'casterHasTrauma', false);
         this.casterHasStarsBlessing = _.get(data, 'casterHasStarsBlessing', false);
         this.casterHasWarGod = _.get(data, 'casterHasWarGod', false);

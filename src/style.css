@@ -2037,3 +2037,26 @@ td.none {
     max-height: 220px;
   }
 }
+
+/* Shared artifact quick filter; platform layout remains in its own stylesheet. */
+.artifact-picker {
+  display: flex;
+  flex-direction: column;
+  max-height: min(760px, calc(100vh - 150px));
+  width: min(700px, calc(100vw - 40px));
+}
+
+.artifact-picker .searchbox { flex-shrink: 0; }
+.artifact-picker-list { min-height: 0; }
+.artifact-auto-select { padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.artifact-auto-select > button {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px;
+  border: 1px solid #54676c; border-radius: 6px; background: #2d393c; color: #e9f6fc;
+}
+.artifact-auto-select > button.active { border-color: #42b9ed; background: #16475c; }
+.artifact-auto-options { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 12px; }
+.artifact-auto-options label { display: grid; gap: 6px; flex: 1; font-size: 13px; color: #bdd3db; }
+.artifact-auto-options select { width: 100%; min-width: 120px; border: 1px solid #54676c; border-radius: 5px; background: #152226; color: #fff; padding: 8px; }
+.artifact-auto-note { width: 100%; font-size: 12px; color: #a6bdc5; }
+.artifact-increase { margin-left: 5px; color: #86d4f5; font-size: 13px; }
+.artifact-increase.unavailable { color: #9caaaF; }

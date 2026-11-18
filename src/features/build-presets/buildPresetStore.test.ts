@@ -45,6 +45,17 @@ describe('build preset storage', () => {
     expect(rows).toContainEqual(manual);
   });
 
+  it('persists missing stats and snapshot set behavior when copying or reloading a partial preset', async () => {
+    const store = await import('./buildPresetStore');
+    const partial = { ...community, missingStats: ['hp', 'def'] as const, selection: { calculatorEquipmentSets: true } };
+    const created = await store.createManualBuildPreset('abigail', { ...partial, missingStats: [...partial.missingStats] });
+    expect(created.missingStats).toEqual(['hp', 'def']);
+    expect(created.selection).toEqual({ calculatorEquipmentSets: true });
+    vi.resetModules();
+    const reloaded = await import('./buildPresetStore');
+    expect(reloaded.listBuildPresets('abigail')[0]).toMatchObject({ missingStats: ['hp', 'def'], selection: { calculatorEquipmentSets: true } });
+  });
+
   it('can hide a community preset with the same delete action as manual presets', async () => {
     const store = await import('./buildPresetStore');
     await store.deleteBuildPreset(community);

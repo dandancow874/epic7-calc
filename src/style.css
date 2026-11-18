@@ -2060,3 +2060,24 @@ td.none {
 .artifact-auto-note { width: 100%; font-size: 12px; color: #a6bdc5; }
 .artifact-increase { margin-left: 5px; color: #86d4f5; font-size: 13px; }
 .artifact-increase.unavailable { color: #9caaaF; }
+
+.calculator-preset-dialog { width: min(620px, 94vw); max-height: calc(100vh - 48px); overflow-y: auto; }
+.snapshot-name { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.snapshot-name input { flex: 1; min-width: 0; }
+.snapshot-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.snapshot-stats label { padding: 10px; border: 1px solid #ffffff22; border-radius: 8px; }
+.snapshot-stats label.from-current { border-color: #32b6df88; }
+.snapshot-stats span { display: flex; justify-content: space-between; gap: 6px; margin-bottom: 8px; }
+.snapshot-stats small, .snapshot-note { font-size: 12px; color: #a9bec8; }
+.snapshot-stats input { width: 100%; min-width: 0; box-sizing: border-box; }
+.calculator-preset-dialog input, .calculator-preset-dialog select { border: 1px solid #ffffff28; border-radius: 6px; background: #131c20; color: #f3f0e8; padding: 9px 11px; font: inherit; }
+.calculator-preset-dialog input:focus, .calculator-preset-dialog select:focus { outline: 2px solid #32b6df; outline-offset: 1px; }
+.snapshot-set-heading, .snapshot-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; }
+.snapshot-selected-sets { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.snapshot-selected-sets button { padding: 7px 10px; border: 1px solid #32b6df88; border-radius: 6px; }
+.snapshot-actions { justify-content: flex-end; }
+.snapshot-error { color: #ff8b8b; }
+.stat-field.with-ratio { grid-template-columns: 92px minmax(40px, 1fr) 68px 96px; gap: 8px; }
+.barrier-ratio-input { position: relative; min-width: 0; }
+.barrier-ratio-input input { width: 100%; height: 48px; padding: 0 18px 0 3px; border: 0; border-radius: 4px; background: rgba(30, 31, 31, .78); color: #f5f1e9; font-size: 18px; text-align: center; }
+.stat-field .barrier-ratio-input span { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); font-size: 13px; color: #bdd0d8; pointer-events: none; }

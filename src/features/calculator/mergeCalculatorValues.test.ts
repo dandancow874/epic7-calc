@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { defenderBattleMaxHP, defenderOpeningBarrier, mergeCalculatorValues } from './mergeCalculatorValues';
+import { DamageEngine } from '../../calc/damageEngine';
+import { Heroes } from '../../assets/data/heroes';
 
 describe('calculator target preset linking', () => {
   const attacker = { attack: 3000, targetAttack: 1111, targetMaxHP: 9000, targetCurrentHP: 3500, targetDefense: 800, targetSpeed: 120 };
@@ -32,6 +34,19 @@ describe('calculator target preset linking', () => {
 
   it('uses the stronger opening barrier when an artifact and Protection Set are both equipped', () => {
     expect(defenderOpeningBarrier({ targetMaxHP: 25000 }, 30, true)).toBe(7500);
+  });
+
+  it('uses Superhumanization battle HP for both the shield set and Daydream Joker damage', () => {
+    const boosted = { targetMaxHP: 25000, targetDefense: 1800, targetHasSuperhumanization: true, targetDivinityStack: 4 };
+    expect(defenderBattleMaxHP(boosted)).toBe(90000);
+    expect(defenderOpeningBarrier(boosted, 0, true)).toBe(10800);
+    expect(defenderOpeningBarrier(boosted, 0, false)).toBe(0);
+    const attack = { attack: 3000, critDamage: 250, artifactLevel: 30 };
+    const damage = (superhuman: boolean, artifactId: string) => new DamageEngine('kise', artifactId,
+      mergeCalculatorValues(attack, { targetMaxHP: 25000, targetDefense: 1800, targetHasSuperhumanization: superhuman }, true)).getDamage(Heroes.kise.skills.s3).crit!;
+    const plainJoker = damage(false, 'daydream_joker') - damage(false, 'noProc');
+    const boostedJoker = damage(true, 'daydream_joker') - damage(true, 'noProc');
+    expect(boostedJoker / plainJoker).toBeCloseTo(2, 2);
   });
 
   it('applies specialty-change stats in battle without changing the stored defender panel', () => {

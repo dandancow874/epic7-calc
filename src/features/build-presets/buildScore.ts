@@ -29,7 +29,7 @@ const weights = { atk: 1, hp: 1, def: 1, spd: 2, chc: 1.5, chd: 1.125, eff: 1, e
 const averageCaps = { atk: 35, hp: 35, def: 35, spd: 25, chc: 15, chd: 20, eff: 35, efr: 35 } as const;
 
 export function calculateGearScore(hero: LibraryHero, preset: BuildPreset, artifact: LibraryArtifact | null): GearScoreResult | null {
-  if (!hero.baseStats) return null;
+  if (!hero.baseStats || preset.missingStats?.length) return null;
   const requested = { necklace: 'auto', ring: 'auto', boots: 'auto', ...(preset.rightMainStats || {}) } as Record<GearSlot, RightMainStat>;
   const candidates = combinations(requested).map((mains) => scoreWithMains(hero, preset, artifact, mains));
   candidates.sort((a, b) => candidatePenalty(a, hero, preset) - candidatePenalty(b, hero, preset) || a.total - b.total);

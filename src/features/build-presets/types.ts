@@ -20,6 +20,8 @@ export type BuildPreset = {
   exclusiveEquipmentId?: string | null;
   rightMainStats?: { necklace: RightMainStat; ring: RightMainStat; boots: RightMainStat };
   targetStats: TargetStats;
+  /** Unknown stats in a calculator snapshot stay blank until supplied by the user. */
+  missingStats?: Array<keyof TargetStats>;
   selection?: Record<string, unknown> | null;
   updatedAt?: string;
 };

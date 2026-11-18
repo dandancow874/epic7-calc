@@ -1,4 +1,5 @@
 import { Heroes } from '../../assets/data/heroes';
+import { BattleConstants } from '../../assets/data/constants';
 import type { ProfileValues } from '../../data/profiles';
 import { openingAttackDefense } from './openingStats';
 
@@ -38,7 +39,7 @@ export function defenderBattleMaxHP(defender: ProfileValues, defenderHeroId = ''
     defender.targetLingeringFragranceStack ?? (defender.targetLingeringFragrance ? 1 : 0),
   )));
   const divinityStack = Math.min(4, Math.max(0, Number(defender.targetDivinityStack || 0)));
-  const superhumanization = defender.targetHasSuperhumanization ? 1.3 : 1;
+  const superhumanization = defender.targetHasSuperhumanization ? 1 + BattleConstants.superhumanization : 1;
   const collapse = defender.targetHasCollapse ? 0.5 : 1;
   const determination = defender.targetDetermination ? 1.3 : 1;
   return Math.round(base * (1 + hpIncrease / 100) * (1 + lingeringStack * 0.05) * (1 + divinityStack * 0.2) * superhumanization * collapse * determination);

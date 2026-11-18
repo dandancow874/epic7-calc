@@ -16,6 +16,10 @@ export type CalculatorBuildCatalog = {
 };
 
 const LAST_BUILD_KEY = 'epic7.tools.calculatorLastBuild.v1';
+export const calculatorAttackSets = [
+  ['rageSet', 'set_rage'], ['fervorSet', 'set_fervor'], ['penetrationSet', 'set_penetrate'],
+  ['torrentSetStack', 'set_torrent'], ['pursuitSet', 'set_chase'],
+] as const;
 const legacyHeroCodes: Record<string, string> = {
   ainos_2_0: 'ainos-20',
   archdemon_shadow: 'archdemons-shadow',
@@ -74,18 +78,25 @@ export function rememberCalculatorBuild(side: Side, heroId: string, presetId: st
   localStorage.setItem(LAST_BUILD_KEY, JSON.stringify(values));
 }
 
-export function applyBuildToCalculator(side: Side, preset: BuildPreset, catalog: CalculatorBuildCatalog, current: ProfileValues) {
+export function applyBuildToCalculator(side: Side, preset: BuildPreset, catalog: CalculatorBuildCatalog, current: ProfileValues): { values: ProfileValues; artifactId: string | null } {
   const stats = preset.targetStats;
+  const knownStat = (key: keyof typeof stats, field: string) => preset.missingStats?.includes(key)
+    ? {} : { [field]: stats[key] };
+  const capturedSets = preset.selection?.calculatorEquipmentSets
+    ? Object.fromEntries(calculatorAttackSets.map(([field, code]) => [field,
+      field === 'torrentSetStack' ? preset.sets.filter(set => set === code).length : preset.sets.includes(code)]))
+    : {};
   if (side === 'attacker') {
     const artifactId = calculatorArtifactId(preset, catalog.artifacts);
     return {
       values: {
         ...current,
-        attack: stats.atk,
-        critDamage: stats.chd,
-        casterSpeed: stats.spd,
-        casterMaxHP: stats.hp,
-        casterDefense: stats.def,
+        ...knownStat('atk', 'attack'),
+        ...knownStat('chd', 'critDamage'),
+        ...knownStat('spd', 'casterSpeed'),
+        ...knownStat('hp', 'casterMaxHP'),
+        ...knownStat('def', 'casterDefense'),
+        ...capturedSets,
         artifactId,
         artifactLevel: preset.artifactLevel ?? 30,
       },
@@ -96,11 +107,12 @@ export function applyBuildToCalculator(side: Side, preset: BuildPreset, catalog:
   return {
     values: {
       ...current,
-      targetAttack: stats.atk,
-      targetDefense: stats.def,
-      targetMaxHP: stats.hp,
-      targetCurrentHP: stats.hp,
-      targetSpeed: stats.spd,
+      ...knownStat('atk', 'targetAttack'),
+      ...knownStat('def', 'targetDefense'),
+      ...knownStat('hp', 'targetMaxHP'),
+      ...knownStat('hp', 'targetCurrentHP'),
+      ...knownStat('spd', 'targetSpeed'),
+      targetShieldSet: preset.sets.includes('set_shield'),
       defenderArtifactCode: preset.artifactCode || '',
       defenderArtifactLevel: preset.artifactLevel ?? 30,
     },
@@ -143,7 +155,7 @@ export function withCalculatorStat(preset: BuildPreset, side: Side, key: string,
     ? ({ attack: 'atk', critDamage: 'chd', casterSpeed: 'spd', casterMaxHP: 'hp', casterDefense: 'def' } as const)[key as 'attack']
     : ({ targetAttack: 'atk', targetDefense: 'def', targetMaxHP: 'hp', targetSpeed: 'spd' } as const)[key as 'targetDefense'];
   if (!statKey) return preset;
-  return { ...preset, targetStats: { ...preset.targetStats, [statKey]: value } };
+  return { ...preset, targetStats: { ...preset.targetStats, [statKey]: value }, missingStats: preset.missingStats?.filter(key => key !== statKey) };
 }
 
 export function withCalculatorArtifact(preset: BuildPreset, artifactId: string, level: number, artifacts: LibraryArtifact[]) {

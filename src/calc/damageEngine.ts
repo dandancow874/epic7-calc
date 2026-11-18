@@ -274,10 +274,13 @@ export class DamageEngine {
     const hit = this.offensivePower(skill, HitType.normal, soulburn, isExtra) * this.target.defensivePower(skill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, soulburn, casterAttack, casterSpeed, HitType.normal);
     const crush = 1.3 * this.offensivePower(skill, HitType.crush, soulburn, isExtra) * this.target.defensivePower(skill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, soulburn, casterAttack, casterSpeed, HitType.normal);
     const critHit = this.offensivePower(skill, HitType.crit, soulburn, isExtra) * this.target.defensivePower(skill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, soulburn, casterAttack, casterSpeed, HitType.crit);
-    const critDmg = Math.min(this.form.casterFinalCritDamage / 100 + critDmgBuff, 3.5)
-      + (skill.critDmgBoost ? skill.critDmgBoost(soulburn, this.form) : 0)
-      + (this.currentArtifact.getCritDmgBoost(this.form.artifactLevel, this.form, skill, soulburn, HitType.crit, isExtra) || 0)
+    const skillCritDmgBoost = skill.critDmgBoost(soulburn, this.form)
       + (this.form.casterPerception ? BattleConstants.perception : 0);
+    const heroCritDmg = skill.critDmgBoostCapped
+      ? Math.min(this.form.casterFinalCritDamage / 100 + critDmgBuff + skillCritDmgBoost, 3.5)
+      : Math.min(this.form.casterFinalCritDamage / 100 + critDmgBuff, 3.5) + skillCritDmgBoost;
+    const critDmg = heroCritDmg
+      + (this.currentArtifact.getCritDmgBoost(this.form.artifactLevel, this.form, skill, soulburn, HitType.crit, isExtra) || 0);
     const detonate = this.getDetonateDamage(soulburn, skill);
     const otherCrit = this.getOtherAfterMathDamage(skill, HitType.crit, soulburn);
     const otherCrush = this.getOtherAfterMathDamage(skill, HitType.crush, soulburn);

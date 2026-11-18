@@ -62,6 +62,8 @@ export async function createManualBuildPreset(heroCode: string, base?: BuildPres
     exclusiveEquipmentId: base?.exclusiveEquipmentId || null,
     rightMainStats: { necklace: 'auto', ring: 'auto', boots: 'auto', ...(base?.rightMainStats || {}) },
     targetStats: { ...emptyTargetStats, ...(base?.targetStats || {}) },
+    missingStats: base?.missingStats ? [...base.missingStats] : undefined,
+    selection: base?.selection ? { ...base.selection } : undefined,
     updatedAt: new Date().toISOString(),
   };
   cachedDb = applyPresetSave(cachedDb, preset);

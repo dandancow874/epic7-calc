@@ -36,9 +36,9 @@ export function attackerWithArtifact(context: Pick<ArtifactComparisonContext, 'a
   return {
     ...attacker, artifactId, artifactLevel: 30,
     ...(updated ? {
-      attack: updated.targetStats.atk,
-      casterMaxHP: updated.targetStats.hp,
-      casterDefense: updated.targetStats.def,
+      ...(!updated.missingStats?.includes('atk') ? { attack: updated.targetStats.atk } : {}),
+      ...(!updated.missingStats?.includes('hp') ? { casterMaxHP: updated.targetStats.hp } : {}),
+      ...(!updated.missingStats?.includes('def') ? { casterDefense: updated.targetStats.def } : {}),
     } : {}),
   };
 }

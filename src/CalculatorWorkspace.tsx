@@ -6,6 +6,8 @@ import { FormDefaults } from 'src/app/models/forms';
 import { HeroClass } from 'src/app/models/hero';
 import { DoT } from 'src/app/models/skill';
 import { DamageEngine } from './calc/damageEngine';
+import { configuredDefenderBarrier, withDefenderBarrierInput } from './features/calculator/defenderBarrierInput';
+import { DefenderBarrierRatio } from './features/calculator/DefenderBarrierRatio';
 import type { BarrierValue, DamageRow, DamageValues, DotDamage } from './calc/damageEngine';
 import { solveOpeningSpeeds, type AllySpeedInput, type EnemySpeedInput, type OpeningSpeedSolveResult } from './calc/speedSolver';
 import { readReadinessFromScreenshot, type ReadinessRow } from './calc/screenshotReader';
@@ -34,6 +36,8 @@ import { sortLatestChangedHeroesFirst } from './features/calculator/latestChange
 import { calculatorSpecialFieldLabel } from './features/calculator/specialFieldLabel';
 import { applyBuildToCalculator, calculatorBuildOptions, calculatorHeroCode, defaultCalculatorBuild, libraryArtifactForCalculatorId, loadCalculatorBuildCatalog, rememberCalculatorBuild, restoreManualBuildValues, withCalculatorArtifact, withCalculatorStat, type CalculatorBuildCatalog } from './features/build-presets/calculatorBuildBridge';
 import { createManualBuildPreset, saveBuildPreset } from './features/build-presets/buildPresetStore';
+import { calculatorPresetSnapshot, type CalculatorPresetSnapshot } from './features/build-presets/calculatorPresetSnapshot';
+import { CalculatorPresetDialog } from './features/build-presets/CalculatorPresetDialog';
 import { withDerivedCalculatorFields } from './features/calculator/derivedFields';
 import { equipmentSet } from './features/build-presets/setCatalog';
 import type { BuildPreset } from './features/build-presets/types';
@@ -133,6 +137,8 @@ const stateGroups = [
 ] as const;
 
 const defenderBuffs = [
+  ['targetShieldSet', '守护套', 'sets/fribbels/setprotection.png'],
+  ['targetHasSuperhumanization', '超人化', 'buffs/superhumanization-buff.png'],
   ['targetDefenseUp', '防守力提升', 'buffs/defense-buff.png'],
   ['targetVigor', '魄力', 'buffs/vigor-buff.png'],
   ['targetIndomitable', '不屈', 'buffs/indomitable-buff.webp'],
@@ -159,6 +165,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
   const [picker, setPicker] = useState<PickerState>(null);
   const [profileModal, setProfileModal] = useState<ProfileModalState>(null);
   const [buildModal, setBuildModal] = useState<BuildModalState>(null);
+  const [buildSnapshot, setBuildSnapshot] = useState<CalculatorPresetSnapshot | null>(null);
   const [aliasModal, setAliasModal] = useState<AliasModalState>(null);
   const [moreOpen, setMoreOpen] = useState(false);
   const [saveState, setSaveState] = useState<'saved' | 'saving'>('saved');
@@ -430,7 +437,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
   useEffect(() => {
     const effects = resolveDefenderArtifactEffects(defenderArtifact, Number(defender.defenderArtifactLevel ?? 30));
     const activeBuild = defenderBuilds.find((preset) => preset.id === defenderBuildId);
-    const hasShieldSet = defender.useBuildPreset !== false && Boolean(activeBuild?.sets.includes('set_shield'));
+    const hasShieldSet = defender.targetShieldSet ?? (defender.useBuildPreset !== false && Boolean(activeBuild?.sets.includes('set_shield')));
     setDefender((current) => {
       const withArtifactHP = { ...current, targetMaxHPIncrease: effects.hpIncrease };
       const next: ProfileValues = {
@@ -439,14 +446,14 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
         targetDefenseIncrease: effects.defenseIncrease,
         damageReduction: effects.damageReduction,
         damageTransfer: effects.damageTransfer,
-        targetBarrier: defenderOpeningBarrier(withArtifactHP, effects.barrierPercent, hasShieldSet, defenderId),
+        targetBarrier: configuredDefenderBarrier(withArtifactHP, effects.barrierPercent, Boolean(hasShieldSet), defenderId),
       };
       return (['targetMaxHPIncrease', 'targetDefenseIncrease', 'damageReduction', 'damageTransfer', 'targetBarrier'] as const)
         .every((key) => current[key] === next[key]) ? current : next;
     });
   }, [defenderArtifact, defender.defenderArtifactCode, defender.defenderArtifactLevel, defender.targetMaxHP,
     defender.targetLingeringFragranceStack, defender.targetDivinityStack, defender.targetHasSuperhumanization,
-    defender.targetHasCollapse, defender.targetDetermination, defender.targetSkillTreeCompleted, defender.useBuildPreset, defenderBuildId, defenderBuilds, defenderId]);
+    defender.targetHasCollapse, defender.targetDetermination, defender.targetSkillTreeCompleted, defender.targetShieldSet, defender.targetBarrierPercent, defender.useBuildPreset, defenderBuildId, defenderBuilds, defenderId]);
 
   const updateSide = (side: Side, key: string, value: number | boolean) => {
     const updatedPreset = typeof value === 'number' ? queueBuildStatSave(side, key, value) : null;
@@ -483,9 +490,9 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
         [key]: value,
         ...statePatch,
         ...(updatedPreset && key === 'artifactLevel' ? {
-        attack: updatedPreset.targetStats.atk,
-        casterMaxHP: updatedPreset.targetStats.hp,
-        casterDefense: updatedPreset.targetStats.def,
+        ...(!updatedPreset.missingStats?.includes('atk') ? { attack: updatedPreset.targetStats.atk } : {}),
+        ...(!updatedPreset.missingStats?.includes('hp') ? { casterMaxHP: updatedPreset.targetStats.hp } : {}),
+        ...(!updatedPreset.missingStats?.includes('def') ? { casterDefense: updatedPreset.targetStats.def } : {}),
       } : {}),
       };
       if (next.useBuildPreset === false) void saveProfile('attacker', attackerId, { ...next, artifactId });
@@ -493,13 +500,12 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
     });
     if (side === 'defender') setDefender((prev) => {
       const next: ProfileValues = {
-        ...prev,
+        ...withDefenderBarrierInput(prev, key, value, defenderId),
         [key]: value,
         ...(updatedPreset && key === 'defenderArtifactLevel' ? {
-        targetMaxHP: updatedPreset.targetStats.hp,
-        targetCurrentHP: updatedPreset.targetStats.hp,
-        targetAttack: updatedPreset.targetStats.atk,
-        targetDefense: updatedPreset.targetStats.def,
+        ...(!updatedPreset.missingStats?.includes('hp') ? { targetMaxHP: updatedPreset.targetStats.hp, targetCurrentHP: updatedPreset.targetStats.hp } : {}),
+        ...(!updatedPreset.missingStats?.includes('atk') ? { targetAttack: updatedPreset.targetStats.atk } : {}),
+        ...(!updatedPreset.missingStats?.includes('def') ? { targetDefense: updatedPreset.targetStats.def } : {}),
       } : {}),
       };
       if (next.useBuildPreset === false) void saveProfile('defender', defenderId, next);
@@ -585,7 +591,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
       setDefender((current) => {
         const stored = loadProfile('defender', defenderId);
         const next: ProfileValues = checked
-          ? { ...current, useBuildPreset: true }
+          ? { ...current, useBuildPreset: true, targetBarrierPercent: null }
           : { ...restoreManualBuildValues('defender', current, stored), useBuildPreset: false };
         if (!checked) {
           void saveProfile('defender', defenderId, next);
@@ -788,11 +794,11 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
               ...current,
               defenderArtifactCode: code,
               defenderArtifactLevel: 30,
+              targetBarrierPercent: null,
               ...(updatedPreset ? {
-                targetMaxHP: updatedPreset.targetStats.hp,
-                targetCurrentHP: updatedPreset.targetStats.hp,
-                targetAttack: updatedPreset.targetStats.atk,
-                targetDefense: updatedPreset.targetStats.def,
+                ...(!updatedPreset.missingStats?.includes('hp') ? { targetMaxHP: updatedPreset.targetStats.hp, targetCurrentHP: updatedPreset.targetStats.hp } : {}),
+                ...(!updatedPreset.missingStats?.includes('atk') ? { targetAttack: updatedPreset.targetStats.atk } : {}),
+                ...(!updatedPreset.missingStats?.includes('def') ? { targetDefense: updatedPreset.targetStats.def } : {}),
               } : {}),
             }));
             setPicker(null);
@@ -881,7 +887,7 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
             setArtifactId(applied.artifactId || 'noProc');
           } else {
             setDefenderBuildId(preset.id);
-            setDefender({ ...applyBuildToCalculator(side, preset, buildCatalog, defender).values, useBuildPreset: true });
+            setDefender({ ...applyBuildToCalculator(side, preset, buildCatalog, defender).values, useBuildPreset: true, targetBarrierPercent: null });
           }
         };
         return <BuildPresetModal
@@ -889,14 +895,20 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
           heroId={heroId}
           presets={options}
           activeId={activeId}
+          useBuildPreset={(side === 'attacker' ? attacker : defender).useBuildPreset !== false && Boolean(options.length)}
           onSelect={selectBuild}
           onCreate={async () => {
             const heroCode = buildCatalog ? calculatorHeroCode(heroId, buildCatalog.heroes) : null;
             if (!heroCode) return;
-            const base = options.find((preset) => preset.id === activeId) || options[0] || null;
-            const created = await createManualBuildPreset(heroCode, base);
-            setBuildVersion((version) => version + 1);
-            selectBuild(created);
+            const base = pendingBuildRef.current[side] || options.find((preset) => preset.id === activeId) || options[0] || null;
+            const values = side === 'attacker' ? { ...attacker, artifactId } : defender;
+            if (values.useBuildPreset === false || !base) {
+              setBuildSnapshot(calculatorPresetSnapshot({ side, heroId, heroCode, values, artifactId, base, catalog: buildCatalog! }));
+            } else {
+              const created = await createManualBuildPreset(heroCode, base);
+              setBuildVersion((version) => version + 1);
+              selectBuild(created);
+            }
           }}
           onRename={async (preset) => {
             const name = window.prompt('预设名称', preset.name)?.trim();
@@ -907,6 +919,28 @@ export function CalculatorWorkspace({ requestedMode = 'damage', onModeChange, ma
           onClose={() => setBuildModal(null)}
         />;
       })()}
+
+      {buildSnapshot && buildModal && <CalculatorPresetDialog snapshot={buildSnapshot} onClose={() => setBuildSnapshot(null)} onSave={async (draft) => {
+        const side = buildModal;
+        const heroId = side === 'attacker' ? attackerId : defenderId;
+        const created = await createManualBuildPreset(draft.heroCode, draft);
+        const saved = await saveBuildPreset({ ...created, name: draft.name });
+        rememberCalculatorBuild(side, heroId, saved.id);
+        const current = side === 'attacker' ? attacker : defender;
+        const applied = applyBuildToCalculator(side, saved, buildCatalog!, current);
+        if (side === 'attacker') {
+          skipArtifactValidationRef.current = attackerId;
+          setAttackerBuildId(saved.id);
+          setAttacker({ ...applied.values, useBuildPreset: true });
+          setArtifactId(applied.artifactId || 'noProc');
+        } else {
+          setDefenderBuildId(saved.id);
+          setDefender({ ...applied.values, useBuildPreset: true });
+        }
+        setBuildVersion(version => version + 1);
+        setBuildSnapshot(null);
+        setBuildModal(null);
+      }} />}
 
       {aliasModal && (
         <AliasModal
@@ -1072,6 +1106,10 @@ function CombatPanel(props: {
             min={min}
             max={max}
             inputMax={key === 'targetMaxHP' ? FormDefaults.targetMaxHP?.max : undefined}
+            leadingInput={key === 'targetBarrier' ? <DefenderBarrierRatio
+              value={typeof props.values.targetBarrierPercent === 'number' ? props.values.targetBarrierPercent
+                : Math.round(Number(props.values.targetBarrier || 0) / Math.max(1, defenderBattleMaxHP(props.values, props.heroId)) * 10000) / 100}
+              onChange={value => props.onValueChange(props.side, 'targetBarrierPercent', value)} /> : undefined}
             locked={props.useBuildPreset && Boolean(props.buildId) && isBuildOwnedVisibleField(props.side, key)}
             onChange={(value) => props.onValueChange(props.side, key, value)}
           />
@@ -1201,9 +1239,9 @@ function SpecialInput(props: {
   );
 }
 
-function StatField(props: { label: string; value: number; min: number; max: number; inputMax?: number; locked?: boolean; onChange: (value: number) => void }) {
+function StatField(props: { label: string; value: number; min: number; max: number; inputMax?: number; locked?: boolean; leadingInput?: React.ReactNode; onChange: (value: number) => void }) {
   return (
-    <label className="stat-field" title={props.inputMax && props.inputMax > props.max ? '可手动输入Boss生命值；滑条保留常用范围' : undefined}>
+    <label className={`stat-field${props.leadingInput ? ' with-ratio' : ''}`} title={props.inputMax && props.inputMax > props.max ? '可手动输入Boss生命值；滑条保留常用范围' : undefined}>
       <span>{props.label}</span>
       <input
         type="range"
@@ -1213,8 +1251,10 @@ function StatField(props: { label: string; value: number; min: number; max: numb
         disabled={props.locked}
         onChange={(event) => props.onChange(clampNumber(event.target.value, props.min, props.max))}
       />
+      {props.leadingInput}
       {props.locked ? <output className="number-box locked-number">{props.value}</output> : <NumberDraftInput
         className="number-box"
+        ariaLabel={props.leadingInput ? '防护罩数值' : undefined}
         min={props.min}
         max={props.inputMax ?? props.max}
         value={props.value}
@@ -2009,6 +2049,7 @@ function BuildPresetModal(props: {
   heroId: string;
   presets: BuildPreset[];
   activeId: string;
+  useBuildPreset: boolean;
   onSelect: (preset: BuildPreset) => void;
   onCreate: () => void;
   onRename: (preset: BuildPreset) => void;
@@ -2023,15 +2064,15 @@ function BuildPresetModal(props: {
         </div>
         <div className="profile-body">
           <div className="profile-toolbar">
-            <span>拖动计算器数值后，当前预设会自动保存</span>
-            <button className="primary-button" onClick={props.onCreate}><Plus size={16} />复制为新预设</button>
+            <span>{props.useBuildPreset ? '调整面板数值会自动保存到当前预设' : '手动数值、神器和套装可另存，不覆盖原预设'}</span>
+            <button className="primary-button" onClick={props.onCreate}><Plus size={16} />{props.useBuildPreset ? '复制为新预设' : '当前面板存为新预设'}</button>
           </div>
           <div className="profile-list">
             {props.presets.map((preset) => <div className={`profile-row ${preset.id === props.activeId ? 'active' : ''}`} key={preset.id}>
-              <button className="profile-main" onClick={() => props.onSelect(preset)}><span>{preset.name}</span><strong>{preset.id === props.activeId ? '当前使用' : preset.source === 'community' ? '社区推荐' : '点击切换'}</strong></button>
+              <button className="profile-main" onClick={() => props.onSelect(preset)}><span>{preset.name}</span><strong>{preset.id === props.activeId ? (props.useBuildPreset ? '当前使用' : '参考预设') : preset.source === 'community' ? '社区推荐' : '点击切换'}</strong></button>
               <div className="profile-row-actions"><button className="ghost-button compact" onClick={() => props.onRename(preset)}>重命名</button></div>
             </div>)}
-            {!props.presets.length && <div className="empty-state">暂无预设，可复制一份默认数值开始编辑。</div>}
+            {!props.presets.length && <div className="empty-state">暂无预设，可将当前手动面板保存为第一份预设。</div>}
           </div>
         </div>
       </div>

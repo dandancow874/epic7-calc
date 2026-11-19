@@ -4,14 +4,18 @@ import { DamageFormData } from '../../app/models/forms';
 import { HitType } from '../../app/models/skill';
 
 describe('new heroes and balance variants', () => {
-  it('keeps the September 2026 pre-balance formulas under .old display entries', () => {
+  it('keeps requested pre-balance formulas under .old display entries', () => {
     expect(Object.keys(Heroes).filter((id) => id.endsWith('_old')).sort()).toEqual([
       'abyssal_yufine_old',
       'celestial_mercedes_old',
       'chaos_sect_axe_old',
       'church_of_ilryos_axe_old',
+      'eternal_wanderer_ludwig_old',
+      'guard_captain_krau_old',
       'kawerik_old',
+      'requiem_roana_old',
       'shadow_rose_old',
+      'victorika_old',
       'vigilante_leader_glenn_old',
     ]);
   });

@@ -3,6 +3,7 @@ import { CalculatorWorkspace } from './CalculatorWorkspace';
 import { loadAppPage, saveAppPage, type AppPage } from './app/navigation';
 import { PrimaryNav } from './components/app-shell/PrimaryNav';
 import { HeroBuildPage } from './pages/builds/HeroBuildPage';
+import { hydrateProfilesFromDisk, loadProfile, saveProfile } from './data/profiles';
 import { rememberCalculatorBuild } from './features/build-presets/calculatorBuildBridge';
 import { initializeDesktopWindow } from './app/desktopWindow';
 import { useUiScale } from './app/useUiScale';
@@ -29,7 +30,9 @@ export function App() {
     <>
       <div className="suite-nav-shell"><PrimaryNav page={page} onNavigate={setPage} uiScale={uiScale} onUiScaleChange={setUiScale} /></div>
       {page === 'calculator' && <CalculatorWorkspace manageUiScale={false} />}
-      {page === 'builds' && <HeroBuildPage initialHeroCode={buildHeroCode} onUseInCalculator={(side, heroId, presetId) => {
+      {page === 'builds' && <HeroBuildPage initialHeroCode={buildHeroCode} onUseInCalculator={async (side, heroId, presetId) => {
+        await hydrateProfilesFromDisk();
+        await saveProfile(side, heroId, { ...loadProfile(side, heroId), useBuildPreset: true });
         localStorage.setItem(`epic7.tools.calculatorHero.${side}.v1`, heroId);
         rememberCalculatorBuild(side, heroId, presetId);
         setPage('calculator');

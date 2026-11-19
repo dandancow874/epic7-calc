@@ -26,6 +26,7 @@ const legacyHeroCodes: Record<string, string> = {
   baal_and_sezan: 'baal-sezan',
   charlotte_old: 'charlotte',
   elphelt_valentine: 'elphelt',
+  eternal_wanderer_ludwig_old: 'eternal-wanderer-ludwig',
   kanna: 'bomb-model-kanna',
   kise_old: 'kise',
   lethe_old: 'lethe',
@@ -97,6 +98,7 @@ export function applyBuildToCalculator(side: Side, preset: BuildPreset, catalog:
         ...knownStat('hp', 'casterMaxHP'),
         ...knownStat('def', 'casterDefense'),
         ...capturedSets,
+        ...calculatorPresetExclusiveFlags(preset, catalog),
         artifactId,
         artifactLevel: preset.artifactLevel ?? 30,
       },
@@ -118,6 +120,18 @@ export function applyBuildToCalculator(side: Side, preset: BuildPreset, catalog:
     },
     artifactId: preset.artifactCode || null,
   };
+}
+
+export function calculatorPresetExclusiveFlags(preset: BuildPreset, catalog: CalculatorBuildCatalog): ProfileValues {
+  // Hwayoung has one exclusive option, so its equipped state unambiguously
+  // determines S3 penetration. Other heroes' multi-option equipment stays manual.
+  if (preset.heroCode !== 'bystander-hwayoung') return {};
+  const hero = catalog.heroes.find(item => item.code === preset.heroCode);
+  if (!hero) return {};
+  const exclusive = preset.exclusiveEquipmentId === 'none'
+    ? null
+    : hero.exclusives.find(item => item.id === preset.exclusiveEquipmentId) || hero.exclusives[0];
+  return { exclusiveEquipment1: Boolean(exclusive) };
 }
 
 export function withoutBuildPresetValues(values: ProfileValues) {

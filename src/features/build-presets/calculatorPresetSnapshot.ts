@@ -51,10 +51,16 @@ export function calculatorPresetSnapshot(input: {
   }
   if (manual && side === 'defender' && values.targetShieldSet) sets.push('set_shield');
   const selectedArtifactId = side === 'attacker' ? artifactId : String(values.defenderArtifactCode || '');
+  const exclusiveSelection = manual && side === 'attacker' && heroId === 'bystander_hwayoung'
+    ? { exclusiveEquipmentId: values.exclusiveEquipment1
+      ? catalog.heroes.find(item => item.code === heroCode)?.exclusives[0]?.id || base?.exclusiveEquipmentId || null
+      : 'none' }
+    : {};
   return {
     currentStats,
     preset: {
       ...base, id: '', heroCode, source: 'manual', name: '', targetStats, missingStats: [...missing], sets,
+      ...exclusiveSelection,
       artifactCode: artifact?.code || (selectedArtifactId && selectedArtifactId !== 'noProc' ? selectedArtifactId.replaceAll('_', '-') : null),
       artifactName: artifact?.name || null,
       artifactLevel: Number(values[side === 'attacker' ? 'artifactLevel' : 'defenderArtifactLevel'] ?? 30),

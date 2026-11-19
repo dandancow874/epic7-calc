@@ -303,6 +303,9 @@ export const FormDefaults: Record<string, {max?: number, min?: number, defaultVa
     casterHasArchdemonsMight: {
         icon: 'buffs/archdemons-might-buff.png',
     },
+    targetIsHero: {
+        default: true
+    },
     targetIsHighestMaxHP: {
         icon: 'icons/highest-hp.png',
     },
@@ -806,6 +809,7 @@ export class DamageFormData {
     targetInjuries: number;
     targetInjuryPercent: number;
     targetSkillTreeCompleted: boolean;
+    targetIsHero: boolean;
     targetIsHighestMaxHP: boolean;
     targetIsHighestDefense: boolean;
     targetMagicNailed: boolean;
@@ -1005,6 +1009,7 @@ export class DamageFormData {
         this.targetInjuries = _.get(data, 'targetInjuries', 0);
         this.targetInjuryPercent = Math.min(50, Math.max(0, _.get(data, 'targetInjuryPercent', 0)));
         this.targetSkillTreeCompleted = _.get(data, 'targetSkillTreeCompleted', true);
+        this.targetIsHero = _.get(data, 'targetIsHero', true);
         this.targetIsHighestMaxHP = _.get(data, 'targetIsHighestMaxHP', false);
         this.targetIsHighestDefense = _.get(data, 'targetIsHighestDefense', false);
         this.targetMagicNailed = _.get(data, 'targetMagicNailed', false);

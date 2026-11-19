@@ -11000,7 +11000,7 @@
       {
         "id": "sk_c5070_1",
         "name": "赤焰",
-        "description": "用魔剑攻击敌人，造成额外伤害。使自身速攻值提升15(20)%。根据自身防御力等比提升伤害量和额外伤害。",
+        "description": "用魔剑攻击敌人，造成额外伤害。使自身速攻值提升20(25)%。根据自身防御力等比提升伤害量和额外伤害。",
         "icon": "/library/heroes/guard-captain-krau-sk_c5070_1.png",
         "cooldown": "",
         "soulGain": 1,
@@ -11051,8 +11051,14 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
                 "label": "伤害加成",
-                "value": "85.0",
+                "value": "85",
                 "displayValue": "85.0% 自身 防御力"
+              },
+              {
+                "key": "aftermath_defense",
+                "label": "额外伤害",
+                "value": "90",
+                "displayValue": "90.0% 自身 防御力"
               }
             ]
           }
@@ -11113,7 +11119,7 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
                 "label": "伤害加成",
-                "value": "140.0",
+                "value": "140",
                 "displayValue": "140.0% 自身 防御力"
               }
             ]
@@ -11199,13 +11205,13 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
                 "label": "伤害加成",
-                "value": "50.0",
-                "displayValue": "50.0% 自身 防御力"
+                "value": "70",
+                "displayValue": "70.0% 自身 防御力"
               },
               {
                 "key": "HPUP_DAMAGE_value",
                 "label": "生命恢复",
-                "value": "30.0",
+                "value": "30",
                 "displayValue": "30.0% 伤害量"
               }
             ]
@@ -11235,13 +11241,13 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
                 "label": "伤害加成",
-                "value": "145.0",
-                "displayValue": "145.0% 自身 防御力"
+                "value": "160",
+                "displayValue": "160.0% 自身 防御力"
               },
               {
                 "key": "HPUP_DAMAGE_value",
                 "label": "生命恢复",
-                "value": "30.0",
+                "value": "30",
                 "displayValue": "30.0% 伤害量"
               }
             ]
@@ -12750,7 +12756,25 @@
         "remarks": null
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "bystander-hwayoung-exclusive-2026-11-19",
+        "name": "一招致胜",
+        "description": "",
+        "iconKey": "/library/exclusives/icon_eq_exclusive_c2128.png",
+        "mainStat": {
+          "type": "att_rate",
+          "min": 0.07,
+          "max": 0.14
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 3,
+            "description": "使用修罗破天脚时，穿透目标40%的防御力。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete"
   },
@@ -13467,7 +13491,7 @@
       {
         "id": "sk_c2126_2",
         "name": "路雅帮派",
-        "description": "受到英雄攻击后，使全体我军人员的速攻值提升7(10)%，并使处于挑战状态的全体我军人员发生反击。",
+        "description": "受到英雄攻击后，使全体我军人员的速攻值提升10(15)%，并使处于挑战状态的全体我军人员发动反击。",
         "icon": "/library/heroes/hellion-lua-sk_c2126_2.png",
         "cooldown": "",
         "soulGain": 0,
@@ -13483,11 +13507,11 @@
           },
           {
             "level": 2,
-            "text": "速攻值提升1%"
+            "text": "速攻值提升2%"
           },
           {
             "level": 3,
-            "text": "速攻值提升1%"
+            "text": "速攻值提升2%"
           }
         ],
         "multipliers": [],
@@ -13504,7 +13528,7 @@
       {
         "id": "sk_c2126_3",
         "name": "路雅挑战",
-        "description": "使全体我军人员获得挑战效果后，使自身在2回合内防御力提升。\n使全体敌人的强化效果减少1回合，并有70(100)%的几率在1回合内造成挑衅。",
+        "description": "使全体我军人员获得挑战效果后，使自身在2回合内防御力提升。\n使全体敌人的强化效果减少1回合，并各有70(100)%的几率在2回合内造成攻击力降低、在1回合内造成挑衅。",
         "icon": "/library/heroes/hellion-lua-sk_c2126_3.png",
         "cooldown": "冷却时间4(3)回合",
         "soulGain": 2,
@@ -13564,6 +13588,13 @@
             "type": "debuff",
             "description": "回合开始时，被迫对施展挑衅的目标使用基本技能。",
             "icon": "/assets/debuffs/provoke-debuff.png"
+          },
+          {
+            "id": "202",
+            "name": "攻击力降低",
+            "type": "debuff",
+            "description": "攻击力降低50%。",
+            "icon": "/assets/debuffs/attack-debuff.png"
           }
         ]
       }
@@ -19227,7 +19258,7 @@
       {
         "id": "sk_c2069_3",
         "name": "还撑得下去吗？",
-        "description": "激活魔导工学精髓攻击全体敌人。有人使用灵魂燃烧时，自身速攻值提升20%，且此技能的防御力穿透量提升30%。穿透量提升效果最多可叠加2次。",
+        "description": "激活魔导工学精髓攻击全体敌人。有人使用灵魂燃烧时，自身速攻值提升20%，且此技能的防御力穿透量提升35%。穿透量提升效果最多可叠加2次（最多70%）。",
         "icon": "/library/heroes/eternal-wanderer-ludwig-sk_c2069_3.png",
         "cooldown": "冷却时间4回合",
         "soulGain": 3,
@@ -22513,8 +22544,8 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "1",
-                "displayValue": "1"
+                "value": "0.7",
+                "displayValue": "0.7"
               },
               {
                 "key": "pow",
@@ -22525,8 +22556,8 @@
               {
                 "key": "HPDOWN_CASTER_ATT_value",
                 "label": "额外伤害",
-                "value": "50.0",
-                "displayValue": "50.0% 自身 攻击力"
+                "value": "70",
+                "displayValue": "70.0% 自身 攻击力"
               }
             ]
           }
@@ -22581,7 +22612,7 @@
       {
         "id": "sk_c2102_3",
         "name": "永恒安息",
-        "description": "用幻影攻击全体敌人，解除1个强化效果后，使冷却时间增加1回合，使速攻值降低30%。不会触发暴击、强击，对目标造成防御力穿透。",
+        "description": "用幻影攻击全体敌人，解除2个强化效果后，使技能冷却时间增加1回合，使速攻值降低30%。对目标造成防御力穿透，不会触发暴击、强击。若目标为英雄，则根据目标当前生命值等比提升伤害量。",
         "icon": "/library/heroes/requiem-roana-sk_c2102_3.png",
         "cooldown": "冷却时间5(4)回合",
         "soulGain": 3,
@@ -22630,6 +22661,12 @@
                 "displayValue": "1"
               },
               {
+                "key": "target_current_hp",
+                "label": "伤害加成（仅英雄）",
+                "value": "9",
+                "displayValue": "9.0% 目标 当前生命值（仅目标为英雄时）"
+              },
+              {
                 "key": "def_pen",
                 "label": "防御穿透",
                 "value": "1",
@@ -22664,7 +22701,25 @@
         "remarks": null
       }
     ],
-    "exclusives": [],
+    "exclusives": [
+      {
+        "id": "requiem-roana-exclusive-2026-11-19",
+        "name": "寂静献花",
+        "description": "",
+        "iconKey": "/library/exclusives/icon_eq_exclusive_c2102.png",
+        "mainStat": {
+          "type": "acc",
+          "min": 0.08,
+          "max": 0.16
+        },
+        "skillOptions": [
+          {
+            "skillNumber": 2,
+            "description": "回合开始时，使自身与除自身外的前排我军人员获得1次技能伤害无效。"
+          }
+        ]
+      }
+    ],
     "tags": [],
     "dataStatus": "complete"
   },
@@ -25123,7 +25178,7 @@
     "attribute": "dark",
     "role": "soul_weaver",
     "rarity": 5,
-    "zodiac": "crab",
+    "zodiac": "scorpion",
     "publishDate": "2023-01-05 11:00:00",
     "descriptionLine": "探索死生之理的\n孤独的沉迷者",
     "story": "出身名门医者世家的继承人，但在任职亚基军医期间，为了研究死亡，大肆进行各种人体实验。这一行为很快遭到揭发，随后他潜逃在外，继续暗中进行研究。在此期间，艾蕾娜悄然接近了他，很快两人便成为了奇妙的伙伴。",
@@ -25142,13 +25197,13 @@
       }
     },
     "baseStats": {
-      "atk": 621,
-      "hp": 6034,
-      "def": 775,
-      "spd": 100,
+      "atk": 785,
+      "hp": 5077,
+      "def": 634,
+      "spd": 114,
       "chc": 0.15,
       "chd": 1.5,
-      "eff": 0,
+      "eff": 0.3,
       "efr": 0
     },
     "artwork": "/library/heroes/death-dealer-ray.webp",
@@ -25296,7 +25351,7 @@
       {
         "id": "sk_c2090_3",
         "name": "死亡烟雾",
-        "description": "散发致命毒气，解除全体敌人的2个强化效果，有70(100)%的几率在1回合内造成睡眠、在2回合内造成剧毒效果。获得额外回合。",
+        "description": "散发致命毒气，解除全体敌人的2个强化效果，各有70(100)%的几率在1回合内造成2个剧毒、睡眠效果。获得额外回合。",
         "icon": "/library/heroes/death-dealer-ray-sk_c2090_3.png",
         "cooldown": "冷却时间5回合",
         "soulGain": 3,
@@ -32911,7 +32966,7 @@
       {
         "id": "sk_c5024_3",
         "name": "花之剑！",
-        "description": "用花之剑攻击全体敌人，在2回合内造成攻击力降低，并使自身在2回合内速度提升。回合结束时，使目标附带的炸弹效果发生激爆。",
+        "description": "用花之剑攻击全体敌人，在2回合内造成攻击力降低、防御力降低，并使自身在2回合内速度提升。回合结束时，使目标附带的炸弹效果发生激爆。",
         "icon": "/library/heroes/summertime-iseria-sk_c5024_3.png",
         "cooldown": "冷却时间4(3)回合",
         "soulGain": 2,
@@ -33002,6 +33057,13 @@
             "type": "common",
             "description": "使指定的弱化效果立即发动。中毒、出血、烧伤、剧毒的伤害量根据回合数及效果数量等比提升。炸弹的伤害量不受回合数的影响。",
             "icon": null
+          },
+          {
+            "id": "203",
+            "name": "防御力降低",
+            "type": "debuff",
+            "description": "防御力降低70%。",
+            "icon": "/assets/debuffs/defense-debuff.png"
           }
         ]
       }
@@ -75711,8 +75773,8 @@
               {
                 "key": "att_rate",
                 "label": "基础倍率(Attack Rate)",
-                "value": "1",
-                "displayValue": "1"
+                "value": "1.2",
+                "displayValue": "1.2"
               },
               {
                 "key": "pow",
@@ -75736,9 +75798,9 @@
       {
         "id": "sk_c1166_2",
         "name": "暴风华尔兹",
-        "description": "深入敌阵攻击全体敌人，并使自身在3回合内获得反击效果。",
+        "description": "深入敌阵攻击全体敌人，根据攻击力使自身在2回合内获得等比强度的防护罩、反击效果。",
         "icon": "/library/heroes/victorika-sk_c1166_2.png",
-        "cooldown": "冷却时间4回合",
+        "cooldown": "冷却时间3回合",
         "soulGain": 2,
         "pointType": null,
         "pointRequire": 0,
@@ -75786,6 +75848,12 @@
                 "label": "修正倍率(Pow)",
                 "value": "1",
                 "displayValue": "1"
+              },
+              {
+                "key": "barrier_attack",
+                "label": "防护罩强度",
+                "value": "100",
+                "displayValue": "100.0% 自身 攻击力"
               }
             ]
           },
@@ -75815,6 +75883,13 @@
             "type": "buff",
             "description": "受到攻击时，立刻使用基本技能回击攻击自身的目标。受到额外攻击、反击时不会触发。",
             "icon": null
+          },
+          {
+            "id": "barrier",
+            "name": "防护罩",
+            "type": "buff",
+            "description": "受到伤害时，代替生命值吸收部分伤害。",
+            "icon": "/assets/buffs/barrier-buff.png"
           }
         ]
       },
@@ -75872,8 +75947,8 @@
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_max_hp_rate",
                 "label": "伤害加成",
-                "value": "5.0",
-                "displayValue": "5.0% 目标 最大生命值"
+                "value": "7",
+                "displayValue": "7.0% 目标 最大生命值"
               }
             ]
           }

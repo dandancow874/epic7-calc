@@ -3,6 +3,14 @@ export function calculatorSpecialFieldLabel(
   field: string,
   value: unknown,
 ): string | undefined {
+  if (heroId === 'requiem_roana' && field === 'targetIsHero') return '目标为英雄（S3按当前生命加伤）';
+  if (heroId === 'requiem_roana' && field === 'targetCurrentHPPercent') return '目标当前生命（%）';
+  if (heroId === 'bystander_hwayoung' && field === 'exclusiveEquipment1') return '专属装备（S3穿透40%）';
+  if (heroId === 'summertime_iseria' && field === 'targetDefenseDownAftermath') return 'S3破甲生效（仅激爆）';
+  if (heroId === 'eternal_wanderer_ludwig' && field === 'soulburnStack') {
+    const stacks = Math.min(2, Math.max(0, Number(value) || 0));
+    return `灵魂燃烧次数（S3穿透${stacks * 35}%）`;
+  }
   if (heroId === 'chaos_sect_axe' && field === 'targetSkillTreeCompleted') return '转职技能树（生命+25%，防御+15%）';
   if (heroId === 'chaos_sect_axe' && field === 'targetInjuryPercent') {
     const injuryPercent = Math.min(50, Math.max(0, Number(value) || 0));

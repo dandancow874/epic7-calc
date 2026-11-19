@@ -1,6 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { applyBuildToCalculator, calculatorArtifactIdForLibraryArtifact, defaultCalculatorBuild, libraryArtifactForCalculatorId, rememberCalculatorBuild, restoreManualBuildValues, withCalculatorArtifact, withCalculatorStat, withoutBuildPresetValues, type CalculatorBuildCatalog } from './calculatorBuildBridge';
 import { emptyTargetStats, type BuildPreset } from './types';
+import { readFile } from 'node:fs/promises';
+import type { LibraryHero } from '../../library/types';
+import { calculatorPresetSnapshot } from './calculatorPresetSnapshot';
+import { DamageEngine } from '../../calc/damageEngine';
+import { Heroes } from '../../assets/data/heroes';
 
 const preset: BuildPreset = {
   id: 'manual:abigail:one', heroCode: 'abigail', name: '高速雅碧凯', source: 'manual',
@@ -66,6 +71,37 @@ describe('calculator equipment preset bridge', () => {
       defenderArtifactCode: 'portrait-of-the-saviors',
       defenderArtifactLevel: 30,
     });
+  });
+
+  it('automatically follows Hwayoung equipped/unequipped/default exclusive without changing panel attack', async () => {
+    const heroes = JSON.parse(await readFile(new URL('../../../public/library/heroes.json', import.meta.url), 'utf8')) as LibraryHero[];
+    const liveCatalog = { ...catalog, heroes };
+    const equipment = heroes.find(hero => hero.code === 'bystander-hwayoung')!.exclusives[0];
+    const hwaPreset = { ...preset, heroCode: 'bystander-hwayoung', artifactCode: null };
+    for (const [id, equipped] of [[equipment.id, true], [null, true], [undefined, true], ['none', false]] as const) {
+      const current = { exclusiveEquipment1: !equipped, attackUp: true };
+      const result = applyBuildToCalculator('attacker', { ...hwaPreset, exclusiveEquipmentId: id }, liveCatalog, current);
+      expect(result.values).toMatchObject({ exclusiveEquipment1: equipped, attack: preset.targetStats.atk, attackUp: true });
+    }
+    expect(applyBuildToCalculator('attacker', preset, liveCatalog, { exclusiveEquipment1: true }).values.exclusiveEquipment1).toBe(true);
+    expect(applyBuildToCalculator('attacker', { ...hwaPreset, heroCode: 'requiem-roana' }, liveCatalog, {}).values).not.toHaveProperty('exclusiveEquipment1');
+  });
+
+  it('retains a manual Hwayoung exclusive when saving the panel as a new preset, including the first preset', async () => {
+    const heroes = JSON.parse(await readFile(new URL('../../../public/library/heroes.json', import.meta.url), 'utf8')) as LibraryHero[];
+    const liveCatalog = { ...catalog, heroes };
+    const hwaPreset = { ...preset, heroCode: 'bystander-hwayoung', exclusiveEquipmentId: 'none' };
+    for (const base of [hwaPreset, null]) {
+      for (const equipped of [false, true]) {
+        const current = { useBuildPreset: false, attack: 5000, critDamage: 350, exclusiveEquipment1: equipped, elementalAdvantage: true,
+          penetrationSet: true, artifactId: 'noProc', targetDefense: 1800, targetDivinityStack: 4, molagoras3: 7 };
+        const snapshot = calculatorPresetSnapshot({ side: 'attacker', heroId: 'bystander_hwayoung', heroCode: 'bystander-hwayoung', values: current, base, catalog: liveCatalog, artifactId: 'noProc' });
+        const applied = applyBuildToCalculator('attacker', snapshot.preset, liveCatalog, current);
+        expect(applied.values.exclusiveEquipment1).toBe(equipped);
+        expect(new DamageEngine('bystander_hwayoung', 'noProc', applied.values).getDamage(Heroes.bystander_hwayoung.skills.s3, true).crit)
+          .toBe(new DamageEngine('bystander_hwayoung', 'noProc', current).getDamage(Heroes.bystander_hwayoung.skills.s3, true).crit);
+      }
+    }
   });
 
   it('writes calculator artifact changes back to the shared build preset', () => {

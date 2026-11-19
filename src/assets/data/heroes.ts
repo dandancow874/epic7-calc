@@ -2178,6 +2178,7 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1208,
     baseHP: 6488,
     baseDefense: 616,
+    heroSpecific: ['exclusiveEquipment1'],
     skills: {
       s1: new Skill({
         id: 's1',
@@ -2193,6 +2194,7 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 0.95,
         mult: (soulburn: boolean, inputValues: DamageFormData, _artifact: Artifact) => inputValues.elementalAdvantage ? (soulburn ? 2.2 : 2) : 1,
         multTip: (soulburn: boolean) => ({ elementalAdvantage: soulburn ? 120 : 100 }),
+        penetrate: (_soulburn: boolean, inputValues: DamageFormData) => inputValues.exclusiveEquipment1 ? 0.4 : 0,
         enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.05, 0.1],
         ignoreDamageTransfer: () => true,
         ignoreDamageReduction: () => true,
@@ -3481,9 +3483,9 @@ export const Heroes: Record<string, Hero> = {
   death_dealer_ray: new Hero({
     element: HeroElement.dark,
     class: HeroClass.soul_weaver,
-    baseAttack: 621,
-    baseHP: 6034,
-    baseDefense: 775,
+    baseAttack: 785,
+    baseHP: 5077,
+    baseDefense: 634,
     heroSpecific: ['targetInjuries'],
     skills: {
       s1: new Skill({
@@ -4255,7 +4257,7 @@ export const Heroes: Record<string, Hero> = {
         id: 's3',
         rate: () => 1,
         pow: () => 1,
-        penetrate: (soulburn: boolean, inputValues: DamageFormData) => 0.3 * (Math.min(inputValues.soulburnStack, 2)),
+        penetrate: (_soulburn: boolean, inputValues: DamageFormData) => 0.35 * Math.min(Math.max(inputValues.soulburnStack, 0), 2),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         isAOE: () => true,
       })
@@ -4973,7 +4975,7 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 1,
         flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) =>  inputValues.casterFinalDefense(artifact) * 0.85,
         flatTip: () => ({ casterDefense: 85 }),
-        afterMath: (hitType: HitType) => (hitType !== HitType.miss) ? new AftermathSkill({ defensePercent: 0.6 }) : null,
+        afterMath: (hitType: HitType) => (hitType !== HitType.miss) ? new AftermathSkill({ defensePercent: 0.9 }) : null,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         isSingle: () => true,
       }),
@@ -4992,8 +4994,8 @@ export const Heroes: Record<string, Hero> = {
         defenseScaling: true,
         rate: (soulburn: boolean) => soulburn ? 0.6 : 0.3,
         pow: () => 1,
-        flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalDefense(artifact) * (soulburn ? 1.45 : 0.5),
-        flatTip: (soulburn: boolean) => ({ casterDefense: (soulburn ? 145 : 50) }),
+        flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalDefense(artifact) * (soulburn ? 1.6 : 0.7),
+        flatTip: (soulburn: boolean) => ({ casterDefense: (soulburn ? 160 : 70) }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         soulburn: true,
         penetrate: () => 1,
@@ -9039,13 +9041,13 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1316,
     baseHP: 4777,
     baseDefense: 715,
-    heroSpecific: ['targetDefenseDownAftermath'],
+    heroSpecific: ['targetDefenseDownAftermath', 'targetMaxHP', 'targetCurrentHPPercent', 'targetIsHero'],
     skills: {
       s1: new Skill({
         id: 's1',
-        rate: () => 1,
+        rate: () => 0.7,
         pow: () => 1,
-        afterMath: (hitType: HitType) => hitType !== HitType.miss ? new AftermathSkill(({ attackPercent: 0.5 })) : null,
+        afterMath: (hitType: HitType) => hitType !== HitType.miss ? new AftermathSkill(({ attackPercent: 0.7 })) : null,
         noCrit: true,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         isSingle: () => true,
@@ -9054,6 +9056,10 @@ export const Heroes: Record<string, Hero> = {
         id: 's3',
         rate: () => 0.35,
         pow: () => 1,
+        // This is part of the direct hit and only scales against heroes.
+        flat: (_soulburn: boolean, inputValues: DamageFormData) => inputValues.targetIsHero
+          ? inputValues.targetFinalMaxHP() * inputValues.targetCurrentHPPercent / 100 * 0.09 : 0,
+        flatTip: () => ({ targetCurrentHP: 9 }),
         penetrate: () => 1.0,
         noCrit: true,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
@@ -10953,7 +10959,7 @@ export const Heroes: Record<string, Hero> = {
     baseAttack: 1203,
     baseHP: 5704,
     baseDefense: 585,
-    heroSpecific: ['exclusiveEquipment2', 'targetBombDetonate'],
+    heroSpecific: ['exclusiveEquipment2', 'targetBombDetonate', 'targetDefenseDownAftermath'],
     dot: [DoT.bomb],
     innateAttackIncrease: (inputValues: DamageFormData) => {
       let boost = 0.35;
@@ -10983,6 +10989,7 @@ export const Heroes: Record<string, Hero> = {
         pow: () => 1,
         detonate: DoT.bomb,
         detonation: () => 1.1,
+        detonationDefenseDown: (inputValues: DamageFormData) => inputValues.targetDefenseDownAftermath,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         isAOE: () => true,
         noCrit: true,
@@ -11782,16 +11789,20 @@ export const Heroes: Record<string, Hero> = {
     baseHP: 5461,
     baseDefense: 634,
     heroSpecific: ['targetMaxHP'],
+    barrier: (hero: Hero, _skill: Skill, artifact: Artifact, inputValues: DamageFormData, attackMultiplier: number, soulburn: boolean) =>
+      hero.getAttack(artifact, inputValues, attackMultiplier, hero.skills.s2, soulburn, HitType.normal),
+    barrierSkills: ['S2'],
     skills: {
       s1: new Skill({
         id: 's1',
-        rate: () => 1,
+        rate: () => 1.2,
         pow: () => 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         isSingle: () => true,
       }),
       s2: new Skill({
         id: 's2',
+        soulburn: true,
         rate: (soulburn: boolean) => soulburn ? 1.45 : 1.2,
         pow: () => 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
@@ -11801,8 +11812,8 @@ export const Heroes: Record<string, Hero> = {
         id: 's3',
         rate: () => 1.4,                    
         pow: () => 1,
-        flat: (_soulburn: boolean, inputValues: DamageFormData, _artifact: Artifact) => inputValues.targetFinalMaxHP() * 0.05,
-        flatTip: () => ({ targetMaxHP: 5 }),
+        flat: (_soulburn: boolean, inputValues: DamageFormData, _artifact: Artifact) => inputValues.targetFinalMaxHP() * 0.07,
+        flatTip: () => ({ targetMaxHP: 7 }),
         enhance: [0.05, 0.05, 0, 0.05, 0.15],
         isSingle: () => true,
       }),
@@ -12919,9 +12930,59 @@ Heroes.bunny_girl_great_detective_moro = new Hero({
   },
 });
 
+// Pre-11/19 S3 remains available for comparison; current penetration is 35% per stack.
+Heroes.eternal_wanderer_ludwig_old = new Hero({
+  ...Heroes.eternal_wanderer_ludwig,
+  skills: {
+    ...Heroes.eternal_wanderer_ludwig.skills,
+    s3: new Skill({
+      ...Heroes.eternal_wanderer_ludwig.skills.s3,
+      penetrate: (_soulburn: boolean, inputValues: DamageFormData) => 0.3 * Math.min(Math.max(inputValues.soulburnStack, 0), 2),
+    }),
+  },
+});
+
+// Before the three screenshot-confirmed 11/19 changes. Keep comparison entries.
+Heroes.guard_captain_krau_old = new Hero({
+  ...Heroes.guard_captain_krau,
+  skills: {
+    ...Heroes.guard_captain_krau.skills,
+    s1: new Skill({ ...Heroes.guard_captain_krau.skills.s1,
+      afterMath: (hitType: HitType) => hitType !== HitType.miss ? new AftermathSkill({ defensePercent: 0.6 }) : null }),
+    s3: new Skill({ ...Heroes.guard_captain_krau.skills.s3,
+      flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => inputValues.casterFinalDefense(artifact) * (soulburn ? 1.45 : 0.5),
+      flatTip: (soulburn: boolean) => ({ casterDefense: soulburn ? 145 : 50 }) }),
+  },
+});
+Heroes.requiem_roana_old = new Hero({
+  ...Heroes.requiem_roana,
+  heroSpecific: ['targetDefenseDownAftermath'],
+  skills: {
+    ...Heroes.requiem_roana.skills,
+    s1: new Skill({ ...Heroes.requiem_roana.skills.s1, rate: () => 1,
+      afterMath: (hitType: HitType) => hitType !== HitType.miss ? new AftermathSkill({ attackPercent: 0.5 }) : null }),
+    s3: new Skill({ ...Heroes.requiem_roana.skills.s3, flat: () => 0, flatTip: () => null }),
+  },
+});
+Heroes.victorika_old = new Hero({
+  ...Heroes.victorika, barrier: null, barrierSkills: [],
+  skills: {
+    ...Heroes.victorika.skills,
+    s1: new Skill({ ...Heroes.victorika.skills.s1, rate: () => 1 }),
+    s2: new Skill({ ...Heroes.victorika.skills.s2, soulburn: false }),
+    s3: new Skill({ ...Heroes.victorika.skills.s3,
+      flat: (_soulburn: boolean, inputValues: DamageFormData) => inputValues.targetFinalMaxHP() * 0.05,
+      flatTip: () => ({ targetMaxHP: 5 }) }),
+  },
+});
+
 const selectableOldHeroes = new Set([
+  'guard_captain_krau_old',
+  'requiem_roana_old',
+  'victorika_old',
   'abyssal_yufine_old',
   'celestial_mercedes_old',
+  'eternal_wanderer_ludwig_old',
   'chaos_sect_axe_old',
   'church_of_ilryos_axe_old',
   'kawerik_old',
@@ -12930,7 +12991,7 @@ const selectableOldHeroes = new Set([
 ]);
 
 // Older internal snapshots still construct some current definitions. Only the
-// user-requested September 2026 comparison entries remain selectable.
+// user-requested comparison entries remain selectable.
 for (const heroId of Object.keys(Heroes)) {
   if (heroId.endsWith('_old') && !selectableOldHeroes.has(heroId)) delete Heroes[heroId];
 }

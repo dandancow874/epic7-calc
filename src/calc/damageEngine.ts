@@ -97,17 +97,18 @@ export class DamageEngine {
       ?? Artifacts.noProc;
   }
 
-  getGlobalDefenseMult(isAftermath = false): number {
+  getGlobalDefenseMult(isAftermath = false, targetDefenseDown = this.form.targetDefenseDown): number {
     let mult = 1.0;
 
     for (const defenseModifier of ['targetDefenseUp', 'targetDefenseDown', 'targetVigor', 'targetHasTrauma', 'targetPilfered']) {
       if (this.form.targetIgnoresDefenseUpDown && (defenseModifier === 'targetDefenseUp' || defenseModifier === 'targetDefenseDown')) continue;
-      mult += this.form[defenseModifier] ? BattleConstants[defenseModifier] : 0.0;
+      const enabled = defenseModifier === 'targetDefenseDown' ? targetDefenseDown : this.form[defenseModifier];
+      mult += enabled ? BattleConstants[defenseModifier] : 0.0;
     }
     if (this.form.targetIndomitable) mult += BattleConstants.indomitable;
     mult += this.form.targetDivinityStack * BattleConstants.divinityPerStack;
 
-    if (isAftermath && this.form.targetDefenseDownAftermath && !this.form.targetDefenseDown && !this.form.targetIgnoresDefenseUpDown) {
+    if (isAftermath && this.form.targetDefenseDownAftermath && !targetDefenseDown && !this.form.targetIgnoresDefenseUpDown) {
       mult += BattleConstants.targetDefenseDown;
     }
 
@@ -115,7 +116,7 @@ export class DamageEngine {
       mult -= Math.min(this.form.targetFractureStack, 10) * BattleConstants.fractureDefense;
     }
 
-    if (this.form.targetHasTrauma && this.form.targetDefenseDown && !this.form.targetIgnoresDefenseUpDown) {
+    if (this.form.targetHasTrauma && targetDefenseDown && !this.form.targetIgnoresDefenseUpDown) {
       mult -= BattleConstants.trauma;
       mult *= 1 + BattleConstants.trauma;
     }
@@ -190,16 +191,20 @@ export class DamageEngine {
       * dmgMod;
   }
 
-  getDotDamage(skill: Skill, type: DoT) {
+  getDotDamage(skill: Skill, type: DoT, isDetonation = false) {
     const casterAttack = this.currentHero.getAttack(this.currentArtifact, this.form, this.getGlobalAttackMult(), skill, false, HitType.normal);
     const casterSpeed = this.currentHero.getSpeed(this.form, this.currentArtifact);
+    // The direct hit resolves before the skill's defense break and detonation.
+    // Keep ordinary DoT previews and other skills on their existing defense state.
+    const defenseDown = this.form.targetDefenseDown || (isDetonation && skill.detonationDefenseDown(this.form));
+    const defenseMult = this.getGlobalDefenseMult(false, defenseDown);
     switch (type) {
       case DoT.bleed:
-        return casterAttack * 0.4 * BattleConstants.damageConstant * this.target.defensivePower(DoTSkill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, false, casterAttack, casterSpeed, HitType.normal, true);
+        return casterAttack * 0.4 * BattleConstants.damageConstant * this.target.defensivePower(DoTSkill, this.form, defenseMult, this.currentArtifact, false, casterAttack, casterSpeed, HitType.normal, true);
       case DoT.burn:
-        return casterAttack * 0.7 * BattleConstants.damageConstant * (this.form.beehooPassive ? this.heroConstants.beehooBurnMult : 1) * this.target.defensivePower(DoTSkill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, false, casterAttack, casterSpeed, HitType.normal, true);
+        return casterAttack * 0.7 * BattleConstants.damageConstant * (this.form.beehooPassive ? this.heroConstants.beehooBurnMult : 1) * this.target.defensivePower(DoTSkill, this.form, defenseMult, this.currentArtifact, false, casterAttack, casterSpeed, HitType.normal, true);
       case DoT.bomb:
-        return casterAttack * 1.5 * BattleConstants.damageConstant * this.target.defensivePower(DoTSkill, this.form, this.getGlobalDefenseMult(), this.currentArtifact, false, casterAttack, casterSpeed, HitType.normal, true);
+        return casterAttack * 1.5 * BattleConstants.damageConstant * this.target.defensivePower(DoTSkill, this.form, defenseMult, this.currentArtifact, false, casterAttack, casterSpeed, HitType.normal, true);
       case DoT.nail:
         return this.currentHero.getAfterMathSkillDamage(this.getMagicNailSkill(), HitType.crit, true, this.currentArtifact, this.form, this.getGlobalAttackMult(), this.getGlobalDefenseMult(true), this.target);
       case DoT.rupture:
@@ -212,9 +217,9 @@ export class DamageEngine {
   getDetonateDamage(soulburn: boolean, skill: Skill) {
     let damage = 0;
 
-    if (hasDetonate(skill, DoT.bleed)) damage += this.form.targetBleedDetonate * skill.detonation(soulburn, this.form) * this.getDotDamage(skill, DoT.bleed);
-    if (hasDetonate(skill, DoT.burn)) damage += this.form.targetBurnDetonate * skill.detonation(soulburn, this.form) * this.getDotDamage(skill, DoT.burn);
-    if (hasDetonate(skill, DoT.bomb)) damage += this.form.targetBombDetonate * skill.detonation(soulburn, this.form) * this.getDotDamage(skill, DoT.bomb);
+    if (hasDetonate(skill, DoT.bleed)) damage += this.form.targetBleedDetonate * skill.detonation(soulburn, this.form) * this.getDotDamage(skill, DoT.bleed, true);
+    if (hasDetonate(skill, DoT.burn)) damage += this.form.targetBurnDetonate * skill.detonation(soulburn, this.form) * this.getDotDamage(skill, DoT.burn, true);
+    if (hasDetonate(skill, DoT.bomb)) damage += this.form.targetBombDetonate * skill.detonation(soulburn, this.form) * this.getDotDamage(skill, DoT.bomb, true);
 
     return damage;
   }

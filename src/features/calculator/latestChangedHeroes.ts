@@ -3,6 +3,16 @@ export const latestChangedHeroIds = [
   'renoa',
   'haru',
 
+  // November 19, 2026 balance changes with confirmed data / exclusive equipment.
+  'bystander_hwayoung',
+  'eternal_wanderer_ludwig',
+  'summertime_iseria',
+  'death_dealer_ray',
+  'hellion_lua',
+  'requiem_roana',
+  'guard_captain_krau',
+  'victorika',
+
   // Most recently added calculator/library entries.
   'bunny_girl_mafia_yufine',
   'bunny_girl_great_detective_moro',

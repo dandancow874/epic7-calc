@@ -1989,3 +1989,9 @@ SkillIDs.uncharted_pioneer_politis = {
     "s1": "sk_c5112_1",
     "s3": "sk_c5112_2",
 };
+
+SkillIDs.eternal_wanderer_ludwig_old = SkillIDs.eternal_wanderer_ludwig;
+
+SkillIDs.guard_captain_krau_old = SkillIDs.guard_captain_krau;
+SkillIDs.requiem_roana_old = SkillIDs.requiem_roana;
+SkillIDs.victorika_old = SkillIDs.victorika;

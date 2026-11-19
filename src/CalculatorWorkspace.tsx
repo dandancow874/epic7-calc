@@ -1201,7 +1201,7 @@ function SpecialInput(props: {
   if (!isNumeric) {
     return (
       <Chip
-        label={shortFieldName(props.field)}
+        label={props.label || shortFieldName(props.field)}
         icon={config?.icon || 'icons/help-circle-outline.svg'}
         checked={Boolean(props.value ?? config?.default ?? false)}
         onChange={props.onChange}

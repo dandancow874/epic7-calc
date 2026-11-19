@@ -3579,7 +3579,7 @@
   {
     "id": "community:death-dealer-ray",
     "heroCode": "death-dealer-ray",
-    "name": "社区主流高配",
+    "name": "社区主流高配（旧星座）",
     "source": "community",
     "sets": [
       "set_immune",
@@ -3599,15 +3599,7 @@
       "gs": 441
     },
     "selection": {
-      "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:23:05.7367503Z",
-      "latest_sample_date": "2026-07-21",
-      "recent_days": 120,
-      "total_samples_seen": 2936,
-      "valid_complete_samples": 753,
-      "elite_samples": 189,
-      "archetype_samples": 57,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "constellation_status": "旧巨蟹座最终面板，未按天蝎座换算；聚合预设不含六件装备明细，待新版社区样本或实测面板。"
     }
   },
   {

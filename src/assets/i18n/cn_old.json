@@ -1,5 +1,6 @@
 {
     "heroes": {
+    "bunny_girl_maid_cecilia": "兔女郎女仆赛西莉亚",
         "pre_balance": "以前的版本",
         "abigail": "雅碧凱",
         "abyssal_yufine": "深淵優芬妮",
@@ -128,6 +129,7 @@
         "enott": "艾诺特",
         "ervalen": "艾尔巴伦",
         "eternal_wanderer_ludwig": "永劫漂流者魯特比",
+        "eternal_wanderer_ludwig_old": "永劫漂流者魯特比.old",
         "ezra": "艾自拉",
         "fairytale_tenebria": "童话泰妮布里雅",
         "faithless_lidica": "无神论者丽迪卡",
@@ -148,6 +150,7 @@
         "great_chief_khawana": "大族长卡瓦娜",
         "guider_aither": "求道者埃德勒",
         "guard_captain_krau": "護衛隊長克勞烏",
+        "guard_captain_krau_old": "護衛隊長克勞烏.old",
         "gunther": "坤特",
         "hataan": "哈坦",
         "hasol": "夏率",
@@ -263,6 +266,7 @@
         "rem": "雷姆",
         "remnant_violet": "残影的菲奥雷托",
         "requiem_roana": "鎮魂的羅安納",
+        "requiem_roana_old": "鎮魂的羅安納.old",
         "requiemroar": "雷奎姆洛",
         "researcher_carrot": "研究者卡萝",
         "revna": "蕾芙娜",
@@ -337,6 +341,7 @@
         "verdant_adin": "新绿的艾庭",
         "veronica": "貝洛妮卡",
         "victorika": "維多麗卡",
+        "victorika_old": "維多麗卡.old",
         "vigilante_leader_glenn": "自卫队队长格伦",
         "vildred": "维德瑞",
         "violet": "菲奥雷托",
@@ -363,6 +368,7 @@
         "ae_winter": "aewinter"
     },
     "artifacts": {
+    "covert_service": "隐秘服务",
         "pre_balance": "以前的版本",
         "noProc": "无神器",
         "air_to_surface_missile_misha": "空对地导弹: 美莎",

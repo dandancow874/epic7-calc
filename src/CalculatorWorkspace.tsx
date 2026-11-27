@@ -1417,7 +1417,7 @@ function DamageTable(props: {
                     <DamageDetailRow label="直伤" values={row.breakdown.direct} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} />
                     {Object.values(row.breakdown.detonate).some((value) => Number(value) > 0) && <DamageDetailRow label="激爆" values={row.breakdown.detonate} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />}
                     {row.breakdown.additional?.map((part) => <DamageDetailRow key={part.label} label={part.label} values={part.values} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />)}
-                    {Object.values(row.breakdown.other).some((value) => Number(value) > 0) && <DamageDetailRow label="其他额外伤害" values={row.breakdown.other} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />}
+                    {Object.values(row.breakdown.other).some((value) => Number(value) > 0) && <DamageDetailRow label={row.breakdown.additional?.length ? '其他额外伤害' : '额外伤害'} values={row.breakdown.other} targetMaxHP={props.targetMaxHP} targetBarrier={props.targetBarrier} accent />}
                   </>
                 )}
               </React.Fragment>

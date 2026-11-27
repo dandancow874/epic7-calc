@@ -1,5 +1,6 @@
 {
   "heroes": {
+    "bunny_girl_maid_cecilia": ["兔女郎女仆赛西莉亚", "女仆龙", "木女仆", "木暗龙"],
     "pre_balance": [
       "以前的版本"
     ],
@@ -564,7 +565,8 @@
       "修拉杜"
     ],
     "hwayoung": [
-      "和英"
+      "和英",
+      "火腿"
     ],
     "ian": [
       "伊安"
@@ -1307,6 +1309,7 @@
     ]
   },
   "artifacts": {
+    "covert_service": ["隐秘服务"],
     "a_symbol_of_unity": [
       "团结的象征"
     ],

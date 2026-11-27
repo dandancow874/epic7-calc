@@ -3,6 +3,10 @@ export function calculatorSpecialFieldLabel(
   field: string,
   value: unknown,
 ): string | undefined {
+  if (heroId === 'bunny_girl_maid_cecilia' && field === 'casterFightingSpirit') {
+    const spirit = Math.min(100, Math.max(0, Number(value) || 0));
+    return `消耗斗志（S3额外伤害：${trimPercent(20 + spirit * 0.5)}%自身最大生命）`;
+  }
   if (heroId === 'requiem_roana' && field === 'targetIsHero') return '目标为英雄（S3按当前生命加伤）';
   if (heroId === 'requiem_roana' && field === 'targetCurrentHPPercent') return '目标当前生命（%）';
   if (heroId === 'bystander_hwayoung' && field === 'exclusiveEquipment1') return '专属装备（S3穿透40%）';

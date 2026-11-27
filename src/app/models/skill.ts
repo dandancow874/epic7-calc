@@ -59,6 +59,7 @@ export class Skill {
     fixed2: (hitType: HitType, inputValues: DamageFormData, artifact: Artifact, soulburn: boolean) => number;
     additionalDamageLabels?: { fixed?: string; fixed2?: string }
         | ((soulburn: boolean) => { fixed?: string; fixed2?: string });
+    splitAdditionalDamage: boolean;
     fixedTip: (fixedDamage: number, inputValues: DamageFormData) => Record<string, number>;
     flat: (soulburn: boolean, inputValues: DamageFormData, artifact: Artifact) => number;
     flat2: Function;
@@ -114,6 +115,7 @@ export class Skill {
         this.fixed = _.get(data, 'fixed', () => 0);
         this.fixed2 = _.get(data, 'fixed2', () => 0);
         this.additionalDamageLabels = data.additionalDamageLabels;
+        this.splitAdditionalDamage = _.get(data, 'splitAdditionalDamage', false);
         this.fixedTip = _.get(data, 'fixedTip', () => null);
         this.flat = _.get(data, 'flat', () => 0); //TODO: give these appropriate params
         this.flat2 = _.get(data, 'flat2', () => 0); // TODO: remove this if unncessary (only sc alexa has it)

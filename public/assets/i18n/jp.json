@@ -1,5 +1,6 @@
 {
   "heroes": {
+    "bunny_girl_maid_cecilia": "Bunny Girl Maid Cecilia",
       "haru": "Haru",
       "renoa": "Renoa",
       "abyssal_yufine_old": "深淵のユピネ.old",
@@ -401,6 +402,7 @@
     "ae_winter": "aewinter"
   },
   "artifacts": {
+    "covert_service": "Covert Service",
     "pre_balance": "前のバージョン",
     "noProc": "遺物効果なし",
     "a_little_queens_crown": "小さな女王の大きな王冠",

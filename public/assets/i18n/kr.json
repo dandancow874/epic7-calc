@@ -1,5 +1,6 @@
 {
     "heroes": {
+    "bunny_girl_maid_cecilia": "Bunny Girl Maid Cecilia",
         "haru": "Haru",
         "renoa": "Renoa",
         "abyssal_yufine_old": "심연의 유피네.old",
@@ -402,6 +403,7 @@
         "ae_winter": "ae윈터"
     },
     "artifacts": {
+    "covert_service": "Covert Service",
         "pre_balance": "이전 버전",
         "noProc": "아티팩트 효과 없음",
         "a_little_queens_crown": "작은 여왕의 거대 왕관",

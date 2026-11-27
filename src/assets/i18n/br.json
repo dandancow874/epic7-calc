@@ -1,5 +1,15 @@
 {
   "heroes": {
+    "bunny_girl_maid_cecilia": "Bunny Girl Maid Cecilia",
+      "haru": "Haru",
+      "renoa": "Renoa",
+      "abyssal_yufine_old": "Abyssal Yufine.old",
+      "celestial_mercedes_old": "Mercedes Celestial.old",
+      "chaos_sect_axe_old": "Machadeiro da Seita do Caos.old",
+      "church_of_ilryos_axe_old": "Machadeiro de Ilírio.old",
+      "kawerik_old": "Kawerik.old",
+      "shadow_rose_old": "Rosa Sombria.old",
+      "vigilante_leader_glenn_old": "Líder Justiceiro Glenn.old",
     "abigail": "Abigail",
     "achates": "Acates",
     "adin": "Adine",
@@ -228,6 +238,7 @@
     "rem": "Rem",
     "remnant_violet": "Purpúrio Réliquo",
     "requiem_roana": "Requiem Roana",
+    "requiem_roana_old": "Requiem Roana.old",
     "requiemroar": "Rugirréquiem",
     "researcher_carrot": "Cenoura Pesquisadora",
     "rhianna_and_luciella": "Rhianna Luciella",
@@ -335,6 +346,7 @@
     "specter_tenebria": "stene"
   },
   "artifacts": {
+    "covert_service": "Covert Service",
     "noProc": "Sem Artefato",
     "a_little_queens_crown": "A Coroa da Pequena Rainha",
     "a_symbol_of_unity": "Símbolo da União",
@@ -585,6 +597,9 @@
     "with_more": "Com mais"
   },
   "skills": {
+      "haruPowerfulStrike": "Powerful Strike",
+      "renoaBlackThorn": "Black Thorn",
+      "renoaSoulBullet": "Soul Bullet",
     "nonApplicable": "Não Aplicável",
     "s1": "S1",
     "s2": "S2",

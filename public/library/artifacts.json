@@ -5375,5 +5375,24 @@
     "image": "/library/artifacts/sword-of-the-sun.png",
     "artwork": "/library/artifact-artworks/sword-of-the-sun.png",
     "publishDate": null
+  },
+  {
+    "code": "covert-service",
+    "name": "隐秘服务",
+    "nameEn": "Covert Service",
+    "nameZht": null,
+    "description": "每天穿梭于王宫各处打扫的赛西莉亚认真履行着女仆的职责。然而，她的目光偶尔在搜寻着什么……那并非灰尘，而是其他的蛛丝马迹。",
+    "skillDescription": "生命值提升10%。\n使用灵魂燃烧时，使全体我军人员速攻值提升8.0(16.0)%。",
+    "rarity": 5,
+    "role": "soul_weaver",
+    "limited": false,
+    "stats": {
+      "atk": 117,
+      "hp": 988,
+      "def": 0
+    },
+    "image": "/library/artifacts/covert-service.png",
+    "artwork": "/library/artifact-artworks/covert-service.png",
+    "publishDate": "2026-11-26 00:00:00"
   }
 ]

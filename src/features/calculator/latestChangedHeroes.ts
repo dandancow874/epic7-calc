@@ -14,6 +14,7 @@ export const latestChangedHeroIds = [
   'victorika',
 
   // Most recently added calculator/library entries.
+  'bunny_girl_maid_cecilia',
   'bunny_girl_mafia_yufine',
   'bunny_girl_great_detective_moro',
   'midnight_gala_lilias',

@@ -1,5 +1,6 @@
 {
     "heroes": {
+    "bunny_girl_maid_cecilia": "兔女郎女僕賽西莉亞",
         "haru": "小春",
         "renoa": "蕾諾婭",
         "abyssal_yufine_old": "深淵優芬妮.old",
@@ -401,6 +402,7 @@
         "ae_winter": "aewinter"
     },
     "artifacts": {
+    "covert_service": "隱秘服務",
         "pre_balance": "以前的版本",
         "noProc": "無神器",
         "a_little_queens_crown": "小小女王的巨大王冠",

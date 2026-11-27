@@ -4689,8 +4689,8 @@
               {
                 "key": "EXPLOSION_DEBUFF_rate",
                 "label": "激爆",
-                "value": "0",
-                "displayValue": "0"
+                "value": "1.0",
+                "displayValue": "1.0"
               }
             ]
           }
@@ -11050,13 +11050,13 @@
               },
               {
                 "key": "BF_BONUSATT_UP_STATUS_ADD_def_rate",
-                "label": "伤害加成",
+                "label": "直伤加成",
                 "value": "85",
                 "displayValue": "85.0% 自身 防御力"
               },
               {
                 "key": "aftermath_defense",
-                "label": "额外伤害",
+                "label": "额外伤害（独立结算，70%穿透）",
                 "value": "90",
                 "displayValue": "90.0% 自身 防御力"
               }
@@ -22555,7 +22555,7 @@
               },
               {
                 "key": "HPDOWN_CASTER_ATT_value",
-                "label": "额外伤害",
+                "label": "额外伤害（独立结算，70%穿透）",
                 "value": "70",
                 "displayValue": "70.0% 自身 攻击力"
               }
@@ -112389,6 +112389,266 @@
         "self_effect_max": "920.0",
         "public_slot": "1234",
         "remarks": null
+      }
+    ],
+    "exclusives": [],
+    "tags": [],
+    "dataStatus": "complete"
+  },
+  {
+    "code": "bunny-girl-maid-cecilia",
+    "gameId": "c5002",
+    "name": "兔女郎女仆赛西莉亚",
+    "nameEn": "Bunny Girl Maid Cecilia",
+    "nameZht": null,
+    "nicknames": [
+      "tunvlangnvpusaixiliya",
+      "女仆龙",
+      "nvpulong",
+      "木女仆",
+      "munvpu",
+      "木暗龙",
+      "muanlong"
+    ],
+    "attribute": "wind",
+    "role": "soul_weaver",
+    "rarity": 5,
+    "zodiac": "crab",
+    "publishDate": "2026-11-19 11:00:00",
+    "descriptionLine": "流露出冷淡默然目光的\n王宫女仆",
+    "story": "在王宫勤勤恳恳工作的女仆。虽然表面端庄得体、彬彬有礼，但内心深处却隐藏着不可告人的秘密。",
+    "profile": {
+      "hobby": "国际象棋、在庭院散步、喝红茶",
+      "likes": "雪、安静的空间",
+      "dislikes": "忘却、不负责任",
+      "motto": "时间会流逝，但应尽的责任却不会改变。",
+      "specialty": "演技、忍耐",
+      "voiceCv": {
+        "en": "CV: Cassandra Morris",
+        "ja": "CV: 堀江由衣",
+        "kr": "cv_lee_hj",
+        "zhs": "CV: 沐霏"
+      }
+    },
+    "baseStats": {
+      "atk": 621,
+      "hp": 6034,
+      "def": 775,
+      "spd": 100,
+      "chc": 0.15,
+      "chd": 1.5,
+      "eff": 0,
+      "efr": 0
+    },
+    "artwork": "/library/heroes/bunny-girl-maid-cecilia.webp",
+    "avatar": "/library/heroes/bunny-girl-maid-cecilia-avatar.png",
+    "skills": [
+      {
+        "id": "sk_c5002_1",
+        "name": "断罪",
+        "description": "用巨大的刀具攻击敌人，根据自身最大生命值使全体我军人员等比恢复生命值。若为自身回合，则获得斗志20点。",
+        "icon": "/library/heroes/bunny-girl-maid-cecilia-sk_c5002_1.png",
+        "cooldown": "",
+        "soulGain": 1,
+        "pointType": "bp",
+        "pointRequire": 0,
+        "soulBurn": {
+          "cost": 20,
+          "description": "使用女仆的本分代替断罪。\n女仆的本分：解除全体我军人员的1个弱化效果，根据自身最大生命值使其等比恢复生命值。若斗志在50点以上，则灵魂燃烧不会消耗灵魂。"
+        },
+        "isAoe": false,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "恢复量提升10%"
+          },
+          {
+            "level": 3,
+            "text": "伤害量提升10%"
+          },
+          {
+            "level": 4,
+            "text": "恢复量提升10%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "HPUP_CASTER_MAXHP_value",
+                "label": "生命恢复",
+                "value": "7.0% 自身 最大生命值",
+                "displayValue": "7.0% 自身 最大生命值"
+              }
+            ]
+          },
+          {
+            "id": "soulburn_multiplier",
+            "name": "灵魂燃烧倍率",
+            "items": [
+              {
+                "key": "HPUP_CASTER_MAXHP_value",
+                "label": "生命恢复",
+                "value": "17.0% 自身 最大生命值",
+                "displayValue": "17.0% 自身 最大生命值"
+              }
+            ]
+          }
+        ],
+        "effects": [],
+        "pointGain": 20
+      },
+      {
+        "id": "sk_c5002_2",
+        "name": "无声的隐忍",
+        "description": "我军人员生命值降低时，根据降低量等比获得斗志。\n有人回合结束时，若斗志在50点以上，则使自身速攻值提升35(50)%；若斗志达到上限，则解除自身的所有弱化效果，技能冷却时间重置。",
+        "icon": "/library/heroes/bunny-girl-maid-cecilia-sk_c5002_2.png",
+        "cooldown": "速攻值提升冷却时间3回合",
+        "soulGain": 0,
+        "pointType": "bp",
+        "pointRequire": 0,
+        "soulBurn": null,
+        "isAoe": false,
+        "dealsDamage": false,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "速攻值提升2%"
+          },
+          {
+            "level": 2,
+            "text": "速攻值提升3%"
+          },
+          {
+            "level": 3,
+            "text": "速攻值提升3%"
+          },
+          {
+            "level": 4,
+            "text": "速攻值提升3%"
+          },
+          {
+            "level": 5,
+            "text": "速攻值提升4%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "resource_scaling",
+            "name": "斗志获取",
+            "items": [
+              {
+                "key": "ally_hp_loss_to_fighting_spirit",
+                "label": "生命降低比例换算",
+                "value": "生命降低百分比 × 0.5",
+                "displayValue": "按生命降低的比例换算，降低50%最大生命值时，获得25点斗志；并非损失的生命点数直接除以2。"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      },
+      {
+        "id": "sk_c5002_3",
+        "name": "最后的晚餐",
+        "description": "攻击全体敌人，解除2个强化效果后，使速攻值降低20%~40%，消耗全部斗志。使自身速攻值提升50%。无论是否命中，都会根据自身最大生命值造成等比的额外伤害，根据消耗的斗志等比提升额外伤害。",
+        "icon": "/library/heroes/bunny-girl-maid-cecilia-sk_c5002_3.png",
+        "cooldown": "冷却时间5(4)回合",
+        "soulGain": 3,
+        "pointType": "bp",
+        "pointRequire": 0,
+        "soulBurn": null,
+        "isAoe": true,
+        "dealsDamage": true,
+        "enhancements": [
+          {
+            "level": 1,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 2,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 3,
+            "text": "冷却时间减少1回合"
+          },
+          {
+            "level": 4,
+            "text": "伤害量提升5%"
+          },
+          {
+            "level": 5,
+            "text": "伤害量提升15%"
+          }
+        ],
+        "multipliers": [
+          {
+            "id": "skill_multiplier",
+            "name": "技能倍率",
+            "items": [
+              {
+                "key": "att_rate",
+                "label": "基础倍率(Attack Rate)",
+                "value": "1.2",
+                "displayValue": "1.2"
+              },
+              {
+                "key": "pow",
+                "label": "修正倍率(Pow)",
+                "value": "1",
+                "displayValue": "1"
+              },
+              {
+                "key": "HPDOWN_CASTER_MAXHP_DEFPEN_value",
+                "label": "额外伤害",
+                "value": "20.0% 自身 最大生命值（70%穿透）",
+                "displayValue": "20.0% 自身 最大生命值（70%穿透）"
+              },
+              {
+                "key": "fighting_spirit_hp_scaling",
+                "label": "斗志提升",
+                "value": "自身最大生命值 ×（20% + 消耗斗志 × 0.5%），最多消耗100点斗志。",
+                "displayValue": "每消耗1点斗志，生命系数增加0.5个百分点；0/50/100斗志分别为20%/45%/70%自身最大生命值。无论是否命中均触发。"
+              }
+            ]
+          }
+        ],
+        "effects": []
+      }
+    ],
+    "devotion": [
+      {
+        "self_type": "max_hp_rate",
+        "self_effect_max": 0.21,
+        "self_effect": 0.21,
+        "public_type": "max_hp_rate",
+        "public_effect_max": 0.12,
+        "public_effect": 0.12,
+        "public_slot": "1234"
       }
     ],
     "exclusives": [],

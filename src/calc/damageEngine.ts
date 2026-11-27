@@ -269,7 +269,7 @@ export class DamageEngine {
       : Math.max(0, 1 - this.form.damageTransfer / 100);
     const additionalLabels = typeof skill.additionalDamageLabels === 'function'
       ? skill.additionalDamageLabels(soulburn) : skill.additionalDamageLabels;
-    const splitAdditional = Boolean(additionalLabels);
+    const splitAdditional = Boolean(additionalLabels) || skill.splitAdditionalDamage;
     const fixedMultiplier = additionalDamageIncrease * additionalDamageReduction * fixedDamageTransfer;
     const fixed = splitAdditional ? 0 : (skill.fixed(HitType.crit, this.form, this.currentArtifact, soulburn) + skill.fixed2(HitType.crit, this.form, this.currentArtifact, soulburn))
       * additionalDamageIncrease

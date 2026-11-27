@@ -443,6 +443,13 @@ export const Artifacts: Record<string, Artifact> = {
     exclusive: HeroClass.knight,
     type: ArtifactDamageType.health_only
   }),
+  covert_service: new Artifact({
+    id: 'covert_service',
+    name: 'Covert Service',
+    maxHP: 1.1,
+    exclusive: HeroClass.soul_weaver,
+    type: ArtifactDamageType.health_only
+  }),
   prelude_to_a_new_era: new Artifact({
     id: 'prelude_to_a_new_era',
     name: 'Prelude to a New Era',

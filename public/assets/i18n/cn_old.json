@@ -1,5 +1,6 @@
 {
     "heroes": {
+    "bunny_girl_maid_cecilia": "兔女郎女仆赛西莉亚",
         "pre_balance": "以前的版本",
         "abigail": "雅碧凱",
         "abyssal_yufine": "深淵優芬妮",
@@ -367,6 +368,7 @@
         "ae_winter": "aewinter"
     },
     "artifacts": {
+    "covert_service": "隐秘服务",
         "pre_balance": "以前的版本",
         "noProc": "无神器",
         "air_to_surface_missile_misha": "空对地导弹: 美莎",

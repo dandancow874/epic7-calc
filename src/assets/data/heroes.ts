@@ -7909,6 +7909,7 @@ export const Heroes: Record<string, Hero> = {
         rate: () => 0.3,
         pow: () => 1,
         afterMath: (hitType: HitType) => hitType !== HitType.miss ? new AftermathSkill(({ attackPercent: 1.55 })) : null,
+        splitAdditionalDamage: true,
         enhance: [0.05, 0.1, 0.15],
         isAOE: () => true,
       }),
@@ -12973,6 +12974,40 @@ Heroes.victorika_old = new Hero({
     s3: new Skill({ ...Heroes.victorika.skills.s3,
       flat: (_soulburn: boolean, inputValues: DamageFormData) => inputValues.targetFinalMaxHP() * 0.05,
       flatTip: () => ({ targetMaxHP: 5 }) }),
+  },
+});
+
+Heroes.bunny_girl_maid_cecilia = new Hero({
+  gameID: 'c5002',
+  element: HeroElement.earth,
+  class: HeroClass.soul_weaver,
+  baseAttack: 621,
+  baseHP: 6034,
+  baseDefense: 775,
+  heroSpecific: ['casterMaxHP', 'casterFightingSpirit'],
+  skills: {
+    s1: new Skill({
+      id: 's1',
+      rate: () => 1,
+      pow: () => 1,
+      enhance: [0.05, 0, 0.1, 0, 0.15],
+      isSingle: () => true,
+      // Soulburn replaces the attack with a non-attacking cleanse/heal.
+    }),
+    s3: new Skill({
+      id: 's3',
+      rate: () => 1.2,
+      pow: () => 1,
+      enhance: [0.05, 0.05, 0, 0.05, 0.15],
+      isAOE: () => true,
+      // User confirmed 2026-11-27: +0.5 percentage points of max HP
+      // per Fighting Spirit, from 20% to 70%. Triggers even on a miss.
+      afterMath: (_hitType: HitType, inputValues: DamageFormData) => new AftermathSkill({
+        hpPercent: 0.2 + Math.min(100, Math.max(0, inputValues.casterFightingSpirit)) * 0.005,
+        penetrate: 0.7,
+      }),
+      splitAdditionalDamage: true,
+    }),
   },
 });
 

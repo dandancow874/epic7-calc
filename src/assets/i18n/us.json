@@ -1,5 +1,6 @@
 {
   "heroes": {
+    "bunny_girl_maid_cecilia": "Bunny Girl Maid Cecilia",
     "bunny_girl_great_detective_moro": "Bunny Girl Great Detective Moro",
     "bunny_girl_mafia_yufine": "Bunny Girl Mafia Yufine",
     "mei_lin": "Mei Lin",
@@ -405,6 +406,7 @@
     "zio": "Zio"
   },
   "artifacts": {
+    "covert_service": "Covert Service",
     "flame_dragons_jewel": "Flame Dragon's Jewel",
     "noProc": "No Artifact Proc",
     "a_little_queens_crown": "A Little Queen's Huge Crown",

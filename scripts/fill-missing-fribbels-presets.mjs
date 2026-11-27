@@ -98,7 +98,11 @@ export async function fillMissingFribbelsPresets({ sourceRoot, log = console.log
   }
   const missing = heroes.filter(hero => !records.has(hero.code));
   const report = { checked_at: new Date().toISOString(), missing_before: missing.length, added: [], pending: [] };
-  if (!missing.length) { log('Fribbels: 内置装备预设无缺项，不请求网络。'); return report; }
+  if (!missing.length) {
+    await atomicJson(path.join(sourceRoot, 'presets/fribbels/missing-presets-report.json'), report);
+    log('Fribbels: 内置装备预设无缺项，不请求网络。');
+    return report;
+  }
   const request = async (url, init = {}) => {
     const response = await fetcher(url, { ...init, signal: AbortSignal.timeout(30000) });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);

@@ -66,10 +66,13 @@ describe('Fribbels missing built-in presets', () => {
     const saved = JSON.stringify({ hero: { id: 'kept' }, status: 'ok', preset: { name: '已存在' } });
     const file = path.join(root, 'presets/fribbels/recommended/kept.json');
     await writeFile(file, saved);
+    const reportPath = path.join(root, 'presets/fribbels/missing-presets-report.json');
+    await writeFile(reportPath, JSON.stringify({ missing_before: 1, pending: [{ code: 'kept' }] }));
     const report = await fillMissingFribbelsPresets({ sourceRoot: root, log() {}, delayMs: 0,
       fetcher() { throw new Error('Network must not run'); } });
     expect(report.missing_before).toBe(0);
     expect(await readFile(file, 'utf8')).toBe(saved);
+    expect(JSON.parse(await readFile(reportPath, 'utf8'))).toMatchObject({ missing_before: 0, pending: [] });
   });
 
   it('records unavailable heroes without inventing a preset, then can retry on the next update', async () => {

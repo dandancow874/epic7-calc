@@ -93,12 +93,25 @@ describe('11/19 screenshot-confirmed coefficients', () => {
     expect(text('guard-captain-krau', 3)).toContain('160.0% 自身 防御力');
     expect(text('guard-captain-krau', 3)).toContain('70.0% 自身 防御力');
     expect(text('requiem-roana', 1)).toContain('70.0% 自身 攻击力');
+    expect(text('requiem-roana', 1)).toContain('独立结算，70%穿透');
     expect(text('requiem-roana', 3)).toContain('当前生命值');
     expect(get('requiem-roana').skills[2].description).toContain('解除2个');
     expect(get('requiem-roana').exclusives[0].name).toBe('寂静献花');
     expect(get('victorika').skills[1].cooldown).toBe('冷却时间3回合');
     expect(text('victorika', 2)).toContain('100.0% 自身 攻击力');
     expect(text('victorika', 3)).toContain('7.0% 目标 最大生命值');
+    const multiplier = (code: string, slot: number, key: string, group = 'skill_multiplier') =>
+      get(code).skills[slot - 1].multipliers?.find(item => item.id === group)?.items.find(item => item.key === key)?.displayValue;
+    for (const [code, slot, rate] of [
+      ['requiem-roana', 1, '0.7'], ['requiem-roana', 3, '0.35'],
+      ['guard-captain-krau', 1, '0.7'], ['guard-captain-krau', 3, '0.3'],
+      ['victorika', 1, '1.2'], ['victorika', 2, '1.2'], ['victorika', 3, '1.4'],
+    ] as const) {
+      expect(multiplier(code, slot, 'att_rate')).toBe(rate);
+      expect(multiplier(code, slot, 'pow')).toBe('1');
+    }
+    expect(multiplier('guard-captain-krau', 3, 'att_rate', 'soulburn_multiplier')).toBe('0.6');
+    expect(multiplier('victorika', 2, 'att_rate', 'soulburn_multiplier')).toBe('1.45');
   });
 
   it('uses Ray Scorpio base stats on equipment scoring without inventing new aggregate preset totals', async () => {
@@ -107,8 +120,9 @@ describe('11/19 screenshot-confirmed coefficients', () => {
     expect(ray.zodiac).toBe('scorpion');
     const presets = JSON.parse(await readFile(new URL('../../../public/library/presets.json', import.meta.url), 'utf8'));
     const preset = presets.find((p: { heroCode: string }) => p.heroCode === ray.code);
-    expect(preset.name).toContain('旧星座');
-    expect(preset.targetStats).toMatchObject({ atk: 1268, hp: 21005, def: 1815, spd: 217, eff: 121 });
-    expect(preset.selection.constellation_status).toContain('未按天蝎座换算');
+    expect(preset.name).toBe('社区主流高配');
+    expect(preset.targetStats).toMatchObject({ atk: 1253, hp: 17921, def: 1706, spd: 221, eff: 112 });
+    expect(preset.selection.balance_cutoff).toBe('2026-11-19T00:00:00Z');
+    expect(preset.selection.constellation_status).toBeUndefined();
   });
 });

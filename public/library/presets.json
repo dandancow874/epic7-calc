@@ -2282,6 +2282,109 @@
     }
   },
   {
+    "id": "community:bunny-girl-great-detective-moro",
+    "heroCode": "bunny-girl-great-detective-moro",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_acc",
+      "set_speed"
+    ],
+    "artifactCode": "shadow-winds-7",
+    "artifactName": "Shadow Winds 7",
+    "targetStats": {
+      "atk": 2130,
+      "hp": 14946,
+      "def": 1121,
+      "spd": 305,
+      "chc": 24,
+      "chd": 158,
+      "eff": 171,
+      "efr": 22,
+      "gs": 428
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:17:28.089Z",
+      "latest_sample_date": "2026-11-27",
+      "recent_days": 120,
+      "total_samples_seen": 425,
+      "valid_complete_samples": 226,
+      "elite_samples": 57,
+      "archetype_samples": 45,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
+    }
+  },
+  {
+    "id": "community:bunny-girl-mafia-yufine",
+    "heroCode": "bunny-girl-mafia-yufine",
+    "name": "社区主流高配",
+    "source": "community",
+    "sets": [
+      "set_immune",
+      "set_speed"
+    ],
+    "artifactCode": "a-bosss-dignity",
+    "artifactName": "A Boss's Dignity",
+    "targetStats": {
+      "atk": 1549,
+      "hp": 26292,
+      "def": 1562,
+      "spd": 216,
+      "chc": 15,
+      "chd": 150,
+      "eff": 17,
+      "efr": 132,
+      "gs": 427
+    },
+    "selection": {
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:17:25.371Z",
+      "latest_sample_date": "2026-11-27",
+      "recent_days": 120,
+      "total_samples_seen": 684,
+      "valid_complete_samples": 647,
+      "elite_samples": 162,
+      "archetype_samples": 91,
+      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。"
+    }
+  },
+  {
+    "id": "community:bunny-girl-maid-cecilia",
+    "heroCode": "bunny-girl-maid-cecilia",
+    "name": "截图推荐",
+    "source": "community",
+    "sets": [
+      "set_chase",
+      "set_immune",
+      "set_max_hp"
+    ],
+    "artifactCode": "covert-service",
+    "artifactName": "Covert Service",
+    "targetStats": {
+      "atk": 1220,
+      "hp": 26748,
+      "def": 1606,
+      "spd": 174,
+      "chc": 15,
+      "chd": 150,
+      "eff": 39,
+      "efr": 59,
+      "gs": 419
+    },
+    "selection": {
+      "source": "User-provided screenshot, not a Fribbels aggregate",
+      "provided_at": "2026-11-27",
+      "method": "用户提供面板截图，并明确确认追击/免疫/生命各2件及神器隐秘服务。面板原值保存，不反推或编造六件装备。",
+      "imprint": "截图为SSS自阵；面板已含刻印，不再次增加面板。",
+      "artifact_level_note": "截图未注明强化等级，沿用预设默认+30；面板保留截图原值。"
+    }
+  },
+  {
     "id": "community:butcher-corps-inquisitor",
     "heroCode": "butcher-corps-inquisitor",
     "name": "社区主流高配",
@@ -2361,26 +2464,30 @@
     "artifactCode": "sigurd-scythe",
     "artifactName": "Sigurd Scythe",
     "targetStats": {
-      "atk": 4237,
-      "hp": 17292,
-      "def": 936,
-      "spd": 144,
+      "atk": 4264,
+      "hp": 17300,
+      "def": 932,
+      "spd": 146,
       "chc": 100,
-      "chd": 295,
+      "chd": 302,
       "eff": 0,
       "efr": 0,
       "gs": 456
     },
     "selection": {
       "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:27:59.5683089Z",
-      "latest_sample_date": "2026-07-21",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:01.004Z",
+      "latest_sample_date": "2026-11-27",
       "recent_days": 120,
-      "total_samples_seen": 2895,
-      "valid_complete_samples": 1520,
-      "elite_samples": 380,
-      "archetype_samples": 333,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "total_samples_seen": 80,
+      "valid_complete_samples": 80,
+      "elite_samples": 20,
+      "archetype_samples": 14,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 2912
     }
   },
   {
@@ -3579,27 +3686,39 @@
   {
     "id": "community:death-dealer-ray",
     "heroCode": "death-dealer-ray",
-    "name": "社区主流高配（旧星座）",
+    "name": "社区主流高配",
     "source": "community",
     "sets": [
       "set_immune",
       "set_speed"
     ],
-    "artifactCode": "guardian-ice-crystals",
-    "artifactName": "Guardian Ice Crystals",
+    "artifactCode": "cure-all-magic-wand",
+    "artifactName": "Cure-All Magic Wand",
     "targetStats": {
-      "atk": 1268,
-      "hp": 21005,
-      "def": 1815,
-      "spd": 217,
+      "atk": 1253,
+      "hp": 17921,
+      "def": 1706,
+      "spd": 221,
       "chc": 15,
       "chd": 150,
-      "eff": 121,
-      "efr": 89,
-      "gs": 441
+      "eff": 112,
+      "efr": 110,
+      "gs": 443
     },
     "selection": {
-      "constellation_status": "旧巨蟹座最终面板，未按天蝎座换算；聚合预设不含六件装备明细，待新版社区样本或实测面板。"
+      "source": "Fribbels Hero Library community builds",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:15.296Z",
+      "latest_sample_date": "2026-11-27",
+      "recent_days": 120,
+      "total_samples_seen": 57,
+      "valid_complete_samples": 53,
+      "elite_samples": 14,
+      "archetype_samples": 6,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 2949
     }
   },
   {
@@ -4467,26 +4586,30 @@
     "artifactCode": "tagehels-ancient-book",
     "artifactName": "Tagehel's Ancient Book",
     "targetStats": {
-      "atk": 4277,
-      "hp": 7990,
-      "def": 1020,
-      "spd": 251,
+      "atk": 3973,
+      "hp": 7680,
+      "def": 1067,
+      "spd": 248,
       "chc": 100,
-      "chd": 302,
+      "chd": 304,
       "eff": 0,
       "efr": 0,
-      "gs": 446
+      "gs": 442
     },
     "selection": {
       "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:18:28.6648541Z",
-      "latest_sample_date": "2026-07-21",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:05.686Z",
+      "latest_sample_date": "2026-11-27",
       "recent_days": 120,
-      "total_samples_seen": 2829,
-      "valid_complete_samples": 835,
-      "elite_samples": 209,
-      "archetype_samples": 195,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "total_samples_seen": 40,
+      "valid_complete_samples": 26,
+      "elite_samples": 7,
+      "archetype_samples": 6,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 2843
     }
   },
   {
@@ -5284,26 +5407,30 @@
     "artifactCode": "thorn-of-the-blue-rose",
     "artifactName": "Thorn of the Blue Rose",
     "targetStats": {
-      "atk": 1791,
-      "hp": 15185,
-      "def": 2760,
-      "spd": 244,
-      "chc": 21,
+      "atk": 1726,
+      "hp": 14639,
+      "def": 2801,
+      "spd": 247,
+      "chc": 19,
       "chd": 150,
-      "eff": 16,
-      "efr": 51,
-      "gs": 426
+      "eff": 8,
+      "efr": 72,
+      "gs": 425
     },
     "selection": {
       "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:49:28.0289552Z",
-      "latest_sample_date": "2026-07-21",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:29.487Z",
+      "latest_sample_date": "2026-11-27",
       "recent_days": 120,
-      "total_samples_seen": 2893,
-      "valid_complete_samples": 722,
-      "elite_samples": 181,
-      "archetype_samples": 95,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "total_samples_seen": 33,
+      "valid_complete_samples": 31,
+      "elite_samples": 8,
+      "archetype_samples": 5,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 2903
     }
   },
   {
@@ -5695,26 +5822,30 @@
     "artifactCode": "guiding-light",
     "artifactName": "Guiding Light",
     "targetStats": {
-      "atk": 1945,
-      "hp": 17255,
-      "def": 1435,
-      "spd": 270,
+      "atk": 1800,
+      "hp": 14439,
+      "def": 1459,
+      "spd": 256,
       "chc": 21,
-      "chd": 156,
-      "eff": 147,
-      "efr": 21,
-      "gs": 426
+      "chd": 158,
+      "eff": 190,
+      "efr": 39,
+      "gs": 428
     },
     "selection": {
       "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:27:20.1624720Z",
-      "latest_sample_date": "2026-07-21",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:19.906Z",
+      "latest_sample_date": "2026-11-27",
       "recent_days": 120,
-      "total_samples_seen": 3000,
-      "valid_complete_samples": 1033,
-      "elite_samples": 259,
-      "archetype_samples": 140,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "total_samples_seen": 82,
+      "valid_complete_samples": 63,
+      "elite_samples": 16,
+      "archetype_samples": 10,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 3000
     }
   },
   {
@@ -9584,26 +9715,30 @@
     "artifactCode": "tagehels-ancient-book",
     "artifactName": "Tagehel's Ancient Book",
     "targetStats": {
-      "atk": 4590,
-      "hp": 12017,
-      "def": 1424,
-      "spd": 137,
-      "chc": 25,
-      "chd": 157,
-      "eff": 273,
+      "atk": 4632,
+      "hp": 10978,
+      "def": 1320,
+      "spd": 141,
+      "chc": 36,
+      "chd": 170,
+      "eff": 320,
       "efr": 9,
-      "gs": 427
+      "gs": 430
     },
     "selection": {
       "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:24:32.6428648Z",
-      "latest_sample_date": "2026-07-21",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:24.877Z",
+      "latest_sample_date": "2026-11-27",
       "recent_days": 120,
-      "total_samples_seen": 2975,
-      "valid_complete_samples": 776,
-      "elite_samples": 194,
-      "archetype_samples": 74,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "total_samples_seen": 93,
+      "valid_complete_samples": 59,
+      "elite_samples": 15,
+      "archetype_samples": 9,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 2999
     }
   },
   {
@@ -11626,26 +11761,30 @@
     "artifactCode": "star-of-the-deep-sea",
     "artifactName": "Star of the Deep Sea",
     "targetStats": {
-      "atk": 5369,
-      "hp": 12972,
-      "def": 1190,
-      "spd": 250,
-      "chc": 15,
+      "atk": 5531,
+      "hp": 12211,
+      "def": 1142,
+      "spd": 243,
+      "chc": 21,
       "chd": 150,
-      "eff": 201,
+      "eff": 191,
       "efr": 0,
-      "gs": 435
+      "gs": 436
     },
     "selection": {
       "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:48:11.8374774Z",
-      "latest_sample_date": "2026-07-21",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:10.423Z",
+      "latest_sample_date": "2026-11-26",
       "recent_days": 120,
-      "total_samples_seen": 2934,
-      "valid_complete_samples": 949,
-      "elite_samples": 238,
-      "archetype_samples": 201,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "total_samples_seen": 59,
+      "valid_complete_samples": 51,
+      "elite_samples": 13,
+      "archetype_samples": 10,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 2952
     }
   },
   {
@@ -12546,29 +12685,33 @@
       "set_cri",
       "set_speed"
     ],
-    "artifactCode": "hilag-lance",
-    "artifactName": "Hilag Lance",
+    "artifactCode": "resolute-soldier-series",
+    "artifactName": "Resolute Soldier Series",
     "targetStats": {
-      "atk": 3178,
-      "hp": 11967,
-      "def": 1115,
-      "spd": 204,
-      "chc": 99,
-      "chd": 306,
+      "atk": 3147,
+      "hp": 11470,
+      "def": 991,
+      "spd": 193,
+      "chc": 100,
+      "chd": 311,
       "eff": 0,
       "efr": 0,
-      "gs": 422
+      "gs": 425
     },
     "selection": {
       "source": "Fribbels Hero Library community builds",
-      "fetched_at": "2026-07-21T19:03:27.6771030Z",
-      "latest_sample_date": "2026-07-21",
+      "source_url": "https://fribbels.github.io/e7/hero-library.html",
+      "fetched_at": "2026-11-27T04:27:34.184Z",
+      "latest_sample_date": "2026-11-27",
       "recent_days": 120,
-      "total_samples_seen": 3000,
-      "valid_complete_samples": 354,
-      "elite_samples": 89,
-      "archetype_samples": 41,
-      "method": "最近120天有效完整套装 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器"
+      "total_samples_seen": 57,
+      "valid_complete_samples": 39,
+      "elite_samples": 10,
+      "archetype_samples": 6,
+      "method": "仅11/19技改后有效构筑 -> 修正装备分前25% -> 最常见流派 -> 属性中位数与最常用神器",
+      "note": "仅保留每名角色一份聚合预设；社区攻击/生命/防御存在最高2%的匿名扰动。",
+      "balance_cutoff": "2026-11-19T00:00:00Z",
+      "total_samples_before_date_filter": 3000
     }
   },
   {
